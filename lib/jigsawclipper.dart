@@ -13,17 +13,9 @@ class JigsawClipper1 extends CustomPainter {
     var linePaint = Paint()
       ..color = Colors.black
       ..strokeWidth = 1;
-
     var startPoint = Offset(width*0.8, 0.0);
     var endPoint = Offset(width*0.8, height*0.42);
     canvas.drawLine(startPoint, endPoint, linePaint);
-    // canvas.drawArc(
-    //   Rect.fromCircle(center: center, radius: 10),
-    //   -pi/4, // Start angle
-    //   -3*pi/2, // Sweep angle
-    //   false, // Use center
-    //   paint,
-    // );
     var startPoint1 = Offset(width*0.8, height*0.58);
     var endPoint1 = Offset(width*0.8, height);
     canvas.drawLine(startPoint1, endPoint1, linePaint);
@@ -64,13 +56,6 @@ class JigsawClipper2 extends CustomPainter {
     var startPoint = Offset(width*0.8, 0.0);
     var endPoint = Offset(width*0.8, height*0.42);
     canvas.drawLine(startPoint, endPoint, linePaint);
-    // canvas.drawArc(
-    //   Rect.fromCircle(center: center, radius: 10),
-    //   -pi / 2, // Start angle
-    //   pi, // Sweep angle
-    //   false, // Use center
-    //   paint,
-    // );
     var startPoint1 = Offset(width*0.8, height*0.58);
     var endPoint1 = Offset(width*0.8, height);
     canvas.drawLine(startPoint1, endPoint1, linePaint);
@@ -117,9 +102,6 @@ class JigsawClipper3 extends CustomPainter {
     var startPoint1 = Offset(width*0.8, height*0.58);
     var endPoint1 = Offset(width*0.8, height);
     canvas.drawLine(startPoint1, endPoint1, linePaint);
-    // var startPoint2 = Offset(width*0.0, height);
-    // var endPoint2 = Offset(width*0.8, height);
-    // canvas.drawLine(startPoint2, endPoint2, linePaint);
 
     canvas.drawArc(
       Rect.fromCircle(center: center2, radius: 10),
@@ -165,14 +147,6 @@ class JigsawClipper4 extends CustomPainter {
     var startPoint2 = Offset(width*0.67, height);
     var endPoint2 = Offset(width, height);
     canvas.drawLine(startPoint2, endPoint2, linePaint);
-
-    // canvas.drawArc(
-    //   Rect.fromCircle(center: center2, radius: 10),
-    //   -pi/2, // Start angle
-    //   pi, // Sweep angle
-    //   false, // Use center
-    //   paint,
-    // );
   }
 
   @override
@@ -210,14 +184,6 @@ class JigsawClipper5 extends CustomPainter {
     var startPoint2 = Offset(width*0.68, height);
     var endPoint2 = Offset(width, height);
     canvas.drawLine(startPoint2, endPoint2, linePaint);
-
-    // canvas.drawArc(
-    //   Rect.fromCircle(center: center2, radius: 10),
-    //   -pi/2, // Start angle
-    //   pi, // Sweep angle
-    //   false, // Use center
-    //   paint,
-    // );
   }
 
   @override
@@ -255,14 +221,6 @@ class JigsawClipper6 extends CustomPainter {
     var startPoint2 = Offset(width*0.68, height);
     var endPoint2 = Offset(width, height);
     canvas.drawLine(startPoint2, endPoint2, linePaint);
-
-    // canvas.drawArc(
-    //   Rect.fromCircle(center: center2, radius: 10),
-    //   -pi/2, // Start angle
-    //   pi, // Sweep angle
-    //   false, // Use center
-    //   paint,
-    // );
   }
 
   @override
@@ -356,10 +314,6 @@ class JigsawClipper9 extends CustomPainter {
     var linePaint = Paint()
       ..color = Colors.black
       ..strokeWidth = 1;
-
-    // var startPoint = Offset(width, 0.0);
-    // var endPoint = Offset(width, height);
-    // canvas.drawLine(startPoint, endPoint, linePaint);
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: 10),
       pi/4, // Start angle
@@ -394,9 +348,6 @@ class JigsawClipper10 extends CustomPainter {
       ..color = Colors.black
       ..strokeWidth = 1;
 
-    // var startPoint = Offset(width, 0.0);
-    // var endPoint = Offset(width, height);
-    // canvas.drawLine(startPoint, endPoint, linePaint);
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: 10),
       -3*pi/4, // Start angle
@@ -430,9 +381,6 @@ class JigsawClipper11 extends CustomPainter {
       ..color = Colors.black
       ..strokeWidth = 1;
 
-    // var startPoint = Offset(width*0.0,height*0.2);
-    // var endPoint = Offset(width*0.4, height*0.2);
-    // canvas.drawLine(startPoint, endPoint, linePaint);
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: 10),
       pi/4, // Start angle
@@ -479,9 +427,7 @@ class JigsawClipper12 extends CustomPainter {
     var startPoint1 = Offset(width*0.6, height*0.2);
     var endPoint1 = Offset(width, height*0.2);
     canvas.drawLine(startPoint1, endPoint1, linePaint);
-    // var startPoint2 = Offset(width*0.0, height*0.6);
-    // var endPoint2 = Offset(width*0.0, height);
-    // canvas.drawLine(startPoint2, endPoint2, linePaint);
+
   }
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
@@ -515,9 +461,6 @@ class JigsawClipper13 extends CustomPainter {
     var startPoint1 = Offset(width*0.59, height*0.2);
     var endPoint1 = Offset(width, height*0.2);
     canvas.drawLine(startPoint1, endPoint1, linePaint);
-    // var startPoint2 = Offset(width*0.0, height*0.6);
-    // var endPoint2 = Offset(width*0.0, height);
-    // canvas.drawLine(startPoint2, endPoint2, linePaint);
   }
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
