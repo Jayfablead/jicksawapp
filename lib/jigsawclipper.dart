@@ -1,6 +1,8 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-class JigsawClipper1 extends CustomPainter {
+class JigsawClipper1 extends CustomPainter{
+
+
   void paint(Canvas canvas, Size size) {
     double height=100.0;
     double width = 140.0;
@@ -389,9 +391,9 @@ class JigsawClipper11 extends CustomPainter {
       paint,
     );
     var startPoint1 = Offset(width*0.0, height*0.0);
-    var endPoint1 = Offset(width*0.44, height*0.0);
+    var endPoint1 = Offset(width*0.46, height*0.0);
     canvas.drawLine(startPoint1, endPoint1, linePaint);
-    var startPoint2 = Offset(width*0.56, height*0.0);
+    var startPoint2 = Offset(width*0.54, height*0.0);
     var endPoint2 = Offset(width, height*0.0);
     canvas.drawLine(startPoint2, endPoint2, linePaint);
   }
@@ -415,7 +417,7 @@ class JigsawClipper12 extends CustomPainter {
       ..strokeWidth = 1;
 
     var startPoint = Offset(0.0,height*0.2);
-    var endPoint = Offset(width*0.4, height*0.2);
+    var endPoint = Offset(width*0.42, height*0.2);
     canvas.drawLine(startPoint, endPoint, linePaint);
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: 10),
@@ -424,10 +426,9 @@ class JigsawClipper12 extends CustomPainter {
       false, // Use center
       paint,
     );
-    var startPoint1 = Offset(width*0.6, height*0.2);
+    var startPoint1 = Offset(width*0.58, height*0.2);
     var endPoint1 = Offset(width, height*0.2);
     canvas.drawLine(startPoint1, endPoint1, linePaint);
-
   }
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
@@ -449,7 +450,7 @@ class JigsawClipper13 extends CustomPainter {
       ..strokeWidth = 1;
 
     var startPoint = Offset(0.0,height*0.2);
-    var endPoint = Offset(width*0.42, height*0.2);
+    var endPoint = Offset(width*0.44, height*0.2);
     canvas.drawLine(startPoint, endPoint, linePaint);
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: 10),
@@ -458,7 +459,7 @@ class JigsawClipper13 extends CustomPainter {
       false, // Use center
       paint,
     );
-    var startPoint1 = Offset(width*0.59, height*0.2);
+    var startPoint1 = Offset(width*0.57, height*0.2);
     var endPoint1 = Offset(width, height*0.2);
     canvas.drawLine(startPoint1, endPoint1, linePaint);
   }
