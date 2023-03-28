@@ -85,11 +85,6 @@ class _mainpageState extends State<mainpage> {
                     );
                   }),
             ),
-
-
-
-
-
             SizedBox(height:3.h,),
                 Container(
                   width: MediaQuery.of(context).size.width,
