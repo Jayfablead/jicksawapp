@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jicksaw/jigsawclipper.dart';
-import 'package:jicksaw/signup.dart';
+import 'package:jicksaw/Screen/signup.dart';
 import 'package:sizer/sizer.dart';
 
 class login extends StatefulWidget {

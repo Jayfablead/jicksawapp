@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jicksaw/login.dart';
+import 'package:jicksaw/Screen/login.dart';
 import 'package:sizer/sizer.dart';
 
 class signup extends StatefulWidget {
