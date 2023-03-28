@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:jicksaw/Screen/login.dart';
 import 'package:sizer/sizer.dart';
@@ -16,6 +17,7 @@ class Sachen {
 }
 
 class _mainpageState extends State<mainpage> {
+
   List<String> data =["Previous","Ongoing","Eventual"];
   List<Sachen> past = [
     Sachen("https://media.istockphoto.com/id/1394747795/photo/symbol-of-teamwork-jigsaw-puzzle-connecting-cooperation-partnership-business-concept.jpg?s=1024x1024&w=is&k=20&c=VJvmzXwcQh3uUT7UgUxfFgjLeY6RTzgCg0cm_XsljaY=","26/3/2023",130),
@@ -58,6 +60,33 @@ class _mainpageState extends State<mainpage> {
             ),
             SizedBox(height: 4.h,),
             Container(
+                child: CarouselSlider(
+                  options: CarouselOptions(
+                    height: 20.h,
+                    aspectRatio: 16/9,
+                    viewportFraction: 0.8,
+                    initialPage: 0,
+                    enableInfiniteScroll: true,
+                    reverse: false,
+                    autoPlay: true,
+                    autoPlayInterval: Duration(seconds: 3),
+                    autoPlayAnimationDuration: Duration(milliseconds: 800),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enlargeCenterPage: true,
+                    enlargeFactor: 0.3,
+
+                    scrollDirection: Axis.horizontal,
+                  ),
+                  items: past
+                      .map((item) => Container(
+                    child: Center(
+                        child:
+                        Image.network(item.image.toString(), fit: BoxFit.cover, width: 1000)),
+                  ))
+                      .toList(),
+                )),
+            SizedBox(height: 4.h,),
+            Container(
               height: 4.h,
               // width: MediaQuery.of(context).size.width,
               child: ListView.builder(
@@ -85,7 +114,9 @@ class _mainpageState extends State<mainpage> {
                     );
                   }),
             ),
-            SizedBox(height:3.h,),
+            SizedBox(height:5.h,),
+
+
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 30.h,
@@ -100,7 +131,7 @@ class _mainpageState extends State<mainpage> {
                     return Stack(
                       children: [
                         Container(
-                          height: 27.h,
+                          height: 30.h,
                           width: 50.w,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20.0)

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jicksaw/MyApp.dart';
 import 'package:jicksaw/Screen/mainpage.dart';
+import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/design.dart';
 import 'package:jicksaw/first.dart';
 import 'package:jicksaw/jigsaw.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
                 // is not restarted.
                 primarySwatch: Colors.blue,
               ),
-              home: mainpage()
+              home: mainpage2()
           );
         }
     );
