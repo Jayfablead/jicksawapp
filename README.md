@@ -1,6 +1,6 @@
 # Jigsaw
 
-A new Flutter project.
+A Flutter Game to Learn Things Easily.
 
 ## Getting Started
 
