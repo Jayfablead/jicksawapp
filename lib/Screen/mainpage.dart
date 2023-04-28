@@ -46,8 +46,8 @@ class _mainpageState extends State<mainpage> {
                 Column(crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Welcome back !",style: TextStyle(color:Colors.black,fontWeight: FontWeight.w500,fontFamily: "Orbitron",fontSize: 10.sp,)),
-                    Text("Anastya Carolina",style: TextStyle(color:Colors.grey.shade600,fontWeight: FontWeight.w400,fontFamily: "Orbitron",fontSize: 8.sp,)),
+                    Text("Welcome back !",style: TextStyle(color:Colors.black,fontWeight: FontWeight.w500,fontFamily: 'Meta1',fontSize: 10.sp,)),
+                    Text("Anastya Carolina",style: TextStyle(color:Colors.grey.shade600,fontWeight: FontWeight.w400,fontFamily: 'Meta1',fontSize: 8.sp,)),
                   ],
                 ),
                     CircleAvatar(
@@ -109,7 +109,7 @@ class _mainpageState extends State<mainpage> {
                           borderRadius: BorderRadius.circular(0.0),
                           color: (select == index) ? Colors.blue.shade200 :Colors.grey.shade400,
                         ),
-                        child: Text(data[index].toString(),style: TextStyle(color:(select == index)?Colors.blue.shade800:Colors.black,fontWeight: FontWeight.w500,fontFamily: "Orbitron",fontSize: 10.sp),),
+                        child: Text(data[index].toString(),style: TextStyle(color:(select == index)?Colors.blue.shade800:Colors.black,fontWeight: FontWeight.w500,fontFamily: 'Meta1',fontSize: 10.sp),),
                       ),
                     );
                   }),
@@ -153,8 +153,8 @@ class _mainpageState extends State<mainpage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Date : "+past[index].name.toString(),style: TextStyle(fontSize: 7.sp,fontFamily: "Orbitron",fontWeight: FontWeight.normal),),
-                                  Text("Score : " +past[index].score.toString(),style: TextStyle(fontSize: 7.sp,fontFamily: "Orbitron",fontWeight: FontWeight.normal))
+                                  Text("Date : "+past[index].name.toString(),style: TextStyle(fontSize: 7.sp,fontFamily: 'Meta1',fontWeight: FontWeight.normal),),
+                                  Text("Score : " +past[index].score.toString(),style: TextStyle(fontSize: 7.sp,fontFamily: 'Meta1',fontWeight: FontWeight.normal))
                                 ],
                               ),
                             ) )

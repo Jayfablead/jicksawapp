@@ -51,7 +51,7 @@ class _mainpage2State extends State<mainpage2> {
                           color: Colors.white,
                           fontSize: 10.sp,
                           fontWeight: FontWeight.normal,
-                          fontFamily: "Orbitron"),
+                          fontFamily: 'Meta1'),
                     ),
                     GestureDetector(
                       onTap: () {},
@@ -96,7 +96,7 @@ class _mainpage2State extends State<mainpage2> {
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
-                                  fontFamily: "Orbitron",
+                                  fontFamily: 'Meta1',
                                   fontSize: 10.sp),
                             ),
                           ),
@@ -110,7 +110,7 @@ class _mainpage2State extends State<mainpage2> {
                   child: Text(
                     'Continue Playing',
                     style: TextStyle(
-                        fontFamily: "Orbitron",
+                        fontFamily: 'Meta1',
                         fontWeight: FontWeight.bold,
                         fontSize: 12.sp,
                         color: Colors.white),
@@ -148,7 +148,7 @@ class _mainpage2State extends State<mainpage2> {
                           Text(
                             'Jigsaw Puzzle',
                             style: TextStyle(
-                                fontFamily: "Orbitron",
+                                fontFamily: 'Meta1',
                                 fontWeight: FontWeight.bold,
                                 fontSize: 14.sp,
                                 color: Colors.white),
@@ -159,7 +159,7 @@ class _mainpage2State extends State<mainpage2> {
                           Text(
                             'LEVEL 1',
                             style: TextStyle(
-                                fontFamily: "Orbitron",
+                                fontFamily: 'Meta1',
                                 fontWeight: FontWeight.bold,
                                 fontSize: 10.sp,
                                 color: Colors.white),
@@ -205,7 +205,7 @@ class _mainpage2State extends State<mainpage2> {
                                               color: Colors.red.shade600,
                                               fontSize: 12.sp,
                                               fontWeight: FontWeight.bold,
-                                              fontFamily: "Orbitron"),
+                                              fontFamily: 'Meta1'),
                                         ),
                                       ),
                                     ),
@@ -232,7 +232,7 @@ class _mainpage2State extends State<mainpage2> {
                   child: Text(
                     'Discover Games',
                     style: TextStyle(
-                        fontFamily: "Orbitron",
+                        fontFamily: 'Meta1',
                         fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
@@ -289,7 +289,7 @@ class _mainpage2State extends State<mainpage2> {
                                           fontWeight: FontWeight.bold,
                                           color: Colors.white,
                                           fontSize: 12.sp,
-                                          fontFamily: "Orbitron"),
+                                          fontFamily: 'Meta1'),
                                     ),
                                     SizedBox(
                                       height: 8,
@@ -312,7 +312,7 @@ class _mainpage2State extends State<mainpage2> {
                                             Text(
                                               '3.5',
                                               style: TextStyle(
-                                                fontFamily: "Orbitron",
+                                                fontFamily: 'Meta1',
                                                 color: Colors.white,
                                                 fontSize: 12.sp,
                                               ),
@@ -333,7 +333,7 @@ class _mainpage2State extends State<mainpage2> {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 12.sp,
-                                          fontFamily: "Orbitron"),
+                                          fontFamily: 'Meta1'),
                                     ),
                                   ],
                                 ),

@@ -78,7 +78,7 @@ class _loginState extends State<login> {
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
                       fontSize: 14.sp,
-                      fontFamily: "Orbitron"),
+                      fontFamily: 'Meta1'),
                 )),
                 SizedBox(
                   height: 10.h,
@@ -119,7 +119,7 @@ class _loginState extends State<login> {
                               hintText: "User Name",
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
-                                  fontFamily: "Orbitron",
+                                  fontFamily: 'Meta1',
                                   fontSize: 10.sp)),
                         ),
                         SizedBox(
@@ -148,7 +148,7 @@ class _loginState extends State<login> {
                               hintText: "Password",
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
-                                  fontFamily: "Orbitron",
+                                  fontFamily: 'Meta1',
                                   fontSize: 10.sp)),
                         ),
                         Align(
@@ -159,7 +159,7 @@ class _loginState extends State<login> {
                                 "Forgot Password?",
                                 style: TextStyle(
                                     color: Colors.grey.shade100,
-                                    fontFamily: "Orbitron",
+                                    fontFamily: 'Meta1',
                                     fontSize: 8.sp),
                               )),
                         ),
@@ -182,7 +182,7 @@ class _loginState extends State<login> {
                             child: Text("Login",
                                 style: TextStyle(
                                     color: Colors.grey.shade100,
-                                    fontFamily: "Orbitron",
+                                    fontFamily: 'Meta1',
                                     fontSize: 10.sp)),
                           ),
                         )
@@ -197,7 +197,7 @@ class _loginState extends State<login> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Text("Don't have an account ? ",style:TextStyle(color: Colors.grey.shade100,fontSize: 9.sp,fontFamily: "Orbitron",fontWeight: FontWeight.w400) ,),
+                    // Text("Don't have an account ? ",style:TextStyle(color: Colors.grey.shade100,fontSize: 9.sp,fontFamily: 'Meta1',fontWeight: FontWeight.w400) ,),
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).push(
@@ -207,7 +207,7 @@ class _loginState extends State<login> {
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 10.sp,
-                              fontFamily: "Orbitron",
+                              fontFamily: 'Meta1',
                               fontWeight: FontWeight.w400)),
                     )
                   ],

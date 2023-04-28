@@ -3,7 +3,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:jicksaw/MyApp.dart';
 import 'package:jicksaw/Screen/mainpage.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
-import 'package:jicksaw/Screen/splashScreen.dart';
+import 'package:jicksaw/Screen/splashscreen.dart';
 import 'package:jicksaw/design.dart';
 import 'package:jicksaw/first.dart';
 import 'package:jicksaw/jigsaw.dart';
