@@ -2,7 +2,7 @@
     package="com.example.jicksaw.jicksaw">
    <application
        android:usesCleartextTraffic="true"
-        android:label="jicksaw"
+        android:label="Jigsaw"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

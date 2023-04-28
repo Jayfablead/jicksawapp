@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:jicksaw/Screen/login.dart';
 import 'package:sizer/sizer.dart';
 
@@ -25,33 +27,46 @@ class _signupState extends State<signup> {
           height: double.infinity.h,
           width: double.infinity.w,
           decoration: BoxDecoration(
-            // color: Colors.black.withOpacity(0.7),
-            image: DecorationImage(
-                image: AssetImage("assets/back.jpg"),
-                colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.8),
-                  BlendMode.srcOver,
-                ),
-                fit: BoxFit.cover),
+            color: Color.fromARGB(255, 18, 28, 36),
           ),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 10.h,
+                  height: 2.h,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 2.5.h, top: 2.5.h),
+                  child: InkWell(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Container(
+                        alignment: Alignment.center,
+                        child: Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: Colors.white,
+                        ),
+                        height: 4.7.h,
+                        width: 9.w,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(90),
+                            border: Border.all(color: Colors.white))),
+                  ),
                 ),
                 Center(
                   child: CircleAvatar(
-                      radius: 10.w,
-                      backgroundImage: AssetImage("assets/jigsaw.jpg")),
+                      radius: 13.w,
+                      backgroundColor: Colors.transparent,
+                      backgroundImage: AssetImage("assets/logo.png")),
                 ),
                 SizedBox(
                   height: 2.h,
                 ),
                 Center(
                     child: Text(
-                  "Gigsaw Puzzle",
+                  "Jigsaw Puzzle",
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
@@ -59,7 +74,7 @@ class _signupState extends State<signup> {
                       fontFamily: "Orbitron"),
                 )),
                 SizedBox(
-                  height: 8.h,
+                  height: 5.h,
                 ),
                 Container(
                   padding: EdgeInsets.all(5.w),
@@ -253,25 +268,29 @@ class _signupState extends State<signup> {
                                     fontSize: 10.sp)),
                           ),
                         ),
-
                       ],
                     ),
                   ),
                 ),
-                SizedBox(height: 3.h,),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // Text("Don't have an account ? ",style:TextStyle(color: Colors.grey.shade100,fontSize: 9.sp,fontFamily: "Orbitron",fontWeight: FontWeight.w400) ,),
-                    TextButton(onPressed: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>login()));
-                    },
-                      child: Text("Already Member ?",style:TextStyle(color: Colors.white,fontSize: 10.sp,fontFamily: "Orbitron",fontWeight: FontWeight.w400) ),
-                    )],
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => login()));
+                      },
+                      child: Text("Already Member ?",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 10.sp,
+                              fontFamily: "Orbitron",
+                              fontWeight: FontWeight.w400)),
+                    )
+                  ],
                 )
-
-
               ],
             ),
           ),

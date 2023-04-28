@@ -35,8 +35,9 @@ dependencies:
   sensors:
   model_viewer_plus: ^1.5.0
   image: ^3.0.5
+  get: ^4.6.5
   percent_indicator: ^4.2.3
-  lottie: ^2.3.0
+  lottie: ^2.3.2
   sizer:
   carousel_slider: ^4.2.1
 
@@ -80,15 +81,20 @@ flutter:
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
   fonts:
-    - family: Orbitron
+    - family: Poppins
       fonts:
-        - asset: assets/font/Orbitron-Black.ttf
-          weight: 500
-        - asset: assets/font/Orbitron-Bold.ttf
+        - asset: assets/fonts/poppins_bold.ttf
           weight: 700
-        - asset: assets/font/Orbitron-Regular.ttf
-        - asset: assets/font/Orbitron-Medium.ttf
-        - asset: assets/font/Orbitron-SemiBold.ttf
+        - asset: assets/fonts/poppins_semibold.ttf
+          weight: 500
+        - asset: assets/fonts/poppinsregular.ttf
+    - family: Meta
+      fonts:
+        - asset: assets/fonts/OdisseiaTest-Regular.ttf
+    - family: Meta1
+      fonts:
+        - asset: assets/fonts/TypewalkMono1915-Medium-Demo.ttf
+
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

@@ -18,8 +18,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
   bool _showImage = false;
   AnimationController? _animationController;
   int _value = 1;
-  double marginheight=0.0;
-  double margin = 0.0 ;
+  double marginheight = 0.0;
+  double margin = 0.0;
 
   @override
   void initState() {
@@ -35,17 +35,28 @@ class _designState extends State<design> with TickerProviderStateMixin {
         }
       });
   }
+
   @override
   void dispose() {
     _animationController!.dispose();
     super.dispose();
   }
+
   double marginValue = 140.0;
-  int cnt =0 ;
+  int cnt = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+            elevation: 00,
+            centerTitle: true,
+            backgroundColor: Colors.transparent,
+            iconTheme: IconThemeData(color: Colors.black),
+            title: Text(
+              'GameTime',
+              style: TextStyle(color: Colors.black),
+            )),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -130,7 +141,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
               children: [
                 Container(
                   height: MediaQuery.of(context).size.width,
-                  width:  MediaQuery.of(context).size.width,
+                  width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
                     color: Colors.white,
@@ -139,9 +150,9 @@ class _designState extends State<design> with TickerProviderStateMixin {
                 ),
                 Positioned(
                     top: 20.w,
-                    left:  20.w,
-                    right:  20.w,
-                    bottom:  20.w,
+                    left: 20.w,
+                    right: 20.w,
+                    bottom: 20.w,
                     child: Container(
                       height: 160,
                       width: 160,
@@ -154,31 +165,41 @@ class _designState extends State<design> with TickerProviderStateMixin {
                         children: [
                           Visibility(
                             visible: !_showImage,
-                            child:(_value == 6)? Image.asset(
-                              "assets/download6.jpeg",
-                              height: 30.0,
-                              width: 30.0,
-                            ):(_value == 5)?Image.asset(
-                              "assets/download5.jpeg",
-                              height: 30.0,
-                              width: 30.0,
-                            ):(_value==4)?Image.asset(
-                              "assets/download4.jpeg",
-                              height: 30.0,
-                              width: 30.0,
-                            ):(_value == 3)?Image.asset(
-                              "assets/download3.jpeg",
-                              height: 30.0,
-                              width: 30.0,
-                            ):(_value ==2)?Image.asset(
-                              "assets/images2.jpeg",
-                              height: 30.0,
-                              width: 30.0,
-                            ):Image.asset(
-                              "assets/images1.png",
-                              height: 30.0,
-                              width: 30.0,
-                            ),
+                            child: (_value == 6)
+                                ? Image.asset(
+                                    "assets/download6.jpeg",
+                                    height: 30.0,
+                                    width: 30.0,
+                                  )
+                                : (_value == 5)
+                                    ? Image.asset(
+                                        "assets/download5.jpeg",
+                                        height: 30.0,
+                                        width: 30.0,
+                                      )
+                                    : (_value == 4)
+                                        ? Image.asset(
+                                            "assets/download4.jpeg",
+                                            height: 30.0,
+                                            width: 30.0,
+                                          )
+                                        : (_value == 3)
+                                            ? Image.asset(
+                                                "assets/download3.jpeg",
+                                                height: 30.0,
+                                                width: 30.0,
+                                              )
+                                            : (_value == 2)
+                                                ? Image.asset(
+                                                    "assets/images2.jpeg",
+                                                    height: 30.0,
+                                                    width: 30.0,
+                                                  )
+                                                : Image.asset(
+                                                    "assets/images1.png",
+                                                    height: 30.0,
+                                                    width: 30.0,
+                                                  ),
                           ),
                           Visibility(
                             visible: _showImage,
@@ -227,7 +248,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                           400), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
                       painter: JigsawClipper1(),
                       child: Container(
-                        padding: EdgeInsets.only(left: 5.0, right: 20.0, top: 15.0),
+                        padding:
+                            EdgeInsets.only(left: 5.0, right: 20.0, top: 15.0),
                         // decoration: BoxDecoration(
                         //     border: Border.all(width: 3.0, color: Colors.black)),
                         // color: Colors.blue,
@@ -262,7 +284,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                   height: 30.0,
                                   width: 30.0,
                                   decoration: BoxDecoration(
-                                      shape: BoxShape.circle, color: Colors.yellow),
+                                      shape: BoxShape.circle,
+                                      color: Colors.yellow),
                                 ),
                                 SizedBox(
                                   height: 10.0,
@@ -290,10 +313,11 @@ class _designState extends State<design> with TickerProviderStateMixin {
                       size: Size(200, 300),
                       // painter: JigsawClipper2(),
                       child: Container(
-                        padding: EdgeInsets.only(top: 1.h, left: 15.0, right: 5.0),
+                        padding:
+                            EdgeInsets.only(top: 1.h, left: 15.0, right: 5.0),
                         alignment: Alignment.center,
                         // height: 100,
-                        width:80,
+                        width: 80,
                         // color: Colors.yellow,
                         // decoration: BoxDecoration(
                         //   border: Border.all(color: Colors.black),
@@ -313,13 +337,11 @@ class _designState extends State<design> with TickerProviderStateMixin {
                 Positioned(
                     top: 0.0,
                     left: 50.w,
-                    right:50.w,
+                    right: 50.w,
                     bottom: 260.0,
                     child: CustomPaint(
                       size: Size(200, 300),
-                      painter:JigsawClipper3(
-
-                      ) ,
+                      painter: JigsawClipper3(),
                     )),
                 // block4
                 Positioned(
@@ -328,11 +350,10 @@ class _designState extends State<design> with TickerProviderStateMixin {
                   right: 0.0,
                   // bottom: 260.0,
                   child: CustomPaint(
-                    painter:JigsawClipper4(
-
-                    ),
+                    painter: JigsawClipper4(),
                     child: Container(
-                      padding: EdgeInsets.only(top: 20.0, left: 20.0, right: 5.0),
+                      padding:
+                          EdgeInsets.only(top: 20.0, left: 20.0, right: 5.0),
                       alignment: Alignment.center,
                       // height: 100,
                       // width:80,
@@ -371,7 +392,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                 // block7
                 Positioned(
                     bottom: 0.0,
-                    left:80.w,
+                    left: 80.w,
                     // right: 270.0,
                     top: 60.w,
                     child: CustomPaint(
@@ -386,7 +407,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                   child: CustomPaint(
                     painter: JigsawClipper8(),
                     child: Container(
-                      padding: EdgeInsets.only(top: 15.0, left: 20.0, right: 5.0),
+                      padding:
+                          EdgeInsets.only(top: 15.0, left: 20.0, right: 5.0),
                       alignment: Alignment.center,
                       // height: 100,
                       // width:80,
@@ -449,11 +471,12 @@ class _designState extends State<design> with TickerProviderStateMixin {
                   bottom: 0.0,
                   left: 0.w,
                   right: 240.0,
-                  top:80.w,
+                  top: 80.w,
                   child: CustomPaint(
                       painter: JigsawClipper11(),
                       child: Container(
-                        padding: EdgeInsets.only(top: 15.0, left: 20.0, right: 5.0),
+                        padding:
+                            EdgeInsets.only(top: 15.0, left: 20.0, right: 5.0),
                         alignment: Alignment.center,
                         // height: 100,
                         // width:80,
@@ -509,38 +532,45 @@ class _designState extends State<design> with TickerProviderStateMixin {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              padding: EdgeInsets.only(left: 9.w),
-                              alignment: Alignment.centerRight,
-                              child:(_value == 6)? Image.asset(
-                                "assets/download6.jpeg",
-                                height: 30.0,
-                                width: 30.0,
-                              ):(_value == 5)?Image.asset(
-                                "assets/download5.jpeg",
-                                height: 30.0,
-                                width: 30.0,
-                              ):(_value==4)?Image.asset(
-                                "assets/download4.jpeg",
-                                height: 30.0,
-                                width: 30.0,
-                              ):(_value == 3)?Image.asset(
-                                "assets/download3.jpeg",
-                                height: 30.0,
-                                width: 30.0,
-                              ):(_value ==2)?Image.asset(
-                                "assets/images2.jpeg",
-                                height: 30.0,
-                                width: 30.0,
-                              ):Image.asset(
-                                "assets/images1.png",
-                                height: 30.0,
-                                width: 30.0,
-                              )
-                            ),
+                                padding: EdgeInsets.only(left: 9.w),
+                                alignment: Alignment.centerRight,
+                                child: (_value == 6)
+                                    ? Image.asset(
+                                        "assets/download6.jpeg",
+                                        height: 30.0,
+                                        width: 30.0,
+                                      )
+                                    : (_value == 5)
+                                        ? Image.asset(
+                                            "assets/download5.jpeg",
+                                            height: 30.0,
+                                            width: 30.0,
+                                          )
+                                        : (_value == 4)
+                                            ? Image.asset(
+                                                "assets/download4.jpeg",
+                                                height: 30.0,
+                                                width: 30.0,
+                                              )
+                                            : (_value == 3)
+                                                ? Image.asset(
+                                                    "assets/download3.jpeg",
+                                                    height: 30.0,
+                                                    width: 30.0,
+                                                  )
+                                                : (_value == 2)
+                                                    ? Image.asset(
+                                                        "assets/images2.jpeg",
+                                                        height: 30.0,
+                                                        width: 30.0,
+                                                      )
+                                                    : Image.asset(
+                                                        "assets/images1.png",
+                                                        height: 30.0,
+                                                        width: 30.0,
+                                                      )),
                             GestureDetector(
                               onTap: () {
-
-
                                 setState(() {
                                   _showImage = true;
                                 });
@@ -560,34 +590,43 @@ class _designState extends State<design> with TickerProviderStateMixin {
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(left: 0.0),
-                              // alignment: Alignment.topLeft,
-                              child: (_value == 6)? Image.asset(
-                                "assets/download6.jpeg",
-                                height: 30.0,
-                                width: 30.0,
-                              ):(_value == 5)?Image.asset(
-                                "assets/download5.jpeg",
-                                height: 30.0,
-                                width: 30.0,
-                              ):(_value==4)?Image.asset(
-                                "assets/download4.jpeg",
-                                height: 30.0,
-                                width: 30.0,
-                              ):(_value == 3)?Image.asset(
-                                "assets/download3.jpeg",
-                                height: 30.0,
-                                width: 30.0,
-                              ):(_value ==2)?Image.asset(
-                                "assets/images2.jpeg",
-                                height: 30.0,
-                                width: 30.0,
-                              ):Image.asset(
-                                "assets/images1.png",
-                                height: 30.0,
-                                width: 30.0,
-                              )
-                            )
+                                padding: EdgeInsets.only(left: 0.0),
+                                // alignment: Alignment.topLeft,
+                                child: (_value == 6)
+                                    ? Image.asset(
+                                        "assets/download6.jpeg",
+                                        height: 30.0,
+                                        width: 30.0,
+                                      )
+                                    : (_value == 5)
+                                        ? Image.asset(
+                                            "assets/download5.jpeg",
+                                            height: 30.0,
+                                            width: 30.0,
+                                          )
+                                        : (_value == 4)
+                                            ? Image.asset(
+                                                "assets/download4.jpeg",
+                                                height: 30.0,
+                                                width: 30.0,
+                                              )
+                                            : (_value == 3)
+                                                ? Image.asset(
+                                                    "assets/download3.jpeg",
+                                                    height: 30.0,
+                                                    width: 30.0,
+                                                  )
+                                                : (_value == 2)
+                                                    ? Image.asset(
+                                                        "assets/images2.jpeg",
+                                                        height: 30.0,
+                                                        width: 30.0,
+                                                      )
+                                                    : Image.asset(
+                                                        "assets/images1.png",
+                                                        height: 30.0,
+                                                        width: 30.0,
+                                                      ))
                           ],
                         )),
                   ),
@@ -600,17 +639,16 @@ class _designState extends State<design> with TickerProviderStateMixin {
                   child: CustomPaint(
                     painter: JigsawClipper14(),
                     child: Container(
-                      // height: 20,
-                      // width:100,
-                      // decoration: BoxDecoration(
-                      //   border:Border.all(color:Colors.black),
-                      //   // color: Colors.green,
-                      //   shape: BoxShape.rectangle,
-                      // ),
-                    ),
+                        // height: 20,
+                        // width:100,
+                        // decoration: BoxDecoration(
+                        //   border:Border.all(color:Colors.black),
+                        //   // color: Colors.green,
+                        //   shape: BoxShape.rectangle,
+                        // ),
+                        ),
                   ),
                 ),
-
               ],
             ),
           ],

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:jicksaw/MyApp.dart';
 import 'package:jicksaw/Screen/mainpage.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Screen/splashScreen.dart';
 import 'package:jicksaw/design.dart';
 import 'package:jicksaw/first.dart';
 import 'package:jicksaw/jigsaw.dart';
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
 
     return Sizer(
         builder: (context, orientation, deviceType) {
-          return MaterialApp(
+          return GetMaterialApp(
               title: 'Flutter Demo',
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
@@ -40,7 +42,10 @@ class MyApp extends StatelessWidget {
                 // is not restarted.
                 primarySwatch: Colors.blue,
               ),
-              home: mainpage2()
+
+            // for all route info check routs.txt
+
+              home: SplashScreen()
           );
         }
     );

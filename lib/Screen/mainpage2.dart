@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:jicksaw/design.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:sizer/sizer.dart';
+
 class mainpage2 extends StatefulWidget {
   const mainpage2({Key? key}) : super(key: key);
   @override
   State<mainpage2> createState() => _mainpage2State();
 }
+
 class Sachen {
   String? image;
   String? name;
   int? score;
   Sachen(this.image, this.name, this.score);
 }
+
 class _mainpage2State extends State<mainpage2> {
   List<Sachen> past = [
     Sachen("https://cdn-icons-png.flaticon.com/512/6857/6857448.png",
@@ -42,7 +46,7 @@ class _mainpage2State extends State<mainpage2> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Hii Andrew",
+                      "Hii Jack",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 10.sp,
@@ -178,6 +182,11 @@ class _mainpage2State extends State<mainpage2> {
                                   progressColor: Colors.black87,
                                 ),
                                 GestureDetector(
+                                  onTap: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => design(),
+                                      )),
                                   child: Transform(
                                     transform: Matrix4.skewX(-0.05),
                                     origin: Offset(50.0, 50.0),
