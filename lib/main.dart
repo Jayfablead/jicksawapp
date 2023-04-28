@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
 
             // for all route info check routs.txt
 
-              home: GameInfo()
+              home: SplashScreen()
           );
         }
     );
