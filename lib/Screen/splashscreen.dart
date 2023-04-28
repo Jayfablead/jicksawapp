@@ -9,6 +9,8 @@ import 'package:jicksaw/Screen/login.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
+import '../const widget.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -24,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
     });
     return SafeArea(
         child: Scaffold(
-          backgroundColor: Color.fromARGB(255, 18, 28, 36),
+          backgroundColor: bgcolor,
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,

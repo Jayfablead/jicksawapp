@@ -4,6 +4,8 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:jicksaw/Screen/login.dart';
 import 'package:sizer/sizer.dart';
 
+import '../const widget.dart';
+
 class signup extends StatefulWidget {
   const signup({Key? key}) : super(key: key);
 
@@ -27,7 +29,7 @@ class _signupState extends State<signup> {
           height: double.infinity.h,
           width: double.infinity.w,
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 18, 28, 36),
+            color: bgcolor,
           ),
           child: SingleChildScrollView(
             child: Column(

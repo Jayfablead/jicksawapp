@@ -7,6 +7,8 @@ import 'package:jicksaw/Screen/login.dart';
 import 'package:jicksaw/Screen/signup.dart';
 import 'package:sizer/sizer.dart';
 
+import '../const widget.dart';
+
 class Initscreen extends StatefulWidget {
   const Initscreen({super.key});
 
@@ -23,7 +25,7 @@ class _InitscreenState extends State<Initscreen> {
         height: double.infinity.h,
         width: double.infinity.w,
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 18, 28, 36),
+          color: bgcolor,
           // image: DecorationImage(
           //     image: AssetImage("assets/back.jpg"),
           //     colorFilter: ColorFilter.mode(

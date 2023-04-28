@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/jigsawclipper.dart';
 import 'package:jicksaw/Screen/signup.dart';
 import 'package:sizer/sizer.dart';
@@ -26,7 +27,7 @@ class _loginState extends State<login> {
           height: double.infinity.h,
           width: double.infinity.w,
           decoration: BoxDecoration(
-             color: Color.fromARGB(255, 18, 28, 36),
+             color: bgcolor,
            
           ),
           child: SingleChildScrollView(

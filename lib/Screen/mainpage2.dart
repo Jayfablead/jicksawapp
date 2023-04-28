@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:jicksaw/Questions/gameinfo.dart';
 import 'package:jicksaw/design.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:sizer/sizer.dart';
+
+import '../const widget.dart';
 
 class mainpage2 extends StatefulWidget {
   const mainpage2({Key? key}) : super(key: key);
@@ -34,7 +38,7 @@ class _mainpage2State extends State<mainpage2> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromRGBO(41, 30, 83, 1),
+        backgroundColor: bgcolor,
         body: SingleChildScrollView(
           child: Container(
             margin: EdgeInsets.all(5.w),
@@ -88,8 +92,8 @@ class _mainpage2State extends State<mainpage2> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20.0),
                               color: (select == index)
-                                  ? Color.fromRGBO(111, 0, 244, 1)
-                                  : Color.fromRGBO(81, 73, 112, 1),
+                                  ? primary
+                                  : secondary,
                             ),
                             child: Text(
                               data[index].toString(),
@@ -182,11 +186,7 @@ class _mainpage2State extends State<mainpage2> {
                                   progressColor: Colors.black87,
                                 ),
                                 GestureDetector(
-                                  onTap: () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => design(),
-                                      )),
+                                  onTap: () => Get.to(GameInfo()),
                                   child: Transform(
                                     transform: Matrix4.skewX(-0.05),
                                     origin: Offset(50.0, 50.0),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:jicksaw/MyApp.dart';
-import 'package:jicksaw/Screen/mainpage.dart';
+import 'package:jicksaw/Questions/gameinfo.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Screen/splashscreen.dart';
 import 'package:jicksaw/design.dart';
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
 
             // for all route info check routs.txt
 
-              home: SplashScreen()
+              home: GameInfo()
           );
         }
     );
