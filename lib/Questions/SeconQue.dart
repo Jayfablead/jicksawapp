@@ -22,6 +22,17 @@ bool ans4 = false;
 
 class _SecQueState extends State<SecQue> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      ans1 = false;
+      ans2 = false;
+      ans3 = false;
+      ans4 = false;
+    });
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgcolor,
@@ -113,9 +124,16 @@ class _SecQueState extends State<SecQue> {
                                     border: Border.all(color: primary),
                                     borderRadius: BorderRadius.circular(15),
                                     color: secondary)
-                                : BoxDecoration(
+                                : BoxDecoration(boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepOrange.withOpacity(0.5),
+                                offset: Offset(0, 6),
+                                // blurRadius: 20,
+                                // spreadRadius: -5,
+                              ),
+                            ],
                                     borderRadius: BorderRadius.circular(15),
-                                    color: Colors.deepOrange),
+                                    color: Colors.deepOrangeAccent),
                             padding: EdgeInsets.all(2.h),
                             child: Text(
                               'pubspec.yaml',
@@ -124,8 +142,9 @@ class _SecQueState extends State<SecQue> {
                                   color: ans1
                                       ? primary
                                       : Color.fromARGB(255, 18, 28, 36),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: 'Meta1'),
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'game',
+                                letterSpacing: 2,),
                             ),
                           ),
                         ),
@@ -149,9 +168,16 @@ class _SecQueState extends State<SecQue> {
                                     border: Border.all(color: primary),
                                     borderRadius: BorderRadius.circular(15),
                                     color: secondary)
-                                : BoxDecoration(
+                                : BoxDecoration(boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepOrange.withOpacity(0.5),
+                                offset: Offset(0, 6),
+                                // blurRadius: 20,
+                                // spreadRadius: -5,
+                              ),
+                            ],
                                     borderRadius: BorderRadius.circular(15),
-                                    color: Colors.deepOrange),
+                                    color: Colors.deepOrangeAccent),
                             padding: EdgeInsets.all(2.h),
                             child: Text(
                               'pubspec.xml',
@@ -160,8 +186,9 @@ class _SecQueState extends State<SecQue> {
                                   color: ans2
                                       ? primary
                                       : Color.fromARGB(255, 18, 28, 36),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: 'Meta1'),
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'game',
+                                letterSpacing: 2,),
                             ),
                           ),
                         ),
@@ -185,9 +212,16 @@ class _SecQueState extends State<SecQue> {
                                     border: Border.all(color: primary),
                                     borderRadius: BorderRadius.circular(15),
                                     color: secondary)
-                                : BoxDecoration(
+                                : BoxDecoration(boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepOrange.withOpacity(0.5),
+                                offset: Offset(0, 6),
+                                // blurRadius: 20,
+                                // spreadRadius: -5,
+                              ),
+                            ],
                                     borderRadius: BorderRadius.circular(15),
-                                    color: Colors.deepOrange),
+                                    color: Colors.deepOrangeAccent),
                             padding: EdgeInsets.all(2.h),
                             child: Text(
                               'config.html',
@@ -196,8 +230,9 @@ class _SecQueState extends State<SecQue> {
                                   color: ans3
                                       ? primary
                                       : Color.fromARGB(255, 18, 28, 36),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: 'Meta1'),
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'game',
+                                letterSpacing: 2,),
                             ),
                           ),
                         ),
@@ -221,9 +256,16 @@ class _SecQueState extends State<SecQue> {
                                     border: Border.all(color: primary),
                                     borderRadius: BorderRadius.circular(15),
                                     color: secondary)
-                                : BoxDecoration(
+                                : BoxDecoration(boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepOrange.withOpacity(0.5),
+                                offset: Offset(0, 6),
+                                // blurRadius: 20,
+                                // spreadRadius: -5,
+                              ),
+                            ],
                                     borderRadius: BorderRadius.circular(15),
-                                    color: Colors.deepOrange),
+                                    color: Colors.deepOrangeAccent),
                             padding: EdgeInsets.all(2.h),
                             child: Text(
                               'root.xml',
@@ -232,8 +274,9 @@ class _SecQueState extends State<SecQue> {
                                   color: ans4
                                       ? primary
                                       : Color.fromARGB(255, 18, 28, 36),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: 'Meta1'),
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'game',
+                                letterSpacing: 2,),
                             ),
                           ),
                         ),
@@ -249,17 +292,25 @@ class _SecQueState extends State<SecQue> {
                               alignment: Alignment.center,
                               width: 85.w,
                               margin: EdgeInsets.only(top: 2.h),
-                              decoration: BoxDecoration(
+                              decoration: BoxDecoration(boxShadow: [
+                                BoxShadow(
+                                  color: Colors.deepOrange.withOpacity(0.5),
+                                  offset: Offset(0, 6),
+                                  // blurRadius: 20,
+                                  // spreadRadius: -5,
+                                ),
+                              ],
                                   borderRadius: BorderRadius.circular(15),
-                                  color: Colors.deepOrange),
+                                  color: Colors.deepOrangeAccent),
                               padding: EdgeInsets.all(2.h),
                               child: Text(
                                 'Next',
                                 style: TextStyle(
                                     fontSize: 13.sp,
                                     color: Color.fromARGB(255, 18, 28, 36),
-                                    fontWeight: FontWeight.w500,
-                                    fontFamily: 'Meta1'),
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'game',
+                                  letterSpacing: 2,),
                               ),
                             ),
                           )

@@ -5,6 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
 import 'package:jicksaw/Screen/login.dart';
 import 'package:jicksaw/Screen/signup.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
 import '../const widget.dart';
@@ -40,12 +41,10 @@ class _InitscreenState extends State<Initscreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Center(
-                child: CircleAvatar(
-                  radius: 18.w,
-                  backgroundColor: Colors.transparent,
-                  backgroundImage: AssetImage(
-                    "assets/logo.png",
-                  ),
+                child:  Container(
+                  height: 20.h,
+                  width: 90.w,
+                  child: Lottie.asset('assets/lin.json'),
                 ),
               ),
               SizedBox(
@@ -57,21 +56,21 @@ class _InitscreenState extends State<Initscreen> {
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
-                        fontSize: 14.sp,
-                        fontFamily: 'Meta1'),
+                        fontSize: 17.sp,
+                        fontFamily: 'game',letterSpacing: 2,),
                   )),
               SizedBox(
                 height: 2.h,
               ),
               SizedBox(
-                  width: 70.w,
+                  width: 85.w,
                   child: Text(
                     "Give Answers of Simple Questions and Win A Dice Roll To Play Jigsaw",
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w300,
-                        fontSize: 10.sp,
-                        fontFamily: 'Meta1'),
+                        fontSize: 12.sp,
+                        fontFamily: 'game',letterSpacing: 2,),
                   )),
               SizedBox(
                 height: 25.h,
@@ -93,16 +92,23 @@ class _InitscreenState extends State<Initscreen> {
                         alignment: Alignment.center,
                         width: 85.w,
                         margin: EdgeInsets.only(top: 2.h),
-                        decoration: BoxDecoration(
+                        decoration: BoxDecoration(boxShadow: [
+                          BoxShadow(
+                            color: Colors.deepOrange.withOpacity(0.5),
+                            offset: Offset(0, 6),
+                            // blurRadius: 20,
+                            // spreadRadius: -5,
+                          ),
+                        ],
                             borderRadius: BorderRadius.circular(15),
-                            color: Colors.deepOrange),
+                            color: Colors.deepOrangeAccent),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'GET STARTED',
                           style: TextStyle(
-                              color: Color.fromARGB(255, 18, 28, 36),
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'Meta1'),
+                              color: Color.fromARGB(255, 18, 28, 36),fontFamily: 'game',
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2,),
                         ),
                       ),
                     ),
@@ -127,8 +133,8 @@ class _InitscreenState extends State<Initscreen> {
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'I ALREADY HAVE AN ACCOUNT',
-                          style: TextStyle(
-                              color: Colors.deepOrange, fontFamily: 'Meta1'),
+                          style: TextStyle(fontWeight: FontWeight.bold,letterSpacing: 2,
+                              color: Colors.deepOrangeAccent, fontFamily: 'game'),
                         ),
                       ),
                     ),

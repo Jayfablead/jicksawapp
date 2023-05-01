@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:jicksaw/Screen/login.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
 import '../const widget.dart';
@@ -58,10 +59,12 @@ class _signupState extends State<signup> {
                   ),
                 ),
                 Center(
-                  child: CircleAvatar(
-                      radius: 13.w,
-                      backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage("assets/logo.png")),
+                  child:  Container(
+                    height: 20.h,
+                    width: 90.w,
+
+                    child: Lottie.asset('assets/lin.json'),
+                  ),
                 ),
                 SizedBox(
                   height: 2.h,
@@ -73,7 +76,7 @@ class _signupState extends State<signup> {
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
                       fontSize: 14.sp,
-                      fontFamily: 'Meta1'),
+                      fontFamily: 'game'),
                 )),
                 SizedBox(
                   height: 5.h,
@@ -114,7 +117,7 @@ class _signupState extends State<signup> {
                               hintText: "User Name",
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
-                                  fontFamily: 'Meta1',
+                                  fontFamily: 'game',
                                   fontSize: 10.sp)),
                         ),
                         SizedBox(
@@ -159,7 +162,7 @@ class _signupState extends State<signup> {
                               hintText: "Email",
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
-                                  fontFamily: 'Meta1',
+                                  fontFamily: 'game',
                                   fontSize: 10.sp)),
                         ),
                         SizedBox(
@@ -190,7 +193,7 @@ class _signupState extends State<signup> {
                               hintText: "Phone number",
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
-                                  fontFamily: 'Meta1',
+                                  fontFamily: 'game',
                                   fontSize: 10.sp)),
                         ),
                         SizedBox(
@@ -219,7 +222,7 @@ class _signupState extends State<signup> {
                               hintText: "Password",
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
-                                  fontFamily: 'Meta1',
+                                  fontFamily: 'game',
                                   fontSize: 10.sp)),
                         ),
                         SizedBox(
@@ -248,7 +251,7 @@ class _signupState extends State<signup> {
                               hintText: " Confirm password",
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
-                                  fontFamily: 'Meta1',
+                                  fontFamily: 'game',
                                   fontSize: 10.sp)),
                         ),
                         SizedBox(
@@ -266,7 +269,7 @@ class _signupState extends State<signup> {
                             child: Text("Sign Up",
                                 style: TextStyle(
                                     color: Colors.grey.shade100,
-                                    fontFamily: 'Meta1',
+                                    fontFamily: 'game',
                                     fontSize: 10.sp)),
                           ),
                         ),
@@ -278,7 +281,7 @@ class _signupState extends State<signup> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Text("Don't have an account ? ",style:TextStyle(color: Colors.grey.shade100,fontSize: 9.sp,fontFamily: 'Meta1',fontWeight: FontWeight.w400) ,),
+                    // Text("Don't have an account ? ",style:TextStyle(color: Colors.grey.shade100,fontSize: 9.sp,fontFamily: 'game',fontWeight: FontWeight.w400) ,),
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).push(
@@ -288,7 +291,7 @@ class _signupState extends State<signup> {
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 10.sp,
-                              fontFamily: 'Meta1',
+                              fontFamily: 'game',
                               fontWeight: FontWeight.w400)),
                     )
                   ],

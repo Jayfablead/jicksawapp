@@ -220,7 +220,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                     width: 30.0,
                                     decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-                                        color: Colors.deepOrange),
+                                        color: Colors.deepOrangeAccent),
                                   )
                                 ],
                               )
@@ -502,7 +502,7 @@ SizedBox(height:3.7.h),
               ),
 
               SizedBox(height: 2.h,),
-              (_value == 0)?Align(alignment: Alignment.center,child: Text('* Tap on Roll Dice To Start Game *',style: primarytxt1,)):Container(),
+              (_value == 0)?Align(alignment: Alignment.center,child: Text('* Tap on Roll Dice To Start Game *',style: primarytxt1,)):Align(alignment: Alignment.center,child: Text('Player 1 - Has To Run ${_value} times',style: playertxt1,)),
               SizedBox(height: 3.h,),
               Padding(
                 padding:  EdgeInsets.symmetric(horizontal: 5.w),
@@ -523,6 +523,8 @@ SizedBox(height:3.7.h),
                         Text('-',style: TextStyle(color: Colors.white,fontSize: 25.sp),),
                         SizedBox(width: 2.w,),
 Text('Player 1',style: mainstyle1,),
+                        // SizedBox(width: 2.w,),
+                        // (_value == 0)?Container():Text('You Have to Run : ${_value.toString()} times',style: secondarytxt,),
                       ],
                     ),
                     SizedBox(
@@ -536,7 +538,7 @@ Text('Player 1',style: mainstyle1,),
                           width: 30.0,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Colors.deepOrange),
+                              color: Colors.deepOrangeAccent),
                         ),  SizedBox(width: 2.w,),
                         Text('-',style: TextStyle(color: Colors.white,fontSize: 25.sp),),
                         SizedBox(width: 2.w,),
@@ -550,4 +552,5 @@ Text('Player 1',style: mainstyle1,),
           ),
         ));
   }
+
 }

@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:jicksaw/Screen/Forgot%20Password.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/jigsawclipper.dart';
 import 'package:jicksaw/Screen/signup.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
 class login extends StatefulWidget {
@@ -61,12 +63,11 @@ class _loginState extends State<login> {
                   height: 3.h,
                 ),
                 Center(
-                  child: CircleAvatar(
-                    radius: 13.w,
-                    backgroundColor: Colors.transparent,
-                    backgroundImage: AssetImage(
-                      "assets/logo.png",
-                    ),
+                  child:  Container(
+                    height: 20.h,
+                    width: 90.w,
+
+                    child: Lottie.asset('assets/lin.json'),
                   ),
                 ),
                 SizedBox(
@@ -79,7 +80,7 @@ class _loginState extends State<login> {
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
                       fontSize: 14.sp,
-                      fontFamily: 'Meta1'),
+                      fontFamily: 'game'),
                 )),
                 SizedBox(
                   height: 10.h,
@@ -120,7 +121,7 @@ class _loginState extends State<login> {
                               hintText: "User Name",
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
-                                  fontFamily: 'Meta1',
+                                  fontFamily: 'game',
                                   fontSize: 10.sp)),
                         ),
                         SizedBox(
@@ -149,18 +150,20 @@ class _loginState extends State<login> {
                               hintText: "Password",
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
-                                  fontFamily: 'Meta1',
+                                  fontFamily: 'game',
                                   fontSize: 10.sp)),
                         ),
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.to(Forgotpwd());
+                              },
                               child: Text(
                                 "Forgot Password?",
                                 style: TextStyle(
                                     color: Colors.grey.shade100,
-                                    fontFamily: 'Meta1',
+                                    fontFamily: 'game',
                                     fontSize: 8.sp),
                               )),
                         ),
@@ -183,7 +186,7 @@ class _loginState extends State<login> {
                             child: Text("Login",
                                 style: TextStyle(
                                     color: Colors.grey.shade100,
-                                    fontFamily: 'Meta1',
+                                    fontFamily: 'game',
                                     fontSize: 10.sp)),
                           ),
                         )
@@ -198,7 +201,7 @@ class _loginState extends State<login> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Text("Don't have an account ? ",style:TextStyle(color: Colors.grey.shade100,fontSize: 9.sp,fontFamily: 'Meta1',fontWeight: FontWeight.w400) ,),
+                    // Text("Don't have an account ? ",style:TextStyle(color: Colors.grey.shade100,fontSize: 9.sp,fontFamily: 'game',fontWeight: FontWeight.w400) ,),
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).push(
@@ -208,7 +211,7 @@ class _loginState extends State<login> {
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 10.sp,
-                              fontFamily: 'Meta1',
+                              fontFamily: 'game',
                               fontWeight: FontWeight.w400)),
                     )
                   ],
