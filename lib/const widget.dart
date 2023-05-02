@@ -77,6 +77,8 @@ void back(context) {
         );
       });
 }
+
+
 void home(context) {
   showDialog(
       context: context,
@@ -110,7 +112,10 @@ void exit(context) {
     showDialog(
         context: context,
         builder: (context) {
-          return CupertinoAlertDialog(
+          return Theme(
+              data: ThemeData(
+              dialogBackgroundColor: bgcolor,
+              dialogTheme: DialogTheme(backgroundColor: bgcolor)),child:CupertinoAlertDialog(
             content: Text(
               'You Want to Quit Application ?',
               style: TextStyle(fontSize: 16),
@@ -130,7 +135,7 @@ void exit(context) {
                    Get.back();
                   }),
             ],
-          );
+          ));
         });
 }
 

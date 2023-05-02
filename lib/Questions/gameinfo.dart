@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Questions/FirstQuestion.dart';
 import 'package:jicksaw/const%20widget.dart';
+import 'package:jicksaw/drawer.dart';
 import 'package:sizer/sizer.dart';
 
 class GameInfo extends StatefulWidget {
@@ -10,17 +11,20 @@ class GameInfo extends StatefulWidget {
   @override
   State<GameInfo> createState() => _GameInfoState();
 }
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _GameInfoState extends State<GameInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: bgcolor,
       appBar: appbar1(act: (){},icn1: Icon(null),
         title1: 'Tutorial',
-        press: () => Get.back(),
-        icn: Icon(Icons.arrow_back_ios_rounded),
+        press: () =>   _scaffoldKey.currentState!.openDrawer(),
+        icn: Icon(Icons.abc_rounded),
       ),
+      drawer: drawer1(),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
