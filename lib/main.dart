@@ -8,6 +8,7 @@ import 'package:jicksaw/design.dart';
 import 'package:jicksaw/first.dart';
 import 'package:jicksaw/jigsaw.dart';
 import 'package:jicksaw/Screen/login.dart';
+import 'package:jicksaw/main%20Pages/shoppage.dart';
 import 'package:jicksaw/modalview.dart';
 import 'package:jicksaw/second.dart';
 import 'package:jicksaw/shake.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
 
             // for all route info check routs.txt
 
-              home: SplashScreen()
+              home: ShopmainPage()
           );
         }
     );

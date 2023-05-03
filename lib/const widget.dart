@@ -56,6 +56,15 @@ TextStyle secondarytxt = TextStyle(
     fontSize: 11.sp,
     fontFamily: 'game',letterSpacing: 2,
 );
+TextStyle secondarytxtwhite = TextStyle(
+    color: Colors.white,
+    fontSize: 13.sp,
+    fontFamily: 'game',letterSpacing: 2,
+);TextStyle secondarytxtwhite1 = TextStyle(
+    color: Colors.white,
+    fontSize: 11.5.sp,
+    fontFamily: 'game',letterSpacing: 1,
+);
 void back(context) {
   showDialog(
       context: context,
