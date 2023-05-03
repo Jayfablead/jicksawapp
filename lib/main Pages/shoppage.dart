@@ -1,9 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:jicksaw/Questions/gameinfo.dart';
 import 'package:sizer/sizer.dart';
 
 import '../const widget.dart';
 import '../drawer.dart';
+import 'shop2.dart';
 
 class ShopmainPage extends StatefulWidget {
   const ShopmainPage({Key? key}) : super(key: key);
@@ -17,8 +20,9 @@ class game {
   String? name;
   String? type;
   String? star;
+  String? comp;
 
-  game(this.image, this.name, this.type, this.star);
+  game(this.image, this.name, this.type, this.star, this.comp);
 }
 
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -27,21 +31,24 @@ List<game> popular = [
       "https://cdn.jim-nielsen.com/ios/512/jigsaw-puzzles-puzzle-games-2021-05-11.png",
       "Puzzle mania",
       '',
-      '3'),
-  game(
-      "https://m.media-amazon.com/images/I/61Q2CtZJDqL.png", "Trivia", '', '4'),
+      '3',
+      'mania'),
+  game("https://m.media-amazon.com/images/I/61Q2CtZJDqL.png", "Trivia", '', '4',
+      'trivia'),
   game(
       "https://thumbnail.imgbin.com/2/12/7/imgbin-jigty-jigsaw-puzzles-candy-crush-jelly-saga-android-blue-puzzle-icon-KbQRmqHQqYHpmWbD3zDhCDivi_t.jpg",
       "Playzle",
       '',
-      '3'),
+      '3',
+      'plyzle'),
   game("https://cdn-icons-png.flaticon.com/512/229/229800.png", "Role Dice", '',
-      '5'),
+      '5', 'Dice'),
   game(
       "https://is2-ssl.mzstatic.com/image/thumb/Purple128/v4/fd/ef/4f/fdef4f9f-f5fb-47a7-b66f-171d52707922/AppIcon-1x_U007emarketing-85-220-8.png/512x512bb.jpg",
       "Just Jigsaw",
       '',
-      '5'),
+      '5',
+      'magic'),
 ];
 
 class _ShopmainPageState extends State<ShopmainPage> {
@@ -147,9 +154,17 @@ class _ShopmainPageState extends State<ShopmainPage> {
                     scrollDirection: Axis.horizontal,
                     itemCount: popular.length,
                     itemBuilder: (context, index) {
-                      return InkWell(onTap: (){},
+                      return InkWell(
+                        onTap: () {
+                          Get.to(GameInfo(
+                            Image: popular[index].image,
+                            name: popular[index].name,
+                            Star: popular[index].star,
+                            comp: popular[index].comp,
+                          ));
+                        },
                         child: Padding(
-                          padding:  EdgeInsets.symmetric(horizontal: 5.w),
+                          padding: EdgeInsets.symmetric(horizontal: 5.w),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -169,8 +184,8 @@ class _ShopmainPageState extends State<ShopmainPage> {
                                             CircularProgressIndicator(),
                                     errorWidget: (context, url, error) =>
                                         Image.asset(
-                                      'assets/user.png',
-                                      color: Colors.white,
+                                      'assets/12.png',
+                                          fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
@@ -190,8 +205,8 @@ class _ShopmainPageState extends State<ShopmainPage> {
                                       children: [
                                         Text(
                                           popular[index].star.toString(),
-                                          style:
-                                              TextStyle(color: Color(0xff8f8d8d)),
+                                          style: TextStyle(
+                                              color: Color(0xff8f8d8d)),
                                         ),
                                         SizedBox(
                                           width: 1.w,
@@ -231,7 +246,15 @@ class _ShopmainPageState extends State<ShopmainPage> {
                     // scrollDirection: Axis.horizontal,
                     itemCount: popular.length,
                     itemBuilder: (context, index) {
-                      return InkWell(onTap: (){},
+                      return InkWell(
+                        onTap: () {
+                          Get.to(GameInfo(
+                            Image: popular[index].image,
+                            name: popular[index].name,
+                            Star: popular[index].star,
+                            comp: popular[index].comp,
+                          ));
+                        },
                         child: Padding(
                           padding: EdgeInsets.only(bottom: 2.h),
                           child: Row(
@@ -253,8 +276,8 @@ class _ShopmainPageState extends State<ShopmainPage> {
                                             CircularProgressIndicator(),
                                     errorWidget: (context, url, error) =>
                                         Image.asset(
-                                      'assets/user.png',
-                                      color: Colors.white,
+                                      'assets/12.png',
+                                          fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
@@ -341,9 +364,16 @@ class _ShopmainPageState extends State<ShopmainPage> {
                     itemCount: popular.length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding:  EdgeInsets.symmetric(horizontal: 5.w),
-
-                        child:  InkWell(onTap: (){},
+                        padding: EdgeInsets.symmetric(horizontal: 5.w),
+                        child: InkWell(
+                          onTap: () {
+                            Get.to(GameInfo(
+                              Image: popular[index].image,
+                              name: popular[index].name,
+                              Star: popular[index].star,
+                              comp: popular[index].comp,
+                            ));
+                          },
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -362,8 +392,8 @@ class _ShopmainPageState extends State<ShopmainPage> {
                                             CircularProgressIndicator(),
                                     errorWidget: (context, url, error) =>
                                         Image.asset(
-                                      'assets/user.png',
-                                      color: Colors.white,
+                                      'assets/12.png',
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
@@ -383,8 +413,8 @@ class _ShopmainPageState extends State<ShopmainPage> {
                                       children: [
                                         Text(
                                           popular[index].star.toString(),
-                                          style:
-                                              TextStyle(color: Color(0xff8f8d8d)),
+                                          style: TextStyle(
+                                              color: Color(0xff8f8d8d)),
                                         ),
                                         SizedBox(
                                           width: 1.w,

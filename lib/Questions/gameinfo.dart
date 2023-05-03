@@ -5,15 +5,15 @@ import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:sizer/sizer.dart';
 
-class GameInfo extends StatefulWidget {
-  const GameInfo({Key? key}) : super(key: key);
+class Tutorial extends StatefulWidget {
+  const Tutorial({Key? key}) : super(key: key);
 
   @override
-  State<GameInfo> createState() => _GameInfoState();
+  State<Tutorial> createState() => _TutorialState();
 }
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-class _GameInfoState extends State<GameInfo> {
+class _TutorialState extends State<Tutorial> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

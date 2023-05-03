@@ -37,6 +37,15 @@ TextStyle primarytxt = TextStyle(
     color: Colors.white,
     fontSize: 13.sp,
     fontFamily: 'game',letterSpacing: 2,
+);TextStyle header = TextStyle(
+    color: Colors.white,
+    fontSize: 15.sp,
+    fontFamily: 'game',letterSpacing: 2,
+);
+TextStyle primarytxtbig = TextStyle(
+    color: Colors.white,
+    fontSize: 15.sp,
+    fontFamily: 'game',letterSpacing: 2,
 );
 
 TextStyle primarytxt1 = TextStyle(

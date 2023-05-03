@@ -212,7 +212,7 @@ class _mainpage2State extends State<mainpage2> {
                                   progressColor: Colors.black87,
                                 ),
                                 GestureDetector(
-                                  onTap: () => Get.to(GameInfo()),
+                                  onTap: () => Get.to(Tutorial()),
                                   child: Transform(
                                     transform: Matrix4.skewX(-0.05),
                                     origin: Offset(50.0, 50.0),

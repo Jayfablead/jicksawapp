@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/const%20widget.dart';
+import 'package:jicksaw/main%20Pages/porfilePage.dart';
 import 'package:jicksaw/main%20Pages/shoppage.dart';
 
 import 'package:sizer/sizer.dart';
@@ -216,6 +217,58 @@ class _drawer1State extends State<drawer1> {
                                       width: 2.w,
                                     ),
                                     Text("Shop",
+                                        style: TextStyle(
+                                          fontSize: 4.w,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: 'Meta1',
+                                          color: Colors.white,
+                                        )),
+                                  ],
+                                ),
+                                Icon(
+                                  Icons.chevron_right_rounded,
+                                  color: Colors.white,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Get.to(MyProfile());
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (context) => mainpage2(),
+                      //   ),
+                      // );
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 6.w,
+                          ),
+                          Container(
+                            width: 66.w,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.person_outline_rounded,
+                                      color: Colors.white,
+                                    ),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Text("Profile",
                                         style: TextStyle(
                                           fontSize: 4.w,
                                           fontWeight: FontWeight.w500,
