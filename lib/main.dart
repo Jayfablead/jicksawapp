@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
 
             // for all route info check routs.txt
 
-              home: ShopmainPage()
+              home: SplashScreen()
           );
         }
     );

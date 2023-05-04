@@ -41,6 +41,10 @@ TextStyle primarytxt = TextStyle(
     color: Colors.white,
     fontSize: 15.sp,
     fontFamily: 'game',letterSpacing: 2,
+);TextStyle mail = TextStyle(
+    color: primary,
+    fontSize: 13.sp,
+    fontFamily: 'game',letterSpacing: 2,
 );
 TextStyle primarytxtbig = TextStyle(
     color: Colors.white,
@@ -65,6 +69,11 @@ TextStyle secondarytxt = TextStyle(
     fontSize: 11.sp,
     fontFamily: 'game',letterSpacing: 2,
 );
+TextStyle secondarytxt2 = TextStyle(
+  color: primary,
+  fontSize: 13.sp,
+  fontFamily: 'game',letterSpacing: 2,
+);
 TextStyle secondarytxtwhite = TextStyle(
     color: Colors.white,
     fontSize: 13.sp,
@@ -73,6 +82,11 @@ TextStyle secondarytxtwhite = TextStyle(
     color: Colors.white,
     fontSize: 11.5.sp,
     fontFamily: 'game',letterSpacing: 1,
+);
+TextStyle textbtn = TextStyle(
+  color: primary,
+  fontSize: 14.sp,
+  fontFamily: 'game',letterSpacing: 2,
 );
 void back(context) {
   showDialog(
