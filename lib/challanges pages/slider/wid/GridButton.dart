@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jicksaw/const%20widget.dart';
 
 class GridButton extends StatelessWidget {
   VoidCallback click;
@@ -12,13 +13,10 @@ class GridButton extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.bold,
-        ),
+            fontSize: 30, fontWeight: FontWeight.bold, color: bgcolor),
       ),
-
-      onPressed: click
-      ,
+      style: ElevatedButton.styleFrom(backgroundColor: primary),
+      onPressed: click,
     );
   }
 }

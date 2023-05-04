@@ -1,24 +1,19 @@
-
 import 'package:flutter/material.dart';
+import 'package:jicksaw/const%20widget.dart';
+import 'package:sizer/sizer.dart';
 
-class MyTitle extends StatelessWidget {
-  var size;
+class Previousbtn extends StatelessWidget {
+  VoidCallback goback;
 
-  MyTitle(this.size);
+
+
+  Previousbtn(this.goback);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: size.height * 0.10,
-      padding: EdgeInsets.all(5.0),
-      child: Text(
-        "Sliding Puzzle",
-        style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: size.height * 0.050,
-            color: Colors.white,
-            decoration: TextDecoration.none),
-      ),
+    return ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent,elevation: 00),
+      onPressed: goback,
+   child: Icon(Icons.arrow_back_ios_new_rounded,color: primary,),
     );
   }
 }

@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:jicksaw/challanges%20pages/slider/wid/Grid.dart';
 import 'package:jicksaw/challanges%20pages/slider/wid/Menu.dart';
 import 'package:jicksaw/challanges%20pages/slider/wid/MyTitle.dart';
-
+import 'package:jicksaw/challanges%20pages/slider/wid/title.dart';
+import 'package:jicksaw/const%20widget.dart';
+import 'package:sizer/sizer.dart';
 
 class Board extends StatefulWidget {
   @override
@@ -34,17 +37,21 @@ class _BoardState extends State<Board> {
       });
     }
 
-    return SafeArea(
-      child: Container(
-        height: size.height,
-        color: Colors.blue,
-        child: Column(
-          children: <Widget>[
-            MyTitle(size),
-            Grid(numbers, size, clickGrid),
-            Menu(reset, move, secondsPassed, size),
-          ],
-        ),
+    return Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+      height: size.height,
+      color: bgcolor,
+      child: Column(
+
+        children: <Widget>[
+          SizedBox(height: 4.h,),
+
+          Row(crossAxisAlignment: CrossAxisAlignment.center,children: [Previousbtn(previous,),SizedBox(width: 5.w,),MyTitle(size),],),
+          SizedBox(
+            height: 9.h,
+          ),
+          Grid(numbers, size, clickGrid),
+          Menu(reset, move, secondsPassed, size),
+        ],
       ),
     );
   }
@@ -81,6 +88,9 @@ class _BoardState extends State<Board> {
       secondsPassed = 0;
       isActive = false;
     });
+  }
+  void previous(){
+    Get.back();
   }
 
   bool isSorted(List list) {
@@ -124,7 +134,6 @@ class _BoardState extends State<Board> {
                             "Close",
                             style: TextStyle(color: Colors.white),
                           ),
-                          
                         ),
                       )
                     ],

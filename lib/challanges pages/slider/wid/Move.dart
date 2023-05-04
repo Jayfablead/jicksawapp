@@ -12,11 +12,11 @@ class Move extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 12.0),
       child: Text(
-        "Move: ${move}",
+        "Move :  ${move}",
         style: TextStyle(
             color: Colors.white,
             decoration: TextDecoration.none,
-            fontSize: 18
+            fontSize: 18,fontFamily: 'game',letterSpacing: 2,fontWeight: FontWeight.w400
         ),
       ),
     );
