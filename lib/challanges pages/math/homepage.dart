@@ -19,8 +19,8 @@ class MathtPage extends StatefulWidget {
 }
 
 class _MathtPageState extends State<MathtPage> {
-  int numberA = 1;
-  int numberB = 1;
+  int numberA = 10;
+  int numberB = 25;
   List<String> numberPad = [
     '7',
     '8',
