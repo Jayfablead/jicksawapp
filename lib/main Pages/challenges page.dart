@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jicksaw/challanges%20pages/memory.dart';
+import 'package:jicksaw/challanges%20pages/memory/home.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:sizer/sizer.dart';
@@ -54,7 +54,7 @@ class _ChallangepageState extends State<Challangepage> {
                 child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     TextButton(
-                      onPressed: () {Get.to(Memory_Challanges());},
+                      onPressed: () {Get.to(MemoryChallenge());},
                       child: Text(
                         'Memory challenge ',
                         style: textbtn,
