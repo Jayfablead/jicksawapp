@@ -44,6 +44,9 @@ dependencies:
   image_picker:
   animate_do: ^1.7.5
   word_search: ^0.1.2
+  panara_dialogs: ^0.1.4
+  flutter_colorpicker:
+  flutter_quill:
 
 
   # The following adds the Cupertino Icons font to your application.

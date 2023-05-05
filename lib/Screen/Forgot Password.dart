@@ -127,7 +127,7 @@ SizedBox(height: 2.h,),
                             GestureDetector(
                               onTap: () {
 
-                                // Get.offAll(mainpage2());
+                                // Get.offAll(()=>mainpage2());
                               },
                               child: Container(
                                 alignment: Alignment.center,

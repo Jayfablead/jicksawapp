@@ -5,11 +5,11 @@ import 'package:jicksaw/Questions/SeconQue.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:sizer/sizer.dart';
 
-class FirstQue extends StatefulWidget {
-  const FirstQue({Key? key}) : super(key: key);
+class TriviaChallenge extends StatefulWidget {
+  const TriviaChallenge({Key? key}) : super(key: key);
 
   @override
-  State<FirstQue> createState() => _FirstQueState();
+  State<TriviaChallenge> createState() => _TriviaChallengeState();
 }
 
 bool ans1 = false;
@@ -17,7 +17,7 @@ bool ans2 = false;
 bool ans3 = false;
 bool ans4 = false;
 
-class _FirstQueState extends State<FirstQue> {
+class _TriviaChallengeState extends State<TriviaChallenge> {
   @override
   void initState() {
     // TODO: implement initState
@@ -34,58 +34,34 @@ class _FirstQueState extends State<FirstQue> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgcolor,
-      appBar: appbar1(
-        title1: 'Question',
-        press: () {
-          Get.back();
-        },
-        icn: Icon(Icons.arrow_back_ios_new_rounded),
-        act: () {
-          setState(() {
-            ans1 = false;
-            ans2 = false;
-            ans3 = false;
-            ans4 = false;
-          });
-        },
-        icn1: Icon(CupertinoIcons.restart),
-      ),
+
       body: SingleChildScrollView(
         child: Center(
           child: SizedBox(
             child: Column(
               children: [
                 SizedBox(
-                  height: 1.5.h,
+                  height: 3.h,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    IconButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        icon: Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: primary,
+                        )),
                     Text(
-                      '1). ',
-                      style: secondarytxt,
+                      'Trivia Challenge',
+                      style: primarytxt1,
                     ),
                     SizedBox(
-                      width: 1.w,
-                    ),
-                    Container(
-                      height: 1.h,
-                      width: 75.w,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: secondary),
-                      child: Row(
-                        children: [
-                          Container(
-                            height: 1.h,
-                            width: 10.w,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: primary),
-                          ),
-                        ],
-                      ),
-                    ),
+                      width: 7.w,
+                    )
                   ],
                 ),
                 SizedBox(
@@ -116,20 +92,20 @@ class _FirstQueState extends State<FirstQue> {
                         margin: EdgeInsets.only(top: 2.h),
                         decoration: ans1
                             ? BoxDecoration(
-                                border: Border.all(color: primary),
-                                borderRadius: BorderRadius.circular(15),
-                                color: secondary)
+                            border: Border.all(color: primary),
+                            borderRadius: BorderRadius.circular(15),
+                            color: secondary)
                             : BoxDecoration(
-                                boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.deepOrange.withOpacity(0.5),
-                                      offset: Offset(0, 6),
-                                      // blurRadius: 20,
-                                      // spreadRadius: -5,
-                                    ),
-                                  ],
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.deepOrangeAccent),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepOrange.withOpacity(0.5),
+                                offset: Offset(0, 6),
+                                // blurRadius: 20,
+                                // spreadRadius: -5,
+                              ),
+                            ],
+                            borderRadius: BorderRadius.circular(15),
+                            color: Colors.deepOrangeAccent),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'Open Source Backend Framework',
@@ -161,20 +137,20 @@ class _FirstQueState extends State<FirstQue> {
                         margin: EdgeInsets.only(top: 2.h),
                         decoration: ans2
                             ? BoxDecoration(
-                                border: Border.all(color: primary),
-                                borderRadius: BorderRadius.circular(15),
-                                color: secondary)
+                            border: Border.all(color: primary),
+                            borderRadius: BorderRadius.circular(15),
+                            color: secondary)
                             : BoxDecoration(
-                                boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.deepOrange.withOpacity(0.5),
-                                      offset: Offset(0, 6),
-                                      // blurRadius: 20,
-                                      // spreadRadius: -5,
-                                    ),
-                                  ],
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.deepOrangeAccent),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepOrange.withOpacity(0.5),
+                                offset: Offset(0, 6),
+                                // blurRadius: 20,
+                                // spreadRadius: -5,
+                              ),
+                            ],
+                            borderRadius: BorderRadius.circular(15),
+                            color: Colors.deepOrangeAccent),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'Open Source UI Tool-Kit',
@@ -205,20 +181,20 @@ class _FirstQueState extends State<FirstQue> {
                         margin: EdgeInsets.only(top: 2.h),
                         decoration: ans3
                             ? BoxDecoration(
-                                border: Border.all(color: primary),
-                                borderRadius: BorderRadius.circular(15),
-                                color: secondary)
+                            border: Border.all(color: primary),
+                            borderRadius: BorderRadius.circular(15),
+                            color: secondary)
                             : BoxDecoration(
-                                boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.deepOrange.withOpacity(0.5),
-                                      offset: Offset(0, 6),
-                                      // blurRadius: 20,
-                                      // spreadRadius: -5,
-                                    ),
-                                  ],
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.deepOrangeAccent),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepOrange.withOpacity(0.5),
+                                offset: Offset(0, 6),
+                                // blurRadius: 20,
+                                // spreadRadius: -5,
+                              ),
+                            ],
+                            borderRadius: BorderRadius.circular(15),
+                            color: Colors.deepOrangeAccent),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'Open Source App Development',
@@ -250,20 +226,20 @@ class _FirstQueState extends State<FirstQue> {
                         margin: EdgeInsets.only(top: 2.h),
                         decoration: ans4
                             ? BoxDecoration(
-                                border: Border.all(color: primary),
-                                borderRadius: BorderRadius.circular(15),
-                                color: secondary)
+                            border: Border.all(color: primary),
+                            borderRadius: BorderRadius.circular(15),
+                            color: secondary)
                             : BoxDecoration(
-                                boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.deepOrange.withOpacity(0.5),
-                                      offset: Offset(0, 6),
-                                      // blurRadius: 20,
-                                      // spreadRadius: -5,
-                                    ),
-                                  ],
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.deepOrangeAccent),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepOrange.withOpacity(0.5),
+                                offset: Offset(0, 6),
+                                // blurRadius: 20,
+                                // spreadRadius: -5,
+                              ),
+                            ],
+                            borderRadius: BorderRadius.circular(15),
+                            color: Colors.deepOrangeAccent),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'DBMS Tool-Kit',
@@ -286,39 +262,37 @@ class _FirstQueState extends State<FirstQue> {
                 ),
                 (ans1 || ans2 || ans3 || ans4)
                     ? InkWell(
-                        onTap: () {
-                          Get.to(()=>
-                            SecQue(firstans: ans3 ? 20 : 0),
-                          );
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: 85.w,
-                          margin: EdgeInsets.only(top: 2.h),
-                          decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.deepOrange.withOpacity(0.5),
-                                  offset: Offset(0, 6),
-                                  // blurRadius: 20,
-                                  // spreadRadius: -5,
-                                ),
-                              ],
-                              borderRadius: BorderRadius.circular(15),
-                              color: Colors.deepOrangeAccent),
-                          padding: EdgeInsets.all(2.h),
-                          child: Text(
-                            'Next',
-                            style: TextStyle(
-                              fontSize: 13.sp,
-                              color: Color.fromARGB(255, 18, 28, 36),
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'game',
-                              letterSpacing: 2,
-                            ),
+                  onTap: () {
+
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: 85.w,
+                    margin: EdgeInsets.only(top: 2.h),
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.deepOrange.withOpacity(0.5),
+                            offset: Offset(0, 6),
+                            // blurRadius: 20,
+                            // spreadRadius: -5,
                           ),
-                        ),
-                      )
+                        ],
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.deepOrangeAccent),
+                    padding: EdgeInsets.all(2.h),
+                    child: Text(
+                      'Next',
+                      style: TextStyle(
+                        fontSize: 13.sp,
+                        color: Color.fromARGB(255, 18, 28, 36),
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'game',
+                        letterSpacing: 2,
+                      ),
+                    ),
+                  ),
+                )
                     : Container(),
               ],
             ),

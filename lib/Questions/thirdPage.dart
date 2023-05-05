@@ -288,7 +288,7 @@ class _ThirdQueState extends State<ThirdQue> {
                     ),
                     (ans1 || ans2 || ans3 || ans4)
                         ? InkWell(
-                      onTap: () {Get.to(FourthQue(firstans: widget.firstans,secans: widget.secans,thirdans: ans3?20:0,));},
+                      onTap: () {Get.to(()=>FourthQue(firstans: widget.firstans,secans: widget.secans,thirdans: ans3?20:0,));},
                       child: Container(
                         alignment: Alignment.center,
                         width: 85.w,

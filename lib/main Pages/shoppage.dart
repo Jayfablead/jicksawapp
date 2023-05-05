@@ -156,7 +156,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-                          Get.to(GameInfo(
+                          Get.to(()=>GameInfo(
                             Image: popular[index].image,
                             name: popular[index].name,
                             Star: popular[index].star,
@@ -248,7 +248,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-                          Get.to(GameInfo(
+                          Get.to(()=>GameInfo(
                             Image: popular[index].image,
                             name: popular[index].name,
                             Star: popular[index].star,
@@ -367,7 +367,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                         padding: EdgeInsets.symmetric(horizontal: 5.w),
                         child: InkWell(
                           onTap: () {
-                            Get.to(GameInfo(
+                            Get.to(()=>GameInfo(
                               Image: popular[index].image,
                               name: popular[index].name,
                               Star: popular[index].star,

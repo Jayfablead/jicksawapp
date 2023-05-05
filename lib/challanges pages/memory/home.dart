@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/challanges%20pages/memory/utils/alertdialog.dart';
 import 'package:jicksaw/challanges%20pages/memory/utils/game_utils.dart';
 import 'package:jicksaw/const%20widget.dart';
+import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:sizer/sizer.dart';
 
 import 'components/info_card.dart';
@@ -37,29 +39,33 @@ class _MemoryChallengeState extends State<MemoryChallenge> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: 3.h,),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          SizedBox(
+            height: 3.h,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-
               IconButton(
                   onPressed: () {
-
-                 Get.back();
+                    Get.back();
                   },
                   icon: Icon(
                     Icons.arrow_back_ios_new_rounded,
                     color: primary,
                   )),
-
               Text(
-                'Memory Challange',
+                'Memory Challenge',
                 style: primarytxt1,
               ),
-
-              SizedBox(width: 7.w,)
+              SizedBox(
+                width: 7.w,
+              )
             ],
           ),
-          SizedBox(height: 6.h,),
+          SizedBox(
+            height: 2.h,
+          ),
           Column(
             children: [
               SizedBox(
@@ -90,7 +96,9 @@ class _MemoryChallengeState extends State<MemoryChallenge> {
                                   _game.matchCheck[1].values.first) {
                                 print("true");
                                 //incrementing the score
+
                                 score += 200;
+
                                 _game.matchCheck.clear();
                               } else {
                                 print("false");
@@ -98,10 +106,10 @@ class _MemoryChallengeState extends State<MemoryChallenge> {
                                 Future.delayed(Duration(milliseconds: 500), () {
                                   print(_game.gameColors);
                                   setState(() {
-                                    _game.gameImg![_game.matchCheck[0].keys.first] =
-                                        _game.hiddenCardpath;
-                                    _game.gameImg![_game.matchCheck[1].keys.first] =
-                                        _game.hiddenCardpath;
+                                    _game.gameImg![_game.matchCheck[0].keys
+                                        .first] = _game.hiddenCardpath;
+                                    _game.gameImg![_game.matchCheck[1].keys
+                                        .first] = _game.hiddenCardpath;
                                     _game.matchCheck.clear();
                                   });
                                 });
@@ -129,6 +137,29 @@ class _MemoryChallengeState extends State<MemoryChallenge> {
                   info_card("Score", "$score"),
                 ],
               ),
+              SizedBox(
+                height: 1.h,
+              ),
+              score == 1200
+                  ? ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Next',
+                        style: TextStyle(
+                            color: bgcolor,
+                            fontSize: 13.sp,
+                            fontFamily: 'game',
+                            letterSpacing: 2,
+                            fontWeight: FontWeight.w700),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: primary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12), // <-- Radius
+                        ),
+                      ),
+                    )
+                  : Container(),
             ],
           ),
         ],

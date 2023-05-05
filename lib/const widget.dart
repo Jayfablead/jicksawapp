@@ -147,7 +147,7 @@ void home(context) {
                   'Yes',
                 ),
                 onPressed: () {
-                  Get.to(mainpage2());
+                  Get.to(()=>mainpage2());
                 }),
             CupertinoButton(
                 child: Text(

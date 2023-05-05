@@ -130,7 +130,7 @@ class _ResultsPageState extends State<ResultsPage> {
                           ),
                           InkWell(
                             onTap: () {
-                              Get.to(mainpage2());
+                              Get.to(()=>mainpage2());
                             },
                             child: Container(
                               alignment: Alignment.center,
@@ -249,7 +249,7 @@ class _ResultsPageState extends State<ResultsPage> {
                           alignment: Alignment.bottomCenter,
                           child: InkWell(
                             onTap: () {
-                              Get.to(design());
+                              Get.to(()=>design());
                             },
                             child: Container(
                               alignment: Alignment.center,

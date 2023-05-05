@@ -289,7 +289,7 @@ class _FourthQueState extends State<FourthQue> {
                     ),
                     (ans1 || ans2 || ans3 || ans4)
                         ? InkWell(
-                      onTap: () {Get.to(FifthQue(firstans: widget.firstans,secans: widget.secans,thirdans: widget.thirdans,fourthans: ans2?20:0,));},
+                      onTap: () {Get.to(()=>FifthQue(firstans: widget.firstans,secans: widget.secans,thirdans: widget.thirdans,fourthans: ans2?20:0,));},
                       child: Container(
                         alignment: Alignment.center,
                         width: 85.w,

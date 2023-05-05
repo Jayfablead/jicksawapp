@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/challanges%20pages/Trivia.dart';
+import 'package:jicksaw/challanges%20pages/creativity/drawpage.dart';
+import 'package:jicksaw/challanges%20pages/creativity/storypage.dart';
+import 'package:jicksaw/challanges%20pages/math/homepage.dart';
 import 'package:jicksaw/challanges%20pages/memory/home.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/drawer.dart';
@@ -54,7 +58,7 @@ class _ChallangepageState extends State<Challangepage> {
                 child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     TextButton(
-                      onPressed: () {Get.to(MemoryChallenge());},
+                      onPressed: () {Get.to(()=>MemoryChallenge());},
                       child: Text(
                         'Memory challenge ',
                         style: textbtn,
@@ -62,7 +66,7 @@ class _ChallangepageState extends State<Challangepage> {
                     ),
 
                     TextButton(
-                      onPressed: () {Get.to(Board());},
+                      onPressed: () {Get.to(()=>Board());},
                       child: Text(
                         'Puzzle challenge ',
                         style: textbtn,
@@ -70,7 +74,7 @@ class _ChallangepageState extends State<Challangepage> {
                     ),
 
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {Get.to(()=>TriviaChallenge());},
                       child: Text(
                         'Trivia challenge ',
                         style: textbtn,
@@ -86,15 +90,22 @@ class _ChallangepageState extends State<Challangepage> {
                     ),
 
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {Get.to(()=> DrawingPage());},
                       child: Text(
                         'Creativity challenge ',
                         style: textbtn,
                       ),
                     ),
+                    TextButton(
+                      onPressed: () {Get.to(()=> Storypage());},
+                      child: Text(
+                        'Creativity challenge 2',
+                        style: textbtn,
+                      ),
+                    ),
 
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {Get.to(()=> MathtPage());},
                       child: Text(
                         'Math challenge ',
                         style: textbtn,

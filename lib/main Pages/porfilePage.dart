@@ -122,7 +122,7 @@ class _MyProfileState extends State<MyProfile> {
                 Center(
                     child: InkWell(
                         onTap: () {
-                          Get.to(EditProfile());
+                          Get.to(()=>EditProfile());
                         },
                         child: Container(
                             padding: EdgeInsets.all(2.w),

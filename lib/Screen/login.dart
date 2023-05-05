@@ -157,7 +157,7 @@ class _loginState extends State<login> {
                           alignment: Alignment.centerRight,
                           child: TextButton(
                               onPressed: () {
-                                Get.to(Forgotpwd());
+                                Get.to(()=>Forgotpwd());
                               },
                               child: Text(
                                 "Forgot Password?",
@@ -174,7 +174,7 @@ class _loginState extends State<login> {
                             //     MaterialPageRoute(
                             //       builder: (context) => mainpage2(),
                             //     ));
-                            Get.offAll(mainpage2());
+                            Get.offAll(()=>mainpage2());
                           },
                           child: Container(
                             alignment: Alignment.center,

@@ -287,7 +287,7 @@ class _SecQueState extends State<SecQue> {
                     ),
                     (ans1 || ans2 || ans3 || ans4)
                         ? InkWell(
-                            onTap: () {Get.to(ThirdQue( firstans: widget.firstans,secans: ans1?20:0,),);},
+                            onTap: () {Get.to(()=>ThirdQue( firstans: widget.firstans,secans: ans1?20:0,),);},
                             child: Container(
                               alignment: Alignment.center,
                               width: 85.w,

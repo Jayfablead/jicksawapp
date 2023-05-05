@@ -11,7 +11,7 @@ Widget info_card(String title, String info) {
      width: 15.w,
 padding: EdgeInsets.symmetric(vertical: 0.5.h),
       decoration: BoxDecoration(
-        color: Colors.deepOrange,
+        color: primary,
         borderRadius: BorderRadius.circular(10)
       ),
       child: Column(

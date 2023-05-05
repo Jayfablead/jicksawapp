@@ -45,7 +45,7 @@ class _BoardState extends State<Board> {
         children: <Widget>[
           SizedBox(height: 4.h,),
 
-          Row(crossAxisAlignment: CrossAxisAlignment.center,children: [Previousbtn(previous,),SizedBox(width: 5.w,),MyTitle(size),],),
+          Row(crossAxisAlignment: CrossAxisAlignment.center,children: [Previousbtn(previous,),SizedBox(width: 13.w,),MyTitle(size),],),
           SizedBox(
             height: 9.h,
           ),
@@ -128,7 +128,7 @@ class _BoardState extends State<Board> {
                         width: 220.0,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pop(context);
+                          Get.back();
                           },
                           child: Text(
                             "Close",

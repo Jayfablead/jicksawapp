@@ -140,7 +140,7 @@ class _TutorialState extends State<Tutorial> {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to(FirstQue());
+                    Get.to(()=>FirstQue());
                   },
                   child: Container(
                     alignment: Alignment.center,

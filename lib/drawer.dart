@@ -138,7 +138,7 @@ class _drawer1State extends State<drawer1> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Get.to(mainpage2());
+                      Get.to(()=>mainpage2());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
@@ -190,7 +190,7 @@ class _drawer1State extends State<drawer1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(ShopmainPage());
+                      Get.to(()=>ShopmainPage());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
@@ -242,7 +242,7 @@ class _drawer1State extends State<drawer1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(MyProfile());
+                      Get.to(()=>MyProfile());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
@@ -293,7 +293,7 @@ class _drawer1State extends State<drawer1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(Challangepage());
+                      Get.to(()=>Challangepage());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),

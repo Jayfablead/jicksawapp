@@ -255,7 +255,7 @@ class _GameInfoState extends State<GameInfo> {
                         padding: EdgeInsets.symmetric(horizontal: 5.w),
                         child: InkWell(
                           onTap: () {
-                            Get.to(GameInfo(
+                            Get.to(()=>GameInfo(
                               Image: popular[index].image,
                               name: popular[index].name,
                               Star: popular[index].star,

@@ -298,7 +298,7 @@ class _FifthQueState extends State<FifthQue> {
                     (ans1 || ans2 || ans3 || ans4)
                         ? InkWell(
                             onTap: () {
-                              Get.to(
+                              Get.to(()=>
                                 ResultsPage(
                                     firstans: widget.firstans,
                                     secans: widget.secans,

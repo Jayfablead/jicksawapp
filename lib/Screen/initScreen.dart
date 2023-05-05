@@ -86,7 +86,7 @@ class _InitscreenState extends State<Initscreen> {
                         //     MaterialPageRoute(
                         //       builder: (context) => signup(),
                         //     ));
-                        Get.to(signup());
+                        Get.to(()=>signup());
                       },
                       child: Container(
                         alignment: Alignment.center,
@@ -120,7 +120,7 @@ class _InitscreenState extends State<Initscreen> {
                         //       builder: (context) => login(),
                         //     ));
 
-                        Get.to(login());
+                        Get.to(()=>login());
                       },
                       child: Container(
                         alignment: Alignment.center,

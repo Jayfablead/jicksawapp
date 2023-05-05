@@ -9,15 +9,16 @@ class MyTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Container(alignment: Alignment.center,
       height: 5.h,
       padding: EdgeInsets.all(5.0),
       child: Text(
         "Puzzle Challenge",
         style: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 17.sp,
             color: primary,
+            fontSize: 13.sp,
+            fontFamily: 'game',
+            letterSpacing: 2,
             decoration: TextDecoration.none),
       ),
     );
