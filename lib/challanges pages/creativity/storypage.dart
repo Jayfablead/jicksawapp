@@ -20,7 +20,8 @@ class _StorypageState extends State<Storypage> {
       backgroundColor: bgcolor,
       body: SingleChildScrollView(
         child: Center(
-          child: Padding(padding: EdgeInsets.symmetric(horizontal: 3.w),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 3.w),
             child: Column(
               children: [
                 SizedBox(
@@ -48,14 +49,34 @@ class _StorypageState extends State<Storypage> {
                   ],
                 ),
                 SizedBox(
-                  height: 8.h,
+                  height: 6.h,
                 ),
-                SizedBox(width:90.w,child: Text('Write a short story on \'What if you Can\'t Die\'.',textAlign: TextAlign.justify,style: primarytxtbig,)),
+                SizedBox(
+                    width: 90.w,
+                    child: Text(
+                      'Question :',
+                      textAlign: TextAlign.justify,
+                      style: primarytxt,
+                    )),
+                SizedBox(
+                  height: 2.h,
+                ),
+                SizedBox(
+                    width: 90.w,
+                    child: Text(
+                      'Write a short story on \'What if you Can\'t Die\'.',
+                      textAlign: TextAlign.justify,
+                      style: primarytxtbig,
+                    )),
                 SizedBox(
                   height: 5.h,
                 ),
-                TextField(maxLines: 15,
-                  style: TextStyle(color: Colors.white,fontFamily: 'game',letterSpacing: 2),
+                TextField(
+                  maxLines: 15,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'game',
+                      letterSpacing: 2),
                   cursorColor: Colors.white60,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -74,11 +95,16 @@ class _StorypageState extends State<Storypage> {
                       borderSide: BorderSide(color: primary),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    hintStyle: TextStyle(color: Colors.grey[800],fontFamily: 'game',),
+                    hintStyle: TextStyle(
+                      color: Colors.grey[800],
+                      fontFamily: 'game',
+                    ),
                     hintText: "Type your story here",
                   ),
                 ),
-                SizedBox(height: 1.5.h,),
+                SizedBox(
+                  height: 1.5.h,
+                ),
                 ElevatedButton(
                   onPressed: () {},
                   child: Text(

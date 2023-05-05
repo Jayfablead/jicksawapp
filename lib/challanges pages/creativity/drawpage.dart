@@ -234,9 +234,7 @@ class _DrawingPageState extends State<DrawingPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 1.5.h,
-                  ),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -257,26 +255,44 @@ class _DrawingPageState extends State<DrawingPage> {
                     ],
                   ),
                   SizedBox(
-                    height: 3.5.h,
+                    height: 1.5.h,
+                  ),SizedBox(
+                      width: 90.w,
+                      child: Text(
+                        'Question :',
+                        textAlign: TextAlign.justify,
+                        style: primarytxt,
+                      )),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  SizedBox(
+                      width: 90.w,
+                      child: Text(
+                        'Draw Something Beautiful.',
+                        textAlign: TextAlign.justify,
+                        style: primarytxtbig,
+                      )),SizedBox(
+                    height: 4.h,
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.90,
-                    height: MediaQuery.of(context).size.height * 0.75,
+                    height: MediaQuery.of(context).size.height * 0.65,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: const Color(0xff383838),
                       boxShadow: const [
                         BoxShadow(
                           color: Color(0xff3d3c3c),
-                          blurRadius: 10.0,
-                          spreadRadius: 0.10,
-                          offset: Offset(10, 10),
+                          blurRadius: 7.0,
+                          spreadRadius: 0.7,
+                          offset: Offset(7, 7),
                         ),
                         BoxShadow(
                           color: Color(0xff3d3c3c),
-                          blurRadius: 10.0,
-                          spreadRadius: 0.10,
-                          offset: Offset(-10, -10),
+                          blurRadius: 7.0,
+                          spreadRadius: 0.7,
+                          offset: Offset(-7, -7),
                         ),
                       ],
                     ),
@@ -352,15 +368,15 @@ class _DrawingPageState extends State<DrawingPage> {
                       boxShadow: const [
                         BoxShadow(
                           color: Color(0xff4b4747),
-                          blurRadius: 10.0,
-                          spreadRadius: 0.10,
-                          offset: Offset(10, 10),
+                          blurRadius: 7.0,
+                          spreadRadius: 0.7,
+                          offset: Offset(7, 7),
                         ),
                         BoxShadow(
                           color: Color(0xff2a2828),
-                          blurRadius: 10.0,
-                          spreadRadius: 0.10,
-                          offset: Offset(-10, -10),
+                          blurRadius: 7.0,
+                          spreadRadius: 0.7,
+                          offset: Offset(-7, -7),
                         ),
                       ],
                     ),

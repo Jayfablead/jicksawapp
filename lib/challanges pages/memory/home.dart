@@ -58,9 +58,7 @@ class _MemoryChallengeState extends State<MemoryChallenge> {
                 'Memory Challenge',
                 style: primarytxt1,
               ),
-              SizedBox(
-                width: 7.w,
-              )
+              IconButton(onPressed: (){}, icon: Icon(Icons.restart_alt_rounded,color: primary,))
             ],
           ),
           SizedBox(
