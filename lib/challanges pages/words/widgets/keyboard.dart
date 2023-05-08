@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import '../models/letter_model.dart';
 
@@ -79,7 +80,7 @@ class _KeyboardButton extends StatelessWidget {
       _KeyboardButton(
         onTap: onTap,
         width: 56,
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.red,
         letter: 'DEL',
       );
   factory _KeyboardButton.enter({
@@ -87,7 +88,7 @@ class _KeyboardButton extends StatelessWidget {
   }) =>
       _KeyboardButton(
         onTap: onTap,
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.green,
         letter: 'ENTER',
         width: 56,
       );
@@ -95,9 +96,9 @@ class _KeyboardButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 2.0,
-        vertical: 3.0,
+      padding:  EdgeInsets.symmetric(
+        horizontal: 0.7.w,
+        vertical: 0.6.h,
       ),
       child: Material(
         color: backgroundColor,

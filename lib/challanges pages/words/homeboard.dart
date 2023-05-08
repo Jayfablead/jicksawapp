@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'dart:math';
 import 'package:flip_card/flip_card.dart';
+import 'package:get/get.dart';
 import 'package:jicksaw/challanges%20pages/words/widgets/keyboard.dart';
 import 'package:sizer/sizer.dart';
 
@@ -47,7 +48,7 @@ class _WordleScreenState extends State<WordleScreen> {
     return Scaffold(backgroundColor: bgcolor,
 
       body: Padding(
-        padding: EdgeInsets.only(top: 3.h,bottom: 2.5.h),
+        padding: EdgeInsets.only(top: 3.h,bottom: 2.5.h,left: 3.w,right: 3.w),
         child: Column(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -56,10 +57,10 @@ class _WordleScreenState extends State<WordleScreen> {
               children: [
                 IconButton(
                     onPressed: () {
-
+Get.back();
                     },
                     icon: Icon(
-                      Icons.menu_rounded,
+                      Icons.arrow_back_ios_new_rounded,
                       color: primary,
                     )),
                 SizedBox(
