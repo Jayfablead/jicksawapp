@@ -79,7 +79,8 @@ class _loginState extends State<login> {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
-                      fontSize: 14.sp,
+                      fontSize: 17.sp,
+                      letterSpacing: 2,
                       fontFamily: 'game'),
                 )),
                 SizedBox(
@@ -122,7 +123,8 @@ class _loginState extends State<login> {
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
                                   fontFamily: 'game',
-                                  fontSize: 10.sp)),
+                                  letterSpacing: 2,
+                                  fontSize: 11.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -151,7 +153,8 @@ class _loginState extends State<login> {
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
                                   fontFamily: 'game',
-                                  fontSize: 10.sp)),
+                                  letterSpacing: 2,
+                                  fontSize: 11.sp)),
                         ),
                         Align(
                           alignment: Alignment.centerRight,
@@ -164,7 +167,8 @@ class _loginState extends State<login> {
                                 style: TextStyle(
                                     color: Colors.grey.shade100,
                                     fontFamily: 'game',
-                                    fontSize: 8.sp),
+                                    letterSpacing: 2,
+                                    fontSize: 10.sp),
                               )),
                         ),
                         GestureDetector(
@@ -187,7 +191,8 @@ class _loginState extends State<login> {
                                 style: TextStyle(
                                     color: Colors.grey.shade100,
                                     fontFamily: 'game',
-                                    fontSize: 10.sp)),
+                                    letterSpacing: 2,
+                                    fontSize: 12.sp)),
                           ),
                         )
                       ],

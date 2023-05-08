@@ -5,11 +5,9 @@ import 'package:get/get.dart';
 import 'package:jicksaw/challanges%20pages/math/result.dart';
 import 'package:sizer/sizer.dart';
 
-
 import '../../const widget.dart';
 import 'const.dart';
 import 'my_buttons.dart';
-
 
 class MathtPage extends StatefulWidget {
   const MathtPage({Key? key}) : super(key: key);
@@ -19,8 +17,8 @@ class MathtPage extends StatefulWidget {
 }
 
 class _MathtPageState extends State<MathtPage> {
-  int numberA = 10;
-  int numberB = 25;
+  int numberA = 0;
+  int numberB = 0;
   List<String> numberPad = [
     '7',
     '8',
@@ -56,45 +54,59 @@ class _MathtPageState extends State<MathtPage> {
   }
 
   void checkResult() {
-   userAnswer == ''?showDialog(
-       context: context,
-       builder: (context) {
-         return Result(
-             message: 'Please Enter Answer!',
-             onTap: stayback,
-             icon: Icons.done);
-       }): (numberA + numberB == int.parse(userAnswer)) ?
-     showDialog(
-         context: context,
-         builder: (context) {
-           return Result(
-               message: 'Correct!',
-               onTap: gotoNextQuestion,
-               icon: Icons.arrow_forward);
-         })
-    :
-     showDialog(
-         context: context,
-         builder: (context) {
-           return Result(
-               message: 'Sorry try again',
-               onTap: goBackToQuestion,
-               icon: Icons.rotate_left);
-         });
-   }
-
+    userAnswer == ''
+        ? showDialog(
+            context: context,
+            builder: (context) {
+              return Result(
+                  message: 'Please Enter Answer!',
+                  onTap: stayback,
+                  icon: Icons.done);
+            })
+        : (numberA + numberB == int.parse(userAnswer))
+            ? showDialog(
+                context: context,
+                builder: (context) {
+                  return Result(
+                      message: 'Correct!',
+                      onTap: gotoNextQuestion,
+                      icon: Icons.arrow_forward);
+                })
+            : showDialog(
+                context: context,
+                builder: (context) {
+                  return Result(
+                      message: 'Sorry try again',
+                      onTap: goBackToQuestion,
+                      icon: Icons.rotate_left);
+                });
+  }
 
   var randomNumber = Random();
 
   void goBackToQuestion() {
     Navigator.of(context).pop();
   }
-void stayback(){Get.back();}
+
+  void stayback() {
+    Get.back();
+  }
+
   void gotoNextQuestion() {
     Navigator.of(context).pop();
     setState(() {
       userAnswer = '';
     });
+    numberA = randomNumber.nextInt(100);
+    numberB = randomNumber.nextInt(100);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+
     numberA = randomNumber.nextInt(100);
     numberB = randomNumber.nextInt(100);
   }
@@ -137,21 +149,28 @@ void stayback(){Get.back();}
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(numberA.toString() + ' + '  + numberB.toString() + ' =  ',
+                    Text(
+                        numberA.toString() +
+                            ' + ' +
+                            numberB.toString() +
+                            ' =  ',
                         style: whiteTextStyle),
-                    userAnswer == ''?Container():Container(alignment: Alignment.center,
-                     padding: EdgeInsets.symmetric(horizontal: 5.w),
-                      height: 7.h,
-                      decoration: BoxDecoration(
-                          color:primary,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Center(
-                        child: Text(
-                          userAnswer,
-                          style: blackTextStyle,
-                        ),
-                      ),
-                    )
+                    userAnswer == ''
+                        ? Container()
+                        : Container(
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.symmetric(horizontal: 5.w),
+                            height: 7.h,
+                            decoration: BoxDecoration(
+                                color: primary,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Center(
+                              child: Text(
+                                userAnswer,
+                                style: blackTextStyle,
+                              ),
+                            ),
+                          )
                   ],
                 ),
               ),
@@ -163,8 +182,9 @@ void stayback(){Get.back();}
                 child: GridView.builder(
                     itemCount: numberPad.length,
                     physics: NeverScrollableScrollPhysics(),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 4),
                     itemBuilder: (context, index) {
                       return MyButton(
                         child: numberPad[index],

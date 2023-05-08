@@ -75,7 +75,8 @@ class _signupState extends State<signup> {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
-                      fontSize: 14.sp,
+                      fontSize: 17.sp,
+                      letterSpacing: 2,
                       fontFamily: 'game'),
                 )),
                 SizedBox(
@@ -118,7 +119,8 @@ class _signupState extends State<signup> {
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
                                   fontFamily: 'game',
-                                  fontSize: 10.sp)),
+                                  letterSpacing: 2,
+                                  fontSize: 11.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -163,7 +165,8 @@ class _signupState extends State<signup> {
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
                                   fontFamily: 'game',
-                                  fontSize: 10.sp)),
+                                  letterSpacing: 2,
+                                  fontSize: 11.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -194,7 +197,8 @@ class _signupState extends State<signup> {
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
                                   fontFamily: 'game',
-                                  fontSize: 10.sp)),
+                                  letterSpacing: 2,
+                                  fontSize: 11.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -223,7 +227,8 @@ class _signupState extends State<signup> {
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
                                   fontFamily: 'game',
-                                  fontSize: 10.sp)),
+                                  letterSpacing: 2,
+                                  fontSize: 11.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -252,7 +257,8 @@ class _signupState extends State<signup> {
                               hintStyle: TextStyle(
                                   color: Colors.grey.shade100,
                                   fontFamily: 'game',
-                                  fontSize: 10.sp)),
+                                  letterSpacing: 2,
+                                  fontSize: 11.sp)),
                         ),
                         SizedBox(
                           height: 5.h,
@@ -270,7 +276,8 @@ class _signupState extends State<signup> {
                                 style: TextStyle(
                                     color: Colors.grey.shade100,
                                     fontFamily: 'game',
-                                    fontSize: 10.sp)),
+                                    letterSpacing: 2,
+                                    fontSize: 11.sp)),
                           ),
                         ),
                       ],

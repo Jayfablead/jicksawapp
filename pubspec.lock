@@ -162,7 +162,7 @@ packages:
     source: hosted
     version: "0.4.1"
   equatable:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: equatable
       sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
@@ -193,6 +193,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.4"
+  flip_card:
+    dependency: "direct main"
+    description:
+      name: flip_card
+      sha256: ac079be6474e7005c1ea770a168194d207d5a24c88a463a0eb9fe838846fc517
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.0"
   flutter:
     dependency: "direct main"
     description: flutter

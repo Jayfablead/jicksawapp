@@ -5,6 +5,7 @@ import 'package:jicksaw/challanges%20pages/creativity/drawpage.dart';
 import 'package:jicksaw/challanges%20pages/creativity/storypage.dart';
 import 'package:jicksaw/challanges%20pages/math/homepage.dart';
 import 'package:jicksaw/challanges%20pages/memory/home.dart';
+import 'package:jicksaw/challanges%20pages/words/homeboard.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:sizer/sizer.dart';
@@ -113,7 +114,7 @@ class _ChallangepageState extends State<Challangepage> {
                     ),
 
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {Get.to(()=> WordleScreen());},
                       child: Text(
                         'Word challenge ',
                         style: textbtn,

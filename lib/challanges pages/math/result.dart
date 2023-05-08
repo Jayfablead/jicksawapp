@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:jicksaw/const%20widget.dart';
+import 'package:sizer/sizer.dart';
 
 import 'const.dart';
 
@@ -17,7 +19,7 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: bgcolor,
       content: Container(
         height: 200,
         child: Column(
@@ -30,13 +32,13 @@ class Result extends StatelessWidget {
             GestureDetector(
               onTap: onTap,
               child: Container(
-                padding: EdgeInsets.all(4),
+                padding: EdgeInsets.all(3.w),
                 decoration: BoxDecoration(
-                    color: Colors.deepPurple[300],
+                    color: primary,
                     borderRadius: BorderRadius.circular(10)),
                 child: Icon(
                   icon,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
             ),

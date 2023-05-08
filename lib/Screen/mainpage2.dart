@@ -80,7 +80,7 @@ class _mainpage2State extends State<mainpage2> {
                       "Hii Mr.John",
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 13.sp,
+                          fontSize: 17.sp,
                           fontWeight: FontWeight.normal,
                           fontFamily: 'game'),
                     ),
@@ -141,7 +141,7 @@ class _mainpage2State extends State<mainpage2> {
                     style: TextStyle(
                         fontFamily: 'game',
                         fontWeight: FontWeight.bold,
-                        fontSize: 12.sp,
+                        fontSize: 15.sp,
                         color: Colors.white),
                   ),
                 ),

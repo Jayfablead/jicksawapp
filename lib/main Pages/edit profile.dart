@@ -68,7 +68,7 @@ class _EditProfileState extends State<EditProfile> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: bgcolor,
       drawer: drawer1(),
       key: _scaffoldKey,
       body: SingleChildScrollView(
@@ -77,22 +77,11 @@ class _EditProfileState extends State<EditProfile> {
           child: Column(
             children: [
               SizedBox(
-                height: 3.h,
+                height: 4.h,
               ),
-              Row(
+              Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(
-                      onPressed: () {
-                        print('object');
-                        _scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(
-                        Icons.menu_rounded,
-                        color: primary,
-                      )),
-                  SizedBox(
-                    width: 30.w,
-                  ),
+
                   Text(
                     'Edit Profile',
                     style: primarytxt1,
@@ -154,11 +143,11 @@ class _EditProfileState extends State<EditProfile> {
                               child: Container(
                                   padding: EdgeInsets.all(2.w),
                                   decoration: BoxDecoration(
-                                      color: Colors.black,
+                                      color: bgcolor,
                                       borderRadius: BorderRadius.circular(20)),
                                   child: const Icon(
                                     Icons.camera_alt_outlined,
-                                    color: Colors.white,
+                                    color: primary,
                                   )))),
                     ],
                   ),
@@ -266,9 +255,9 @@ class _EditProfileState extends State<EditProfile> {
     return InputDecoration(
       floatingLabelBehavior: FloatingLabelBehavior.always,
       contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 1.5.h),
-      fillColor: Colors.black,
-      hoverColor: Colors.black,
-      focusColor: Colors.black,
+      fillColor: bgcolor,
+      hoverColor:bgcolor,
+      focusColor: bgcolor,
       filled: true,
       errorStyle: TextStyle(
         color: Colors.red,

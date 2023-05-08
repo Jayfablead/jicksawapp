@@ -8,6 +8,10 @@ import 'package:sizer/sizer.dart';
 const Color bgcolor = Color.fromARGB(255, 18, 28, 36);
 const Color primary = Colors.deepOrangeAccent;
 Color secondary = Colors.grey.withOpacity(0.2);
+const Color cCorrect = Color(0xFF538D4E);
+const Color cInWorld = Color(0xFFB49F3A);
+const Color cNotInWorld = Color(0xFF3A3A3C);
+
 
 AppBar appbar1(
     {required String title1,
@@ -67,7 +71,7 @@ TextStyle primarytxtbig = TextStyle(
 
 TextStyle primarytxt1 = TextStyle(
   color: primary,
-  fontSize: 13.sp,
+  fontSize: 15.sp,
   fontFamily: 'game',
   letterSpacing: 2,
 );

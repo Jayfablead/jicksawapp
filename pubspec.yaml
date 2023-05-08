@@ -47,6 +47,9 @@ dependencies:
   panara_dialogs: ^0.1.4
   flutter_colorpicker:
   flutter_quill:
+  equatable: ^2.0.3
+  #flip tile animation
+  flip_card: ^0.6.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -102,10 +105,10 @@ flutter:
         - asset: assets/fonts/OdisseiaTest-Regular.ttf
     - family: Meta1
       fonts:
-        - asset: assets/fonts/TypewalkMono1915-Medium-Demo.ttf
+        - asset: assets/fonts/feather_bold_by_typicalbro44_dee263c.ttf
     - family: game
       fonts:
-        - asset: assets/fonts/Gumela.ttf
+        - asset: assets/fonts/feather_bold_by_typicalbro44_dee263c.ttf
     - family: game1
       fonts:
         - asset: assets/fonts/Play_Gaming.otf

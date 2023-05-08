@@ -167,7 +167,7 @@ class _drawer1State extends State<drawer1> {
                                     ),
                                     Text("Home",
                                         style: TextStyle(
-                                          fontSize: 4.w,
+                                          fontSize:12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
                                           color: Colors.white,
@@ -219,7 +219,7 @@ class _drawer1State extends State<drawer1> {
                                     ),
                                     Text("Shop",
                                         style: TextStyle(
-                                          fontSize: 4.w,
+                                          fontSize:12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
                                           color: Colors.white,
@@ -271,7 +271,7 @@ class _drawer1State extends State<drawer1> {
                                     ),
                                     Text("Profile",
                                         style: TextStyle(
-                                          fontSize: 4.w,
+                                          fontSize:12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
                                           color: Colors.white,
@@ -322,7 +322,7 @@ class _drawer1State extends State<drawer1> {
                                     ),
                                     Text("Challenges",
                                         style: TextStyle(
-                                          fontSize: 4.w,
+                                          fontSize:12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
                                           color: Colors.white,
@@ -413,7 +413,7 @@ class _drawer1State extends State<drawer1> {
 //                       ),
 //                       Text("My Profile",
 //                           style: TextStyle(
-//                             fontSize: 4.w,
+//                             fontSize:12.sp,
 //                             fontWeight: FontWeight.w500,
 //                              fontFamily: 'Meta1',
 //                             color: Colors.white,
@@ -465,7 +465,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("My Scout",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -517,7 +517,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("My Coach",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -569,7 +569,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("My Training",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -621,7 +621,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("My Nutritionist",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -673,7 +673,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("My Medical",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -741,7 +741,7 @@ class _drawer1State extends State<drawer1> {
 //             ),
 //             Text("All Users",
 //                 style: TextStyle(
-//                   fontSize: 4.w,
+//                   fontSize:12.sp,
 //                   fontWeight: FontWeight.w500,
 //                    fontFamily: 'Meta1',
 //                   color: Colors.white,
@@ -787,7 +787,7 @@ class _drawer1State extends State<drawer1> {
 //             ),
 //             Text("My Request",
 //                 style: TextStyle(
-//                   fontSize: 4.w,
+//                   fontSize:12.sp,
 //                   fontWeight: FontWeight.w500,
 //                    fontFamily: 'Meta1',
 //                   color: Colors.white,
@@ -834,7 +834,7 @@ class _drawer1State extends State<drawer1> {
 //             Text(
 //               "My Connections",
 //               style: TextStyle(
-//                 fontSize: 4.w,
+//                 fontSize:12.sp,
 //                 fontWeight: FontWeight.w500,
 //                  fontFamily: 'Meta1',
 //                 color: Colors.white,
@@ -881,7 +881,7 @@ class _drawer1State extends State<drawer1> {
 //             ),
 //             Text("Chat",
 //                 style: TextStyle(
-//                   fontSize: 4.w,
+//                   fontSize:12.sp,
 //                   fontWeight: FontWeight.w500,
 //                    fontFamily: 'Meta1',
 //                   color: Colors.white,
@@ -968,7 +968,7 @@ class _drawer1State extends State<drawer1> {
 //                         ),
 //                         Text("All Sessions",
 //                             style: TextStyle(
-//                               fontSize: 4.w,
+//                               fontSize:12.sp,
 //                               fontWeight: FontWeight.w500,
 //                                fontFamily: 'Meta1',
 //                               color: Colors.white,
@@ -1025,7 +1025,7 @@ class _drawer1State extends State<drawer1> {
 //                         ),
 //                         Text("Create Scout Session",
 //                             style: TextStyle(
-//                               fontSize: 4.w,
+//                               fontSize:12.sp,
 //                               fontWeight: FontWeight.w500,
 //                                fontFamily: 'Meta1',
 //                               color: Colors.white,
@@ -1081,7 +1081,7 @@ class _drawer1State extends State<drawer1> {
 //                         ),
 //                         Text("Scout Feedback",
 //                             style: TextStyle(
-//                               fontSize: 4.w,
+//                               fontSize:12.sp,
 //                               fontWeight: FontWeight.w500,
 //                                fontFamily: 'Meta1',
 //                               color: Colors.white,
@@ -1135,7 +1135,7 @@ class _drawer1State extends State<drawer1> {
 //                         ),
 //                         Text("Scout Profile",
 //                             style: TextStyle(
-//                               fontSize: 4.w,
+//                               fontSize:12.sp,
 //                               fontWeight: FontWeight.w500,
 //                                fontFamily: 'Meta1',
 //                               color: Colors.white,
@@ -1189,7 +1189,7 @@ class _drawer1State extends State<drawer1> {
 //                         ),
 //                         Text("My Profile",
 //                             style: TextStyle(
-//                               fontSize: 4.w,
+//                               fontSize:12.sp,
 //                               fontWeight: FontWeight.w500,
 //                                fontFamily: 'Meta1',
 //                               color: Colors.white,
@@ -1267,7 +1267,7 @@ class _drawer1State extends State<drawer1> {
 //                   ),
 //                   Text("All Sessions",
 //                       style: TextStyle(
-//                         fontSize: 4.w,
+//                         fontSize:12.sp,
 //                         fontWeight: FontWeight.w500,
 //                          fontFamily: 'Meta1',
 //                         color: Colors.white,
@@ -1318,7 +1318,7 @@ class _drawer1State extends State<drawer1> {
 //                   ),
 //                   Text("Create Coching Session",
 //                       style: TextStyle(
-//                         fontSize: 4.w,
+//                         fontSize:12.sp,
 //                         fontWeight: FontWeight.w500,
 //                          fontFamily: 'Meta1',
 //                         color: Colors.white,
@@ -1369,7 +1369,7 @@ class _drawer1State extends State<drawer1> {
 //                   ),
 //                   Text("Coach Profile",
 //                       style: TextStyle(
-//                         fontSize: 4.w,
+//                         fontSize:12.sp,
 //                         fontWeight: FontWeight.w500,
 //                          fontFamily: 'Meta1',
 //                         color: Colors.white,
@@ -1425,7 +1425,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("Feedback Listing",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -1477,7 +1477,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("My Profile",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -1562,7 +1562,7 @@ class _drawer1State extends State<drawer1> {
 //                   ),
 //                   Text("All Sessions",
 //                       style: TextStyle(
-//                         fontSize: 4.w,
+//                         fontSize:12.sp,
 //                         fontWeight: FontWeight.w500,
 //                          fontFamily: 'Meta1',
 //                         color: Colors.white,
@@ -1613,7 +1613,7 @@ class _drawer1State extends State<drawer1> {
 //                   ),
 //                   Text("Create Training Session",
 //                       style: TextStyle(
-//                         fontSize: 4.w,
+//                         fontSize:12.sp,
 //                         fontWeight: FontWeight.w500,
 //                          fontFamily: 'Meta1',
 //                         color: Colors.white,
@@ -1666,7 +1666,7 @@ class _drawer1State extends State<drawer1> {
 //                         ),
 //                         Text("Training Feedback",
 //                             style: TextStyle(
-//                               fontSize: 4.w,
+//                               fontSize:12.sp,
 //                               fontWeight: FontWeight.w500,
 //                                fontFamily: 'Meta1',
 //                               color: Colors.white,
@@ -1720,7 +1720,7 @@ class _drawer1State extends State<drawer1> {
 //                   ),
 //                   Text("Trainer Profile",
 //                       style: TextStyle(
-//                         fontSize: 4.w,
+//                         fontSize:12.sp,
 //                         fontWeight: FontWeight.w500,
 //                          fontFamily: 'Meta1',
 //                         color: Colors.white,
@@ -1775,7 +1775,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("My Profile",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -1857,7 +1857,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("All Sessions",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -1909,7 +1909,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("Create Nutri Session",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -1961,7 +1961,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("Nutritionist Profile",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -2019,7 +2019,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("Nutritionist Feedback",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -2071,7 +2071,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("My Profile",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -2153,7 +2153,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("All Sessions",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -2205,7 +2205,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("Create Medical Session",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -2257,7 +2257,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("Medical Profile",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -2315,7 +2315,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("Medical Feedback",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -2367,7 +2367,7 @@ class _drawer1State extends State<drawer1> {
 //                             ),
 //                             Text("My Profile",
 //                                 style: TextStyle(
-//                                   fontSize: 4.w,
+//                                   fontSize:12.sp,
 //                                   fontWeight: FontWeight.w500,
 //                                    fontFamily: 'Meta1',
 //                                   color: Colors.white,
@@ -2440,7 +2440,7 @@ class _drawer1State extends State<drawer1> {
 //             Text(
 //               "Logout",
 //               style: TextStyle(
-//                 fontSize: 4.w,
+//                 fontSize:12.sp,
 //                 fontWeight: FontWeight.w500,
 //                  fontFamily: 'Meta1',
 //                 color: Colors.white,
