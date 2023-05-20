@@ -27,7 +27,10 @@ class _ChallangepageState extends State<Challangepage> {
     return Scaffold(
       drawer: drawer1(),
       key: _scaffoldKey,
-      backgroundColor: bgcolor,
+      backgroundColor:
+      bgcolor
+
+      ,
       body: SingleChildScrollView(
         child: Center(
           child: Column(

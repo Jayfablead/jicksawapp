@@ -1,9 +1,18 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+// import 'package:get/get_core/src/get_main.dart';
+import 'package:jicksaw/Modal/UserModal.dart';
+import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Screen/login.dart';
+import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Widget/buildErrorDialog.dart';
+import 'package:jicksaw/Widget/const.dart';
+import 'package:jicksaw/Widget/sharedpreferance.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
+import 'package:http/http.dart';
 
 import '../const widget.dart';
 
@@ -30,7 +39,10 @@ class _signupState extends State<signup> {
           height: double.infinity.h,
           width: double.infinity.w,
           decoration: BoxDecoration(
-            color: bgcolor,
+            color:
+            bgcolor
+            // Colors.black
+            ,
           ),
           child: SingleChildScrollView(
             child: Column(
@@ -49,13 +61,13 @@ class _signupState extends State<signup> {
                         alignment: Alignment.center,
                         child: Icon(
                           Icons.arrow_back_ios_new_rounded,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                         height: 4.7.h,
                         width: 9.w,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(90),
-                            border: Border.all(color: Colors.white))),
+                            border: Border.all(color: Colors.black))),
                   ),
                 ),
                 Center(
@@ -73,7 +85,7 @@ class _signupState extends State<signup> {
                     child: Text(
                   "Jigsaw Puzzle",
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontWeight: FontWeight.w700,
                       fontSize: 17.sp,
                       letterSpacing: 2,
@@ -88,9 +100,9 @@ class _signupState extends State<signup> {
                   height: 55.h,
                   width: 90.w,
                   decoration: BoxDecoration(
-                      color: Colors.black12,
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(20.0),
-                      border: Border.all(color: Colors.white)),
+                      border: Border.all(color: Colors.black)),
                   child: Form(
                     key: _formKey,
                     child: Column(
@@ -106,21 +118,21 @@ class _signupState extends State<signup> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                               suffixIcon: Icon(
                                 Icons.person,
-                                color: Colors.grey.shade100,
+                                color: Colors.black,
                               ),
                               hintText: "User Name",
                               hintStyle: TextStyle(
-                                  color: Colors.grey.shade100,
+                                  color: Colors.black,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
-                                  fontSize: 11.sp)),
+                                  fontSize: 12.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -152,21 +164,21 @@ class _signupState extends State<signup> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                               suffixIcon: Icon(
                                 Icons.email_outlined,
-                                color: Colors.grey.shade100,
+                                color: Colors.black,
                               ),
                               hintText: "Email",
                               hintStyle: TextStyle(
-                                  color: Colors.grey.shade100,
+                                  color: Colors.black,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
-                                  fontSize: 11.sp)),
+                                  fontSize: 12.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -177,28 +189,28 @@ class _signupState extends State<signup> {
                           validator: (value) {
                             if (value!.isEmpty) {
                               return "Please enter the phone number";
-                            } else if (value.length <= 10) {
+                            } else if (value.length < 10) {
                               return "Please enter 1o digit number";
                             }
                             return null;
                           },
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                               suffixIcon: Icon(
                                 Icons.phone,
-                                color: Colors.grey.shade100,
+                                color: Colors.black,
                               ),
                               hintText: "Phone number",
                               hintStyle: TextStyle(
-                                  color: Colors.grey.shade100,
+                                  color: Colors.black,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
-                                  fontSize: 11.sp)),
+                                  fontSize: 12.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -214,21 +226,21 @@ class _signupState extends State<signup> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                               suffixIcon: Icon(
                                 Icons.lock,
-                                color: Colors.grey.shade100,
+                                color: Colors.black,
                               ),
                               hintText: "Password",
                               hintStyle: TextStyle(
-                                  color: Colors.grey.shade100,
+                                  color: Colors.black,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
-                                  fontSize: 11.sp)),
+                                  fontSize: 12.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -244,40 +256,43 @@ class _signupState extends State<signup> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                               suffixIcon: Icon(
                                 Icons.lock,
-                                color: Colors.grey.shade100,
+                                color: Colors.black,
                               ),
                               hintText: " Confirm password",
                               hintStyle: TextStyle(
-                                  color: Colors.grey.shade100,
+                                  color: Colors.black,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
-                                  fontSize: 11.sp)),
+                                  fontSize: 12.sp)),
                         ),
                         SizedBox(
                           height: 5.h,
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            print("hiiii");
+                            signupap();
+                          },
                           child: Container(
                             alignment: Alignment.center,
                             height: 5.h,
                             width: 30.w,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10.0),
-                                border: Border.all(color: Colors.white)),
+                                border: Border.all(color: Colors.black)),
                             child: Text("Sign Up",
                                 style: TextStyle(
-                                    color: Colors.grey.shade100,
+                                    color: Colors.black,
                                     fontFamily: 'game',
                                     letterSpacing: 2,
-                                    fontSize: 11.sp)),
+                                    fontSize: 12.sp)),
                           ),
                         ),
                       ],
@@ -296,8 +311,8 @@ class _signupState extends State<signup> {
                       },
                       child: Text("Already Member ?",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10.sp,
+                              color: Colors.black,
+                              fontSize: 12.sp,
                               fontFamily: 'game',
                               fontWeight: FontWeight.w400)),
                     )
@@ -309,5 +324,38 @@ class _signupState extends State<signup> {
         )
       ],
     ));
+  }
+  signupap(){
+
+    if (_formKey.currentState!.validate()) {
+      print("6467");
+      final Map<String, String> data = {};
+      data['email'] = _email.text.trim().toString();
+      data['password'] = _pasa.text.trim().toString();
+      data['confirm_password'] = _conf.text.trim().toString();
+      data['username'] = _user.text.trim().toString();
+      data['phone'] = _phone.text.trim().toString();
+      data['action'] = 'signup_player';
+      print(data);
+      checkInternet().then((internet) async {
+        if (internet) {
+          authprovider().signupapi(data).then(( response)  async {
+            usermodal = UserModal.fromJson(json.decode(response.body));
+            print(usermodal?.status);
+            if (response.statusCode == 200 && usermodal?.status == "success") {
+              Get.offAll(()=>mainpage2());
+            } else {
+              buildErrorDialog(
+                  context, "Login Error", (usermodal?.message).toString());
+            }
+          });
+        } else {
+          setState(() {
+            // isLoading = false;
+          });
+          buildErrorDialog(context, 'Error', "Internate Required");
+        }
+      });
+    }
   }
 }

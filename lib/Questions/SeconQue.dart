@@ -35,7 +35,10 @@ class _SecQueState extends State<SecQue> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgcolor,
+      backgroundColor:
+      bgcolor
+
+      ,
       appBar: appbar1(
         act: () {
           setState(() {

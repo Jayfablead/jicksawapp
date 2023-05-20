@@ -33,7 +33,10 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgcolor,
+      backgroundColor:
+      bgcolor
+      // Colors.black
+      ,
 
       body: SingleChildScrollView(
         child: Center(

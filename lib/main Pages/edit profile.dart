@@ -6,6 +6,11 @@ import 'package:flutter/material.dart';
 
 import 'package:http/http.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:jicksaw/Modal/UserModal.dart';
+import 'package:jicksaw/Provider/ProfileviewModal.dart';
+import 'package:jicksaw/Provider/authprovider.dart';
+import 'package:jicksaw/Widget/buildErrorDialog.dart';
+import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/drawer.dart';
 
 import 'package:sizer/sizer.dart';
@@ -48,27 +53,36 @@ class _EditProfileState extends State<EditProfile> {
   ImagePicker _picker1 = ImagePicker();
   var imagesTemporary;
   File? imagefile;
-  File? imagefile1;
-  File? videofile;
-  TextEditingController _lastmatch = TextEditingController(text: "");
-  TextEditingController _pos = TextEditingController(text: "");
+
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool isLoading = true;
   XFile? image;
   XFile? video;
   List<XFile>? _imageFileList;
-  List<Path> images = [];
+
   int? select;
   String? it;
   bool isloading = true;
-  Timer? timer;
 
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    viewap();
+    setState(() {
+      imagefile = File((profileviewmodal?.profileViewPlayer?.profilePic).toString());
+    });
+  }
   @override
 
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgcolor,
+      backgroundColor:
+      bgcolor
+      // Colors.black
+      ,
       drawer: drawer1(),
       key: _scaffoldKey,
       body: SingleChildScrollView(
@@ -118,14 +132,14 @@ class _EditProfileState extends State<EditProfile> {
                                 :CachedNetworkImage(
                               fit: BoxFit.cover,
                               imageUrl:
-                              widget.profile.toString(),
+                              profileviewmodal?.profileViewPlayer?.profilePic ?? "",
                               progressIndicatorBuilder:
                                   (context, url, progress) =>
                                   CircularProgressIndicator(),
                               errorWidget: (context, url, error) =>
                                   Image.asset(
                                     'assets/user.png',
-                                    color: Colors.white,
+                                    color: Colors.black,
                                   ),
                             ),),
                       ),
@@ -143,7 +157,10 @@ class _EditProfileState extends State<EditProfile> {
                               child: Container(
                                   padding: EdgeInsets.all(2.w),
                                   decoration: BoxDecoration(
-                                      color: bgcolor,
+                                      color:
+                                      // bgcolor
+                                      Colors.black
+                                      ,
                                       borderRadius: BorderRadius.circular(20)),
                                   child: const Icon(
                                     Icons.camera_alt_outlined,
@@ -154,71 +171,124 @@ class _EditProfileState extends State<EditProfile> {
                   SizedBox(
                     height: 4.h,
                   ),
-                  TextFormField(
-                    style: TextStyle(color: Colors.white),
-                    controller: _user,
-                    keyboardType: TextInputType.text,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Enter the Name";
-                      }
-                      return null;
-                    },
-                    decoration: inputDecoration(
-                      lable: "Full Name",
-                      icon: Icon(Icons.person),
+
+                  Container(
+                    padding: EdgeInsets.all(5.w),
+                    margin: EdgeInsets.all(5.w),
+                    // height: .h,
+                    width: 90.w,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20.0),
+                        border: Border.all(color: Colors.black)),
+                    child: Form(
+
+                      child: Column(
+                        children: [
+                          TextFormField(
+                            controller: _user,
+                            keyboardType: TextInputType.text,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Please enter the user name";
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black),
+                                ),
+                                suffixIcon: Icon(
+                                  Icons.person,
+                                  color: Colors.black,
+                                ),
+                                hintText: "Full Name",
+                                hintStyle: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'game',
+                                    letterSpacing: 2,
+                                    fontSize: 12.sp)),
+                          ),
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                          TextFormField(
+                            controller: _age,
+                            keyboardType: TextInputType.text,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Please enter the age";
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black),
+                                ),
+                                suffixIcon: Icon(
+                                    Icons.person_pin_circle_outlined,
+                                  color: Colors.black,
+                                ),
+                                hintText: "Age",
+                                hintStyle: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'game',
+                                    letterSpacing: 2,
+                                    fontSize: 12.sp)),
+                          ),
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                          TextFormField(
+                            controller: _about,
+                            keyboardType: TextInputType.text,
+                            maxLines: 5,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Enter About Detials";
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black),
+                                ),
+                                suffixIcon: Icon(
+                                    Icons.info_outline_rounded,
+                                  color: Colors.black,
+                                ),
+                                hintText: "About",
+                                hintStyle: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'game',
+                                    letterSpacing: 2,
+                                    fontSize: 12.sp)),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-
-                  SizedBox(
-                    height: 4.h,
-                  ),
-                  TextFormField(
-                    style: TextStyle(color: Colors.white),
-                    controller: _age,
-                    keyboardType: TextInputType.text,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Give Age";
-                      }
-                      return null;
-                    },
-                    decoration:
-                    inputDecoration(lable: "Age", icon: Icon(Icons.person_pin_circle_outlined,color: Colors.grey,)),
-                  ),
-                  SizedBox(
-                    height: 4.h,
-                  ),
-                  TextFormField(
-                    style: TextStyle(color: Colors.white),
-                    maxLines: 5,
-                    controller: _about,
-                    keyboardType: TextInputType.text,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Enter About Detials";
-                      }
-                      return null;
-                    },
-                    decoration: inputDecoration(
-                        lable: "About", icon: Icon(Icons.info_outline_rounded,color: Colors.grey,)),
-                  ),
-
-
-
                   SizedBox(
                     height: 4.h,
                   ),
                   Center(
                     child: InkWell(
                       onTap: () async {
-
-
+                          editap();
                       },
                       child: Container(
                         padding: EdgeInsets.all(3.w),
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white),
+                            border: Border.all(color: Colors.black),
                             borderRadius: BorderRadius.circular(10)),
                         child: Text(
                           'Update Profile',
@@ -240,8 +310,7 @@ class _EditProfileState extends State<EditProfile> {
   }
 
   TextStyle textStyle =
-  TextStyle(color: Colors.white, fontSize: 12.sp, fontFamily: "Meta1");
-
+  TextStyle(color: Colors.black, fontSize: 12.sp, fontFamily: "Meta1");
   TextStyle textStyle1 = TextStyle(
       fontFamily: "Meta1",
       fontSize: 10.sp,
@@ -255,7 +324,7 @@ class _EditProfileState extends State<EditProfile> {
     return InputDecoration(
       floatingLabelBehavior: FloatingLabelBehavior.always,
       contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 1.5.h),
-      fillColor: bgcolor,
+      fillColor: Colors.grey.shade200,
       hoverColor:bgcolor,
       focusColor: bgcolor,
       filled: true,
@@ -293,182 +362,64 @@ class _EditProfileState extends State<EditProfile> {
       ),
     );
   }
+  editap(){
+    final Map<String, String> data = {};
+    data['username'] = _user.text.trim().toString();
+    data['age'] = _age.text.trim().toString();
+    data['about'] = _about.text.trim().toString();
+    data['img_file'] = imagefile!.path;
+    data['action'] = 'profile_update_player';
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().profileupdateapi(data).then((response) async {
+          usermodal = UserModal.fromJson(json.decode(response.body));
+          if (response.statusCode == 200 && usermodal?.status == "success") {
+            setState(() {
+              // isLoading = false;
+            });
+            buildErrorDialog(context, 'Error', "Profile Updated Successfully");
+          } else {
+          }
+        });
+      } else {
+        setState(() {
+          // isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
+  viewap(){
+    final Map<String, String> data = {};
 
-  // name
-  // experience
-  // position
-  // age
-  // profile_image
-  // images
-  // videos
+    data['uid'] = usermodal?.userData?.uid ??"";
+    data['action'] = 'profile_view_player';
 
-  // playerapi1() {
-  //   final Map<String, String> data = {};
-  //   data['action'] = 'view_profile_details';
-  //   data['uid'] = userData?.userData?.uid ?? '';
-  //
-  //   checkInternet().then((internet) async {
-  //     if (internet) {
-  //       authprovider().profileapi(data).then((Response response) async {
-  //         profiledata = ProfileModal.fromJson(json.decode(response.body));
-  //
-  //         if (response.statusCode == 200 && userData?.status == "success") {
-  //           print(
-  //               '========================================== I\'m Here ===========');
-  //           setState(() {
-  //             _about.text = profiledata?.viewProfileDetails?.about ?? '';
-  //             isloading = false;
-  //           });
-  //
-  //           await SaveDataLocal.saveLogInData(userData!);
-  //           print(userData?.status);
-  //           print(userData?.userData?.uid);
-  //
-  //           // buildErrorDialog(context, "", "Login Successfully");
-  //         } else {
-  //           setState(() {
-  //             isloading = false;
-  //           });
-  //         }
-  //       });
-  //     } else {
-  //       setState(() {
-  //         isloading = false;
-  //       });
-  //       buildErrorDialog(context, 'Error', "Internate Required");
-  //     }
-  //   });
-  // }
-  //
-  // playerapi() {
-  //
-  //   final Map<String, String> data = {};
-  //   data['action'] = 'update_profile_app';
-  //   data['uid'] = userData!.userData!.uid.toString();
-  //   data['name'] = _user.text.trim();
-  //   data['experience'] = _exp.text.trim();
-  //   data['age'] = _age.text.trim();
-  //   data['position'] = _pos.text.trim();
-  //   data['about'] = _about.text.trim();
-  //   data['profile_image'] = imagefile != null ? imagefile!.path : "";
-  //   data['images[]'] = imagefile1 != null ? imagefile1!.path : "";
-  //   data['video'] = videofile != null ? videofile?.path ?? '' : "";
-  //
-  //   checkInternet().then((internet) async {
-  //     if (internet) {
-  //       EasyLoading.show(status: 'Updating Profile ...');
-  //       authprovider().updateprofileapi(data).then((Response response) async {
-  //         profiledata = ProfileModal.fromJson(json.decode(response.body));
-  //
-  //         if (response.statusCode == 200 && profiledata?.status == "success") {
-  //           EasyLoading.showSuccess(' Profile Updated Successfully!');
-  //           SuccessDialog(context, 'Done', 'Profile Changed Successfully');
-  //
-  //           await SaveDataLocal.saveLogInData(userData!);
-  //           print(userData?.status);
-  //           print(userData!.userData!.uid);
-  //
-  //           // buildErrorDialog(context, "", "Login Successfully");
-  //         } else {
-  //           EasyLoading.showError(' Profile error!');
-  //           setState(() {});
-  //         }
-  //       });
-  //     } else {
-  //       setState(() {});
-  //       buildErrorDialog(context, 'Error', "Internate Required");
-  //     }
-  //   });
-  // }
-  //
-  //
-  // viddlt() {
-  //   final Map<String, String> data = {};
-  //   data['action'] = 'delete_video';
-  //   data['uid'] = userData!.userData!.uid.toString();
-  //
-  //   checkInternet().then((internet) async {
-  //     if (internet) {
-  //       authprovider().delevideoapi(data).then((Response response) async {
-  //         profiledata = ProfileModal.fromJson(json.decode(response.body));
-  //
-  //         if (response.statusCode == 200 && profiledata?.status == "success") {
-  //           update();
-  //           await SaveDataLocal.saveLogInData(userData!);
-  //           print(userData?.status);
-  //           print(userData!.userData!.uid);
-  //
-  //           // buildErrorDialog(context, "", "Login Successfully");
-  //         } else {
-  //           setState(() {});
-  //         }
-  //       });
-  //     } else {
-  //       setState(() {});
-  //       buildErrorDialog(context, 'Error', "Internate Required");
-  //     }
-  //   });
-  // }
-  //
-  // imgdlt() {
-  //   final Map<String, String> data = {};
-  //   data['action'] = 'delete_images';
-  //   data['uid'] = userData!.userData!.uid.toString();
-  //   data['image_name'] = it.toString();
-  //
-  //   checkInternet().then((internet) async {
-  //     if (internet) {
-  //       authprovider().deletephotoapi(data).then((Response response) async {
-  //         profiledata = ProfileModal.fromJson(json.decode(response.body));
-  //
-  //         if (response.statusCode == 200 && profiledata?.status == "success") {
-  //           update();
-  //           await SaveDataLocal.saveLogInData(userData!);
-  //           print(userData?.status);
-  //           print(userData!.userData!.uid);
-  //
-  //           // buildErrorDialog(context, "", "Login Successfully");
-  //         } else {
-  //           setState(() {});
-  //         }
-  //       });
-  //     } else {
-  //       setState(() {});
-  //       buildErrorDialog(context, 'Error', "Internate Required");
-  //     }
-  //   });
-  // }
-  //
-  // update() {
-  //   final Map<String, String> data = {};
-  //   data['action'] = 'view_profile_details';
-  //   data['uid'] = userData!.userData!.uid.toString();
-  //
-  //   checkInternet().then((internet) async {
-  //     if (internet) {
-  //       authprovider().profileapi(data).then((Response response) async {
-  //         profiledata = ProfileModal.fromJson(json.decode(response.body));
-  //
-  //         if (response.statusCode == 200 && userData?.status == "success") {
-  //           print('======================' +
-  //               profiledata!.viewProfileDetails!.about!);
-  //           setState(() {
-  //             _about.text = profiledata!.viewProfileDetails!.about.toString();
-  //           });
-  //
-  //           await SaveDataLocal.saveLogInData(userData!);
-  //           print(userData?.status);
-  //           print(userData!.userData!.uid);
-  //
-  //           // buildErrorDialog(context, "", "Login Successfully");
-  //         } else {
-  //           setState(() {});
-  //         }
-  //       });
-  //     } else {
-  //       setState(() {});
-  //       buildErrorDialog(context, 'Error', "Internate Required");
-  //     }
-  //   });
-  // }
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().profileviewapi(data).then((response) async {
+          profileviewmodal = ProfileviewModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && profileviewmodal?.status == "success") {
+           setState(() {
+             _user.text = (profileviewmodal?.profileViewPlayer?.name).toString();
+             _age.text = profileviewmodal?.profileViewPlayer?.age ?? "";
+             _about.text = profileviewmodal?.profileViewPlayer?.about ??"";
+             imagefile = File((profileviewmodal?.profileViewPlayer?.profilePic).toString());
+           });
+
+            setState(() {
+              // isLoading = false;
+            });
+          } else {
+          }
+        });
+      } else {
+        setState(() {
+          // isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
 }

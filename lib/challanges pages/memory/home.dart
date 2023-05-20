@@ -34,7 +34,10 @@ class _MemoryChallengeState extends State<MemoryChallenge> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgcolor,
+      backgroundColor:
+      bgcolor
+
+      ,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,

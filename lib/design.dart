@@ -48,25 +48,34 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: bgcolor,
-        appBar: appbar1(title1: 'Roll Dice', press: (){}, icn: Icon(null), act: (){}, icn1: Icon(null)),
+    return Scaffold(
+        backgroundColor: bgcolor
+        // Colors.black
+        ,
+        appBar: appbar1(
+            title1: 'Roll Dice',
+            press: () {},
+            icn: Icon(null),
+            act: () {},
+            icn1: Icon(null)),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             // mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-
-              SizedBox(height: 10.h,),
-
-
+              SizedBox(
+                height: 10.h,
+              ),
               Stack(
                 children: [
                   Container(
                     height: MediaQuery.of(context).size.width,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white),
-                      color: bgcolor,
+                      border: Border.all(color: Colors.black),
+                      color: bgcolor
+                      // Colors.black
+                      ,
                       shape: BoxShape.rectangle,
                     ),
                   ),
@@ -79,50 +88,62 @@ class _designState extends State<design> with TickerProviderStateMixin {
                         height: 160,
                         width: 160,
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white),
-                          color: bgcolor,
+                          border: Border.all(color: Colors.black),
+                          color: bgcolor
+                          // Colors.black
+                          ,
                           shape: BoxShape.rectangle,
                         ),
                         child: Stack(
                           children: [
-                            Positioned(left: 18.w,top: 8.h,
+                            Positioned(
+                              left: 18.w,
+                              top: 8.h,
                               child: Visibility(
                                 visible: !_showImage,
                                 child: (_value == 6)
                                     ? Image.asset(
                                         "assets/dice/6.png",
                                         height: 100.0,
-                                        width: 100.0,color: Colors.white,
+                                        width: 100.0,
+                                        color: Colors.black,
                                       )
                                     : (_value == 5)
                                         ? Image.asset(
                                             "assets/dice/5.png",
                                             height: 100.0,
-                                            width: 100.0,color: Colors.white,
+                                            width: 100.0,
+                                            color: Colors.black,
                                           )
                                         : (_value == 4)
                                             ? Image.asset(
                                                 "assets/dice/4.png",
                                                 height: 100.0,
-                                                width: 100.0,color: Colors.white,
+                                                width: 100.0,
+                                                color: Colors.black,
                                               )
                                             : (_value == 3)
                                                 ? Image.asset(
                                                     "assets/dice/3.png",
                                                     height: 100.0,
-                                                    width: 100.0,color: Colors.white,
+                                                    width: 100.0,
+                                                    color: Colors.black,
                                                   )
                                                 : (_value == 2)
                                                     ? Image.asset(
                                                         "assets/dice/2.png",
                                                         height: 100.0,
-                                                        width: 100.0,color: Colors.white,
+                                                        width: 100.0,
+                                                        color: Colors.black,
                                                       )
-                                                    :(_value == 1) ?Image.asset(
-                                                        "assets/dice/1.png",
-                                                        height: 100.0,
-                                                        width: 100.0,color: Colors.white,
-                                                      ):Container(),
+                                                    : (_value == 1)
+                                                        ? Image.asset(
+                                                            "assets/dice/1.png",
+                                                            height: 100.0,
+                                                            width: 100.0,
+                                                            color: Colors.black,
+                                                          )
+                                                        : Container(),
                               ),
                             ),
                             Visibility(
@@ -189,9 +210,10 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 5.0, vertical: 3.0),
                                   decoration: BoxDecoration(
-                                    border: Border.all(color: primary),
+                                      border: Border.all(color: primary),
                                       color: secondary,
-                                      borderRadius: BorderRadius.circular(20.0)),
+                                      borderRadius:
+                                          BorderRadius.circular(20.0)),
                                   child: Text(
                                     'Start',
                                     style: TextStyle(color: primary),
@@ -254,7 +276,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                             "Remove your apponent piece",
                             maxLines: 4,
                             overflow: TextOverflow.ellipsis,
-                            textAlign: TextAlign.center, style: TextStyle(color: primary),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: primary),
                           )),
                         ),
                       )),
@@ -291,7 +314,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                             child: Text(
                           "Answer a Question to pickup a pieace",
                           textAlign: TextAlign.center,
-                              style: TextStyle(color: primary),
+                          style: TextStyle(color: primary),
                         )),
                       ),
                     ),
@@ -346,7 +369,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                         child: Center(
                             child: Text(
                           "Answer a Question to pickup a pieace",
-                          textAlign: TextAlign.center, style: TextStyle(color: primary),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: primary),
                         )),
                       ),
                     ),
@@ -401,8 +425,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                     child: CustomPaint(
                         painter: JigsawClipper11(),
                         child: Container(
-                          padding:
-                              EdgeInsets.only(top: 15.0, right: 40.0),
+                          padding: EdgeInsets.only(top: 15.0, right: 40.0),
                           alignment: Alignment.center,
                           // height: 100,
                           // width:80,
@@ -411,12 +434,14 @@ class _designState extends State<design> with TickerProviderStateMixin {
                           //   // color: Colors.green,
                           //   // shape: BoxShape.rectangle,
                           // ),
-                          child: SizedBox(width: 24.w,
-                              child: Align(alignment:Alignment.centerLeft ,
+                          child: SizedBox(
+                              width: 24.w,
+                              child: Align(
+                                alignment: Alignment.centerLeft,
                                 child: Text(
-                            "Answer a Question to pickup a pieace",
-                            style: TextStyle(color: primary),
-                          ),
+                                  "Answer a Question to pickup a pieace",
+                                  style: TextStyle(color: primary),
+                                ),
                               )),
                         )),
                   ),
@@ -457,7 +482,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-SizedBox(height:3.7.h),
+                              SizedBox(height: 3.7.h),
                               GestureDetector(
                                 onTap: () {
                                   setState(() {
@@ -473,9 +498,11 @@ SizedBox(height:3.7.h),
                                     });
                                   });
                                 },
-                                child: Text((_value == 0)?'Roll Dice':"Roll again", style: TextStyle(color: Colors.white),),
+                                child: Text(
+                                  (_value == 0) ? 'Roll Dice' : "Roll again",
+                                  style: TextStyle(color: Colors.black),
+                                ),
                               ),
-
                             ],
                           )),
                     ),
@@ -500,29 +527,55 @@ SizedBox(height:3.7.h),
                   ),
                 ],
               ),
-
-              SizedBox(height: 2.h,),
-              (_value == 0)?Align(alignment: Alignment.center,child: Text('* Tap on Roll Dice To Start Game *',style: primarytxt1,)):Align(alignment: Alignment.center,child: Text('Player 1 - Has To Run ${_value} times',style: playertxt1,)),
-              SizedBox(height: 3.h,),
+              SizedBox(
+                height: 2.h,
+              ),
+              (_value == 0)
+                  ? Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        '* Tap on Roll Dice To Start Game *',
+                        style: primarytxt1,
+                      ))
+                  : Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Player 1 - Has To Run ${_value} times',
+                        style: playertxt1,
+                      )),
+              SizedBox(
+                height: 3.h,
+              ),
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 5.w),
+                padding: EdgeInsets.symmetric(horizontal: 5.w),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Row(mainAxisAlignment: MainAxisAlignment.start,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
                           height: 30.0,
                           width: 30.0,
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.pink),
+                              shape: BoxShape.circle, color: Colors.pink),
                         ),
-                        SizedBox(width: 2.w,),
-                        Text('-',style: TextStyle(color: Colors.white,fontSize: 25.sp),),
-                        SizedBox(width: 2.w,),
-Text('Player 1',style: mainstyle1,),
+                        SizedBox(
+                          width: 2.w,
+                        ),
+                        Text(
+                          '-',
+                          style:
+                              TextStyle(color: Colors.black, fontSize: 25.sp),
+                        ),
+                        SizedBox(
+                          width: 2.w,
+                        ),
+                        Text(
+                          'Player 1',
+                          style: mainstyle1,
+                        ),
                         // SizedBox(width: 2.w,),
                         // (_value == 0)?Container():Text('You Have to Run : ${_value.toString()} times',style: secondarytxt,),
                       ],
@@ -530,7 +583,8 @@ Text('Player 1',style: mainstyle1,),
                     SizedBox(
                       height: 3.h,
                     ),
-                    Row(mainAxisAlignment: MainAxisAlignment.start,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
@@ -539,10 +593,22 @@ Text('Player 1',style: mainstyle1,),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: Colors.deepOrangeAccent),
-                        ),  SizedBox(width: 2.w,),
-                        Text('-',style: TextStyle(color: Colors.white,fontSize: 25.sp),),
-                        SizedBox(width: 2.w,),
-                        Text('Player 2',style: mainstyle1,),
+                        ),
+                        SizedBox(
+                          width: 2.w,
+                        ),
+                        Text(
+                          '-',
+                          style:
+                              TextStyle(color: Colors.black, fontSize: 25.sp),
+                        ),
+                        SizedBox(
+                          width: 2.w,
+                        ),
+                        Text(
+                          'Player 2',
+                          style: mainstyle1,
+                        ),
                       ],
                     )
                   ],
@@ -552,5 +618,4 @@ Text('Player 1',style: mainstyle1,),
           ),
         ));
   }
-
 }

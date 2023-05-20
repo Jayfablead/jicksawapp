@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:sizer/sizer.dart';
+const Color bgcolor = Colors.white;
 
-const Color bgcolor = Color.fromARGB(255, 18, 28, 36);
+// const Color bgcolor = Color.fromARGB(255, 18, 28, 36);
 const Color primary = Colors.deepOrangeAccent;
 Color secondary = Colors.grey.withOpacity(0.2);
+
 const Color cCorrect = Color(0xFF538D4E);
 const Color cInWorld = Color(0xFFB49F3A);
 const Color cNotInWorld = Color(0xFF3A3A3C);
@@ -33,25 +35,31 @@ AppBar appbar1(
 }
 
 TextStyle mainstyle = TextStyle(
-  color: Colors.white,
+  color: Colors.black,
   fontSize: 15.sp,
   fontFamily: 'game',
   letterSpacing: 2,
 );
 TextStyle mainstyle1 = TextStyle(
-  color: Colors.white,
+  color: Colors.black,
   fontSize: 13.sp,
   fontFamily: 'game',
   letterSpacing: 2,
 );
 TextStyle primarytxt = TextStyle(
-  color: Colors.white,
+  color: Colors.black,
+  fontSize: 13.sp,
+  fontFamily: 'game',
+  letterSpacing: 2,
+);
+TextStyle primarytxto = TextStyle(
+  color: primary,
   fontSize: 13.sp,
   fontFamily: 'game',
   letterSpacing: 2,
 );
 TextStyle header = TextStyle(
-  color: Colors.white,
+  color: Colors.black,
   fontSize: 15.sp,
   fontFamily: 'game',
   letterSpacing: 2,
@@ -63,7 +71,7 @@ TextStyle mail = TextStyle(
   letterSpacing: 2,
 );
 TextStyle primarytxtbig = TextStyle(
-  color: Colors.white,
+  color: Colors.black,
   fontSize: 15.sp,
   fontFamily: 'game',
   letterSpacing: 2,
@@ -96,16 +104,22 @@ TextStyle secondarytxt2 = TextStyle(
   letterSpacing: 2,
 );
 TextStyle secondarytxtwhite = TextStyle(
-  color: Colors.white,
+  color: Colors.black,
   fontSize: 13.sp,
   fontFamily: 'game',
   letterSpacing: 2,
 );
 TextStyle secondarytxtwhite1 = TextStyle(
-  color: Colors.white,
+  color: Colors.black,
   fontSize: 11.5.sp,
   fontFamily: 'game',
   letterSpacing: 1,
+);
+TextStyle appname = TextStyle(
+  color: Colors.black,
+  fontSize: 12.sp,
+  fontFamily: 'game',
+  letterSpacing: 1.5,
 );
 TextStyle textbtn = TextStyle(
   color: primary,
@@ -185,7 +199,7 @@ void exit(context) {
                       style: TextStyle(color: Color(0xffff0000)),
                     ),
                     onPressed: () {
-                      exit(0);
+             exit(context);
                     }),
                 CupertinoButton(
                     child: Text('No'),

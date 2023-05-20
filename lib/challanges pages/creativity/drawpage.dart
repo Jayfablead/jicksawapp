@@ -46,7 +46,7 @@ class _DrawingPageState extends State<DrawingPage> {
               pickerColor: brushColor,
               onColorChanged: (color) {
                 setState(
-                      () {
+                  () {
                     brushColor = color;
                   },
                 );
@@ -73,7 +73,13 @@ class _DrawingPageState extends State<DrawingPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Select brush size'),
+          backgroundColor:
+          bgcolor
+          ,
+          title: const Text(
+            'Select brush size',
+            style: TextStyle(color: Colors.white),
+          ),
           content: SizedBox(
             height: 400,
             child: Column(
@@ -82,7 +88,7 @@ class _DrawingPageState extends State<DrawingPage> {
                 TextButton(
                   onPressed: () {
                     setState(
-                          () {
+                      () {
                         brushStrokeWidth = 1;
                       },
                     );
@@ -96,7 +102,7 @@ class _DrawingPageState extends State<DrawingPage> {
                 TextButton(
                   onPressed: () {
                     setState(
-                          () {
+                      () {
                         brushStrokeWidth = 2;
                       },
                     );
@@ -110,7 +116,7 @@ class _DrawingPageState extends State<DrawingPage> {
                 TextButton(
                   onPressed: () {
                     setState(
-                          () {
+                      () {
                         brushStrokeWidth = 3;
                       },
                     );
@@ -124,7 +130,7 @@ class _DrawingPageState extends State<DrawingPage> {
                 TextButton(
                   onPressed: () {
                     setState(
-                          () {
+                      () {
                         brushStrokeWidth = 4;
                       },
                     );
@@ -138,7 +144,7 @@ class _DrawingPageState extends State<DrawingPage> {
                 TextButton(
                   onPressed: () {
                     setState(
-                          () {
+                      () {
                         brushStrokeWidth = 5;
                       },
                     );
@@ -152,7 +158,7 @@ class _DrawingPageState extends State<DrawingPage> {
                 TextButton(
                   onPressed: () {
                     setState(
-                          () {
+                      () {
                         brushStrokeWidth = 6;
                       },
                     );
@@ -166,7 +172,7 @@ class _DrawingPageState extends State<DrawingPage> {
                 TextButton(
                   onPressed: () {
                     setState(
-                          () {
+                      () {
                         brushStrokeWidth = 7;
                       },
                     );
@@ -180,7 +186,7 @@ class _DrawingPageState extends State<DrawingPage> {
                 TextButton(
                   onPressed: () {
                     setState(
-                          () {
+                      () {
                         brushStrokeWidth = 8;
                       },
                     );
@@ -198,7 +204,7 @@ class _DrawingPageState extends State<DrawingPage> {
             TextButton(
               onPressed: () {
                 setState(
-                      () {
+                  () {
                     Navigator.of(context).pop();
                   },
                 );
@@ -222,19 +228,18 @@ class _DrawingPageState extends State<DrawingPage> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color(0xff232323),
-                  Color(0xff4f4f4f),
+                  bgcolor,
+                  Color.fromARGB(255, 21, 36, 47)
                 ],
               ),
             ),
           ),
           Center(
             child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 2.w),
+              padding: EdgeInsets.symmetric(horizontal: 2.w),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -251,12 +256,15 @@ class _DrawingPageState extends State<DrawingPage> {
                         'Creativity Challange',
                         style: primarytxt1,
                       ),
-                     IconButton(onPressed: (){}, icon: Icon(Icons.done,color: primary))
+                      IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.done, color: primary))
                     ],
                   ),
                   SizedBox(
                     height: 1.5.h,
-                  ),SizedBox(
+                  ),
+                  SizedBox(
                       width: 90.w,
                       child: Text(
                         'Question :',
@@ -272,7 +280,8 @@ class _DrawingPageState extends State<DrawingPage> {
                         'Draw Something Beautiful.',
                         textAlign: TextAlign.justify,
                         style: primarytxtbig,
-                      )),SizedBox(
+                      )),
+                  SizedBox(
                     height: 4.h,
                   ),
                   Container(
@@ -299,7 +308,7 @@ class _DrawingPageState extends State<DrawingPage> {
                     child: GestureDetector(
                       onPanDown: (details) {
                         setState(
-                              () {
+                          () {
                             points.add(
                               DrawingBoard(
                                 points: details.localPosition,
@@ -315,7 +324,7 @@ class _DrawingPageState extends State<DrawingPage> {
                       },
                       onPanUpdate: (details) {
                         setState(
-                              () {
+                          () {
                             points.add(
                               DrawingBoard(
                                 points: details.localPosition,
@@ -331,7 +340,7 @@ class _DrawingPageState extends State<DrawingPage> {
                       },
                       onPanEnd: (details) {
                         setState(
-                              () {
+                          () {
                             points.add(
                               DrawingBoard(
                                 brush: Paint()
@@ -397,7 +406,7 @@ class _DrawingPageState extends State<DrawingPage> {
                           child: TextButton(
                             onPressed: () {
                               setState(
-                                    () {
+                                () {
                                   changeBrushSize();
                                 },
                               );
@@ -442,13 +451,13 @@ class ScreenPainter extends CustomPainter {
 
   ScreenPainter(
       {required this.points,
-        required this.brushColor,
-        required this.brushStrokeWidth});
+      required this.brushColor,
+      required this.brushStrokeWidth});
 
   @override
   void paint(Canvas canvas, Size size) {
     Paint background = Paint()..color = const Color(0xff171717);
-    Rect rect = Rect.fromLTWH(0, 0,90.w, 75.h);
+    Rect rect = Rect.fromLTWH(0, 0, 90.w, 75.h);
     canvas.drawRect(rect, background);
 
     for (int x = 0; x < points.length - 1; x++) {

@@ -45,7 +45,10 @@ class _WordleScreenState extends State<WordleScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: bgcolor,
+    return Scaffold(backgroundColor:
+    bgcolor
+    //   Colors.black
+      ,
 
       body: Padding(
         padding: EdgeInsets.only(top: 3.h,bottom: 2.5.h,left: 3.w,right: 3.w),
@@ -64,10 +67,10 @@ Get.back();
                       color: primary,
                     )),
                 SizedBox(
-                  width: 22.w,
+                  width: 16.w,
                 ),
                 Text(
-                  'Challanges page',
+                  'Word Challange',
                   style: primarytxt1,
                 ),
               ],

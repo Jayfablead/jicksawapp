@@ -114,7 +114,10 @@ class _MathtPageState extends State<MathtPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgcolor,
+      backgroundColor:
+      bgcolor
+      // Colors.black
+      ,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Questions/gameinfo.dart';
+import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/design.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -44,7 +45,10 @@ class _mainpage2State extends State<mainpage2> {
   Widget build(BuildContext context) {
     return Scaffold(
       key:_scaffoldKey,
-      backgroundColor: bgcolor,
+      backgroundColor:
+      Colors.white
+      // bgcolor
+      ,
       drawer: drawer1(),
       body: WillPopScope(
         onWillPop: dialog,
@@ -59,7 +63,7 @@ class _mainpage2State extends State<mainpage2> {
                   children: [
                     IconButton(
                         onPressed: () {
-                          print('object');
+
                           _scaffoldKey.currentState?.openDrawer();
                         },
                         icon: Icon(
@@ -68,7 +72,6 @@ class _mainpage2State extends State<mainpage2> {
                         )),
                     SizedBox(width: 30.w,),
                     Text('Home',style: primarytxt1,),
-
                   ],
                 ),
                 SizedBox(height: 2.h,),
@@ -77,9 +80,9 @@ class _mainpage2State extends State<mainpage2> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Hii Mr.John",
+                      "Hii " + (usermodal?.userData?.name).toString() + " !!",
                       style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 17.sp,
                           fontWeight: FontWeight.normal,
                           fontFamily: 'game'),
@@ -88,7 +91,7 @@ class _mainpage2State extends State<mainpage2> {
                       onTap: () {},
                       child: Icon(
                         Icons.category,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     )
                   ],
@@ -96,8 +99,8 @@ class _mainpage2State extends State<mainpage2> {
                 SizedBox(
                   height: 3.h,
                 ),
-                Container(
-                  height: 4.h,
+                Container(alignment: Alignment.center,
+                  height: 5.h,
                   // width: MediaQuery.of(context).size.width,
                   child: ListView.builder(
                       physics: const BouncingScrollPhysics(),
@@ -112,21 +115,22 @@ class _mainpage2State extends State<mainpage2> {
                             });
                           },
                           child: Container(
-                            height: 4.h,
+                            alignment: Alignment.center,
+                            height: 6.h,
                             padding: EdgeInsets.symmetric(
                                 horizontal: 3.w, vertical: 1.h),
                             margin: EdgeInsets.only(right: 3.w),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20.0),
-                              color: (select == index) ? primary : secondary,
+                              color: (select == index) ? primary : Colors.black,
                             ),
                             child: Text(
                               data[index].toString(),
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: (select == index) ?Colors.black :Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'game',
-                                  fontSize: 10.sp),
+                                  fontFamily: 'game',letterSpacing: 1.5,
+                                  fontSize: 11.sp),
                             ),
                           ),
                         );
@@ -142,7 +146,7 @@ class _mainpage2State extends State<mainpage2> {
                         fontFamily: 'game',
                         fontWeight: FontWeight.bold,
                         fontSize: 15.sp,
-                        color: Colors.white),
+                        color: Colors.black),
                   ),
                 ),
                 SizedBox(
@@ -261,7 +265,7 @@ class _mainpage2State extends State<mainpage2> {
                         fontFamily: 'game',
                         fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                        color: Colors.black),
                   ),
                 ),
                 SizedBox(

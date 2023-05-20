@@ -21,7 +21,10 @@ padding: EdgeInsets.symmetric(vertical: 0.5.h),
             style: TextStyle(
               fontSize: 22.0,
               fontWeight: FontWeight.bold,
-              color: bgcolor,
+              color:
+              bgcolor
+
+                ,
               fontFamily: 'game',letterSpacing: 2
             ),
           ),

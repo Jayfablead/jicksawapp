@@ -56,7 +56,10 @@ class _ShopmainPageState extends State<ShopmainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: bgcolor,
+      backgroundColor:
+      bgcolor
+      // Colors.black
+      ,
       drawer: drawer1(),
       body: SingleChildScrollView(
         child: Center(
@@ -91,7 +94,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                   height: 2.h,
                 ),
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -99,15 +102,15 @@ class _ShopmainPageState extends State<ShopmainPage> {
                       style: TextStyle(
                           wordSpacing: 3,
                           letterSpacing: 1,
-                          color: Colors.white,
-                          fontSize: 13.sp,
+                          color: Colors.black,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.normal,
                           fontFamily: 'game'),
                     ),
                     Container(
                       margin: EdgeInsets.symmetric(horizontal: 1.w),
-                      height: 4.h,
-                      width: 8.w,
+                      height: 5.h,
+                      width: 10.w,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(90),
                         child: CachedNetworkImage(
@@ -117,7 +120,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                               CircularProgressIndicator(),
                           errorWidget: (context, url, error) => Image.asset(
                             'assets/user.png',
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -143,7 +146,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                   ],
                 ),
                 Divider(
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
                 SizedBox(
                   height: 10,
@@ -199,7 +202,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                                   children: [
                                     Text(
                                       popular[index].name.toString(),
-                                      style: secondarytxtwhite1,
+                                      style: appname,
                                     ),
                                     Row(
                                       children: [
@@ -237,7 +240,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                 //   ],
                 // ),
                 Divider(
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
 
                 SizedBox(
@@ -286,12 +289,12 @@ class _ShopmainPageState extends State<ShopmainPage> {
                                 width: 10.w,
                               ),
                               SizedBox(
-                                width: 30.w,
+                                width: 32.w,
                                 child: Row(
                                   children: [
                                     Text(
                                       popular[index].name.toString(),
-                                      style: secondarytxtwhite1,
+                                      style: appname,
                                     ),
                                   ],
                                 ),
@@ -324,7 +327,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                                   onPressed: () {},
                                   icon: Icon(
                                     Icons.more_vert_rounded,
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     size: 15.sp,
                                   ))
                             ],
@@ -352,7 +355,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                   ],
                 ),
                 Divider(
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
                 SizedBox(
                   height: 10,
@@ -407,7 +410,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                                   children: [
                                     Text(
                                       popular[index].name.toString(),
-                                      style: secondarytxtwhite1,
+                                      style: appname,
                                     ),
                                     Row(
                                       children: [

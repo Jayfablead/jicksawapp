@@ -1,10 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
 import 'package:jicksaw/Screen/initScreen.dart';
 import 'package:jicksaw/Screen/login.dart';
+import 'package:jicksaw/Widget/const.dart';
+import 'package:jicksaw/Widget/sharedpreferance.dart';
 
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
@@ -20,13 +23,20 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+  }
+
+  @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: 5), () {
       return Get.offAll(()=>Initscreen());
     });
     return SafeArea(
         child: Scaffold(
-          backgroundColor: bgcolor,
+          backgroundColor: Colors.white,
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,

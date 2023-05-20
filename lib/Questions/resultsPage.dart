@@ -43,7 +43,10 @@ class _ResultsPageState extends State<ResultsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgcolor,
+      backgroundColor:
+      bgcolor
+
+      ,
       appBar: appbar1(
           title1: 'Results Screen',
           press: () {},

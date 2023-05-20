@@ -26,7 +26,7 @@ class BoardTile extends StatelessWidget {
       child: Text(
         letter.val,
         style: const TextStyle(
-          fontSize: 32,color: Colors.white,
+          fontSize: 32,color: Colors.black,
           fontWeight: FontWeight.bold,
         ),
       ),

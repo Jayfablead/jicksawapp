@@ -14,7 +14,7 @@ class Move extends StatelessWidget {
       child: Text(
         "Move :  ${move}",
         style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             decoration: TextDecoration.none,
             fontSize: 18,fontFamily: 'game',letterSpacing: 2,fontWeight: FontWeight.w400
         ),

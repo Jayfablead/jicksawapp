@@ -56,7 +56,10 @@ class _GameInfoState extends State<GameInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgcolor,
+      backgroundColor:
+      bgcolor
+      // Colors.black
+      ,
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -169,7 +172,7 @@ class _GameInfoState extends State<GameInfo> {
                   height: 0.5.h,
                 ),
                 Divider(
-                  color: Colors.white54,
+                  color: Colors.black,
                 ),
                 SizedBox(
                   height: 0.5.h,
@@ -182,7 +185,7 @@ class _GameInfoState extends State<GameInfo> {
                   height: 2.h,
                 ),
                 Divider(
-                  color: Colors.white54,
+                  color: Colors.black,
                 ),
                 SizedBox(
                   height: 1.h,
@@ -225,7 +228,7 @@ class _GameInfoState extends State<GameInfo> {
                   ),
                 ),
                 Divider(
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

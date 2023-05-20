@@ -14,7 +14,7 @@ class Board extends StatefulWidget {
 }
 
 class _BoardState extends State<Board> {
-  var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 14];
   int move = 0;
 
   static const duration = const Duration(seconds: 1);
@@ -39,7 +39,10 @@ class _BoardState extends State<Board> {
 
     return Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
       height: size.height,
-      color: bgcolor,
+      color:
+      bgcolor
+// Colors.black
+      ,
       child: Column(
 
         children: <Widget>[

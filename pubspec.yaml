@@ -50,6 +50,10 @@ dependencies:
   equatable: ^2.0.3
   #flip tile animation
   flip_card: ^0.6.0
+  connectivity:
+  provider:
+  http:
+  shared_preferences:
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -86,6 +90,7 @@ flutter:
     - assets/
     - assets/dice/
     - assets/memory/
+    - assets/reward_cup/125119-confeti (2).json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

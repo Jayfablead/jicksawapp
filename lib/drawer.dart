@@ -6,10 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/main%20Pages/challenges%20page.dart';
 import 'package:jicksaw/main%20Pages/porfilePage.dart';
+import 'package:jicksaw/main%20Pages/progress.dart';
+import 'package:jicksaw/main%20Pages/rank_page.dart';
+import 'package:jicksaw/main%20Pages/reward_page.dart';
+import 'package:jicksaw/main%20Pages/settings.dart';
 import 'package:jicksaw/main%20Pages/shoppage.dart';
+import 'package:jicksaw/main%20Pages/subscription_page.dart';
 
 import 'package:sizer/sizer.dart';
 
@@ -37,10 +43,12 @@ class _drawer1State extends State<drawer1> {
         child: Drawer(
       child: Container(
         color: bgcolor,
+        // color: Colors.black,
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: widthDrawer,
-          color: bgcolor,
+           color: bgcolor,
+          // color: Colors.black,
           child: ListView(
             //padding: EdgeInsets.all(2.w),
             children: [
@@ -78,13 +86,13 @@ class _drawer1State extends State<drawer1> {
                           borderRadius: BorderRadius.circular(90),
                           child: CachedNetworkImage(
                             fit: BoxFit.cover,
-                            imageUrl: '',
+                            imageUrl: (profileviewmodal?.profileViewPlayer?.profilePic).toString(),
                             progressIndicatorBuilder:
                                 (context, url, progress) =>
                                     CircularProgressIndicator(),
                             errorWidget: (context, url, error) => Image.asset(
                               'assets/user.png',
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
                           ),
                         ),
@@ -103,9 +111,9 @@ class _drawer1State extends State<drawer1> {
                             height: 0.5.h,
                           ),
                           Text(
-                            'John Wick',
+                            usermodal?.userData?.name ?? "",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Colors.black,
                                 fontSize: 12.sp,
                                 fontFamily: 'Meta1',
                                 fontWeight: FontWeight.w600),
@@ -115,7 +123,7 @@ class _drawer1State extends State<drawer1> {
                           ),
                           SizedBox(
                             width: 42.w,
-                            child: Text('johnwick.won@gmail.com',
+                            child: Text(usermodal?.userData?.eMail ?? "",
                                 maxLines: 2,
                                 style: TextStyle(
                                     color: primary,
@@ -160,7 +168,7 @@ class _drawer1State extends State<drawer1> {
                                   children: [
                                     Icon(
                                       CupertinoIcons.house,
-                                      color: Colors.white,
+                                      color: Colors.black,
                                     ),
                                     SizedBox(
                                       width: 2.w,
@@ -170,13 +178,13 @@ class _drawer1State extends State<drawer1> {
                                           fontSize:12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
-                                          color: Colors.white,
+                                          color: Colors.black,
                                         )),
                                   ],
                                 ),
                                 Icon(
                                   Icons.chevron_right_rounded,
-                                  color: Colors.white,
+                                  color: Colors.black,
                                 )
                               ],
                             ),
@@ -212,7 +220,7 @@ class _drawer1State extends State<drawer1> {
                                   children: [
                                     Icon(
                                       Icons.shopify_rounded,
-                                      color: Colors.white,
+                                      color: Colors.black,
                                     ),
                                     SizedBox(
                                       width: 2.w,
@@ -222,13 +230,13 @@ class _drawer1State extends State<drawer1> {
                                           fontSize:12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
-                                          color: Colors.white,
+                                          color: Colors.black,
                                         )),
                                   ],
                                 ),
                                 Icon(
                                   Icons.chevron_right_rounded,
-                                  color: Colors.white,
+                                  color: Colors.black,
                                 )
                               ],
                             ),
@@ -264,7 +272,7 @@ class _drawer1State extends State<drawer1> {
                                   children: [
                                     Icon(
                                       Icons.person_outline_rounded,
-                                      color: Colors.white,
+                                      color: Colors.black,
                                     ),
                                     SizedBox(
                                       width: 2.w,
@@ -274,13 +282,13 @@ class _drawer1State extends State<drawer1> {
                                           fontSize:12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
-                                          color: Colors.white,
+                                          color: Colors.black,
                                         )),
                                   ],
                                 ),
                                 Icon(
                                   Icons.chevron_right_rounded,
-                                  color: Colors.white,
+                                  color: Colors.black,
                                 )
                               ],
                             ),
@@ -315,7 +323,7 @@ class _drawer1State extends State<drawer1> {
                                   children: [
                                     Icon(
                                       Icons.chalet_outlined,
-                                      color: Colors.white,
+                                      color: Colors.black,
                                     ),
                                     SizedBox(
                                       width: 2.w,
@@ -325,17 +333,280 @@ class _drawer1State extends State<drawer1> {
                                           fontSize:12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
-                                          color: Colors.white,
+                                          color: Colors.black,
                                         )),
                                   ],
                                 ),
                                 Icon(
                                   Icons.chevron_right_rounded,
-                                  color: Colors.white,
+                                  color: Colors.black,
                                 )
                               ],
                             ),
                           ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Get.to(()=>progress());
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (context) => mainpage2(),
+                      //   ),
+                      // );
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 6.w,
+                          ),
+                          Container(
+                            width: 66.w,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.circle_notifications_sharp,
+                                      color: Colors.black,
+                                    ),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Text("Progress",
+                                        style: TextStyle(
+                                          fontSize:12.sp,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: 'Meta1',
+                                          color: Colors.black,
+                                        )),
+                                  ],
+                                ),
+                                Icon(
+                                  Icons.chevron_right_rounded,
+                                  color: Colors.black,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Get.to(()=>reward());
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (context) => mainpage2(),
+                      //   ),
+                      // );
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 6.w,
+                          ),
+                          Container(
+                            width: 66.w,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.currency_bitcoin,
+                                      color: Colors.black,
+                                    ),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Text("Rewards",
+                                        style: TextStyle(
+                                          fontSize:12.sp,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: 'Meta1',
+                                          color: Colors.black,
+                                        )),
+                                  ],
+                                ),
+                                Icon(
+                                  Icons.chevron_right_rounded,
+                                  color: Colors.black,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Get.to(()=>subscription());
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (context) => mainpage2(),
+                      //   ),
+                      // );
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 6.w,
+                          ),
+                          Container(
+                            width: 66.w,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.subscriptions_outlined,
+                                      color: Colors.black,
+                                    ),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Text("Subscription",
+                                        style: TextStyle(
+                                          fontSize:12.sp,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: 'Meta1',
+                                          color: Colors.black,
+                                        )),
+                                  ],
+                                ),
+                                Icon(
+                                  Icons.chevron_right_rounded,
+                                  color: Colors.black,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Get.to(()=>setting());
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (context) => mainpage2(),
+                      //   ),
+                      // );
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 6.w,
+                          ),
+                          Container(
+                            width: 66.w,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.settings,
+                                      color: Colors.black,
+                                    ),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Text("Settings",
+                                        style: TextStyle(
+                                          fontSize:12.sp,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: 'Meta1',
+                                          color: Colors.black,
+                                        )),
+                                  ],
+                                ),
+                                Icon(
+                                  Icons.chevron_right_rounded,
+                                  color: Colors.black,
+                                )
+                              ],
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Get.to(()=>rank());
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (context) => mainpage2(),
+                      //   ),
+                      // );
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 6.w,
+                          ),
+                          Container(
+                            width: 66.w,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.stacked_bar_chart,
+                                      color: Colors.black,
+                                    ),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Text("Ranking",
+                                        style: TextStyle(
+                                          fontSize:12.sp,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: 'Meta1',
+                                          color: Colors.black,
+                                        )),
+                                  ],
+                                ),
+                                Icon(
+                                  Icons.chevron_right_rounded,
+                                  color: Colors.black,
+                                )
+                              ],
+                            ),
+                          ),
+
                         ],
                       ),
                     ),

@@ -1,8 +1,16 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:http/http.dart';
+import 'package:jicksaw/Modal/UserModal.dart';
+import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Screen/Forgot%20Password.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Widget/buildErrorDialog.dart';
+import 'package:jicksaw/Widget/const.dart';
+import 'package:jicksaw/Widget/sharedpreferance.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/jigsawclipper.dart';
 import 'package:jicksaw/Screen/signup.dart';
@@ -30,7 +38,8 @@ class _loginState extends State<login> {
           width: double.infinity.w,
           decoration: BoxDecoration(
              color: bgcolor,
-           
+            // color: Colors.black,
+
           ),
           child: SingleChildScrollView(
             child: Column(
@@ -50,13 +59,13 @@ class _loginState extends State<login> {
                         alignment: Alignment.center,
                         child: Icon(
                           Icons.arrow_back_ios_new_rounded,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                         height: 4.7.h,
                         width: 9.w,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(90),
-                            border: Border.all(color: Colors.white))),
+                            border: Border.all(color: Colors.black))),
                   ),
                 ),
                 SizedBox(
@@ -77,7 +86,7 @@ class _loginState extends State<login> {
                     child: Text(
                   "Jigsaw Puzzle",
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontWeight: FontWeight.w700,
                       fontSize: 17.sp,
                       letterSpacing: 2,
@@ -92,9 +101,9 @@ class _loginState extends State<login> {
                   // height: .h,
                   width: 90.w,
                   decoration: BoxDecoration(
-                      color: Colors.black12,
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(20.0),
-                      border: Border.all(color: Colors.white)),
+                      border: Border.all(color: Colors.black)),
                   child: Form(
                     key: _formKey,
                     child: Column(
@@ -110,21 +119,21 @@ class _loginState extends State<login> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                               suffixIcon: Icon(
                                 Icons.person,
-                                color: Colors.grey.shade100,
+                                color: Colors.black,
                               ),
                               hintText: "User Name",
                               hintStyle: TextStyle(
-                                  color: Colors.grey.shade100,
+                                  color: Colors.black,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
-                                  fontSize: 11.sp)),
+                                  fontSize: 12.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -140,21 +149,21 @@ class _loginState extends State<login> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                               suffixIcon: Icon(
-                                Icons.person,
-                                color: Colors.grey.shade100,
+                                Icons.lock,
+                                color: Colors.black,
                               ),
                               hintText: "Password",
                               hintStyle: TextStyle(
-                                  color: Colors.grey.shade100,
+                                  color: Colors.black,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
-                                  fontSize: 11.sp)),
+                                  fontSize: 12.sp)),
                         ),
                         Align(
                           alignment: Alignment.centerRight,
@@ -165,20 +174,21 @@ class _loginState extends State<login> {
                               child: Text(
                                 "Forgot Password?",
                                 style: TextStyle(
-                                    color: Colors.grey.shade100,
+                                    color: Colors.black,
                                     fontFamily: 'game',
                                     letterSpacing: 2,
-                                    fontSize: 10.sp),
+                                    fontSize: 12.sp),
                               )),
                         ),
                         GestureDetector(
                           onTap: () {
+                            loginap();
                             // Navigator.pushReplacement(
                             //     context,
                             //     MaterialPageRoute(
                             //       builder: (context) => mainpage2(),
                             //     ));
-                            Get.offAll(()=>mainpage2());
+
                           },
                           child: Container(
                             alignment: Alignment.center,
@@ -186,13 +196,13 @@ class _loginState extends State<login> {
                             width: 30.w,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10.0),
-                                border: Border.all(color: Colors.white)),
+                                border: Border.all(color: Colors.black)),
                             child: Text("Login",
                                 style: TextStyle(
-                                    color: Colors.grey.shade100,
+                                    color: Colors.black,
                                     fontFamily: 'game',
                                     letterSpacing: 2,
-                                    fontSize: 12.sp)),
+                                    fontSize: 14.sp)),
                           ),
                         )
                       ],
@@ -214,7 +224,7 @@ class _loginState extends State<login> {
                       },
                       child: Text("New Member ?",
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 10.sp,
                               fontFamily: 'game',
                               fontWeight: FontWeight.w400)),
@@ -227,5 +237,42 @@ class _loginState extends State<login> {
         )
       ],
     ));
+  }
+  loginap(){
+    if (_formKey.currentState!.validate()) {
+      final Map<String, String> data = {};
+      data['email'] = _user.text.trim().toString();
+      data['password'] = _pasa.text.trim().toString();
+      data['action'] = 'login_player';
+
+      checkInternet().then((internet) async {
+        if (internet) {
+          authprovider().loginapi(data).then((Response response) async {
+            usermodal = UserModal.fromJson(json.decode(response.body));
+
+            if (response.statusCode == 200 && usermodal?.status == "success") {
+
+              setState(() {
+                // isLoading = false;
+              });
+              await SaveDataLocal.saveLogInData(usermodal!);
+
+              Get.offAll(()=>mainpage2());
+
+
+
+            } else {
+              buildErrorDialog(
+                  context, "Login Error", (usermodal?.message).toString());
+            }
+          });
+        } else {
+          setState(() {
+            // isLoading = false;
+          });
+          buildErrorDialog(context, 'Error', "Internate Required");
+        }
+      });
+    }
   }
 }

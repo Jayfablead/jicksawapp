@@ -18,7 +18,7 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
+    return AlertDialog(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       backgroundColor: bgcolor,
       content: Container(
         height: 200,

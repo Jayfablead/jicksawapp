@@ -4,12 +4,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:http/http.dart';
+import 'package:jicksaw/Provider/ProfileviewModal.dart';
+import 'package:jicksaw/Provider/authprovider.dart';
+import 'package:jicksaw/Widget/buildErrorDialog.dart';
+import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:jicksaw/main%20Pages/edit%20profile.dart';
-
+import 'package:http/http.dart';
 import 'package:sizer/sizer.dart';
 
 class MyProfile extends StatefulWidget {
@@ -19,30 +21,35 @@ class MyProfile extends StatefulWidget {
   State<MyProfile> createState() => _MyProfileState();
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-List img = [
-  "assets/ney.jpg",
-  "assets/ney2.jpg",
-  "assets/ney3.webp",
-  "assets/ney1.jpg",
-  "assets/ney.jpg"
-];
-TextEditingController _about = TextEditingController();
-TextEditingController _CurrTeam = TextEditingController();
-TextEditingController _prevclub = TextEditingController();
-TextEditingController _exp = TextEditingController();
-TextEditingController _position = TextEditingController();
-bool isloading = true;
-bool isPlay = false;
 
 class _MyProfileState extends State<MyProfile> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  List img = [
+    "assets/ney.jpg",
+    "assets/ney2.jpg",
+    "assets/ney3.webp",
+    "assets/ney1.jpg",
+    "assets/ney.jpg"
+  ];
+  bool isloading = true;
+  bool isPlay = false;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    viewap();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
       key: _scaffoldKey,
-      backgroundColor: bgcolor,
+      backgroundColor:
+      bgcolor
+      // Colors.black
+      ,
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
@@ -56,7 +63,6 @@ class _MyProfileState extends State<MyProfile> {
                   children: [
                     IconButton(
                         onPressed: () {
-                          print('object');
                           _scaffoldKey.currentState?.openDrawer();
                         },
                         icon: Icon(
@@ -64,7 +70,7 @@ class _MyProfileState extends State<MyProfile> {
                           color: primary,
                         )),
                     SizedBox(
-                      width: 30.w,
+                      width: 25.w,
                     ),
                     Text(
                       'My Profile',
@@ -88,12 +94,12 @@ class _MyProfileState extends State<MyProfile> {
                         borderRadius: BorderRadius.circular(90),
                         child: CachedNetworkImage(
                           fit: BoxFit.cover,
-                          imageUrl: '',
+                          imageUrl: (profileviewmodal?.profileViewPlayer?.profilePic).toString(),
                           progressIndicatorBuilder: (context, url, progress) =>
                               CircularProgressIndicator(),
                           errorWidget: (context, url, error) => Image.asset(
                             'assets/user.png',
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -105,11 +111,11 @@ class _MyProfileState extends State<MyProfile> {
                         children: [
                           Container(
                             width: 50.w,
-                            child: Text('John Wick', style: header),
+                            child: Text(profileviewmodal?.profileViewPlayer?.name ?? "", style: header),
                           ),
                           Container(
                             width: 50.w,
-                            child: Text('johnwick.won@gmail.com', style: mail),
+                            child: Text(profileviewmodal?.profileViewPlayer?.eMail ?? "", style: mail),
                           ),
                         ],
                       ),
@@ -127,7 +133,7 @@ class _MyProfileState extends State<MyProfile> {
                         child: Container(
                             padding: EdgeInsets.all(2.w),
                             decoration: BoxDecoration(
-                                border: Border.all(color: Colors.white),
+                                border: Border.all(color: Colors.black),
                                 borderRadius: BorderRadius.circular(10)),
                             child: Text(
                               'Edit Profile',
@@ -144,7 +150,7 @@ class _MyProfileState extends State<MyProfile> {
                       children: [
                         Icon(
                           Icons.personal_injury_outlined,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                         SizedBox(width: 2.w),
                         Text(
@@ -152,7 +158,7 @@ class _MyProfileState extends State<MyProfile> {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                              color: Color(0xffffffff),
+                              color: Colors.black,
                               letterSpacing: 2,
                               fontFamily: "game",
                               fontWeight: FontWeight.w500,
@@ -166,7 +172,7 @@ class _MyProfileState extends State<MyProfile> {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                              color: Color(0xffffffff),
+                              color: Colors.black,
                               letterSpacing: 2,
                               fontFamily: "game",
                               fontWeight: FontWeight.w500,
@@ -223,7 +229,7 @@ class _MyProfileState extends State<MyProfile> {
                       children: [
                         Icon(
                           Icons.games_outlined,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                         SizedBox(width: 2.w),
                         Text(
@@ -231,7 +237,7 @@ class _MyProfileState extends State<MyProfile> {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                              color: Color(0xffffffff),
+                              color: Colors.black,
                               letterSpacing: 2,
                               fontFamily: "game",
                               fontWeight: FontWeight.w500,
@@ -243,11 +249,11 @@ class _MyProfileState extends State<MyProfile> {
                         SizedBox(
                           width: 40.w,
                           child: Text(
-                            '',
+                            '60/100',
                             maxLines: 3,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                                color: Color(0xffffffff),
+                                color: Colors.black,
                                 letterSpacing: 2,
                                 fontFamily: "game",
                                 fontWeight: FontWeight.w500,
@@ -264,7 +270,7 @@ class _MyProfileState extends State<MyProfile> {
                       children: [
                         Icon(
                           Icons.sports_baseball_outlined,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                         SizedBox(width: 2.w),
                         Text(
@@ -272,7 +278,7 @@ class _MyProfileState extends State<MyProfile> {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                              color: Color(0xffffffff),
+                              color: Colors.black,
                               letterSpacing: 2,
                               fontFamily: "game",
                               fontWeight: FontWeight.w500,
@@ -284,11 +290,11 @@ class _MyProfileState extends State<MyProfile> {
                         SizedBox(
                           width: 40.w,
                           child: Text(
-                            '',
+                            '70',
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                                color: Color(0xffffffff),
+                                color: Colors.black,
                                 letterSpacing: 2,
                                 fontFamily: "game",
                                 fontWeight: FontWeight.w500,
@@ -306,7 +312,7 @@ class _MyProfileState extends State<MyProfile> {
                   children: [
                     Icon(
                       Icons.person_outline,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                     SizedBox(width: 2.w),
                     Text(
@@ -314,7 +320,7 @@ class _MyProfileState extends State<MyProfile> {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                          color: Color(0xffffffff),
+                          color: Colors.black,
                           letterSpacing: 2,
                           fontFamily: "game",
                           fontWeight: FontWeight.w500,
@@ -324,11 +330,11 @@ class _MyProfileState extends State<MyProfile> {
                       width: 12.3.w,
                     ),
                     Text(
-                      '',
+                      profileviewmodal?.profileViewPlayer?.age == null || profileviewmodal?.profileViewPlayer?.age == ""?"N/A": profileviewmodal?.profileViewPlayer?.age  ?? "",
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                          color: Color(0xffffffff),
+                          color: Colors.black,
                           letterSpacing: 2,
                           fontFamily: "game",
                           fontWeight: FontWeight.w500,
@@ -346,7 +352,7 @@ class _MyProfileState extends State<MyProfile> {
                       children: [
                         Icon(
                           Icons.info_outline_rounded,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                         SizedBox(width: 2.w),
                         Text(
@@ -354,7 +360,7 @@ class _MyProfileState extends State<MyProfile> {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                              color: Color(0xffffffff),
+                              color: Colors.black,
                               letterSpacing: 2,
                               fontFamily: "game",
                               fontWeight: FontWeight.w500,
@@ -369,7 +375,7 @@ class _MyProfileState extends State<MyProfile> {
                       child: SizedBox(
                         width: 70.w,
                         child: Divider(
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                     ),
@@ -383,8 +389,8 @@ class _MyProfileState extends State<MyProfile> {
                       child: Padding(
                         padding: EdgeInsets.only(top: 2.h, bottom: 2.h),
                         child: Text(
-                          '',
-                          style: secondarytxtwhite,
+                          profileviewmodal?.profileViewPlayer?.about == null || profileviewmodal?.profileViewPlayer?.about == ""?"N/A": profileviewmodal?.profileViewPlayer?.about  ?? "",
+                          style: appname,
                         ),
                       ),
                     ),
@@ -399,6 +405,33 @@ class _MyProfileState extends State<MyProfile> {
         ),
       ),
     );
+  }
+  viewap(){
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ??"";
+    data['action'] = 'profile_view_player';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().profileviewapi(data).then((response) async {
+          profileviewmodal = ProfileviewModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && profileviewmodal?.status == "success") {
+
+            setState(() {
+              // isLoading = false;
+            });
+          } else {
+          }
+        });
+      } else {
+        setState(() {
+          // isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
   }
 }
 

@@ -17,7 +17,10 @@ class _StorypageState extends State<Storypage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgcolor,
+      backgroundColor:
+      bgcolor
+// Colors.black
+      ,
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
@@ -74,10 +77,10 @@ class _StorypageState extends State<Storypage> {
                 TextField(
                   maxLines: 15,
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontFamily: 'game',
                       letterSpacing: 2),
-                  cursorColor: Colors.white60,
+                  cursorColor: Colors.black,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: primary),
@@ -96,7 +99,7 @@ class _StorypageState extends State<Storypage> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     hintStyle: TextStyle(
-                      color: Colors.grey[800],
+                      color: Colors.grey[500],
                       fontFamily: 'game',
                     ),
                     hintText: "Type your story here",

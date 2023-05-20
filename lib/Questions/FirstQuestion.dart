@@ -33,7 +33,10 @@ class _FirstQueState extends State<FirstQue> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgcolor,
+      backgroundColor:
+      bgcolor
+      // Colors.black
+      ,
       appBar: appbar1(
         title1: 'Question',
         press: () {
