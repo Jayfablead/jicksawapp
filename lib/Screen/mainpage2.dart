@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -44,9 +46,8 @@ class _mainpage2State extends State<mainpage2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key:_scaffoldKey,
-      backgroundColor:
-      Colors.white
+      key: _scaffoldKey,
+      backgroundColor: Colors.white
       // bgcolor
       ,
       drawer: drawer1(),
@@ -58,23 +59,31 @@ class _mainpage2State extends State<mainpage2> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 3.h,),
+                SizedBox(
+                  height: 4.h,
+                ),
                 Row(
                   children: [
                     IconButton(
                         onPressed: () {
-
                           _scaffoldKey.currentState?.openDrawer();
                         },
                         icon: Icon(
                           Icons.menu_rounded,
                           color: primary,
                         )),
-                    SizedBox(width: 30.w,),
-                    Text('Home',style: primarytxt1,),
+                    SizedBox(
+                      width: 30.w,
+                    ),
+                    Text(
+                      'Home',
+                      style: primarytxt1,
+                    ),
                   ],
                 ),
-                SizedBox(height: 2.h,),
+                SizedBox(
+                  height: 2.h,
+                ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,7 +108,8 @@ class _mainpage2State extends State<mainpage2> {
                 SizedBox(
                   height: 3.h,
                 ),
-                Container(alignment: Alignment.center,
+                Container(
+                  alignment: Alignment.center,
                   height: 5.h,
                   // width: MediaQuery.of(context).size.width,
                   child: ListView.builder(
@@ -127,9 +137,12 @@ class _mainpage2State extends State<mainpage2> {
                             child: Text(
                               data[index].toString(),
                               style: TextStyle(
-                                  color: (select == index) ?Colors.black :Colors.white,
+                                  color: (select == index)
+                                      ? Colors.white
+                                      : Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'game',letterSpacing: 1.5,
+                                  fontFamily: 'game',
+                                  letterSpacing: 1.5,
                                   fontSize: 11.sp),
                             ),
                           ),
@@ -204,8 +217,7 @@ class _mainpage2State extends State<mainpage2> {
                             padding:
                                 EdgeInsets.only(top: 10, right: 15, left: 10),
                             child: Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 CircularPercentIndicator(
                                   radius: 20.sp,
@@ -216,13 +228,13 @@ class _mainpage2State extends State<mainpage2> {
                                   progressColor: Colors.black87,
                                 ),
                                 GestureDetector(
-                                  onTap: () => Get.to(()=>Tutorial()),
+                                  onTap: () => Get.to(() => Tutorial()),
                                   child: Transform(
                                     transform: Matrix4.skewX(-0.05),
                                     origin: Offset(50.0, 50.0),
                                     child: Material(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10)),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
                                       child: Padding(
                                         padding: EdgeInsets.only(
                                             left: 30,
@@ -311,8 +323,7 @@ class _mainpage2State extends State<mainpage2> {
                               Padding(
                                 padding: EdgeInsets.only(top: 15.h, left: 12),
                                 child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       past[index].name.toString(),
@@ -327,9 +338,8 @@ class _mainpage2State extends State<mainpage2> {
                                     ),
                                     Container(
                                       decoration: BoxDecoration(
-                                        color:
-                                            Color.fromRGBO(245, 196, 148, 1)
-                                                .withOpacity(0.5),
+                                        color: Color.fromRGBO(245, 196, 148, 1)
+                                            .withOpacity(0.5),
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(20)),
                                       ),
@@ -361,8 +371,7 @@ class _mainpage2State extends State<mainpage2> {
                                       height: 2.h,
                                     ),
                                     Text(
-                                      "Score : " +
-                                          past[index].score.toString(),
+                                      "Score : " + past[index].score.toString(),
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 12.sp,
@@ -394,7 +403,35 @@ class _mainpage2State extends State<mainpage2> {
   }
 
   Future<bool> dialog() async {
-    exit(context);
+    close();
     return await false;
+  }
+
+  void close() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return CupertinoAlertDialog(
+            content: Text(
+              '!! Are You Sure? \n You Want to Quit !!',
+              style: TextStyle(fontSize: 16),
+            ),
+            actions: [
+              CupertinoButton(
+                  child: Text(
+                    'Yes',
+                    style: TextStyle(color: Color(0xffff0000)),
+                  ),
+                  onPressed: () {
+                  exit(0);
+                  }),
+              CupertinoButton(
+                  child: Text('No'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
+            ],
+          );
+        });
   }
 }

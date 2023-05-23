@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 // import 'package:get/get_core/src/get_main.dart';
 import 'package:jicksaw/Modal/UserModal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
@@ -30,6 +31,7 @@ class _signupState extends State<signup> {
   TextEditingController _phone = TextEditingController();
   TextEditingController _conf = TextEditingController();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,8 +41,7 @@ class _signupState extends State<signup> {
           height: double.infinity.h,
           width: double.infinity.w,
           decoration: BoxDecoration(
-            color:
-            bgcolor
+            color: bgcolor
             // Colors.black
             ,
           ),
@@ -71,10 +72,9 @@ class _signupState extends State<signup> {
                   ),
                 ),
                 Center(
-                  child:  Container(
+                  child: Container(
                     height: 20.h,
                     width: 90.w,
-
                     child: Lottie.asset('assets/lin.json'),
                   ),
                 ),
@@ -97,17 +97,21 @@ class _signupState extends State<signup> {
                 Container(
                   padding: EdgeInsets.all(5.w),
                   margin: EdgeInsets.all(5.w),
-                  height: 55.h,
                   width: 90.w,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20.0),
-                      border: Border.all(color: Colors.black)),
+                      border: Border.all(color: Colors.deepOrange)),
                   child: Form(
                     key: _formKey,
                     child: Column(
                       children: [
                         TextFormField(
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'game',
+                              letterSpacing: 2,
+                              fontSize: 12.sp),
                           controller: _user,
                           keyboardType: TextInputType.text,
                           validator: (value) {
@@ -118,16 +122,22 @@ class _signupState extends State<signup> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                                borderSide:
+                                    BorderSide(color: Colors.deepOrange),
                               ),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                                borderSide:
+                                    BorderSide(color: Colors.deepOrange),
                               ),
                               suffixIcon: Icon(
                                 Icons.person,
                                 color: Colors.black,
                               ),
                               hintText: "User Name",
+                              errorStyle: TextStyle(
+                                  fontFamily: 'game',
+                                  letterSpacing: 1,
+                                  fontSize: 10.sp),
                               hintStyle: TextStyle(
                                   color: Colors.black,
                                   fontFamily: 'game',
@@ -138,6 +148,11 @@ class _signupState extends State<signup> {
                           height: 2.h,
                         ),
                         TextFormField(
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'game',
+                              letterSpacing: 2,
+                              fontSize: 12.sp),
                           controller: _email,
                           keyboardType: TextInputType.emailAddress,
                           validator: (value) {
@@ -164,16 +179,22 @@ class _signupState extends State<signup> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                                borderSide:
+                                    BorderSide(color: Colors.deepOrange),
                               ),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                                borderSide:
+                                    BorderSide(color: Colors.deepOrange),
                               ),
                               suffixIcon: Icon(
                                 Icons.email_outlined,
                                 color: Colors.black,
                               ),
                               hintText: "Email",
+                              errorStyle: TextStyle(
+                                  fontFamily: 'game',
+                                  letterSpacing: 1,
+                                  fontSize: 10.sp),
                               hintStyle: TextStyle(
                                   color: Colors.black,
                                   fontFamily: 'game',
@@ -184,6 +205,11 @@ class _signupState extends State<signup> {
                           height: 2.h,
                         ),
                         TextFormField(
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'game',
+                              letterSpacing: 2,
+                              fontSize: 12.sp),
                           controller: _phone,
                           keyboardType: TextInputType.phone,
                           validator: (value) {
@@ -196,16 +222,22 @@ class _signupState extends State<signup> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                                borderSide:
+                                    BorderSide(color: Colors.deepOrange),
                               ),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                                borderSide:
+                                    BorderSide(color: Colors.deepOrange),
                               ),
                               suffixIcon: Icon(
                                 Icons.phone,
                                 color: Colors.black,
                               ),
                               hintText: "Phone number",
+                              errorStyle: TextStyle(
+                                  fontFamily: 'game',
+                                  letterSpacing: 1,
+                                  fontSize: 10.sp),
                               hintStyle: TextStyle(
                                   color: Colors.black,
                                   fontFamily: 'game',
@@ -216,6 +248,11 @@ class _signupState extends State<signup> {
                           height: 2.h,
                         ),
                         TextFormField(
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'game',
+                              letterSpacing: 2,
+                              fontSize: 12.sp),
                           controller: _pasa,
                           keyboardType: TextInputType.text,
                           validator: (value) {
@@ -226,16 +263,22 @@ class _signupState extends State<signup> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                                borderSide:
+                                    BorderSide(color: Colors.deepOrange),
                               ),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                                borderSide:
+                                    BorderSide(color: Colors.deepOrange),
                               ),
                               suffixIcon: Icon(
                                 Icons.lock,
                                 color: Colors.black,
                               ),
                               hintText: "Password",
+                              errorStyle: TextStyle(
+                                  fontFamily: 'game',
+                                  letterSpacing: 1,
+                                  fontSize: 10.sp),
                               hintStyle: TextStyle(
                                   color: Colors.black,
                                   fontFamily: 'game',
@@ -246,6 +289,11 @@ class _signupState extends State<signup> {
                           height: 2.h,
                         ),
                         TextFormField(
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'game',
+                              letterSpacing: 2,
+                              fontSize: 12.sp),
                           controller: _conf,
                           keyboardType: TextInputType.text,
                           validator: (value) {
@@ -256,16 +304,22 @@ class _signupState extends State<signup> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                                borderSide:
+                                    BorderSide(color: Colors.deepOrange),
                               ),
                               focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                                borderSide:
+                                    BorderSide(color: Colors.deepOrange),
                               ),
                               suffixIcon: Icon(
                                 Icons.lock,
                                 color: Colors.black,
                               ),
                               hintText: " Confirm password",
+                              errorStyle: TextStyle(
+                                  fontFamily: 'game',
+                                  letterSpacing: 1,
+                                  fontSize: 10.sp),
                               hintStyle: TextStyle(
                                   color: Colors.black,
                                   fontFamily: 'game',
@@ -285,8 +339,8 @@ class _signupState extends State<signup> {
                             height: 5.h,
                             width: 30.w,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                border: Border.all(color: Colors.black)),
+                                borderRadius: BorderRadius.circular(30.0),
+                                color: Colors.deepOrangeAccent),
                             child: Text("Sign Up",
                                 style: TextStyle(
                                     color: Colors.black,
@@ -306,12 +360,11 @@ class _signupState extends State<signup> {
                     // Text("Don't have an account ? ",style:TextStyle(color: Colors.grey.shade100,fontSize: 9.sp,fontFamily: 'game',fontWeight: FontWeight.w400) ,),
                     TextButton(
                       onPressed: () {
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => login()));
+                      Get.offAll(login());
                       },
                       child: Text("Already Member ?",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.deepOrange,
                               fontSize: 12.sp,
                               fontFamily: 'game',
                               fontWeight: FontWeight.w400)),
@@ -325,8 +378,42 @@ class _signupState extends State<signup> {
       ],
     ));
   }
-  signupap(){
 
+  loginap() {
+    if (_formKey.currentState!.validate()) {
+      final Map<String, String> data = {};
+      data['email'] = _email.text.trim().toString();
+      data['password'] = _pasa.text.trim().toString();
+      data['action'] = 'login_player';
+
+      checkInternet().then((internet) async {
+        if (internet) {
+          authprovider().loginapi(data).then((response) async {
+            usermodal = UserModal.fromJson(json.decode(response.body));
+
+            if (response.statusCode == 200 && usermodal?.status == "success") {
+              setState(() {
+                // isLoading = false;
+              });
+              await SaveDataLocal.saveLogInData(usermodal!);
+
+              Get.offAll(() => const mainpage2());
+            } else {
+              buildErrorDialog(
+                  context, "Login Error", (usermodal?.message).toString());
+            }
+          });
+        } else {
+          setState(() {
+            // isLoading = false;
+          });
+          buildErrorDialog(context, 'Error', "Internate Required");
+        }
+      });
+    }
+  }
+
+  signupap() {
     if (_formKey.currentState!.validate()) {
       print("6467");
       final Map<String, String> data = {};
@@ -339,14 +426,17 @@ class _signupState extends State<signup> {
       print(data);
       checkInternet().then((internet) async {
         if (internet) {
-          authprovider().signupapi(data).then(( response)  async {
+          authprovider().signupapi(data).then((response) async {
             usermodal = UserModal.fromJson(json.decode(response.body));
             print(usermodal?.status);
             if (response.statusCode == 200 && usermodal?.status == "success") {
-              Get.offAll(()=>mainpage2());
+              _pasa.text == _conf.text
+                  ? loginap()
+                  : buildErrorDialog(context, "Password Error",
+                      (usermodal?.message).toString());
             } else {
               buildErrorDialog(
-                  context, "Login Error", (usermodal?.message).toString());
+                  context, "Signup Error", (usermodal?.message).toString());
             }
           });
         } else {

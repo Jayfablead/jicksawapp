@@ -7,7 +7,7 @@ import 'package:sizer/sizer.dart';
 const Color bgcolor = Colors.white;
 
 // const Color bgcolor = Color.fromARGB(255, 18, 28, 36);
-const Color primary = Colors.deepOrangeAccent;
+const Color primary = Colors.orange;
 Color secondary = Colors.grey.withOpacity(0.2);
 
 const Color cCorrect = Color(0xFF538D4E);
@@ -179,34 +179,3 @@ void home(context) {
       });
 }
 
-void exit(context) {
-  showDialog(
-      context: context,
-      builder: (context) {
-        return Theme(
-            data: ThemeData(
-                dialogBackgroundColor: bgcolor,
-                dialogTheme: DialogTheme(backgroundColor: bgcolor)),
-            child: CupertinoAlertDialog(
-              content: Text(
-                'You Want to Quit Application ?',
-                style: TextStyle(fontSize: 16),
-              ),
-              actions: [
-                CupertinoButton(
-                    child: Text(
-                      'Yes',
-                      style: TextStyle(color: Color(0xffff0000)),
-                    ),
-                    onPressed: () {
-             exit(context);
-                    }),
-                CupertinoButton(
-                    child: Text('No'),
-                    onPressed: () {
-                      Get.back();
-                    }),
-              ],
-            ));
-      });
-}

@@ -7,6 +7,7 @@ import 'package:http/http.dart';
 import 'package:jicksaw/Modal/UserModal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Screen/Forgot%20Password.dart';
+import 'package:jicksaw/Screen/initScreen.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/const.dart';
@@ -36,7 +37,7 @@ class _loginState extends State<login> {
         Container(
           height: double.infinity.h,
           width: double.infinity.w,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
              color: bgcolor,
             // color: Colors.black,
 
@@ -52,12 +53,12 @@ class _loginState extends State<login> {
                   padding: EdgeInsets.all(2.5.h),
                   child: InkWell(
                     onTap: () {
-                      Get.back();
+                      Get.offAll(Initscreen());
                       // Navigator.pop(context);
                     },
                     child: Container(
                         alignment: Alignment.center,
-                        child: Icon(
+                        child: const Icon(
                           Icons.arrow_back_ios_new_rounded,
                           color: Colors.black,
                         ),
@@ -103,12 +104,16 @@ class _loginState extends State<login> {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20.0),
-                      border: Border.all(color: Colors.black)),
+                      border: Border.all(color: Colors.deepOrange)),
                   child: Form(
                     key: _formKey,
                     child: Column(
                       children: [
-                        TextFormField(
+                        TextFormField(style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'game',
+                            letterSpacing: 2,
+                            fontSize: 12.sp),
                           controller: _user,
                           keyboardType: TextInputType.text,
                           validator: (value) {
@@ -118,17 +123,21 @@ class _loginState extends State<login> {
                             return null;
                           },
                           decoration: InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                              enabledBorder: const UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.deepOrange,)
                               ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                              focusedBorder: const UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.deepOrange),
                               ),
-                              suffixIcon: Icon(
+                              suffixIcon: const Icon(
                                 Icons.person,
                                 color: Colors.black,
                               ),
-                              hintText: "User Name",
+                              hintText: "User Name",errorStyle: TextStyle(
+
+                          fontFamily: 'game',
+                              letterSpacing: 1,
+                              fontSize: 10.sp),
                               hintStyle: TextStyle(
                                   color: Colors.black,
                                   fontFamily: 'game',
@@ -140,6 +149,11 @@ class _loginState extends State<login> {
                         ),
                         TextFormField(
                           controller: _pasa,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'game',
+                              letterSpacing: 2,
+                              fontSize: 12.sp),
                           keyboardType: TextInputType.text,
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -148,55 +162,54 @@ class _loginState extends State<login> {
                             return null;
                           },
                           decoration: InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                              enabledBorder: const UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.deepOrange),
                               ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                              focusedBorder: const UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.deepOrange),
                               ),
-                              suffixIcon: Icon(
+                              suffixIcon: const Icon(
                                 Icons.lock,
                                 color: Colors.black,
                               ),
-                              hintText: "Password",
+                              hintText: "Password",errorStyle: TextStyle(
+
+                              fontFamily: 'game',
+                              letterSpacing: 1,
+                              fontSize: 10.sp),
                               hintStyle: TextStyle(
                                   color: Colors.black,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
                                   fontSize: 12.sp)),
-                        ),
+                        ),SizedBox(height: 1.h,),
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
                               onPressed: () {
-                                Get.to(()=>Forgotpwd());
+                                Get.to(()=>const Forgotpwd());
                               },
                               child: Text(
                                 "Forgot Password?",
                                 style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.deepOrange,
                                     fontFamily: 'game',
                                     letterSpacing: 2,
                                     fontSize: 12.sp),
                               )),
-                        ),
+                        ),SizedBox(height: 1.h,),
                         GestureDetector(
                           onTap: () {
                             loginap();
-                            // Navigator.pushReplacement(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //       builder: (context) => mainpage2(),
-                            //     ));
-
                           },
                           child: Container(
                             alignment: Alignment.center,
                             height: 5.h,
                             width: 30.w,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                border: Border.all(color: Colors.black)),
+                                borderRadius: BorderRadius.circular(30.0),
+                              color: Colors.deepOrangeAccent
+                               ),
                             child: Text("Login",
                                 style: TextStyle(
                                     color: Colors.black,
@@ -210,7 +223,7 @@ class _loginState extends State<login> {
                   ),
                 ),
                 SizedBox(
-                  height: 20.h,
+                  height: 10.h,
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -220,12 +233,12 @@ class _loginState extends State<login> {
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => signup()));
+                            MaterialPageRoute(builder: (context) => const signup()));
                       },
                       child: Text("New Member ?",
                           style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 10.sp,
+                              color: Colors.deepOrange,
+                              fontSize: 12.sp,
                               fontFamily: 'game',
                               fontWeight: FontWeight.w400)),
                     )
@@ -257,7 +270,7 @@ class _loginState extends State<login> {
               });
               await SaveDataLocal.saveLogInData(usermodal!);
 
-              Get.offAll(()=>mainpage2());
+              Get.offAll(()=>const mainpage2());
 
 
 
