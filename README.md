@@ -1,6 +1,6 @@
-# Jigsaw
+# Jigsaw App
 
-A Flutter Game to Learn Things Easily.
+A Flutter App Which connects with physical board of jigsaw puzzle.
 
 ## Getting Started
 
