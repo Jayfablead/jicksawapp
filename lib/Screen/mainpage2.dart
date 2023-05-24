@@ -126,55 +126,9 @@ class _mainpage2State extends State<mainpage2> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 3.h,
-                ),
+
                 Container(
-                  alignment: Alignment.center,
-                  height: 5.h,
-                  // width: MediaQuery.of(context).size.width,
-                  child: ListView.builder(
-                      physics: const BouncingScrollPhysics(),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: data.length,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              select = index;
-                            });
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 6.h,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 5.w, vertical: 1.h),
-                            margin: EdgeInsets.only(right: 3.w),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30.0),
-                              color: (select == index) ? primary : Colors.black,
-                            ),
-                            child: Text(
-                              data[index].toString(),
-                              style: TextStyle(
-                                  color: (select == index)
-                                      ? Colors.white
-                                      : Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'game',
-                                  letterSpacing: 1.5,
-                                  fontSize: 11.sp),
-                            ),
-                          ),
-                        );
-                      }),
-                ),
-                SizedBox(
-                  height: 2.h,
-                ),
-                Container(
-                  height: 76.h,
+                  height: 85.h,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -268,7 +222,8 @@ class _mainpage2State extends State<mainpage2> {
                         ],
                       ),
                       Container(
-                        height: 15.h,padding: EdgeInsets.symmetric(horizontal: 3.w),
+                        height: 15.h,
+                        padding: EdgeInsets.symmetric(horizontal: 3.w),
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -280,16 +235,47 @@ class _mainpage2State extends State<mainpage2> {
                         child: Column(
                           children: [
                             Container(
-                              margin: EdgeInsets.only(top: 1.w),
-                              height: 0.65.h,
-                              width: 10.w,
+                              margin: EdgeInsets.only(top: 1.5.w),
+                              height: 0.5.h,
+                              width: 8.w,
                               decoration: BoxDecoration(
                                 color: Colors.deepOrange.withOpacity(0.7),
                                 borderRadius: BorderRadius.circular(10),
                               ),
-
                             ),
-                            Row(children: [Container(child: Row(children: [Image.asset('assets/1.jpg',height: 12.h,width: 24.w,)]),)],)
+                            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Image.asset(
+                                  'assets/1.jpg',
+                                  height: 12.h,
+                                  width: 24.w,
+                                ),
+                                Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text('Beginner ',style: TextStyle(
+                                          fontSize: 13.sp,
+                                          fontFamily: 'game'
+                                        ),),
+                                        SizedBox(width: 1.w),
+                                        Text('Level 1 ',style: TextStyle(
+                                          fontSize: 13.sp,
+                                          color: primary,
+                                          fontFamily: 'game'
+                                        ),),
+                                      ],
+                                    ),
+                                    SizedBox(height: 1.h,),
+                                    SizedBox(width:20.h,child: Text('Lerners Gain a deeper understanding',style: TextStyle(
+                                        fontSize: 13.sp,
+                                        fontFamily: 'game'
+                                    ),))
+                                  ],
+                                ),
+                                InkWell(onTap: (){},child: Container(alignment: Alignment.center,height: 4.5.h,padding: EdgeInsets.symmetric(horizontal: 4.w),decoration: BoxDecoration(color: primary,borderRadius: BorderRadius.circular(30)),child: Text('Start',style: TextStyle(color: Colors.white,fontFamily: 'game',fontSize: 14.sp),),))
+                              ],
+                            )
                           ],
                         ),
                       ),
