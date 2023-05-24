@@ -113,7 +113,8 @@ flutter:
         - asset: assets/fonts/feather_bold_by_typicalbro44_dee263c.ttf
     - family: game
       fonts:
-        - asset: assets/fonts/feather_bold_by_typicalbro44_dee263c.ttf
+        - asset: assets/fonts/Gumela.ttf
+          weight: 300
     - family: game1
       fonts:
         - asset: assets/fonts/Play_Gaming.otf

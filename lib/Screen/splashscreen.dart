@@ -46,8 +46,10 @@ class _SplashScreenState extends State<SplashScreen> {
           backgroundColor: Colors.white,
           body: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [SizedBox(
+                height: 10.h,
+              ),
                 Container(
                   // height: 90.h,
                   // width: 95.w,

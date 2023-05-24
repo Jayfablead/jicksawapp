@@ -106,225 +106,260 @@ class _signupState extends State<signup> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        TextFormField(
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'game',
-                              letterSpacing: 2,
-                              fontSize: 12.sp),
-                          controller: _user,
-                          keyboardType: TextInputType.text,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return "Please enter the user name";
-                            }
-                            return null;
-                          },
-                          decoration: InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: primary),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: primary),
-                              ),
-                              suffixIcon: Icon(
-                                Icons.person,
+                        Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                          decoration: BoxDecoration(
+                              color: secondary,
+                              borderRadius: BorderRadius.circular(20)),
+                          height: 7.h,
+                          alignment: Alignment.center,
+                          child: TextFormField(
+                            style: TextStyle(
                                 color: Colors.black,
-                              ),
-                              hintText: "User Name",
-                              errorStyle: TextStyle(
-                                  fontFamily: 'game',
-                                  letterSpacing: 1,
-                                  fontSize: 10.sp),
-                              hintStyle: TextStyle(
-                                  color: Colors.black87,
-                                  fontFamily: 'game',
-                                  letterSpacing: 2,
-                                  fontSize: 11.sp)),
-                        ),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        TextFormField(
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'game',
-                              letterSpacing: 2,
-                              fontSize: 12.sp),
-                          controller: _email,
-                          keyboardType: TextInputType.emailAddress,
-                          validator: (value) {
-                            String p = "[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
-                                "\\@" +
-                                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                                "(" +
-                                "\\." +
-                                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                                ")+";
-                            //Convert string p to a RegEx
-                            RegExp regExp = RegExp(p);
-                            if (value!.isEmpty) {
-                              return "Please enter the Email";
-                            } else {
-                              //If email address matches pattern
-                              if (regExp.hasMatch(value)) {
-                                return null;
-                              } else {
-                                //If it doesn't match
-                                return 'Email is not valid';
+                                fontFamily: 'game',
+                                letterSpacing: 2,
+                                fontSize: 12.sp),
+                            controller: _user,
+                            keyboardType: TextInputType.text,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Please enter the user name";
                               }
-                            }
-                          },
-                          decoration: InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: primary),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: primary),
-                              ),
-                              suffixIcon: Icon(
-                                Icons.email_outlined,
-                                color: Colors.black,
-                              ),
-                              hintText: "Email",
-                              errorStyle: TextStyle(
-                                  fontFamily: 'game',
-                                  letterSpacing: 1,
-                                  fontSize: 10.sp),
-                              hintStyle: TextStyle(
-                                  color: Colors.black87,
-                                  fontFamily: 'game',
-                                  letterSpacing: 2,
-                                  fontSize: 11.sp)),
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: primary),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: primary),
+                                ),
+                                suffixIcon: Icon(
+                                  Icons.person,
+                                  color: Colors.black,
+                                ),
+                                hintText: "User Name",
+                                errorStyle: TextStyle(
+                                    fontFamily: 'game',
+                                    letterSpacing: 1,
+                                    fontSize: 10.sp),
+                                hintStyle: TextStyle(
+                                    color: Colors.black87,
+                                    fontFamily: 'game',
+                                    letterSpacing: 2,
+                                    fontSize: 11.sp)),
+                          ),
                         ),
                         SizedBox(
                           height: 2.h,
                         ),
-                        TextFormField(
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'game',
-                              letterSpacing: 2,
-                              fontSize: 12.sp),
-                          controller: _phone,
-                          keyboardType: TextInputType.phone,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return "Please enter the phone number";
-                            } else if (value.length < 10) {
-                              return "Please enter 1o digit number";
-                            }
-                            return null;
-                          },
-                          decoration: InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: primary),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: primary),
-                              ),
-                              suffixIcon: Icon(
-                                Icons.phone,
+                        Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                          decoration: BoxDecoration(
+                              color: secondary,
+                              borderRadius: BorderRadius.circular(20)),
+                          height: 7.h,
+                          alignment: Alignment.center,
+                          child: TextFormField(
+                            style: TextStyle(
                                 color: Colors.black,
-                              ),
-                              hintText: "Phone number",
-                              errorStyle: TextStyle(
-                                  fontFamily: 'game',
-                                  letterSpacing: 1,
-                                  fontSize: 10.sp),
-                              hintStyle: TextStyle(
-                                  color: Colors.black87,
-                                  fontFamily: 'game',
-                                  letterSpacing: 2,
-                                  fontSize: 11.sp)),
+                                fontFamily: 'game',
+                                letterSpacing: 2,
+                                fontSize: 12.sp),
+                            controller: _email,
+                            keyboardType: TextInputType.emailAddress,
+                            validator: (value) {
+                              String p = "[a-zA-Z0-9\+\.\_\%\-\+]{1,256}" +
+                                  "\\@" +
+                                  "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                                  "(" +
+                                  "\\." +
+                                  "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                                  ")+";
+                              //Convert string p to a RegEx
+                              RegExp regExp = RegExp(p);
+                              if (value!.isEmpty) {
+                                return "Please enter the Email";
+                              } else {
+                                //If email address matches pattern
+                                if (regExp.hasMatch(value)) {
+                                  return null;
+                                } else {
+                                  //If it doesn't match
+                                  return 'Email is not valid';
+                                }
+                              }
+                            },
+                            decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: primary),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: primary),
+                                ),
+                                suffixIcon: Icon(
+                                  Icons.email_outlined,
+                                  color: Colors.black,
+                                ),
+                                hintText: "Email",
+                                errorStyle: TextStyle(
+                                    fontFamily: 'game',
+                                    letterSpacing: 1,
+                                    fontSize: 10.sp),
+                                hintStyle: TextStyle(
+                                    color: Colors.black87,
+                                    fontFamily: 'game',
+                                    letterSpacing: 2,
+                                    fontSize: 11.sp)),
+                          ),
                         ),
                         SizedBox(
                           height: 2.h,
                         ),
-                        TextFormField(
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'game',
-                              letterSpacing: 2,
-                              fontSize: 12.sp),
-                          controller: _pasa,
-                          keyboardType: TextInputType.text,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return "Please enter the password";
-                            }
-                            return null;
-                          },
-                          decoration: InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: primary),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: primary),
-                              ),
-                              suffixIcon: Icon(
-                                Icons.lock,
+                        Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                          decoration: BoxDecoration(
+                              color: secondary,
+                              borderRadius: BorderRadius.circular(20)),
+                          height: 7.h,
+                          alignment: Alignment.center,
+                          child: TextFormField(
+                            style: TextStyle(
                                 color: Colors.black,
-                              ),
-                              hintText: "Password",
-                              errorStyle: TextStyle(
-                                  fontFamily: 'game',
-                                  letterSpacing: 1,
-                                  fontSize: 10.sp),
-                              hintStyle: TextStyle(
-                                  color: Colors.black87,
-                                  fontFamily: 'game',
-                                  letterSpacing: 2,
-                                  fontSize: 11.sp)),
+                                fontFamily: 'game',
+                                letterSpacing: 2,
+                                fontSize: 12.sp),
+                            controller: _phone,
+                            keyboardType: TextInputType.phone,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Please enter the phone number";
+                              } else if (value.length < 10) {
+                                return "Please enter 1o digit number";
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: primary),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: primary),
+                                ),
+                                suffixIcon: Icon(
+                                  Icons.phone,
+                                  color: Colors.black,
+                                ),
+                                hintText: "Phone number",
+                                errorStyle: TextStyle(
+                                    fontFamily: 'game',
+                                    letterSpacing: 1,
+                                    fontSize: 10.sp),
+                                hintStyle: TextStyle(
+                                    color: Colors.black87,
+                                    fontFamily: 'game',
+                                    letterSpacing: 2,
+                                    fontSize: 11.sp)),
+                          ),
                         ),
                         SizedBox(
                           height: 2.h,
                         ),
-                        TextFormField(
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'game',
-                              letterSpacing: 2,
-                              fontSize: 12.sp),
-                          controller: _conf,
-                          keyboardType: TextInputType.text,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return "Please enter the confirm password";
-                            }
-                            return null;
-                          },
-                          decoration: InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: primary),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: primary),
-                              ),
-                              suffixIcon: Icon(
-                                Icons.lock,
+                        Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                          decoration: BoxDecoration(
+                              color: secondary,
+                              borderRadius: BorderRadius.circular(20)),
+                          height: 7.h,
+                          alignment: Alignment.center,
+                          child: TextFormField(
+                            style: TextStyle(
                                 color: Colors.black,
-                              ),
-                              hintText: " Confirm password",
-                              errorStyle: TextStyle(
-                                  fontFamily: 'game',
-                                  letterSpacing: 1,
-                                  fontSize: 10.sp),
-                              hintStyle: TextStyle(
-                                  color: Colors.black87,
-                                  fontFamily: 'game',
-                                  letterSpacing: 2,
-                                  fontSize: 11.sp)),
+                                fontFamily: 'game',
+                                letterSpacing: 2,
+                                fontSize: 12.sp),
+                            controller: _pasa,
+                            keyboardType: TextInputType.text,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Please enter the password";
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: primary),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: primary),
+                                ),
+                                suffixIcon: Icon(
+                                  Icons.lock,
+                                  color: Colors.black,
+                                ),
+                                hintText: "Password",
+                                errorStyle: TextStyle(
+                                    fontFamily: 'game',
+                                    letterSpacing: 1,
+                                    fontSize: 10.sp),
+                                hintStyle: TextStyle(
+                                    color: Colors.black87,
+                                    fontFamily: 'game',
+                                    letterSpacing: 2,
+                                    fontSize: 11.sp)),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                          decoration: BoxDecoration(
+                              color: secondary,
+                              borderRadius: BorderRadius.circular(20)),
+                          height: 7.h,
+                          alignment: Alignment.center,
+                          child: TextFormField(
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: 'game',
+                                letterSpacing: 2,
+                                fontSize: 12.sp),
+                            controller: _conf,
+                            keyboardType: TextInputType.text,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Please enter the confirm password";
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: primary),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: primary),
+                                ),
+                                suffixIcon: Icon(
+                                  Icons.lock,
+                                  color: Colors.black,
+                                ),
+                                hintText: " Confirm password",
+                                errorStyle: TextStyle(
+                                    fontFamily: 'game',
+                                    letterSpacing: 1,
+                                    fontSize: 10.sp),
+                                hintStyle: TextStyle(
+                                    color: Colors.black87,
+                                    fontFamily: 'game',
+                                    letterSpacing: 2,
+                                    fontSize: 11.sp)),
+                          ),
                         ),
                         SizedBox(
                           height: 5.h,

@@ -29,6 +29,7 @@ class _loginState extends State<login> {
   TextEditingController _user = TextEditingController();
   TextEditingController _pasa = TextEditingController();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,9 +39,8 @@ class _loginState extends State<login> {
           height: double.infinity.h,
           width: double.infinity.w,
           decoration: const BoxDecoration(
-             color: bgcolor,
+            color: bgcolor,
             // color: Colors.black,
-
           ),
           child: SingleChildScrollView(
             child: Column(
@@ -73,10 +73,9 @@ class _loginState extends State<login> {
                   height: 3.h,
                 ),
                 Center(
-                  child:  Container(
+                  child: Container(
                     height: 20.h,
                     width: 90.w,
-
                     child: Lottie.asset('assets/lin.json'),
                   ),
                 ),
@@ -97,7 +96,7 @@ class _loginState extends State<login> {
                   height: 10.h,
                 ),
                 Container(
-                  padding: EdgeInsets.all(5.w),
+                  padding: EdgeInsets.all(3.w),
                   margin: EdgeInsets.all(5.w),
                   // height: .h,
                   width: 90.w,
@@ -109,85 +108,104 @@ class _loginState extends State<login> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        TextFormField(style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'game',
-                            letterSpacing: 2,
-                            fontSize: 12.sp),
-                          controller: _user,
-                          keyboardType: TextInputType.text,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return "Please enter the user name";
-                            }
-                            return null;
-                          },
-                          decoration: InputDecoration(
-                              enabledBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide(color: primary,)
-                              ),
-                              focusedBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide(color: primary),
-                              ),
-                              suffixIcon: const Icon(
-                                Icons.person,
+                        Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                          decoration: BoxDecoration(
+                              color: secondary,
+                              borderRadius: BorderRadius.circular(20)),
+                          height: 7.h,
+                          alignment: Alignment.center,
+                          child: TextFormField(
+                            style: TextStyle(
                                 color: Colors.black,
-                              ),
-                              hintText: "User Name",errorStyle: TextStyle(
-
-                          fontFamily: 'game',
-                              letterSpacing: 1,
-                              fontSize: 10.sp),
-                              hintStyle: TextStyle(
-                                  color: Colors.black87,
-                                  fontFamily: 'game',
-                                  letterSpacing: 2,
-                                  fontSize: 11.sp)),
+                                fontFamily: 'game',
+                                letterSpacing: 2,
+                                fontSize: 12.sp),
+                            controller: _user,
+                            keyboardType: TextInputType.text,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Please enter the user name";
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                enabledBorder: const UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                  color: primary,
+                                )),
+                                focusedBorder: const UnderlineInputBorder(
+                                  borderSide: BorderSide(color: primary),
+                                ),
+                                suffixIcon: const Icon(
+                                  Icons.person,
+                                  color: Colors.black,
+                                ),
+                                hintText: "User Name",
+                                errorStyle: TextStyle(
+                                    fontFamily: 'game',
+                                    letterSpacing: 1,
+                                    fontSize: 10.sp),
+                                hintStyle: TextStyle(
+                                    color: Colors.black87,
+                                    fontFamily: 'game',
+                                    letterSpacing: 2,
+                                    fontSize: 11.sp)),
+                          ),
                         ),
                         SizedBox(
                           height: 2.h,
                         ),
-                        TextFormField(
-                          controller: _pasa,
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'game',
-                              letterSpacing: 2,
-                              fontSize: 12.sp),
-                          keyboardType: TextInputType.text,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return "Please enter the password";
-                            }
-                            return null;
-                          },
-                          decoration: InputDecoration(
-                              enabledBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide(color: primary),
-                              ),
-                              focusedBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide(color: primary),
-                              ),
-                              suffixIcon: const Icon(
-                                Icons.lock,
+                        Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                          decoration: BoxDecoration(
+                              color: secondary,
+                              borderRadius: BorderRadius.circular(20)),
+                          height: 7.h,
+                          alignment: Alignment.center,
+                          child: TextFormField(
+                            controller: _pasa,
+                            style: TextStyle(
                                 color: Colors.black,
-                              ),
-                              hintText: "Password",errorStyle: TextStyle(
-
-                              fontFamily: 'game',
-                              letterSpacing: 1,
-                              fontSize: 10.sp),
-                              hintStyle: TextStyle(
-                                  color: Colors.black87,
-                                  fontFamily: 'game',
-                                  letterSpacing: 2,
-                                  fontSize: 11.sp)),
-                        ),SizedBox(height: 1.h,),
+                                fontFamily: 'game',
+                                letterSpacing: 2,
+                                fontSize: 12.sp),
+                            keyboardType: TextInputType.text,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Please enter the password";
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                enabledBorder: const UnderlineInputBorder(
+                                  borderSide: BorderSide(color: primary),
+                                ),
+                                focusedBorder: const UnderlineInputBorder(
+                                  borderSide: BorderSide(color: primary),
+                                ),
+                                suffixIcon: const Icon(
+                                  Icons.lock,
+                                  color: Colors.black,
+                                ),
+                                hintText: "Password",
+                                errorStyle: TextStyle(
+                                    fontFamily: 'game',
+                                    letterSpacing: 1,
+                                    fontSize: 10.sp),
+                                hintStyle: TextStyle(
+                                    color: Colors.black87,
+                                    fontFamily: 'game',
+                                    letterSpacing: 2,
+                                    fontSize: 11.sp)),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
                               onPressed: () {
-                                Get.to(()=>const Forgotpwd());
+                                Get.to(() => const Forgotpwd());
                               },
                               child: Text(
                                 "Forgot Password?",
@@ -197,7 +215,10 @@ class _loginState extends State<login> {
                                     letterSpacing: 2,
                                     fontSize: 12.sp),
                               )),
-                        ),SizedBox(height: 1.h,),
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
                         GestureDetector(
                           onTap: () {
                             loginap();
@@ -208,8 +229,7 @@ class _loginState extends State<login> {
                             width: 70.w,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30.0),
-                              color: primary
-                               ),
+                                color: primary),
                             child: Text("Login",
                                 style: TextStyle(
                                     color: Colors.white,
@@ -232,12 +252,12 @@ class _loginState extends State<login> {
                     // Text("Don't have an account ? ",style:TextStyle(color: Colors.grey.shade100,fontSize: 9.sp,fontFamily: 'game',fontWeight: FontWeight.w400) ,),
                     TextButton(
                       onPressed: () {
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => const signup()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const signup()));
                       },
                       child: Text("New Member ?",
                           style: TextStyle(
-                              color:primary,
+                              color: primary,
                               fontSize: 12.sp,
                               fontFamily: 'game',
                               fontWeight: FontWeight.w400)),
@@ -251,7 +271,8 @@ class _loginState extends State<login> {
       ],
     ));
   }
-  loginap(){
+
+  loginap() {
     if (_formKey.currentState!.validate()) {
       final Map<String, String> data = {};
       data['email'] = _user.text.trim().toString();
@@ -264,16 +285,12 @@ class _loginState extends State<login> {
             usermodal = UserModal.fromJson(json.decode(response.body));
 
             if (response.statusCode == 200 && usermodal?.status == "success") {
-
               setState(() {
                 // isLoading = false;
               });
               await SaveDataLocal.saveLogInData(usermodal!);
 
-              Get.offAll(()=>const mainpage2());
-
-
-
+              Get.offAll(() => const mainpage2());
             } else {
               buildErrorDialog(
                   context, "Login Error", (usermodal?.message).toString());

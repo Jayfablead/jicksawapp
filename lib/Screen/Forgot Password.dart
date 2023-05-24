@@ -103,35 +103,42 @@ class _ForgotpwdState extends State<Forgotpwd> {
                         key: _formKey,
                         child: Column(
                           children: [
-                            TextFormField(  style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: 'game',
-                                letterSpacing: 2,
-                                fontSize: 12.sp),
-                              controller: _user,
-                              keyboardType: TextInputType.text,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "Please enter the user name";
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(color:primary),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(color:primary),
-                                  ),
-                                  suffixIcon: Icon(
-                                    Icons.person,
-                                    color: Colors.black,
-                                  ),
-                                  hintText: "Email Address",
-                                  hintStyle: TextStyle(
+                            Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                              decoration: BoxDecoration(
+                                  color: secondary,
+                                  borderRadius: BorderRadius.circular(20)),
+                              height: 7.h,
+                              alignment: Alignment.center,
+                              child: TextFormField(  style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'game',
+                                  letterSpacing: 2,
+                                  fontSize: 12.sp),
+                                controller: _user,
+                                keyboardType: TextInputType.text,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return "Please enter the user name";
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(color:primary),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(color:primary),
+                                    ),
+                                    suffixIcon: Icon(
+                                      Icons.person,
                                       color: Colors.black,
-                                      fontFamily: 'game',
-                                      fontSize: 12.sp)),
+                                    ),
+                                    hintText: "Email Address",
+                                    hintStyle: TextStyle(
+                                        color: Colors.black,
+                                        fontFamily: 'game',
+                                        fontSize: 12.sp)),
+                              ),
                             ),
                             SizedBox(height: 5.h,),
                             GestureDetector(
