@@ -109,7 +109,7 @@ class _ForgotpwdState extends State<Forgotpwd> {
                                   borderRadius: BorderRadius.circular(20)),
                               height: 7.h,
                               alignment: Alignment.center,
-                              child: TextFormField(  style: TextStyle(
+                              child: TextFormField(  style: TextStyle( fontWeight: FontWeight.w700,
                                   color: Colors.black,
                                   fontFamily: 'game',
                                   letterSpacing: 2,

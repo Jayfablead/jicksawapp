@@ -93,11 +93,7 @@ class _InitscreenState extends State<Initscreen> {
                   children: [
                     InkWell(
                       onTap: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //       builder: (context) => signup(),
-                        //     ));
+
                         Get.to(()=>signup());
                       },
                       child: Container(

@@ -118,6 +118,7 @@ class _loginState extends State<login> {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontFamily: 'game',
+                                fontWeight: FontWeight.w700,
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             controller: _user,
@@ -164,7 +165,7 @@ class _loginState extends State<login> {
                           child: TextFormField(
                             controller: _pasa,
                             style: TextStyle(
-                                color: Colors.black,
+                                color: Colors.black, fontWeight: FontWeight.w700,
                                 fontFamily: 'game',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),

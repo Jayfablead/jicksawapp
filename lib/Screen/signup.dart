@@ -113,7 +113,7 @@ class _signupState extends State<signup> {
                           height: 7.h,
                           alignment: Alignment.center,
                           child: TextFormField(
-                            style: TextStyle(
+                            style: TextStyle( fontWeight: FontWeight.w700,
                                 color: Colors.black,
                                 fontFamily: 'game',
                                 letterSpacing: 2,
@@ -161,7 +161,7 @@ class _signupState extends State<signup> {
                           height: 7.h,
                           alignment: Alignment.center,
                           child: TextFormField(
-                            style: TextStyle(
+                            style: TextStyle( fontWeight: FontWeight.w700,
                                 color: Colors.black,
                                 fontFamily: 'game',
                                 letterSpacing: 2,
@@ -225,7 +225,7 @@ class _signupState extends State<signup> {
                           height: 7.h,
                           alignment: Alignment.center,
                           child: TextFormField(
-                            style: TextStyle(
+                            style: TextStyle( fontWeight: FontWeight.w700,
                                 color: Colors.black,
                                 fontFamily: 'game',
                                 letterSpacing: 2,
@@ -275,7 +275,7 @@ class _signupState extends State<signup> {
                           height: 7.h,
                           alignment: Alignment.center,
                           child: TextFormField(
-                            style: TextStyle(
+                            style: TextStyle( fontWeight: FontWeight.w700,
                                 color: Colors.black,
                                 fontFamily: 'game',
                                 letterSpacing: 2,
@@ -323,7 +323,7 @@ class _signupState extends State<signup> {
                           height: 7.h,
                           alignment: Alignment.center,
                           child: TextFormField(
-                            style: TextStyle(
+                            style: TextStyle( fontWeight: FontWeight.w700,
                                 color: Colors.black,
                                 fontFamily: 'game',
                                 letterSpacing: 2,
