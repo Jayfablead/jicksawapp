@@ -59,7 +59,7 @@ class _drawer1State extends State<drawer1> {
                       fontSize: 15.sp),
                 ),
                 SizedBox(height: 3.h),
-                CircularProgressIndicator(color: Colors.orangeAccent,)
+                CircularProgressIndicator(color: primary,)
               ],
             )),
       ):Container(
