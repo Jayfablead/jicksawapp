@@ -103,7 +103,7 @@ class _ForgotpwdState extends State<Forgotpwd> {
                         key: _formKey,
                         child: Column(
                           children: [
-                            Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                            Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                               decoration: BoxDecoration(
                                   color: secondary,
                                   borderRadius: BorderRadius.circular(20)),

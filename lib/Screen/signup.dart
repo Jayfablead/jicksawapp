@@ -106,7 +106,7 @@ class _signupState extends State<signup> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                        Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
                               color: secondary,
                               borderRadius: BorderRadius.circular(20)),
@@ -154,7 +154,7 @@ class _signupState extends State<signup> {
                         SizedBox(
                           height: 2.h,
                         ),
-                        Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                        Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
                               color: secondary,
                               borderRadius: BorderRadius.circular(20)),
@@ -218,7 +218,7 @@ class _signupState extends State<signup> {
                         SizedBox(
                           height: 2.h,
                         ),
-                        Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                        Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
                               color: secondary,
                               borderRadius: BorderRadius.circular(20)),
@@ -268,7 +268,7 @@ class _signupState extends State<signup> {
                         SizedBox(
                           height: 2.h,
                         ),
-                        Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                        Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
                               color: secondary,
                               borderRadius: BorderRadius.circular(20)),
@@ -316,7 +316,7 @@ class _signupState extends State<signup> {
                         SizedBox(
                           height: 2.h,
                         ),
-                        Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                        Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
                               color: secondary,
                               borderRadius: BorderRadius.circular(20)),

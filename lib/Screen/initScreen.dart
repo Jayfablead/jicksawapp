@@ -104,21 +104,14 @@ class _InitscreenState extends State<Initscreen> {
                         alignment: Alignment.center,
                         width: 85.w,
                         margin: EdgeInsets.only(top: 2.h),
-                        decoration: BoxDecoration(boxShadow: [
-                          BoxShadow(
-                            color: Colors.deepOrange.withOpacity(0.5),
-                            offset: Offset(0, 6),
-                            // blurRadius: 20,
-                            // spreadRadius: -5,
-                          ),
-                        ],
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.deepOrangeAccent),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(90),
+                            color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'GET STARTED',
                           style: TextStyle(
-                              color: Color.fromARGB(255, 18, 28, 36),fontFamily: 'game',
+                              color: Colors.white,fontFamily: 'game',
                               fontWeight: FontWeight.bold,
                               letterSpacing: 2,),
                         ),
@@ -139,14 +132,14 @@ class _InitscreenState extends State<Initscreen> {
                         width: 85.w,
                         margin: EdgeInsets.symmetric(vertical: 2.h),
                         decoration: BoxDecoration(
-                            color: Colors.blueGrey.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(15),
-                            border: Border.all(color: Colors.grey)),
+color:Colors.grey.withOpacity(0.3),
+                            borderRadius: BorderRadius.circular(90),
+                            border: Border.all(color: primary)),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'I ALREADY HAVE AN ACCOUNT',
                           style: TextStyle(fontWeight: FontWeight.bold,letterSpacing: 2,
-                              color: Colors.deepOrangeAccent, fontFamily: 'game'),
+                              color:primary, fontFamily: 'game'),
                         ),
                       ),
                     ),

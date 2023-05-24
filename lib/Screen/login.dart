@@ -108,7 +108,7 @@ class _loginState extends State<login> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                        Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
                               color: secondary,
                               borderRadius: BorderRadius.circular(20)),
@@ -124,7 +124,7 @@ class _loginState extends State<login> {
                             keyboardType: TextInputType.text,
                             validator: (value) {
                               if (value!.isEmpty) {
-                                return "Please enter the user name";
+                                return "Please enter the email";
                               }
                               return null;
                             },
@@ -140,7 +140,7 @@ class _loginState extends State<login> {
                                   Icons.person,
                                   color: Colors.black,
                                 ),
-                                hintText: "User Name",
+                                hintText: "E-mail",
                                 errorStyle: TextStyle(
                                     fontFamily: 'game',
                                     letterSpacing: 1,
@@ -155,7 +155,7 @@ class _loginState extends State<login> {
                         SizedBox(
                           height: 2.h,
                         ),
-                        Container(padding: EdgeInsets.symmetric(horizontal: 2.w),
+                        Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
                               color: secondary,
                               borderRadius: BorderRadius.circular(20)),

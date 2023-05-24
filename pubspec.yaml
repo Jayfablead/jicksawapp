@@ -114,7 +114,7 @@ flutter:
     - family: game
       fonts:
         - asset: assets/fonts/Gumela.ttf
-          weight: 300
+          weight: 500
     - family: game1
       fonts:
         - asset: assets/fonts/Play_Gaming.otf
