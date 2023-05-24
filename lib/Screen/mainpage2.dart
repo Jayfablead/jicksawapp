@@ -268,7 +268,7 @@ class _mainpage2State extends State<mainpage2> {
                         ],
                       ),
                       Container(
-                        height: 15.h,
+                        height: 15.h,padding: EdgeInsets.symmetric(horizontal: 3.w),
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -287,8 +287,9 @@ class _mainpage2State extends State<mainpage2> {
                                 color: Colors.deepOrange.withOpacity(0.7),
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: Row(children: [Image.asset('')]),
+
                             ),
+                            Row(children: [Container(child: Row(children: [Image.asset('assets/1.jpg',height: 12.h,width: 24.w,)]),)],)
                           ],
                         ),
                       ),
