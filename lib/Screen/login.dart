@@ -104,7 +104,7 @@ class _loginState extends State<login> {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20.0),
-                      border: Border.all(color: Colors.deepOrange)),
+                      border: Border.all(color: primary)),
                   child: Form(
                     key: _formKey,
                     child: Column(
@@ -124,10 +124,10 @@ class _loginState extends State<login> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.deepOrange,)
+                                borderSide: BorderSide(color: primary,)
                               ),
                               focusedBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.deepOrange),
+                                borderSide: BorderSide(color: primary),
                               ),
                               suffixIcon: const Icon(
                                 Icons.person,
@@ -139,10 +139,10 @@ class _loginState extends State<login> {
                               letterSpacing: 1,
                               fontSize: 10.sp),
                               hintStyle: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black87,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
-                                  fontSize: 12.sp)),
+                                  fontSize: 11.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -163,10 +163,10 @@ class _loginState extends State<login> {
                           },
                           decoration: InputDecoration(
                               enabledBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.deepOrange),
+                                borderSide: BorderSide(color: primary),
                               ),
                               focusedBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.deepOrange),
+                                borderSide: BorderSide(color: primary),
                               ),
                               suffixIcon: const Icon(
                                 Icons.lock,
@@ -178,10 +178,10 @@ class _loginState extends State<login> {
                               letterSpacing: 1,
                               fontSize: 10.sp),
                               hintStyle: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black87,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
-                                  fontSize: 12.sp)),
+                                  fontSize: 11.sp)),
                         ),SizedBox(height: 1.h,),
                         Align(
                           alignment: Alignment.centerRight,
@@ -192,7 +192,7 @@ class _loginState extends State<login> {
                               child: Text(
                                 "Forgot Password?",
                                 style: TextStyle(
-                                    color: Colors.deepOrange,
+                                    color: primary,
                                     fontFamily: 'game',
                                     letterSpacing: 2,
                                     fontSize: 12.sp),
@@ -204,15 +204,15 @@ class _loginState extends State<login> {
                           },
                           child: Container(
                             alignment: Alignment.center,
-                            height: 5.h,
-                            width: 30.w,
+                            height: 6.5.h,
+                            width: 70.w,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30.0),
-                              color: Colors.deepOrangeAccent
+                              color: primary
                                ),
                             child: Text("Login",
                                 style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     fontFamily: 'game',
                                     letterSpacing: 2,
                                     fontSize: 14.sp)),
@@ -237,7 +237,7 @@ class _loginState extends State<login> {
                       },
                       child: Text("New Member ?",
                           style: TextStyle(
-                              color: Colors.deepOrange,
+                              color:primary,
                               fontSize: 12.sp,
                               fontFamily: 'game',
                               fontWeight: FontWeight.w400)),

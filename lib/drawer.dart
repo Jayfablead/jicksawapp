@@ -19,6 +19,8 @@ import 'package:jicksaw/main%20Pages/subscription_page.dart';
 
 import 'package:sizer/sizer.dart';
 
+import 'Provider/ProfileviewModal.dart';
+import 'Provider/authprovider.dart';
 import 'Screen/login.dart';
 import 'Widget/sharedpreferance.dart';
 
@@ -29,28 +31,44 @@ class drawer1 extends StatefulWidget {
   State<drawer1> createState() => _drawer1State();
 }
 
-
+bool isloading = true;
 
 class _drawer1State extends State<drawer1> {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    // playerapi();
+    viewap();
     print('open');
   }
 
   Widget build(BuildContext context) {
     double widthDrawer = MediaQuery.of(context).size.width * 0.75;
-    return SafeArea(
-        child: Drawer(
-      child: Container(
+    return Drawer(
+      child: isloading?Container(
+
+        child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Loading... ',
+                  style: TextStyle(
+
+                      fontFamily: 'game',
+                      fontSize: 15.sp),
+                ),
+                SizedBox(height: 3.h),
+                CircularProgressIndicator(color: Colors.orangeAccent,)
+              ],
+            )),
+      ):Container(
         color: bgcolor,
         // color: Colors.black,
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: widthDrawer,
-           color: bgcolor,
+          color: bgcolor,
           // color: Colors.black,
           child: ListView(
             //padding: EdgeInsets.all(2.w),
@@ -59,25 +77,13 @@ class _drawer1State extends State<drawer1> {
                 height: 2.h,
               ),
               InkWell(
-                onTap: () {
-                  // Navigator.of(context).push(
-                  //   MaterialPageRoute(
-                  //     builder: (context) => MyProfile(),
-                  //   ),
-                  // );
-                },
+                onTap: () {},
                 child: Container(
                   height: 12.h,
                   padding: EdgeInsets.all(1.w),
                   width: widthDrawer,
                   // color: Colors.black.withOpacity(0.3),
-                  decoration: BoxDecoration(
-                      // image: DecorationImage(
-                      //     fit: BoxFit.fill,
-                      //     image: AssetImage("assets/splash2.jpg"))
-                      // image: NetworkImage(
-                      //     'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg')),
-                      ),
+                  decoration: BoxDecoration(),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -89,7 +95,9 @@ class _drawer1State extends State<drawer1> {
                           borderRadius: BorderRadius.circular(90),
                           child: CachedNetworkImage(
                             fit: BoxFit.cover,
-                            imageUrl: (profileviewmodal?.profileViewPlayer?.profilePic).toString(),
+                            imageUrl: (profileviewmodal
+                                    ?.profileViewPlayer?.profilePic)
+                                .toString(),
                             progressIndicatorBuilder:
                                 (context, url, progress) =>
                                     CircularProgressIndicator(),
@@ -150,7 +158,7 @@ class _drawer1State extends State<drawer1> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Get.to(()=>mainpage2());
+                      Get.to(() => mainpage2());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
@@ -166,7 +174,8 @@ class _drawer1State extends State<drawer1> {
                           Container(
                             width: 57.w,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -179,7 +188,7 @@ class _drawer1State extends State<drawer1> {
                                     ),
                                     Text("Home",
                                         style: TextStyle(
-                                          fontSize:12.sp,
+                                          fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
                                           color: Colors.black,
@@ -202,7 +211,7 @@ class _drawer1State extends State<drawer1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(()=>ShopmainPage());
+                      Get.to(() => ShopmainPage());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
@@ -218,7 +227,8 @@ class _drawer1State extends State<drawer1> {
                           Container(
                             width: 57.w,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -231,7 +241,7 @@ class _drawer1State extends State<drawer1> {
                                     ),
                                     Text("Shop",
                                         style: TextStyle(
-                                          fontSize:12.sp,
+                                          fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
                                           color: Colors.black,
@@ -254,7 +264,7 @@ class _drawer1State extends State<drawer1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(()=>MyProfile());
+                      Get.to(() => MyProfile());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
@@ -270,7 +280,8 @@ class _drawer1State extends State<drawer1> {
                           Container(
                             width: 57.w,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -283,7 +294,7 @@ class _drawer1State extends State<drawer1> {
                                     ),
                                     Text("Profile",
                                         style: TextStyle(
-                                          fontSize:12.sp,
+                                          fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
                                           color: Colors.black,
@@ -300,12 +311,13 @@ class _drawer1State extends State<drawer1> {
                         ],
                       ),
                     ),
-                  ),SizedBox(
+                  ),
+                  SizedBox(
                     height: 2.h,
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(()=>Challangepage());
+                      Get.to(() => Challangepage());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
@@ -321,7 +333,8 @@ class _drawer1State extends State<drawer1> {
                           Container(
                             width: 57.w,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -334,7 +347,7 @@ class _drawer1State extends State<drawer1> {
                                     ),
                                     Text("Challenges",
                                         style: TextStyle(
-                                          fontSize:12.sp,
+                                          fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
                                           color: Colors.black,
@@ -357,7 +370,7 @@ class _drawer1State extends State<drawer1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(()=>progress());
+                      Get.to(() => progress());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
@@ -373,7 +386,8 @@ class _drawer1State extends State<drawer1> {
                           Container(
                             width: 57.w,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -386,7 +400,7 @@ class _drawer1State extends State<drawer1> {
                                     ),
                                     Text("Progress",
                                         style: TextStyle(
-                                          fontSize:12.sp,
+                                          fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
                                           color: Colors.black,
@@ -409,7 +423,7 @@ class _drawer1State extends State<drawer1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(()=>reward());
+                      Get.to(() => reward());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
@@ -425,7 +439,8 @@ class _drawer1State extends State<drawer1> {
                           Container(
                             width: 57.w,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -438,7 +453,7 @@ class _drawer1State extends State<drawer1> {
                                     ),
                                     Text("Rewards",
                                         style: TextStyle(
-                                          fontSize:12.sp,
+                                          fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
                                           color: Colors.black,
@@ -461,7 +476,7 @@ class _drawer1State extends State<drawer1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(()=>subscription());
+                      Get.to(() => subscription());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
@@ -477,7 +492,8 @@ class _drawer1State extends State<drawer1> {
                           Container(
                             width: 57.w,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -490,7 +506,7 @@ class _drawer1State extends State<drawer1> {
                                     ),
                                     Text("Subscription",
                                         style: TextStyle(
-                                          fontSize:12.sp,
+                                          fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
                                           color: Colors.black,
@@ -513,7 +529,7 @@ class _drawer1State extends State<drawer1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(()=>setting());
+                      Get.to(() => setting());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
@@ -529,7 +545,8 @@ class _drawer1State extends State<drawer1> {
                           Container(
                             width: 57.w,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -542,7 +559,7 @@ class _drawer1State extends State<drawer1> {
                                     ),
                                     Text("Settings",
                                         style: TextStyle(
-                                          fontSize:12.sp,
+                                          fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
                                           color: Colors.black,
@@ -556,18 +573,16 @@ class _drawer1State extends State<drawer1> {
                               ],
                             ),
                           ),
-
                         ],
                       ),
                     ),
                   ),
-
                   SizedBox(
                     height: 2.h,
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(()=>rank());
+                      Get.to(() => rank());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
@@ -583,7 +598,8 @@ class _drawer1State extends State<drawer1> {
                           Container(
                             width: 57.w,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -596,7 +612,7 @@ class _drawer1State extends State<drawer1> {
                                     ),
                                     Text("Ranking",
                                         style: TextStyle(
-                                          fontSize:12.sp,
+                                          fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
                                           color: Colors.black,
@@ -610,12 +626,12 @@ class _drawer1State extends State<drawer1> {
                               ],
                             ),
                           ),
-
                         ],
                       ),
                     ),
-                  ),SizedBox(
-                    height: 2.h,
+                  ),
+                  SizedBox(
+                    height: 6.h,
                   ),
                   InkWell(
                     onTap: () async {
@@ -631,7 +647,8 @@ class _drawer1State extends State<drawer1> {
                           Container(
                             width: 57.w,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -644,18 +661,16 @@ class _drawer1State extends State<drawer1> {
                                     ),
                                     Text("Logout",
                                         style: TextStyle(
-                                          fontSize:12.sp,
+                                          fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Meta1',
                                           color: Colors.red,
                                         )),
                                   ],
                                 ),
-
                               ],
                             ),
                           ),
-
                         ],
                       ),
                     ),
@@ -666,7 +681,7 @@ class _drawer1State extends State<drawer1> {
           ),
         ),
       ),
-    ),);
+    );
   }
 
   TextStyle textStyle = TextStyle(
@@ -674,6 +689,39 @@ class _drawer1State extends State<drawer1> {
       fontSize: 12.sp,
       fontFamily: 'game',
       fontWeight: FontWeight.w600);
+
+  viewap() {
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['action'] = 'profile_view_player';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().profileviewapi(data).then((response) async {
+          profileviewmodal =
+              ProfileviewModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 &&
+              profileviewmodal?.status == "success") {
+            // setState(() {
+            //   isloading = false;
+            // });
+
+            setState(() {
+              isloading = false;
+            });
+          } else {
+            setState(() {
+              isloading = false;
+            });
+          }
+        });
+      } else {
+        setState(() {
+          isloading = false;
+        });
+      }
+    });
+  }
 }
-
-

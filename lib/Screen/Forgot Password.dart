@@ -98,12 +98,16 @@ class _ForgotpwdState extends State<Forgotpwd> {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20.0),
-                          border: Border.all(color: Colors.black)),
+                          border: Border.all(color:primary)),
                       child: Form(
                         key: _formKey,
                         child: Column(
                           children: [
-                            TextFormField(
+                            TextFormField(  style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: 'game',
+                                letterSpacing: 2,
+                                fontSize: 12.sp),
                               controller: _user,
                               keyboardType: TextInputType.text,
                               validator: (value) {
@@ -114,10 +118,10 @@ class _ForgotpwdState extends State<Forgotpwd> {
                               },
                               decoration: InputDecoration(
                                   enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.black),
+                                    borderSide: BorderSide(color:primary),
                                   ),
                                   focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.black),
+                                    borderSide: BorderSide(color:primary),
                                   ),
                                   suffixIcon: Icon(
                                     Icons.person,
@@ -127,9 +131,9 @@ class _ForgotpwdState extends State<Forgotpwd> {
                                   hintStyle: TextStyle(
                                       color: Colors.black,
                                       fontFamily: 'game',
-                                      fontSize: 10.sp)),
+                                      fontSize: 12.sp)),
                             ),
-                            SizedBox(height: 2.h,),
+                            SizedBox(height: 5.h,),
                             GestureDetector(
                               onTap: () {
                                 forgotpass();
@@ -137,16 +141,17 @@ class _ForgotpwdState extends State<Forgotpwd> {
                               },
                               child: Container(
                                 alignment: Alignment.center,
-                                height: 5.h,
-                                width: 32.w,
+                                height: 6.5.h,
+                                width: 70.w,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    border: Border.all(color: Colors.black)),
+                                    borderRadius: BorderRadius.circular(30.0),
+                                  color:primary
+),
                                 child: Text("Forgot Password",
                                     style: TextStyle(
-                                        color: Colors.black,
+                                        color: Colors.white,
                                         fontFamily: 'game',
-                                        fontSize: 10.sp)),
+                                        fontSize: 12.sp)),
                               ),
                             )
                           ],

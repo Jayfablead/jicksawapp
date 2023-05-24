@@ -17,7 +17,6 @@ import 'package:sizer/sizer.dart';
 
 import '../const widget.dart';
 
-
 class EditProfile extends StatefulWidget {
   String? name;
   String? profile;
@@ -27,17 +26,16 @@ class EditProfile extends StatefulWidget {
   String? pos;
   String? about;
 
-
-  EditProfile(
-      {super.key,
-        this.name,
-        this.profile,
-        this.email,
-        this.lastmatch,
-        this.age,
-        this.about,
-        this.pos,
-     });
+  EditProfile({
+    super.key,
+    this.name,
+    this.profile,
+    this.email,
+    this.lastmatch,
+    this.age,
+    this.about,
+    this.pos,
+  });
 
   @override
   State<EditProfile> createState() => _EditProfileState();
@@ -54,7 +52,6 @@ class _EditProfileState extends State<EditProfile> {
   var imagesTemporary;
   File? imagefile;
 
-
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool isLoading = true;
   XFile? image;
@@ -65,22 +62,18 @@ class _EditProfileState extends State<EditProfile> {
   String? it;
   bool isloading = true;
 
-@override
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
     viewap();
-    setState(() {
-      imagefile = File((profileviewmodal?.profileViewPlayer?.profilePic).toString());
-    });
+
   }
+
   @override
-
-
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-      bgcolor
+      backgroundColor: bgcolor
       // Colors.black
       ,
       drawer: drawer1(),
@@ -93,9 +86,9 @@ class _EditProfileState extends State<EditProfile> {
               SizedBox(
                 height: 4.h,
               ),
-              Row(mainAxisAlignment: MainAxisAlignment.center,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-
                   Text(
                     'Edit Profile',
                     style: primarytxt1,
@@ -122,26 +115,26 @@ class _EditProfileState extends State<EditProfile> {
                         width: 30.w,
                         padding: EdgeInsets.all(1.w),
                         child: ClipRRect(
-                            borderRadius: BorderRadius.circular(90),
-                            child: (imagefile != null)
-                                ? Image.file(
-                              imagefile!,
-                              width: 300.0,
-                              fit: BoxFit.cover,
-                            )
-                                :CachedNetworkImage(
-                              fit: BoxFit.cover,
-                              imageUrl:
-                              profileviewmodal?.profileViewPlayer?.profilePic ?? "",
-                              progressIndicatorBuilder:
-                                  (context, url, progress) =>
-                                  CircularProgressIndicator(),
-                              errorWidget: (context, url, error) =>
-                                  Image.asset(
+                          borderRadius: BorderRadius.circular(90),
+                          child: (imagefile != null)
+                              ? Image.file(
+                                  imagefile!,
+                                  width: 300.0,
+                                  fit: BoxFit.cover,
+                                )
+                              : CachedNetworkImage(
+                                  fit: BoxFit.cover,
+                                  imageUrl: profileviewmodal?.profileViewPlayer?.profilePic ?? '',
+                                  progressIndicatorBuilder:
+                                      (context, url, progress) =>
+                                          CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) =>
+                                      Image.asset(
                                     'assets/user.png',
                                     color: Colors.black,
                                   ),
-                            ),),
+                                ),
+                        ),
                       ),
                       Positioned(
                           top: 9.5.h,
@@ -158,9 +151,8 @@ class _EditProfileState extends State<EditProfile> {
                                   padding: EdgeInsets.all(2.w),
                                   decoration: BoxDecoration(
                                       color:
-                                      // bgcolor
-                                      Colors.black
-                                      ,
+                                          // bgcolor
+                                          Colors.black,
                                       borderRadius: BorderRadius.circular(20)),
                                   child: const Icon(
                                     Icons.camera_alt_outlined,
@@ -171,7 +163,6 @@ class _EditProfileState extends State<EditProfile> {
                   SizedBox(
                     height: 4.h,
                   ),
-
                   Container(
                     padding: EdgeInsets.all(5.w),
                     margin: EdgeInsets.all(5.w),
@@ -180,12 +171,16 @@ class _EditProfileState extends State<EditProfile> {
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20.0),
-                        border: Border.all(color: Colors.black)),
+                        border: Border.all(color: Colors.deepOrange)),
                     child: Form(
-
                       child: Column(
                         children: [
                           TextFormField(
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: 'game',
+                                letterSpacing: 2,
+                                fontSize: 12.sp),
                             controller: _user,
                             keyboardType: TextInputType.text,
                             validator: (value) {
@@ -196,10 +191,12 @@ class _EditProfileState extends State<EditProfile> {
                             },
                             decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black),
+                                  borderSide:
+                                      BorderSide(color: Colors.deepOrange),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black),
+                                  borderSide:
+                                      BorderSide(color: Colors.deepOrange),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.person,
@@ -207,15 +204,20 @@ class _EditProfileState extends State<EditProfile> {
                                 ),
                                 hintText: "Full Name",
                                 hintStyle: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.black87,
                                     fontFamily: 'game',
                                     letterSpacing: 2,
-                                    fontSize: 12.sp)),
+                                    fontSize: 11.sp)),
                           ),
                           SizedBox(
                             height: 2.h,
                           ),
                           TextFormField(
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: 'game',
+                                letterSpacing: 2,
+                                fontSize: 12.sp),
                             controller: _age,
                             keyboardType: TextInputType.text,
                             validator: (value) {
@@ -226,26 +228,33 @@ class _EditProfileState extends State<EditProfile> {
                             },
                             decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black),
+                                  borderSide:
+                                      BorderSide(color: Colors.deepOrange),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black),
+                                  borderSide:
+                                      BorderSide(color: Colors.deepOrange),
                                 ),
                                 suffixIcon: Icon(
-                                    Icons.person_pin_circle_outlined,
+                                  Icons.person_pin_circle_outlined,
                                   color: Colors.black,
                                 ),
                                 hintText: "Age",
                                 hintStyle: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.black87,
                                     fontFamily: 'game',
                                     letterSpacing: 2,
-                                    fontSize: 12.sp)),
+                                    fontSize: 11.sp)),
                           ),
                           SizedBox(
                             height: 2.h,
                           ),
                           TextFormField(
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: 'game',
+                                letterSpacing: 2,
+                                fontSize: 12.sp),
                             controller: _about,
                             keyboardType: TextInputType.text,
                             maxLines: 5,
@@ -257,21 +266,23 @@ class _EditProfileState extends State<EditProfile> {
                             },
                             decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black),
+                                  borderSide:
+                                      BorderSide(color: Colors.deepOrange),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black),
+                                  borderSide:
+                                      BorderSide(color: Colors.deepOrange),
                                 ),
                                 suffixIcon: Icon(
-                                    Icons.info_outline_rounded,
+                                  Icons.info_outline_rounded,
                                   color: Colors.black,
                                 ),
                                 hintText: "About",
                                 hintStyle: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.black87,
                                     fontFamily: 'game',
                                     letterSpacing: 2,
-                                    fontSize: 12.sp)),
+                                    fontSize: 11.sp)),
                           ),
                         ],
                       ),
@@ -283,13 +294,14 @@ class _EditProfileState extends State<EditProfile> {
                   Center(
                     child: InkWell(
                       onTap: () async {
-                          editap();
+                        print('zoro');
+                        editap();
                       },
                       child: Container(
                         padding: EdgeInsets.all(3.w),
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10)),
+                            color: Colors.deepOrangeAccent,
+                            borderRadius: BorderRadius.circular(30)),
                         child: Text(
                           'Update Profile',
                           style: textStyle,
@@ -310,7 +322,7 @@ class _EditProfileState extends State<EditProfile> {
   }
 
   TextStyle textStyle =
-  TextStyle(color: Colors.black, fontSize: 12.sp, fontFamily: "Meta1");
+      TextStyle(color: Colors.black, fontSize: 12.sp, fontFamily: "Meta1");
   TextStyle textStyle1 = TextStyle(
       fontFamily: "Meta1",
       fontSize: 10.sp,
@@ -325,7 +337,7 @@ class _EditProfileState extends State<EditProfile> {
       floatingLabelBehavior: FloatingLabelBehavior.always,
       contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 1.5.h),
       fillColor: Colors.grey.shade200,
-      hoverColor:bgcolor,
+      hoverColor: bgcolor,
       focusColor: bgcolor,
       filled: true,
       errorStyle: TextStyle(
@@ -339,7 +351,7 @@ class _EditProfileState extends State<EditProfile> {
 
       hintStyle: textStyle1,
       labelStyle:
-      TextStyle(fontSize: 12.sp, fontFamily: "Meta1", color: Colors.grey),
+          TextStyle(fontSize: 12.sp, fontFamily: "Meta1", color: Colors.grey),
       prefixIcon: icon,
       prefixIconColor: Colors.grey,
       border: OutlineInputBorder(
@@ -362,23 +374,32 @@ class _EditProfileState extends State<EditProfile> {
       ),
     );
   }
-  editap(){
+
+  editap() {
     final Map<String, String> data = {};
+    data['uid'] = usermodal?.userData?.uid ?? '';
     data['username'] = _user.text.trim().toString();
     data['age'] = _age.text.trim().toString();
     data['about'] = _about.text.trim().toString();
     data['img_file'] = imagefile!.path;
     data['action'] = 'profile_update_player';
+    print(data);
     checkInternet().then((internet) async {
+      print('hello');
       if (internet) {
         authprovider().profileupdateapi(data).then((response) async {
           usermodal = UserModal.fromJson(json.decode(response.body));
+          print(response.body);
+          print(response.statusCode);
+          print(usermodal?.status);
           if (response.statusCode == 200 && usermodal?.status == "success") {
+       update( context, 'Success', "Profile Updated Successfully");
             setState(() {
               // isLoading = false;
             });
-            buildErrorDialog(context, 'Error', "Profile Updated Successfully");
           } else {
+            buildErrorDialog(
+                context, 'Field Error', (usermodal?.message).toString());
           }
         });
       } else {
@@ -389,30 +410,33 @@ class _EditProfileState extends State<EditProfile> {
       }
     });
   }
-  viewap(){
+
+  viewap() {
     final Map<String, String> data = {};
 
-    data['uid'] = usermodal?.userData?.uid ??"";
+    data['uid'] = usermodal?.userData?.uid ?? "";
     data['action'] = 'profile_view_player';
 
     checkInternet().then((internet) async {
       if (internet) {
         authprovider().profileviewapi(data).then((response) async {
-          profileviewmodal = ProfileviewModal.fromJson(json.decode(response.body));
+          profileviewmodal =
+              ProfileviewModal.fromJson(json.decode(response.body));
 
-          if (response.statusCode == 200 && profileviewmodal?.status == "success") {
-           setState(() {
-             _user.text = (profileviewmodal?.profileViewPlayer?.name).toString();
-             _age.text = profileviewmodal?.profileViewPlayer?.age ?? "";
-             _about.text = profileviewmodal?.profileViewPlayer?.about ??"";
-             imagefile = File((profileviewmodal?.profileViewPlayer?.profilePic).toString());
-           });
+          if (response.statusCode == 200 &&
+              profileviewmodal?.status == "success") {
+            setState(() {
+              _user.text =
+                  (profileviewmodal?.profileViewPlayer?.name).toString();
+              _age.text = profileviewmodal?.profileViewPlayer?.age ?? "";
+              _about.text = profileviewmodal?.profileViewPlayer?.about ?? "";
+
+            });
 
             setState(() {
               // isLoading = false;
             });
-          } else {
-          }
+          } else {}
         });
       } else {
         setState(() {

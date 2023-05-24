@@ -101,7 +101,7 @@ class _signupState extends State<signup> {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20.0),
-                      border: Border.all(color: Colors.deepOrange)),
+                      border: Border.all(color: primary)),
                   child: Form(
                     key: _formKey,
                     child: Column(
@@ -123,11 +123,11 @@ class _signupState extends State<signup> {
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.deepOrange),
+                                    BorderSide(color: primary),
                               ),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.deepOrange),
+                                    BorderSide(color: primary),
                               ),
                               suffixIcon: Icon(
                                 Icons.person,
@@ -139,10 +139,10 @@ class _signupState extends State<signup> {
                                   letterSpacing: 1,
                                   fontSize: 10.sp),
                               hintStyle: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black87,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
-                                  fontSize: 12.sp)),
+                                  fontSize: 11.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -180,11 +180,11 @@ class _signupState extends State<signup> {
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.deepOrange),
+                                    BorderSide(color: primary),
                               ),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.deepOrange),
+                                    BorderSide(color: primary),
                               ),
                               suffixIcon: Icon(
                                 Icons.email_outlined,
@@ -196,10 +196,10 @@ class _signupState extends State<signup> {
                                   letterSpacing: 1,
                                   fontSize: 10.sp),
                               hintStyle: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black87,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
-                                  fontSize: 12.sp)),
+                                  fontSize: 11.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -223,11 +223,11 @@ class _signupState extends State<signup> {
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.deepOrange),
+                                    BorderSide(color: primary),
                               ),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.deepOrange),
+                                    BorderSide(color: primary),
                               ),
                               suffixIcon: Icon(
                                 Icons.phone,
@@ -239,10 +239,10 @@ class _signupState extends State<signup> {
                                   letterSpacing: 1,
                                   fontSize: 10.sp),
                               hintStyle: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black87,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
-                                  fontSize: 12.sp)),
+                                  fontSize: 11.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -264,11 +264,11 @@ class _signupState extends State<signup> {
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.deepOrange),
+                                    BorderSide(color: primary),
                               ),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.deepOrange),
+                                    BorderSide(color: primary),
                               ),
                               suffixIcon: Icon(
                                 Icons.lock,
@@ -280,10 +280,10 @@ class _signupState extends State<signup> {
                                   letterSpacing: 1,
                                   fontSize: 10.sp),
                               hintStyle: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black87,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
-                                  fontSize: 12.sp)),
+                                  fontSize: 11.sp)),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -305,11 +305,11 @@ class _signupState extends State<signup> {
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.deepOrange),
+                                    BorderSide(color: primary),
                               ),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.deepOrange),
+                                    BorderSide(color: primary),
                               ),
                               suffixIcon: Icon(
                                 Icons.lock,
@@ -321,10 +321,10 @@ class _signupState extends State<signup> {
                                   letterSpacing: 1,
                                   fontSize: 10.sp),
                               hintStyle: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black87,
                                   fontFamily: 'game',
                                   letterSpacing: 2,
-                                  fontSize: 12.sp)),
+                                  fontSize: 11.sp)),
                         ),
                         SizedBox(
                           height: 5.h,
@@ -336,14 +336,14 @@ class _signupState extends State<signup> {
                           },
                           child: Container(
                             alignment: Alignment.center,
-                            height: 5.h,
-                            width: 30.w,
+                            height: 6.5.h,
+                            width: 70.w,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30.0),
-                                color: Colors.deepOrangeAccent),
+                                borderRadius: BorderRadius.circular(900),
+                                color: primary),
                             child: Text("Sign Up",
                                 style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     fontFamily: 'game',
                                     letterSpacing: 2,
                                     fontSize: 12.sp)),
@@ -364,7 +364,7 @@ class _signupState extends State<signup> {
                       },
                       child: Text("Already Member ?",
                           style: TextStyle(
-                              color: Colors.deepOrange,
+                              color: primary,
                               fontSize: 12.sp,
                               fontFamily: 'game',
                               fontWeight: FontWeight.w400)),
