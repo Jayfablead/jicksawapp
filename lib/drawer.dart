@@ -43,7 +43,7 @@ class _drawer1State extends State<drawer1> {
   }
 
   Widget build(BuildContext context) {
-    double widthDrawer = MediaQuery.of(context).size.width * 0.75;
+    double widthDrawer = MediaQuery.of(context).size.width * 0.85;
     return Drawer(
       child: isloading?Container(
 
