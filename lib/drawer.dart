@@ -73,9 +73,7 @@ class _drawer1State extends State<drawer1> {
           child: ListView(
             //padding: EdgeInsets.all(2.w),
             children: [
-              SizedBox(
-                height: 2.h,
-              ),
+
               InkWell(
                 onTap: () {},
                 child: Container(
@@ -127,7 +125,8 @@ class _drawer1State extends State<drawer1> {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 12.sp,
-                                fontFamily: 'Meta1',
+                                letterSpacing: 0.5,
+                                fontFamily: 'game',
                                 fontWeight: FontWeight.w600),
                           ),
                           SizedBox(
@@ -139,7 +138,9 @@ class _drawer1State extends State<drawer1> {
                                 maxLines: 2,
                                 style: TextStyle(
                                     color: primary,
-                                    fontFamily: 'Meta1',
+                                    fontFamily: 'game',
+                                    fontSize: 11.sp,
+                                    letterSpacing: 1,
                                     fontWeight: FontWeight.w600)),
                           ),
                         ],
@@ -190,7 +191,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'Meta1',
+                                          fontFamily: 'game',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -243,7 +244,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'Meta1',
+                                          fontFamily: 'game',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -296,7 +297,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'Meta1',
+                                          fontFamily: 'game',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -349,7 +350,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'Meta1',
+                                          fontFamily: 'game',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -402,7 +403,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'Meta1',
+                                          fontFamily: 'game',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -455,7 +456,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'Meta1',
+                                          fontFamily: 'game',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -508,7 +509,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'Meta1',
+                                          fontFamily: 'game',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -561,7 +562,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'Meta1',
+                                          fontFamily: 'game',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -614,7 +615,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'Meta1',
+                                          fontFamily: 'game',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -663,7 +664,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'Meta1',
+                                          fontFamily: 'game',
                                           color: Colors.red,
                                         )),
                                   ],

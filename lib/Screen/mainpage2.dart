@@ -71,155 +71,151 @@ class _mainpage2State extends State<mainpage2> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 4.h,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 3.w),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                _scaffoldKey.currentState?.openDrawer();
-                              },
-                              icon: Icon(
-                                Icons.menu_rounded,
-                                color: primary,
-                              )),
-                          SizedBox(
-                            width: 30.w,
-                          ),
-                          Text(
-                            'Home',
-                            style: primarytxt1,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Hii " +
-                                (usermodal?.userData?.name).toString() +
-                                " !!",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 17.sp,
-                                fontWeight: FontWeight.normal,
-                                fontFamily: 'game'),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Icon(
-                              Icons.category,
-                              color: Colors.black,
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-
                 Container(
-                  height: 85.h,
+                  height: 100.h,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage(
-                          'assets/wall.jpeg',
+                          'assets/wall2.webp',
                         ),
-                        fit: BoxFit.fitWidth),
+                        fit: BoxFit.cover),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        children: [
-                          SizedBox(height: 2.5.h),
-                          Container(
-                            padding: EdgeInsets.symmetric(horizontal: 3.w),
-                            width: 85.w,
-                            height: 7.h,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(90),
-                                color: Colors.white),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text(
-                                      '1',
-                                      style: TextStyle(
-                                          fontFamily: 'game',
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      'Level',
-                                      style: TextStyle(
-                                          fontFamily: 'game',
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text(
-                                      '10',
-                                      style: TextStyle(
-                                          fontFamily: 'game',
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      'Points',
-                                      style: TextStyle(
-                                          fontFamily: 'game',
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  margin: EdgeInsets.symmetric(horizontal: 1.w),
-                                  height: 6.h,
-                                  width: 13.w,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(90),
-                                    child: CachedNetworkImage(
-                                      fit: BoxFit.cover,
-                                      imageUrl: (profileviewmodal
-                                              ?.profileViewPlayer?.profilePic)
-                                          .toString(),
-                                      progressIndicatorBuilder:
-                                          (context, url, progress) =>
-                                              CircularProgressIndicator(),
-                                      errorWidget: (context, url, error) =>
-                                          Image.asset(
-                                        'assets/user.png',
+                      Container(
+                        margin: EdgeInsets.only(top: 4.h, left: 3.w),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 3.w),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      IconButton(
+                                          onPressed: () {
+                                            _scaffoldKey.currentState
+                                                ?.openDrawer();
+                                          },
+                                          icon: Icon(
+                                            Icons.menu_rounded,
+                                            color: primary,
+                                          )),
+                                      SizedBox(
+                                        width: 30.w,
+                                      ),
+                                      Text(
+                                        'Home',
+                                        style: primarytxt1,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 1.5.h),
+                              padding: EdgeInsets.symmetric(horizontal: 3.w),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Hii " +
+                                        (usermodal?.userData?.name).toString() +
+                                        " !!",
+                                    style: TextStyle(
                                         color: Colors.black,
+                                        fontSize: 17.sp,
+                                        fontWeight: FontWeight.normal,
+                                        fontFamily: 'game'),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                    height: 6.h,
+                                    width: 13.w,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(90),
+                                      child: CachedNetworkImage(
+                                        fit: BoxFit.cover,
+                                        imageUrl: (profileviewmodal
+                                            ?.profileViewPlayer?.profilePic)
+                                            .toString(),
+                                        progressIndicatorBuilder:
+                                            (context, url, progress) =>
+                                            CircularProgressIndicator(),
+                                        errorWidget: (context, url, error) => Image.asset(
+                                          'assets/user.png',
+                                          color: Colors.black,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                            SizedBox(height: 2.h),
+                            Container(
+                              padding: EdgeInsets.all(4.w),
+                              decoration: BoxDecoration(
+                                  color: Colors.deepOrange.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(90)),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    '01',
+                                    style: TextStyle(
+                                        color: primary,
+                                        fontSize: 25.sp,
+                                        fontWeight: FontWeight.normal,
+                                        fontFamily: 'style'),
+                                  ),
+                                  Text(
+                                    'Level',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 17.sp,
+                                        fontWeight: FontWeight.normal,
+                                        fontFamily: 'game'),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(4.w),
+                              decoration: BoxDecoration(
+                                  color: Colors.deepOrange.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(90)),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    '20',
+                                    style: TextStyle(
+                                        color: primary,
+                                        fontSize: 25.sp,
+                                        fontWeight: FontWeight.normal,
+                                        fontFamily: 'style'),
+                                  ),
+                                  Text(
+                                    'Points',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 17.sp,
+                                        fontWeight: FontWeight.normal,
+                                        fontFamily: 'game'),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       Container(
                         height: 15.h,
@@ -233,49 +229,86 @@ class _mainpage2State extends State<mainpage2> {
                           ),
                         ),
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Container(
-                              margin: EdgeInsets.only(top: 1.5.w),
                               height: 0.5.h,
                               width: 8.w,
+                              alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 color: Colors.deepOrange.withOpacity(0.7),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-                            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Image.asset(
                                   'assets/1.jpg',
-                                  height: 12.h,
-                                  width: 24.w,
+                                  height: 10.h,
+                                  width: 20.w,
                                 ),
-                                Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
                                       children: [
-                                        Text('Beginner ',style: TextStyle(
-                                          fontSize: 13.sp,
-                                          fontFamily: 'game'
-                                        ),),
+                                        Text(
+                                          'Beginner ',
+                                          style: TextStyle(
+                                              fontSize: 13.sp,
+                                              fontFamily: 'game'),
+                                        ),
                                         SizedBox(width: 1.w),
-                                        Text('Level 1 ',style: TextStyle(
-                                          fontSize: 13.sp,
-                                          color: primary,
-                                          fontFamily: 'game'
-                                        ),),
+                                        Text(
+                                          'Level 1 ',
+                                          style: TextStyle(
+                                              fontSize: 13.sp,
+                                              color: primary,
+                                              fontFamily: 'game'),
+                                        ),
                                       ],
                                     ),
-                                    SizedBox(height: 1.h,),
-                                    SizedBox(width:20.h,child: Text('Lerners Gain a deeper understanding',style: TextStyle(
-                                        fontSize: 13.sp,
-                                        fontFamily: 'game'
-                                    ),))
+                                    SizedBox(
+                                      height: 1.h,
+                                    ),
+                                    SizedBox(
+                                      width: 20.h,
+                                      child: Text(
+                                        'Learners Gain a deeper understanding',
+                                        style: TextStyle(
+                                            fontSize: 13.sp,
+                                            fontFamily: 'game'),
+                                      ),
+                                    ),
                                   ],
                                 ),
-                                InkWell(onTap: (){},child: Container(alignment: Alignment.center,height: 4.5.h,padding: EdgeInsets.symmetric(horizontal: 4.w),decoration: BoxDecoration(color: primary,borderRadius: BorderRadius.circular(30)),child: Text('Start',style: TextStyle(color: Colors.white,fontFamily: 'game',fontSize: 14.sp),),))
+                                InkWell(
+                                  onTap: () {
+                                    Get.to(
+                                      Tutorial(),
+                                    );
+                                  },
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    height: 4.5.h,
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 4.w),
+                                    decoration: BoxDecoration(
+                                      color: primary,
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    child: Text(
+                                      'Start',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'game',
+                                          fontSize: 14.sp),
+                                    ),
+                                  ),
+                                ),
                               ],
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -292,7 +325,7 @@ class _mainpage2State extends State<mainpage2> {
 
   Future<bool> dialog() async {
     close();
-    return await false;
+    return false;
   }
 
   void close() {
