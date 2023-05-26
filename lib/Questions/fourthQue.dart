@@ -40,15 +40,10 @@ class _FourthQueState extends State<FourthQue> {
       backgroundColor: bgcolor,
       appBar: appbar1(
         act: () {
-          setState(() {
-            ans1 = false;
-            ans2 = false;
-            ans3 = false;
-            ans4 = false;
-          });
+
         },
-        icn1: Icon(CupertinoIcons.restart),
-        title1: 'Question',
+        icn1: Icon(null),
+        title1: '',
         press: () {},
         icn: Icon(null),
       ),
@@ -257,7 +252,7 @@ class _FourthQueState extends State<FourthQue> {
                       ],
                     ),
                     SizedBox(
-                      height: 10.h,
+                      height: 6.h,
                     ),
                     (ans1 || ans2 || ans3 || ans4)
                         ? InkWell(

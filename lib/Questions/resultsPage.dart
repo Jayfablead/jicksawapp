@@ -43,12 +43,9 @@ class _ResultsPageState extends State<ResultsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-      bgcolor
-
-      ,
+      backgroundColor: bgcolor,
       appBar: appbar1(
-          title1: 'Results Screen',
+          title1: '',
           press: () {},
           icn: Icon(null),
           act: () {},
@@ -133,25 +130,23 @@ class _ResultsPageState extends State<ResultsPage> {
                           ),
                           InkWell(
                             onTap: () {
-                              Get.to(()=>mainpage2());
+                              Get.to(() => mainpage2());
                             },
                             child: Container(
                               alignment: Alignment.center,
                               width: 85.w,
                               margin: EdgeInsets.only(top: 2.h),
                               decoration: BoxDecoration(
-                                 
                                   borderRadius: BorderRadius.circular(90),
                                   color: primary),
                               padding: EdgeInsets.all(2.h),
                               child: Text(
                                 'Restart the Game',
                                 style: TextStyle(
-                                    fontSize: 13.sp,
-                                    color: Colors.white,
-
+                                  fontSize: 13.sp,
+                                  color: Colors.white,
                                   fontFamily: 'Poppins',
-                                    ),
+                                ),
                               ),
                             ),
                           )
@@ -162,9 +157,10 @@ class _ResultsPageState extends State<ResultsPage> {
                 )),
               ),
             )
-          : WillPopScope(onWillPop: dialog,
-            child: Center(
-                child: Padding(
+          : WillPopScope(
+              onWillPop: dialog,
+              child: Center(
+                  child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 3.w),
                 child: Stack(
                   children: [
@@ -185,11 +181,17 @@ class _ResultsPageState extends State<ResultsPage> {
                         ),
                         Text(
                           '🎊 Congratulations 🎊 ',
-                          style: mainstyle,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'Poppins',
+                            letterSpacing: 2,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(
-                          height: 2.h,
+                          height: 15.h,
                         ),
                         Text(
                           'You\'ve Passed',
@@ -239,31 +241,29 @@ class _ResultsPageState extends State<ResultsPage> {
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(
-                          height: 30.h,
+                          height: 20.h,
                         ),
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: InkWell(
                             onTap: () {
-                              Get.to(()=>design());
+                              Get.to(() => design());
                             },
                             child: Container(
                               alignment: Alignment.center,
                               width: 85.w,
                               margin: EdgeInsets.only(top: 2.h),
                               decoration: BoxDecoration(
-                                 
                                   borderRadius: BorderRadius.circular(90),
                                   color: primary),
                               padding: EdgeInsets.all(2.h),
                               child: Text(
                                 'Roll the Dice',
                                 style: TextStyle(
-                                    fontSize: 13.sp,
-                                    color: Colors.white,
-
+                                  fontSize: 13.sp,
+                                  color: Colors.white,
                                   fontFamily: 'Poppins',
-                                   ),
+                                ),
                               ),
                             ),
                           ),
@@ -273,7 +273,7 @@ class _ResultsPageState extends State<ResultsPage> {
                   ],
                 ),
               )),
-          ),
+            ),
     );
   }
 
