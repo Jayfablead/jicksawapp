@@ -129,13 +129,15 @@ class _mainpage2State extends State<mainpage2> {
                                         (usermodal?.userData?.name).toString() +
                                         " !!",
                                     style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 17.sp,
-                                        fontWeight: FontWeight.normal,
-                                       fontFamily: 'Poppins',),
+                                      color: Colors.black,
+                                      fontSize: 17.sp,
+                                      fontWeight: FontWeight.normal,
+                                      fontFamily: 'Poppins',
+                                    ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 1.w),
                                     height: 6.h,
                                     width: 13.w,
                                     child: ClipRRect(
@@ -143,12 +145,13 @@ class _mainpage2State extends State<mainpage2> {
                                       child: CachedNetworkImage(
                                         fit: BoxFit.cover,
                                         imageUrl: (profileviewmodal
-                                            ?.profileViewPlayer?.profilePic)
+                                                ?.profileViewPlayer?.profilePic)
                                             .toString(),
                                         progressIndicatorBuilder:
                                             (context, url, progress) =>
-                                            CircularProgressIndicator(),
-                                        errorWidget: (context, url, error) => Image.asset(
+                                                CircularProgressIndicator(),
+                                        errorWidget: (context, url, error) =>
+                                            Image.asset(
                                           'assets/user.png',
                                           color: Colors.black,
                                         ),
@@ -177,10 +180,11 @@ class _mainpage2State extends State<mainpage2> {
                                   Text(
                                     'Level',
                                     style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 17.sp,
-                                        fontWeight: FontWeight.normal,
-                                       fontFamily: 'Poppins',),
+                                      color: Colors.black,
+                                      fontSize: 17.sp,
+                                      fontWeight: FontWeight.normal,
+                                      fontFamily: 'Poppins',
+                                    ),
                                   ),
                                 ],
                               ),
@@ -206,10 +210,11 @@ class _mainpage2State extends State<mainpage2> {
                                   Text(
                                     'Points',
                                     style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 17.sp,
-                                        fontWeight: FontWeight.normal,
-                                       fontFamily: 'Poppins',),
+                                      color: Colors.black,
+                                      fontSize: 17.sp,
+                                      fontWeight: FontWeight.normal,
+                                      fontFamily: 'Poppins',
+                                    ),
                                   ),
                                 ],
                               ),
@@ -218,7 +223,7 @@ class _mainpage2State extends State<mainpage2> {
                         ),
                       ),
                       Container(
-                        height: 15.h,
+                        height: 25.h,
                         padding: EdgeInsets.symmetric(horizontal: 3.w),
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
@@ -229,7 +234,7 @@ class _mainpage2State extends State<mainpage2> {
                           ),
                         ),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Container(
                               height: 0.5.h,
@@ -240,32 +245,44 @@ class _mainpage2State extends State<mainpage2> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-Text('Continue Playing', style: TextStyle(
-  color: Colors.black,
-  fontSize: 15.sp,
-  fontWeight: FontWeight.normal,
-  fontFamily: 'Poppins',),),
-                            InkWell(
-                              onTap: () {
-                                Get.to(
-                                  Tutorial(),
-                                );
-                              },
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: 5.5.h,
-                                width: 80.w,
-                                decoration: BoxDecoration(
-                                  color: primary,
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                                child: Text(
-                                  'Play',
-                                  style: TextStyle(
-                                      color: Colors.white,
+                            SizedBox(height:1.h),
+                            Container(margin: EdgeInsets.only(bottom: 2.h),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'CONTINUE PLAYING',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.normal,
                                       fontFamily: 'Poppins',
-                                      fontSize: 14.sp),
-                                ),
+                                    ),
+                                  ),
+                                  SizedBox(height:1.h),
+                                  InkWell(
+                                    onTap: () {
+                                      Get.to(
+                                        Tutorial(),
+                                      );
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      height: 5.5.h,
+                                      width: 80.w,
+                                      decoration: BoxDecoration(
+                                        color: primary,
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                      child: Text(
+                                        'PLAY',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontFamily: 'Poppins',
+                                            fontSize: 14.sp),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],

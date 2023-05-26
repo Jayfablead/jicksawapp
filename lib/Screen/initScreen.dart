@@ -27,9 +27,11 @@ class _InitscreenState extends State<Initscreen> {
     super.initState();
     getdata();
   }
-  getdata()async{
-    usermodal =  await SaveDataLocal.getDataFromLocal();
+
+  getdata() async {
+    usermodal = await SaveDataLocal.getDataFromLocal();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +55,7 @@ class _InitscreenState extends State<Initscreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Center(
-                child:  Container(
+                child: Container(
                   height: 20.h,
                   width: 90.w,
                   child: Lottie.asset('assets/lin.json'),
@@ -64,13 +66,15 @@ class _InitscreenState extends State<Initscreen> {
               ),
               Center(
                   child: Text(
-                    "Jigsaw Puzzle",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 17.sp,
-                      fontFamily: 'Poppins',letterSpacing: 2,),
-                  )),
+                "Jigsaw Puzzle",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 17.sp,
+                  fontFamily: 'Poppins',
+                  letterSpacing: 2,
+                ),
+              )),
               SizedBox(
                 height: 2.h,
               ),
@@ -79,10 +83,12 @@ class _InitscreenState extends State<Initscreen> {
                   child: Text(
                     "Give Answers of Simple Questions and Win A Dice Roll To Play Jigsaw",
                     style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w300,
-                        fontSize: 12.sp,
-                      fontFamily: 'Poppins',letterSpacing: 2,),
+                      color: Colors.black,
+                      fontWeight: FontWeight.w300,
+                      fontSize: 12.sp,
+                      fontFamily: 'Poppins',
+                      letterSpacing: 2,
+                    ),
                   )),
               SizedBox(
                 height: 25.h,
@@ -93,8 +99,7 @@ class _InitscreenState extends State<Initscreen> {
                   children: [
                     InkWell(
                       onTap: () {
-
-                        Get.to(()=>signup());
+                        Get.to(() => signup());
                       },
                       child: Container(
                         alignment: Alignment.center,
@@ -107,9 +112,11 @@ class _InitscreenState extends State<Initscreen> {
                         child: Text(
                           'GET STARTED',
                           style: TextStyle(
-                              color: Colors.white,fontFamily: 'game',
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 2,),
+                            color: Colors.white,
+                            fontFamily: 'game',
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 2,
+                          ),
                         ),
                       ),
                     ),
@@ -121,21 +128,27 @@ class _InitscreenState extends State<Initscreen> {
                         //       builder: (context) => login(),
                         //     ));
 
-                        (usermodal == null) ?  Get.to(()=>login()) : Get.to(()=>mainpage2());
+                        (usermodal == null)
+                            ? Get.to(() => login())
+                            : Get.to(() => mainpage2());
                       },
                       child: Container(
                         alignment: Alignment.center,
                         width: 85.w,
                         margin: EdgeInsets.symmetric(vertical: 2.h),
                         decoration: BoxDecoration(
-color:Colors.grey.withOpacity(0.15),
+                            color: Colors.grey.withOpacity(0.15),
                             borderRadius: BorderRadius.circular(90),
                             border: Border.all(color: primary)),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'I ALREADY HAVE AN ACCOUNT',
-                          style: TextStyle(fontWeight: FontWeight.bold,letterSpacing: 2,
-                              color:primary,fontFamily: 'Poppins',),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 2,
+                            color: primary,
+                            fontFamily: 'Poppins',
+                          ),
                         ),
                       ),
                     ),
