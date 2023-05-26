@@ -136,9 +136,9 @@ class _ThirdQueState extends State<ThirdQue> {
                                   color: ans1
                                       ? primary
                                       : Colors.white,
-                                  fontWeight: FontWeight.bold,
+
                                 fontFamily: 'Poppins',
-                                letterSpacing: 2,),
+                              ),
                             ),
                           ),
                         ),
