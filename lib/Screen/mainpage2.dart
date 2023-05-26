@@ -246,7 +246,7 @@ class _mainpage2State extends State<mainpage2> {
                               ),
                             ),
                             SizedBox(height:1.h),
-                            Container(margin: EdgeInsets.only(bottom: 2.h),
+                            Container(margin: EdgeInsets.only(bottom: 3.h),
                               child: Column(
                                 children: [
                                   Text(
