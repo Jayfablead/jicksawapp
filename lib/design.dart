@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:jicksaw/const%20widget.dart';
+import 'package:jicksaw/drawer.dart';
 import 'package:jicksaw/jigsawclipper.dart';
 import 'package:jicksaw/jigsawcontainer.dart';
 import 'package:lottie/lottie.dart';
@@ -45,17 +46,23 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
   double marginValue = 140.0;
   int cnt = 0;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: drawer1(),
+        key: _scaffoldKey,
         backgroundColor: bgcolor
         // Colors.black
         ,
         appBar: appbar1(
-            title1: 'Roll Dice',
-            press: () {},
-            icn: Icon(null),
+            title1: '',
+            press: () {_scaffoldKey.currentState?.openDrawer();},
+            icn: Icon(
+              Icons.menu_rounded,
+              color: primary,
+            ),
             act: () {},
             icn1: Icon(null)),
         body: SingleChildScrollView(

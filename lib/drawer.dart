@@ -133,7 +133,7 @@ class _drawer1State extends State<drawer1> {
                             height: 0.5.h,
                           ),
                           SizedBox(
-                            width: 37.w,
+                            width: 42.w,
                             child: Text(usermodal?.userData?.eMail ?? "",
                                 maxLines: 2,
                                 style: TextStyle(
@@ -173,7 +173,7 @@ class _drawer1State extends State<drawer1> {
                             width: 6.w,
                           ),
                           Container(
-                            width: 57.w,
+                            width: 64.w,
                             child: Row(
                               mainAxisAlignment:
                                   MainAxisAlignment.spaceBetween,
@@ -226,7 +226,7 @@ class _drawer1State extends State<drawer1> {
                             width: 6.w,
                           ),
                           Container(
-                            width: 57.w,
+                            width: 64.w,
                             child: Row(
                               mainAxisAlignment:
                                   MainAxisAlignment.spaceBetween,
@@ -279,7 +279,7 @@ class _drawer1State extends State<drawer1> {
                             width: 6.w,
                           ),
                           Container(
-                            width: 57.w,
+                            width: 64.w,
                             child: Row(
                               mainAxisAlignment:
                                   MainAxisAlignment.spaceBetween,
@@ -332,7 +332,7 @@ class _drawer1State extends State<drawer1> {
                             width: 6.w,
                           ),
                           Container(
-                            width: 57.w,
+                            width: 64.w,
                             child: Row(
                               mainAxisAlignment:
                                   MainAxisAlignment.spaceBetween,
@@ -385,7 +385,7 @@ class _drawer1State extends State<drawer1> {
                             width: 6.w,
                           ),
                           Container(
-                            width: 57.w,
+                            width: 64.w,
                             child: Row(
                               mainAxisAlignment:
                                   MainAxisAlignment.spaceBetween,
@@ -438,7 +438,7 @@ class _drawer1State extends State<drawer1> {
                             width: 6.w,
                           ),
                           Container(
-                            width: 57.w,
+                            width: 64.w,
                             child: Row(
                               mainAxisAlignment:
                                   MainAxisAlignment.spaceBetween,
@@ -491,7 +491,7 @@ class _drawer1State extends State<drawer1> {
                             width: 6.w,
                           ),
                           Container(
-                            width: 57.w,
+                            width: 64.w,
                             child: Row(
                               mainAxisAlignment:
                                   MainAxisAlignment.spaceBetween,
@@ -544,7 +544,7 @@ class _drawer1State extends State<drawer1> {
                             width: 6.w,
                           ),
                           Container(
-                            width: 57.w,
+                            width: 64.w,
                             child: Row(
                               mainAxisAlignment:
                                   MainAxisAlignment.spaceBetween,
@@ -597,7 +597,7 @@ class _drawer1State extends State<drawer1> {
                             width: 6.w,
                           ),
                           Container(
-                            width: 57.w,
+                            width: 64.w,
                             child: Row(
                               mainAxisAlignment:
                                   MainAxisAlignment.spaceBetween,
@@ -646,7 +646,7 @@ class _drawer1State extends State<drawer1> {
                             width: 6.w,
                           ),
                           Container(
-                            width: 57.w,
+                            width: 65.w,
                             child: Row(
                               mainAxisAlignment:
                                   MainAxisAlignment.spaceBetween,
