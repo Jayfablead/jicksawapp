@@ -224,7 +224,7 @@ class _rewardState extends State<reward> {
                 width: 50.w,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: Colors.deepOrangeAccent,),
+                    color: primary,),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

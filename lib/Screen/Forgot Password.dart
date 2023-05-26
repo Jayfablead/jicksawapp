@@ -118,7 +118,7 @@ class _ForgotpwdState extends State<Forgotpwd> {
                                 keyboardType: TextInputType.text,
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return "Please enter the user name";
+                                    return "Please enter the email address";
                                   }
                                   return null;
                                 },
@@ -191,11 +191,12 @@ print(data);
             print(usermodal?.status);
             usermodal = UserModal.fromJson(json.decode(response.body));
             if (response.statusCode == 200 && usermodal?.status == "success") {
-              print(usermodal?.status);
+
+              buildErrorDialog(context, 'done', 'Check Your Mail');
               setState(() {
                 // isLoading = false;
               });
-              buildErrorDialog(context, 'done', 'Check Your Mail');
+
 
             } else {
 

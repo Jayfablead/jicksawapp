@@ -32,7 +32,7 @@ class _progressState extends State<progress> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
               elevation: 0,
-              color: Colors.deepOrangeAccent,
+              color: primary,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: 40.h,

@@ -128,7 +128,7 @@ class _InitscreenState extends State<Initscreen> {
                         width: 85.w,
                         margin: EdgeInsets.symmetric(vertical: 2.h),
                         decoration: BoxDecoration(
-color:Colors.grey.withOpacity(0.3),
+color:Colors.grey.withOpacity(0.15),
                             borderRadius: BorderRadius.circular(90),
                             border: Border.all(color: primary)),
                         padding: EdgeInsets.all(2.h),

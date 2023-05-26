@@ -145,13 +145,13 @@ class _GameInfoState extends State<GameInfo> {
                     margin: EdgeInsets.only(top: 2.h),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(60),
-                        color: Colors.deepOrangeAccent),
+                        color: primary),
                     // padding: EdgeInsets.all(2.h),
                     child: Text(
                       'download',
                       style: TextStyle(
                         fontSize: 12.sp,
-                        color: Color.fromARGB(255, 18, 28, 36),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                       fontFamily: 'Poppins',
                         letterSpacing: 2,

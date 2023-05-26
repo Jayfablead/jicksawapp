@@ -108,24 +108,30 @@ class _StorypageState extends State<Storypage> {
                 SizedBox(
                   height: 1.5.h,
                 ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Next',
-                    style: TextStyle(
-                        color: bgcolor,
+                InkWell(
+                  onTap: () {
+
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: 85.w,
+                    margin: EdgeInsets.only(top: 2.h),
+                    decoration: BoxDecoration(
+
+                        borderRadius: BorderRadius.circular(90),
+                        color: primary),
+                    padding: EdgeInsets.all(1.5.h),
+                    child: Text(
+                      'Done',
+                      style: TextStyle(
                         fontSize: 13.sp,
-                      fontFamily: 'Poppins',
-                        letterSpacing: 2,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: primary,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12), // <-- Radius
+                        color: Colors.white,
+
+                        fontFamily: 'Poppins',
+                      ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),

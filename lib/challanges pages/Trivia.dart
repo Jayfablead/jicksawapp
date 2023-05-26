@@ -99,16 +99,9 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                             borderRadius: BorderRadius.circular(15),
                             color: secondary)
                             : BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.deepOrange.withOpacity(0.5),
-                                offset: Offset(0, 6),
-                                // blurRadius: 20,
-                                // spreadRadius: -5,
-                              ),
-                            ],
+                            
                             borderRadius: BorderRadius.circular(15),
-                            color: Colors.deepOrangeAccent),
+                            color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'Open Source Backend Framework',
@@ -116,7 +109,7 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                             fontSize: 13.sp,
                             color: ans1
                                 ? primary
-                                : Color.fromARGB(255, 18, 28, 36),
+                                : Colors.white,
                           fontFamily: 'Poppins',
                             fontWeight: FontWeight.bold,
                             letterSpacing: 2,
@@ -144,16 +137,9 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                             borderRadius: BorderRadius.circular(15),
                             color: secondary)
                             : BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.deepOrange.withOpacity(0.5),
-                                offset: Offset(0, 6),
-                                // blurRadius: 20,
-                                // spreadRadius: -5,
-                              ),
-                            ],
+                            
                             borderRadius: BorderRadius.circular(15),
-                            color: Colors.deepOrangeAccent),
+                            color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'Open Source UI Tool-Kit',
@@ -161,7 +147,7 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                               fontSize: 13.sp,
                               color: ans2
                                   ? primary
-                                  : Color.fromARGB(255, 18, 28, 36),
+                                  : Colors.white,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 2,
                              fontFamily: 'Poppins',),
@@ -188,16 +174,9 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                             borderRadius: BorderRadius.circular(15),
                             color: secondary)
                             : BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.deepOrange.withOpacity(0.5),
-                                offset: Offset(0, 6),
-                                // blurRadius: 20,
-                                // spreadRadius: -5,
-                              ),
-                            ],
+                            
                             borderRadius: BorderRadius.circular(15),
-                            color: Colors.deepOrangeAccent),
+                            color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'Open Source App Development',
@@ -205,7 +184,7 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                             fontSize: 13.sp,
                             color: ans3
                                 ? primary
-                                : Color.fromARGB(255, 18, 28, 36),
+                                : Colors.white,
                             fontWeight: FontWeight.bold,
                           fontFamily: 'Poppins',
                             letterSpacing: 2,
@@ -233,16 +212,9 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                             borderRadius: BorderRadius.circular(15),
                             color: secondary)
                             : BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.deepOrange.withOpacity(0.5),
-                                offset: Offset(0, 6),
-                                // blurRadius: 20,
-                                // spreadRadius: -5,
-                              ),
-                            ],
+                            
                             borderRadius: BorderRadius.circular(15),
-                            color: Colors.deepOrangeAccent),
+                            color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'DBMS Tool-Kit',
@@ -250,7 +222,7 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                             fontSize: 13.sp,
                             color: ans4
                                 ? primary
-                                : Color.fromARGB(255, 18, 28, 36),
+                                : Colors.white,
                             fontWeight: FontWeight.bold,
                           fontFamily: 'Poppins',
                             letterSpacing: 2,
@@ -273,22 +245,15 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                     width: 85.w,
                     margin: EdgeInsets.only(top: 2.h),
                     decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.deepOrange.withOpacity(0.5),
-                            offset: Offset(0, 6),
-                            // blurRadius: 20,
-                            // spreadRadius: -5,
-                          ),
-                        ],
+                        
                         borderRadius: BorderRadius.circular(15),
-                        color: Colors.deepOrangeAccent),
+                        color: primary),
                     padding: EdgeInsets.all(2.h),
                     child: Text(
                       'Next',
                       style: TextStyle(
                         fontSize: 13.sp,
-                        color: Color.fromARGB(255, 18, 28, 36),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                       fontFamily: 'Poppins',
                         letterSpacing: 2,

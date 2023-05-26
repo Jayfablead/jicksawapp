@@ -85,11 +85,12 @@ class _signupState extends State<signup> {
                     child: Text(
                   "Jigsaw Puzzle",
                   style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 17.sp,
-                      letterSpacing: 2,
-                     fontFamily: 'Poppins',),
+                    color: Colors.black,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 17.sp,
+                    letterSpacing: 2,
+                    fontFamily: 'Poppins',
+                  ),
                 )),
                 SizedBox(
                   height: 5.h,
@@ -106,16 +107,18 @@ class _signupState extends State<signup> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
                               color: secondary,
                               borderRadius: BorderRadius.circular(20)),
                           height: 7.h,
                           alignment: Alignment.center,
                           child: TextFormField(
-                            style: TextStyle( fontWeight: FontWeight.w700,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
                                 color: Colors.black,
-                              fontFamily: 'Poppins',
+                                fontFamily: 'Poppins',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             controller: _user,
@@ -128,12 +131,10 @@ class _signupState extends State<signup> {
                             },
                             decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: primary),
+                                  borderSide: BorderSide(color: primary),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: primary),
+                                  borderSide: BorderSide(color: primary),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.person,
@@ -141,12 +142,12 @@ class _signupState extends State<signup> {
                                 ),
                                 hintText: "User Name",
                                 errorStyle: TextStyle(
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 1,
                                     fontSize: 10.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),
@@ -154,16 +155,18 @@ class _signupState extends State<signup> {
                         SizedBox(
                           height: 2.h,
                         ),
-                        Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
                               color: secondary,
                               borderRadius: BorderRadius.circular(20)),
                           height: 7.h,
                           alignment: Alignment.center,
                           child: TextFormField(
-                            style: TextStyle( fontWeight: FontWeight.w700,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
                                 color: Colors.black,
-                              fontFamily: 'Poppins',
+                                fontFamily: 'Poppins',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             controller: _email,
@@ -192,12 +195,10 @@ class _signupState extends State<signup> {
                             },
                             decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: primary),
+                                  borderSide: BorderSide(color: primary),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: primary),
+                                  borderSide: BorderSide(color: primary),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.email_outlined,
@@ -205,12 +206,12 @@ class _signupState extends State<signup> {
                                 ),
                                 hintText: "Email",
                                 errorStyle: TextStyle(
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 1,
                                     fontSize: 10.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),
@@ -218,16 +219,18 @@ class _signupState extends State<signup> {
                         SizedBox(
                           height: 2.h,
                         ),
-                        Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
                               color: secondary,
                               borderRadius: BorderRadius.circular(20)),
                           height: 7.h,
                           alignment: Alignment.center,
                           child: TextFormField(
-                            style: TextStyle( fontWeight: FontWeight.w700,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
                                 color: Colors.black,
-                              fontFamily: 'Poppins',
+                                fontFamily: 'Poppins',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             controller: _phone,
@@ -242,12 +245,10 @@ class _signupState extends State<signup> {
                             },
                             decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: primary),
+                                  borderSide: BorderSide(color: primary),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: primary),
+                                  borderSide: BorderSide(color: primary),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.phone,
@@ -255,12 +256,12 @@ class _signupState extends State<signup> {
                                 ),
                                 hintText: "Phone number",
                                 errorStyle: TextStyle(
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 1,
                                     fontSize: 10.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),
@@ -268,16 +269,18 @@ class _signupState extends State<signup> {
                         SizedBox(
                           height: 2.h,
                         ),
-                        Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
                               color: secondary,
                               borderRadius: BorderRadius.circular(20)),
                           height: 7.h,
                           alignment: Alignment.center,
                           child: TextFormField(
-                            style: TextStyle( fontWeight: FontWeight.w700,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
                                 color: Colors.black,
-                              fontFamily: 'Poppins',
+                                fontFamily: 'Poppins',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             controller: _pasa,
@@ -290,12 +293,10 @@ class _signupState extends State<signup> {
                             },
                             decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: primary),
+                                  borderSide: BorderSide(color: primary),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: primary),
+                                  borderSide: BorderSide(color: primary),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.lock,
@@ -303,12 +304,12 @@ class _signupState extends State<signup> {
                                 ),
                                 hintText: "Password",
                                 errorStyle: TextStyle(
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 1,
                                     fontSize: 10.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),
@@ -316,16 +317,18 @@ class _signupState extends State<signup> {
                         SizedBox(
                           height: 2.h,
                         ),
-                        Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
                               color: secondary,
                               borderRadius: BorderRadius.circular(20)),
                           height: 7.h,
                           alignment: Alignment.center,
                           child: TextFormField(
-                            style: TextStyle( fontWeight: FontWeight.w700,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
                                 color: Colors.black,
-                              fontFamily: 'Poppins',
+                                fontFamily: 'Poppins',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             controller: _conf,
@@ -338,12 +341,10 @@ class _signupState extends State<signup> {
                             },
                             decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: primary),
+                                  borderSide: BorderSide(color: primary),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: primary),
+                                  borderSide: BorderSide(color: primary),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.lock,
@@ -351,12 +352,12 @@ class _signupState extends State<signup> {
                                 ),
                                 hintText: " Confirm password",
                                 errorStyle: TextStyle(
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 1,
                                     fontSize: 10.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),
@@ -379,7 +380,7 @@ class _signupState extends State<signup> {
                             child: Text("Sign Up",
                                 style: TextStyle(
                                     color: Colors.white,
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 12.sp)),
                           ),
@@ -395,13 +396,13 @@ class _signupState extends State<signup> {
                     // Text("Don't have an account ? ",style:TextStyle(color: Colors.grey.shade100,fontSize: 9.sp,fontFamily: 'game',fontWeight: FontWeight.w400) ,),
                     TextButton(
                       onPressed: () {
-                      Get.offAll(login());
+                        Get.offAll(login());
                       },
                       child: Text("Already Member ?",
                           style: TextStyle(
                               color: primary,
                               fontSize: 12.sp,
-                            fontFamily: 'Poppins',
+                              fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400)),
                     )
                   ],

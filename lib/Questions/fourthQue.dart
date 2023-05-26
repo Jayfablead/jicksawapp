@@ -124,18 +124,11 @@ class _FourthQueState extends State<FourthQue> {
                             decoration: ans1
                                 ? BoxDecoration(
                                 border: Border.all(color: primary),
-                                borderRadius: BorderRadius.circular(15),
+                                borderRadius: BorderRadius.circular(90),
                                 color: secondary)
-                                : BoxDecoration(boxShadow: [
-                              BoxShadow(
-                                color: Colors.deepOrange.withOpacity(0.5),
-                                offset: Offset(0, 6),
-                                // blurRadius: 20,
-                                // spreadRadius: -5,
-                              ),
-                            ],
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.deepOrangeAccent),
+                                : BoxDecoration(
+                                borderRadius: BorderRadius.circular(90),
+                                color: primary),
                             padding: EdgeInsets.all(2.h),
                             child: Text(
                               'Expanded View',
@@ -143,10 +136,10 @@ class _FourthQueState extends State<FourthQue> {
                                   fontSize: 13.sp,
                                   color: ans1
                                       ? primary
-                                      : Color.fromARGB(255, 18, 28, 36),
-                                  fontWeight: FontWeight.bold,
+                                      : Colors.white,
+
                                 fontFamily: 'Poppins',
-                                letterSpacing: 2,),
+                                ),
                             ),
                           ),
                         ),
@@ -168,18 +161,11 @@ class _FourthQueState extends State<FourthQue> {
                             decoration: ans2
                                 ? BoxDecoration(
                                 border: Border.all(color: primary),
-                                borderRadius: BorderRadius.circular(15),
+                                borderRadius: BorderRadius.circular(90),
                                 color: secondary)
-                                : BoxDecoration(boxShadow: [
-                              BoxShadow(
-                                color: Colors.deepOrange.withOpacity(0.5),
-                                offset: Offset(0, 6),
-                                // blurRadius: 20,
-                                // spreadRadius: -5,
-                              ),
-                            ],
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.deepOrangeAccent),
+                                : BoxDecoration(
+                                borderRadius: BorderRadius.circular(90),
+                                color: primary),
                             padding: EdgeInsets.all(2.h),
                             child: Text(
                               'List View',
@@ -187,10 +173,10 @@ class _FourthQueState extends State<FourthQue> {
                                   fontSize: 13.sp,
                                   color: ans2
                                       ? primary
-                                      : Color.fromARGB(255, 18, 28, 36),
-                                  fontWeight: FontWeight.bold,
+                                      : Colors.white,
+
                                 fontFamily: 'Poppins',
-                                letterSpacing: 2,),
+                                ),
                             ),
                           ),
                         ),
@@ -212,18 +198,11 @@ class _FourthQueState extends State<FourthQue> {
                             decoration: ans3
                                 ? BoxDecoration(
                                 border: Border.all(color: primary),
-                                borderRadius: BorderRadius.circular(15),
+                                borderRadius: BorderRadius.circular(90),
                                 color: secondary)
-                                : BoxDecoration(boxShadow: [
-                              BoxShadow(
-                                color: Colors.deepOrange.withOpacity(0.5),
-                                offset: Offset(0, 6),
-                                // blurRadius: 20,
-                                // spreadRadius: -5,
-                              ),
-                            ],
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.deepOrangeAccent),
+                                : BoxDecoration(
+                                borderRadius: BorderRadius.circular(90),
+                                color: primary),
                             padding: EdgeInsets.all(2.h),
                             child: Text(
                               'Stack',
@@ -231,10 +210,10 @@ class _FourthQueState extends State<FourthQue> {
                                   fontSize: 13.sp,
                                   color: ans3
                                       ? primary
-                                      : Color.fromARGB(255, 18, 28, 36),
-                                  fontWeight: FontWeight.bold,
+                                      : Colors.white,
+
                                 fontFamily: 'Poppins',
-                                letterSpacing: 2,),
+                                ),
                             ),
                           ),
                         ),
@@ -256,18 +235,11 @@ class _FourthQueState extends State<FourthQue> {
                             decoration: ans4
                                 ? BoxDecoration(
                                 border: Border.all(color: primary),
-                                borderRadius: BorderRadius.circular(15),
+                                borderRadius: BorderRadius.circular(90),
                                 color: secondary)
-                                : BoxDecoration(boxShadow: [
-                              BoxShadow(
-                                color: Colors.deepOrange.withOpacity(0.5),
-                                offset: Offset(0, 6),
-                                // blurRadius: 20,
-                                // spreadRadius: -5,
-                              ),
-                            ],
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.deepOrangeAccent),
+                                : BoxDecoration(
+                                borderRadius: BorderRadius.circular(90),
+                                color: primary),
                             padding: EdgeInsets.all(2.h),
                             child: Text(
                               'Array Builder',
@@ -275,10 +247,10 @@ class _FourthQueState extends State<FourthQue> {
                                   fontSize: 13.sp,
                                   color: ans4
                                       ? primary
-                                      : Color.fromARGB(255, 18, 28, 36),
-                                  fontWeight: FontWeight.bold,
+                                      : Colors.white,
+
                                 fontFamily: 'Poppins',
-                                letterSpacing: 2,),
+                               ),
                             ),
                           ),
                         ),
@@ -294,25 +266,18 @@ class _FourthQueState extends State<FourthQue> {
                         alignment: Alignment.center,
                         width: 85.w,
                         margin: EdgeInsets.only(top: 2.h),
-                        decoration: BoxDecoration(boxShadow: [
-                          BoxShadow(
-                            color: Colors.deepOrange.withOpacity(0.5),
-                            offset: Offset(0, 6),
-                            // blurRadius: 20,
-                            // spreadRadius: -5,
-                          ),
-                        ],
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.deepOrangeAccent),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(90),
+                            color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'Next',
                           style: TextStyle(
                               fontSize: 13.sp,
-                              color: Color.fromARGB(255, 18, 28, 36),
-                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+
                             fontFamily: 'Poppins',
-                            letterSpacing: 2,),
+                            ),
                         ),
                       ),
                     )

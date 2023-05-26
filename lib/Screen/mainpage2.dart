@@ -260,7 +260,7 @@ Text('Continue Playing', style: TextStyle(
                                   borderRadius: BorderRadius.circular(30),
                                 ),
                                 child: Text(
-                                  'Start',
+                                  'Play',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Poppins',

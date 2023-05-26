@@ -120,19 +120,12 @@ class _FirstQueState extends State<FirstQue> {
                         decoration: ans1
                             ? BoxDecoration(
                                 border: Border.all(color: primary),
-                                borderRadius: BorderRadius.circular(15),
+                                borderRadius: BorderRadius.circular(90),
                                 color: secondary)
                             : BoxDecoration(
-                                boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.deepOrange.withOpacity(0.5),
-                                      offset: Offset(0, 6),
-                                      // blurRadius: 20,
-                                      // spreadRadius: -5,
-                                    ),
-                                  ],
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.deepOrangeAccent),
+
+                                borderRadius: BorderRadius.circular(90),
+                                color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'Open Source Backend Framework',
@@ -140,10 +133,9 @@ class _FirstQueState extends State<FirstQue> {
                             fontSize: 13.sp,
                             color: ans1
                                 ? primary
-                                : Color.fromARGB(255, 18, 28, 36),
+                                : Colors.white,
                           fontFamily: 'Poppins',
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 2,
+
                           ),
                         ),
                       ),
@@ -165,19 +157,12 @@ class _FirstQueState extends State<FirstQue> {
                         decoration: ans2
                             ? BoxDecoration(
                                 border: Border.all(color: primary),
-                                borderRadius: BorderRadius.circular(15),
+                                borderRadius: BorderRadius.circular(90),
                                 color: secondary)
                             : BoxDecoration(
-                                boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.deepOrange.withOpacity(0.5),
-                                      offset: Offset(0, 6),
-                                      // blurRadius: 20,
-                                      // spreadRadius: -5,
-                                    ),
-                                  ],
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.deepOrangeAccent),
+                               
+                                borderRadius: BorderRadius.circular(90),
+                                color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'Open Source UI Tool-Kit',
@@ -185,9 +170,8 @@ class _FirstQueState extends State<FirstQue> {
                               fontSize: 13.sp,
                               color: ans2
                                   ? primary
-                                  : Color.fromARGB(255, 18, 28, 36),
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 2,
+                                  : Colors.white,
+
                              fontFamily: 'Poppins',),
                         ),
                       ),
@@ -209,19 +193,12 @@ class _FirstQueState extends State<FirstQue> {
                         decoration: ans3
                             ? BoxDecoration(
                                 border: Border.all(color: primary),
-                                borderRadius: BorderRadius.circular(15),
+                                borderRadius: BorderRadius.circular(90),
                                 color: secondary)
                             : BoxDecoration(
-                                boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.deepOrange.withOpacity(0.5),
-                                      offset: Offset(0, 6),
-                                      // blurRadius: 20,
-                                      // spreadRadius: -5,
-                                    ),
-                                  ],
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.deepOrangeAccent),
+                               
+                                borderRadius: BorderRadius.circular(90),
+                                color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'Open Source App Development',
@@ -229,10 +206,10 @@ class _FirstQueState extends State<FirstQue> {
                             fontSize: 13.sp,
                             color: ans3
                                 ? primary
-                                : Color.fromARGB(255, 18, 28, 36),
-                            fontWeight: FontWeight.bold,
+                                : Colors.white,
+
                           fontFamily: 'Poppins',
-                            letterSpacing: 2,
+
                           ),
                         ),
                       ),
@@ -254,19 +231,12 @@ class _FirstQueState extends State<FirstQue> {
                         decoration: ans4
                             ? BoxDecoration(
                                 border: Border.all(color: primary),
-                                borderRadius: BorderRadius.circular(15),
+                                borderRadius: BorderRadius.circular(90),
                                 color: secondary)
                             : BoxDecoration(
-                                boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.deepOrange.withOpacity(0.5),
-                                      offset: Offset(0, 6),
-                                      // blurRadius: 20,
-                                      // spreadRadius: -5,
-                                    ),
-                                  ],
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.deepOrangeAccent),
+                               
+                                borderRadius: BorderRadius.circular(90),
+                                color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'DBMS Tool-Kit',
@@ -274,10 +244,10 @@ class _FirstQueState extends State<FirstQue> {
                             fontSize: 13.sp,
                             color: ans4
                                 ? primary
-                                : Color.fromARGB(255, 18, 28, 36),
-                            fontWeight: FontWeight.bold,
+                                : Colors.white,
+
                           fontFamily: 'Poppins',
-                            letterSpacing: 2,
+
                           ),
                         ),
                       ),
@@ -299,26 +269,16 @@ class _FirstQueState extends State<FirstQue> {
                           width: 85.w,
                           margin: EdgeInsets.only(top: 2.h),
                           decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.deepOrange.withOpacity(0.5),
-                                  offset: Offset(0, 6),
-                                  // blurRadius: 20,
-                                  // spreadRadius: -5,
-                                ),
-                              ],
-                              borderRadius: BorderRadius.circular(15),
-                              color: Colors.deepOrangeAccent),
+
+                              borderRadius: BorderRadius.circular(90),
+                              color: primary),
                           padding: EdgeInsets.all(2.h),
                           child: Text(
                             'Next',
                             style: TextStyle(
-                              fontSize: 13.sp,
-                              color: Color.fromARGB(255, 18, 28, 36),
-                              fontWeight: FontWeight.bold,
-                            fontFamily: 'Poppins',
-                              letterSpacing: 2,
-                            ),
+                                color: Colors.white,
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sp),
                           ),
                         ),
                       )

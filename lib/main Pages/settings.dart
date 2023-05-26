@@ -46,7 +46,7 @@ class _settingState extends State<setting> {
                     'Settings',
                      style: primarytxt1,
                         // TextStyle(
-                        //   // fontWeight: FontWeight.bold, fontSize: 13.sp, color:Colors.deepOrangeAccent,
+                        //   // fontWeight: FontWeight.bold, fontSize: 13.sp, color:primary,
                         //
                         // ),
                   ),

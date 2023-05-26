@@ -274,7 +274,7 @@ class _rankState extends State<rank> {
                          child: Text("john",
                          style: TextStyle(
                          fontFamily: 'Poppins', fontSize: 15.sp,
-                           color: Colors.deepOrangeAccent
+                           color: primary
                          ),
                          ),
                        )
@@ -328,7 +328,7 @@ child: Text(
   ),
 ),
   decoration: BoxDecoration(
-    color: Colors.deepOrangeAccent,
+    color: primary,
     borderRadius: BorderRadius.circular(30)
   ),
 

@@ -3,6 +3,8 @@ import 'package:jicksaw/main%20Pages/subscription_page.dart';
 
 import 'package:sizer/sizer.dart';
 
+import '../const widget.dart';
+
 class subscribe_plan extends StatefulWidget {
   const subscribe_plan({Key? key}) : super(key: key);
 
@@ -93,7 +95,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                         decoration: BoxDecoration(
                             border: Border.all(
                                 color: _selectedValue == 1
-                                    ? Colors.deepOrangeAccent
+                                    ? primary
                                     : Colors.grey,
                                 width: 2.sp),
                             borderRadius: BorderRadius.circular(10)),
@@ -115,7 +117,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                   Radio(
                                     value: 1,
                                     groupValue: _selectedValue,
-                                    activeColor: Colors.deepOrangeAccent,
+                                    activeColor: primary,
                                     onChanged: (value) {
                                       setState(() {
                                         _selectedValue = value!;
@@ -205,7 +207,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                             border: Border.all(
                                 color: _selectedValue == 1
                                     ? Colors.grey
-                                    : Colors.deepOrangeAccent,
+                                    : primary,
                                 width: 2.sp),
                             borderRadius: BorderRadius.circular(10)),
                         child: Padding(
@@ -226,7 +228,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                   Radio(
                                     value: 2,
                                     groupValue: _selectedValue,
-                                   activeColor: Colors.deepOrangeAccent,
+                                   activeColor: primary,
                                     onChanged: (value) {
                                       setState(() {
                                         _selectedValue = value!;
@@ -313,7 +315,7 @@ class _subscribe_planState extends State<subscribe_plan> {
 
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
-                            color: Colors.deepOrangeAccent
+                            color: primary
                         ),
                         child: Text("Continue to Checkout",
                           style: TextStyle(color: Colors.black, fontSize: 12.sp,

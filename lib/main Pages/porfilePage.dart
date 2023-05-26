@@ -132,19 +132,29 @@ class _MyProfileState extends State<MyProfile> {
                   height: 2.h,
                 ),
                 Center(
-                    child: InkWell(
-                        onTap: () {
-                          Get.to(() => EditProfile());
-                        },
-                        child: Container(
-                            padding: EdgeInsets.all(2.w),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Text(
-                              'Edit Profile',
-                              style: secondarytxtwhite,
-                            )))),
+                  child: InkWell(
+                    onTap: () {
+                      Get.to(() => EditProfile());
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 5.5.h,
+                      width: 40.w,
+                      decoration: BoxDecoration(
+                          color: primary,
+                          borderRadius: BorderRadius.circular(90)),
+                      child: Text(
+                        'Edit Profile',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 13.sp,
+                          fontFamily: 'Poppins',
+                          letterSpacing: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
                 SizedBox(height: 1.h),
                 Divider(
                   color: Color(0xff7a7a7a),

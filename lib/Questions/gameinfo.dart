@@ -169,25 +169,17 @@ class _TutorialState extends State<Tutorial> {
                     alignment: Alignment.center,
                     width: 85.w,
                     margin: EdgeInsets.only(top: 2.h),
-                    decoration: BoxDecoration(boxShadow: [
-                      BoxShadow(
-                        color: Colors.deepOrange.withOpacity(0.5),
-                        offset: Offset(0, 6),
-                        // blurRadius: 20,
-                        // spreadRadius: -5,
-                      ),
-                    ],
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.deepOrangeAccent),
-                    padding: EdgeInsets.all(2.h),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(90),
+                        color: primary),
+                    padding: EdgeInsets.all(1.5.h),
                     child: Text(
                       'Start',
-                      style: TextStyle(
-                          fontSize: 13.sp,
-                          color: Color.fromARGB(255, 18, 28, 36),
-                          fontWeight: FontWeight.bold,
+                      style:  TextStyle(
+                        color: Colors.white,
                         fontFamily: 'Poppins',
-                        letterSpacing: 2,),
+                        fontSize: 14.sp),
+
                     ),
                   ),
                 ),

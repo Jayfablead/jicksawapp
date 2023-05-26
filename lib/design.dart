@@ -242,7 +242,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                     width: 30.0,
                                     decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-                                        color: Colors.deepOrangeAccent),
+                                        color: primary),
                                   )
                                 ],
                               )
@@ -592,7 +592,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                           width: 30.0,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Colors.deepOrangeAccent),
+                              color: primary),
                         ),
                         SizedBox(
                           width: 2.w,

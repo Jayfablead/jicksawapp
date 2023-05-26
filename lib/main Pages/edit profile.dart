@@ -67,7 +67,6 @@ class _EditProfileState extends State<EditProfile> {
     // TODO: implement initState
     super.initState();
     viewap();
-
   }
 
   @override
@@ -76,7 +75,6 @@ class _EditProfileState extends State<EditProfile> {
       backgroundColor: bgcolor
       // Colors.black
       ,
-      drawer: drawer1(),
       key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Padding(
@@ -102,13 +100,6 @@ class _EditProfileState extends State<EditProfile> {
                 children: [
                   Stack(
                     children: [
-                      // Container(
-                      //   height: 15.h,
-                      //   width: 30.w,
-                      //   child: (imagefile != null)
-                      //       ? Image.file(imagefile!, width: 300.0)
-                      //       : Image.asset("assets/prof.jpg"),
-                      // ),
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 1.w),
                         height: 15.h,
@@ -124,7 +115,9 @@ class _EditProfileState extends State<EditProfile> {
                                 )
                               : CachedNetworkImage(
                                   fit: BoxFit.cover,
-                                  imageUrl: profileviewmodal?.profileViewPlayer?.profilePic ?? '',
+                                  imageUrl: profileviewmodal
+                                          ?.profileViewPlayer?.profilePic ??
+                                      '',
                                   progressIndicatorBuilder:
                                       (context, url, progress) =>
                                           CircularProgressIndicator(),
@@ -164,125 +157,149 @@ class _EditProfileState extends State<EditProfile> {
                     height: 4.h,
                   ),
                   Container(
-                    padding: EdgeInsets.all(5.w),
-                    margin: EdgeInsets.all(5.w),
+                    padding: EdgeInsets.all(3.w),
+                    margin: EdgeInsets.all(3.w),
                     // height: .h,
-                    width: 90.w,
+                    width: 99.w,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20.0),
-                        border: Border.all(color: Colors.deepOrange)),
+                        border: Border.all(color: primary)),
                     child: Form(
                       child: Column(
                         children: [
-                          TextFormField(
-                            style: TextStyle(
-                                color: Colors.black,
-                              fontFamily: 'Poppins',
-                                letterSpacing: 2,
-                                fontSize: 12.sp),
-                            controller: _user,
-                            keyboardType: TextInputType.text,
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return "Please enter the user name";
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: Colors.deepOrange),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: Colors.deepOrange),
-                                ),
-                                suffixIcon: Icon(
-                                  Icons.person,
+                          Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                            decoration: BoxDecoration(
+                                color: secondary,
+                                borderRadius: BorderRadius.circular(20)),
+                            height: 7.h,
+                            alignment: Alignment.center,
+                            child: TextFormField(
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
                                   color: Colors.black,
-                                ),
-                                hintText: "Full Name",
-                                hintStyle: TextStyle(
-                                    color: Colors.black87,
                                   fontFamily: 'Poppins',
-                                    letterSpacing: 2,
-                                    fontSize: 11.sp)),
+                                  letterSpacing: 2,
+                                  fontSize: 12.sp),
+                              controller: _user,
+                              keyboardType: TextInputType.text,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "Please enter the user name";
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: primary),
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: primary),
+                                  ),
+                                  suffixIcon: Icon(
+                                    Icons.person,
+                                    color: Colors.black,
+                                  ),
+                                  hintText: "Full Name",
+                                  hintStyle: TextStyle(
+                                      color: Colors.black87,
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 2,
+                                      fontSize: 11.sp)),
+                            ),
                           ),
                           SizedBox(
                             height: 2.h,
                           ),
-                          TextFormField(
-                            style: TextStyle(
-                                color: Colors.black,
-                              fontFamily: 'Poppins',
-                                letterSpacing: 2,
-                                fontSize: 12.sp),
-                            controller: _age,
-                            keyboardType: TextInputType.text,
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return "Please enter the age";
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: Colors.deepOrange),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: Colors.deepOrange),
-                                ),
-                                suffixIcon: Icon(
-                                  Icons.person_pin_circle_outlined,
+                          Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                            decoration: BoxDecoration(
+                                color: secondary,
+                                borderRadius: BorderRadius.circular(20)),
+                            height: 7.h,
+                            alignment: Alignment.center,
+                            child: TextFormField(
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
                                   color: Colors.black,
-                                ),
-                                hintText: "Age",
-                                hintStyle: TextStyle(
-                                    color: Colors.black87,
                                   fontFamily: 'Poppins',
-                                    letterSpacing: 2,
-                                    fontSize: 11.sp)),
+                                  letterSpacing: 2,
+                                  fontSize: 12.sp),
+                              controller: _age,
+                              keyboardType: TextInputType.text,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "Please enter the age";
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: primary),
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: primary),
+                                  ),
+                                  suffixIcon: Icon(
+                                    Icons.person_pin_circle_outlined,
+                                    color: Colors.black,
+                                  ),
+                                  hintText: "Age",
+                                  hintStyle: TextStyle(
+                                      color: Colors.black87,
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 2,
+                                      fontSize: 11.sp)),
+                            ),
                           ),
                           SizedBox(
                             height: 2.h,
                           ),
-                          TextFormField(
-                            style: TextStyle(
-                                color: Colors.black,
-                              fontFamily: 'Poppins',
-                                letterSpacing: 2,
-                                fontSize: 12.sp),
-                            controller: _about,
-                            keyboardType: TextInputType.text,
-                            maxLines: 5,
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return "Enter About Detials";
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: Colors.deepOrange),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: Colors.deepOrange),
-                                ),
-                                suffixIcon: Icon(
-                                  Icons.info_outline_rounded,
+                          Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                            decoration: BoxDecoration(
+                                color: secondary,
+                                borderRadius: BorderRadius.circular(20)),
+                            
+                            alignment: Alignment.center,
+                            child: TextFormField(
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
                                   color: Colors.black,
-                                ),
-                                hintText: "About",
-                                hintStyle: TextStyle(
-                                    color: Colors.black87,
                                   fontFamily: 'Poppins',
-                                    letterSpacing: 2,
-                                    fontSize: 11.sp)),
+                                  letterSpacing: 2,
+                                  fontSize: 12.sp),
+                              controller: _about,
+                              keyboardType: TextInputType.text,
+                              maxLines: 5,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "Enter About Detials";
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: primary),
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: primary),
+                                  ),
+                                  suffixIcon: Icon(
+                                    Icons.info_outline_rounded,
+                                    color: Colors.black,
+                                  ),
+                                  hintText: "About",
+                                  hintStyle: TextStyle(
+                                      color: Colors.black87,
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 2,
+                                      fontSize: 11.sp)),
+                            ),
                           ),
                         ],
                       ),
@@ -298,13 +315,20 @@ class _EditProfileState extends State<EditProfile> {
                         editap();
                       },
                       child: Container(
-                        padding: EdgeInsets.all(3.w),
+                        height: 5.5.h,
+                        width: 45.w,
+                        alignment: Alignment.center,
                         decoration: BoxDecoration(
-                            color: Colors.deepOrangeAccent,
+                            color: primary,
                             borderRadius: BorderRadius.circular(30)),
                         child: Text(
                           'Update Profile',
-                          style: textStyle,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 13.sp,
+                            fontFamily: 'Poppins',
+                            letterSpacing: 2,
+                          ),
                         ),
                       ),
                     ),
@@ -393,7 +417,7 @@ class _EditProfileState extends State<EditProfile> {
           print(response.statusCode);
           print(usermodal?.status);
           if (response.statusCode == 200 && usermodal?.status == "success") {
-       update( context, 'Success', "Profile Updated Successfully");
+            update(context, 'Success', "Profile Updated Successfully");
             setState(() {
               // isLoading = false;
             });
@@ -430,7 +454,6 @@ class _EditProfileState extends State<EditProfile> {
                   (profileviewmodal?.profileViewPlayer?.name).toString();
               _age.text = profileviewmodal?.profileViewPlayer?.age ?? "";
               _about.text = profileviewmodal?.profileViewPlayer?.about ?? "";
-
             });
 
             setState(() {

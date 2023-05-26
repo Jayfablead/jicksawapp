@@ -140,25 +140,18 @@ class _ResultsPageState extends State<ResultsPage> {
                               width: 85.w,
                               margin: EdgeInsets.only(top: 2.h),
                               decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.deepOrange.withOpacity(0.5),
-                                      offset: Offset(0, 6),
-                                      // blurRadius: 20,
-                                      // spreadRadius: -5,
-                                    ),
-                                  ],
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: Colors.deepOrangeAccent),
+                                 
+                                  borderRadius: BorderRadius.circular(90),
+                                  color: primary),
                               padding: EdgeInsets.all(2.h),
                               child: Text(
                                 'Restart the Game',
                                 style: TextStyle(
                                     fontSize: 13.sp,
-                                    color: Color.fromARGB(255, 18, 28, 36),
-                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+
                                   fontFamily: 'Poppins',
-                                    letterSpacing: 2),
+                                    ),
                               ),
                             ),
                           )
@@ -259,25 +252,18 @@ class _ResultsPageState extends State<ResultsPage> {
                               width: 85.w,
                               margin: EdgeInsets.only(top: 2.h),
                               decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.deepOrange.withOpacity(0.5),
-                                      offset: Offset(0, 6),
-                                      // blurRadius: 20,
-                                      // spreadRadius: -5,
-                                    ),
-                                  ],
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: Colors.deepOrangeAccent),
+                                 
+                                  borderRadius: BorderRadius.circular(90),
+                                  color: primary),
                               padding: EdgeInsets.all(2.h),
                               child: Text(
                                 'Roll the Dice',
                                 style: TextStyle(
                                     fontSize: 13.sp,
-                                    color: Color.fromARGB(255, 18, 28, 36),
-                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+
                                   fontFamily: 'Poppins',
-                                    letterSpacing: 2),
+                                   ),
                               ),
                             ),
                           ),

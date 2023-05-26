@@ -170,7 +170,7 @@ SizedBox(height: 10.h,),
 
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                color: Colors.deepOrangeAccent
+                color: primary
               ),
               child: Text("Choose your plan",
               style: TextStyle(color: Colors.black, fontSize: 12.sp, fontFamily: 'Poppins',),
