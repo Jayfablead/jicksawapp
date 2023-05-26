@@ -177,7 +177,7 @@ class _ResultsPageState extends State<ResultsPage> {
                           ),
                         ),
                         SizedBox(
-                          height: 2.h,
+                          height: 5.h,
                         ),
                         Text(
                           '🎊 Congratulations 🎊 ',
@@ -191,7 +191,7 @@ class _ResultsPageState extends State<ResultsPage> {
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(
-                          height: 15.h,
+                          height: 13.h,
                         ),
                         Text(
                           'You\'ve Passed',
