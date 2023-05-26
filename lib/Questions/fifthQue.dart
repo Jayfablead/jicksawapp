@@ -42,6 +42,7 @@ class _FifthQueState extends State<FifthQue> {
       ans4 = false;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -141,13 +142,10 @@ class _FifthQueState extends State<FifthQue> {
                             child: Text(
                               'runApp()',
                               style: TextStyle(
-                                  fontSize: 13.sp,
-                                  color: ans1
-                                      ? primary
-                                      : Colors.white,
-
+                                fontSize: 13.sp,
+                                color: ans1 ? primary : Colors.white,
                                 fontFamily: 'Poppins',
-                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -178,13 +176,10 @@ class _FifthQueState extends State<FifthQue> {
                             child: Text(
                               'run()',
                               style: TextStyle(
-                                  fontSize: 13.sp,
-                                  color: ans2
-                                      ? primary
-                                      : Colors.white,
-
+                                fontSize: 13.sp,
+                                color: ans2 ? primary : Colors.white,
                                 fontFamily: 'Poppins',
-                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -215,11 +210,8 @@ class _FifthQueState extends State<FifthQue> {
                             child: Text(
                               'MaterialApp()',
                               style: TextStyle(
-                                  fontSize: 13.sp,
-                                  color: ans3
-                                      ? primary
-                                      : Colors.white,
-
+                                fontSize: 13.sp,
+                                color: ans3 ? primary : Colors.white,
                                 fontFamily: 'Poppins',
                               ),
                             ),
@@ -252,13 +244,10 @@ class _FifthQueState extends State<FifthQue> {
                             child: Text(
                               'Main()',
                               style: TextStyle(
-                                  fontSize: 13.sp,
-                                  color: ans4
-                                      ? primary
-                                      : Colors.white,
-                                  fontWeight: FontWeight.bold,
+                                fontSize: 13.sp,
+                                color: ans4 ? primary : Colors.white,
                                 fontFamily: 'Poppins',
-                               ),
+                              ),
                             ),
                           ),
                         ),
@@ -270,8 +259,8 @@ class _FifthQueState extends State<FifthQue> {
                     (ans1 || ans2 || ans3 || ans4)
                         ? InkWell(
                             onTap: () {
-                              Get.to(()=>
-                                ResultsPage(
+                              Get.to(
+                                () => ResultsPage(
                                     firstans: widget.firstans,
                                     secans: widget.secans,
                                     thirdans: widget.thirdans,
@@ -290,9 +279,8 @@ class _FifthQueState extends State<FifthQue> {
                               child: Text(
                                 'Next',
                                 style: TextStyle(
-                                    fontSize: 13.sp,
-                                    color: Colors.white,
-
+                                  fontSize: 13.sp,
+                                  color: Colors.white,
                                   fontFamily: 'Poppins',
                                 ),
                               ),

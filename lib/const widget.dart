@@ -50,6 +50,7 @@ TextStyle primarytxt = TextStyle(
   color: Colors.black,
   fontSize: 13.sp,
 fontFamily: 'Poppins',
+  fontWeight: FontWeight.w700,
   letterSpacing: 2,
 );
 TextStyle primarytxto = TextStyle(

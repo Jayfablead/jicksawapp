@@ -173,9 +173,9 @@ class _ThirdQueState extends State<ThirdQue> {
                                   color: ans2
                                       ? primary
                                       : Colors.white,
-                                  fontWeight: FontWeight.bold,
+
                                 fontFamily: 'Poppins',
-                                letterSpacing: 2,),
+                             ),
                             ),
                           ),
                         ),
@@ -210,9 +210,9 @@ class _ThirdQueState extends State<ThirdQue> {
                                   color: ans3
                                       ? primary
                                       : Colors.white,
-                                  fontWeight: FontWeight.bold,
+
                                 fontFamily: 'Poppins',
-                                letterSpacing: 2,),
+                               ),
                             ),
                           ),
                         ),
@@ -247,9 +247,9 @@ class _ThirdQueState extends State<ThirdQue> {
                                   color: ans4
                                       ? primary
                                       : Colors.white,
-                                  fontWeight: FontWeight.bold,
+
                                 fontFamily: 'Poppins',
-                                letterSpacing: 2,),
+                       ),
                             ),
                           ),
                         ),
@@ -274,9 +274,9 @@ class _ThirdQueState extends State<ThirdQue> {
                           style: TextStyle(
                               fontSize: 13.sp,
                               color: Colors.white,
-                              fontWeight: FontWeight.bold,
+
                             fontFamily: 'Poppins',
-                            letterSpacing: 2,),
+                       ),
                         ),
                       ),
                     )
