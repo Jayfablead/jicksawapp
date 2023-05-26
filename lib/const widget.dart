@@ -7,7 +7,7 @@ import 'package:sizer/sizer.dart';
 const Color bgcolor = Colors.white;
 
 // const Color bgcolor = Color.fromARGB(255, 18, 28, 36);
-const Color primary = Color(0xffce6321);
+const Color primary = Color(0xffff7e2e);
 Color secondary = Colors.grey.withOpacity(0.1);
 
 const Color cCorrect = Color(0xFF538D4E);
