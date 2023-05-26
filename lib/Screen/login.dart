@@ -90,7 +90,7 @@ class _loginState extends State<login> {
                       fontWeight: FontWeight.w700,
                       fontSize: 17.sp,
                       letterSpacing: 2,
-                      fontFamily: 'game'),
+                     fontFamily: 'Poppins',),
                 )),
                 SizedBox(
                   height: 10.h,
@@ -117,7 +117,7 @@ class _loginState extends State<login> {
                           child: TextFormField(
                             style: TextStyle(
                                 color: Colors.black,
-                                fontFamily: 'game',
+                              fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w700,
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
@@ -143,12 +143,12 @@ class _loginState extends State<login> {
                                 ),
                                 hintText: "E-mail",
                                 errorStyle: TextStyle(
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 1,
                                     fontSize: 10.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),
@@ -166,7 +166,7 @@ class _loginState extends State<login> {
                             controller: _pasa,
                             style: TextStyle(
                                 color: Colors.black, fontWeight: FontWeight.w700,
-                                fontFamily: 'game',
+                              fontFamily: 'Poppins',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             keyboardType: TextInputType.text,
@@ -189,12 +189,12 @@ class _loginState extends State<login> {
                                 ),
                                 hintText: "Password",
                                 errorStyle: TextStyle(
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 1,
                                     fontSize: 10.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),
@@ -212,7 +212,7 @@ class _loginState extends State<login> {
                                 "Forgot Password?",
                                 style: TextStyle(
                                     color: primary,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 12.sp),
                               )),
@@ -234,7 +234,7 @@ class _loginState extends State<login> {
                             child: Text("Login",
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 14.sp)),
                           ),
@@ -260,7 +260,7 @@ class _loginState extends State<login> {
                           style: TextStyle(
                               color: primary,
                               fontSize: 12.sp,
-                              fontFamily: 'game',
+                            fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400)),
                     )
                   ],

@@ -69,7 +69,7 @@ class _InitscreenState extends State<Initscreen> {
                         color: Colors.black,
                         fontWeight: FontWeight.w700,
                         fontSize: 17.sp,
-                        fontFamily: 'game',letterSpacing: 2,),
+                      fontFamily: 'Poppins',letterSpacing: 2,),
                   )),
               SizedBox(
                 height: 2.h,
@@ -82,7 +82,7 @@ class _InitscreenState extends State<Initscreen> {
                         color: Colors.black,
                         fontWeight: FontWeight.w300,
                         fontSize: 12.sp,
-                        fontFamily: 'game',letterSpacing: 2,),
+                      fontFamily: 'Poppins',letterSpacing: 2,),
                   )),
               SizedBox(
                 height: 25.h,
@@ -135,7 +135,7 @@ color:Colors.grey.withOpacity(0.3),
                         child: Text(
                           'I ALREADY HAVE AN ACCOUNT',
                           style: TextStyle(fontWeight: FontWeight.bold,letterSpacing: 2,
-                              color:primary, fontFamily: 'game'),
+                              color:primary,fontFamily: 'Poppins',),
                         ),
                       ),
                     ),

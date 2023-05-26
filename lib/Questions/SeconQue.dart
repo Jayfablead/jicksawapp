@@ -146,7 +146,7 @@ class _SecQueState extends State<SecQue> {
                                       ? primary
                                       : Color.fromARGB(255, 18, 28, 36),
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'game',
+                                fontFamily: 'Poppins',
                                 letterSpacing: 2,),
                             ),
                           ),
@@ -190,7 +190,7 @@ class _SecQueState extends State<SecQue> {
                                       ? primary
                                       : Color.fromARGB(255, 18, 28, 36),
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'game',
+                                fontFamily: 'Poppins',
                                 letterSpacing: 2,),
                             ),
                           ),
@@ -234,7 +234,7 @@ class _SecQueState extends State<SecQue> {
                                       ? primary
                                       : Color.fromARGB(255, 18, 28, 36),
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'game',
+                                fontFamily: 'Poppins',
                                 letterSpacing: 2,),
                             ),
                           ),
@@ -278,7 +278,7 @@ class _SecQueState extends State<SecQue> {
                                       ? primary
                                       : Color.fromARGB(255, 18, 28, 36),
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'game',
+                                fontFamily: 'Poppins',
                                 letterSpacing: 2,),
                             ),
                           ),
@@ -312,7 +312,7 @@ class _SecQueState extends State<SecQue> {
                                     fontSize: 13.sp,
                                     color: Color.fromARGB(255, 18, 28, 36),
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                   letterSpacing: 2,),
                               ),
                             ),

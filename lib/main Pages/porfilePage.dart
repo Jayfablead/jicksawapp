@@ -21,8 +21,6 @@ class MyProfile extends StatefulWidget {
   State<MyProfile> createState() => _MyProfileState();
 }
 
-
-
 class _MyProfileState extends State<MyProfile> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -35,19 +33,20 @@ class _MyProfileState extends State<MyProfile> {
   ];
   bool isloading = true;
   bool isPlay = false;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     viewap();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer1(),
       key: _scaffoldKey,
-      backgroundColor:
-      bgcolor
+      backgroundColor: bgcolor
       // Colors.black
       ,
       body: SingleChildScrollView(
@@ -94,7 +93,9 @@ class _MyProfileState extends State<MyProfile> {
                         borderRadius: BorderRadius.circular(90),
                         child: CachedNetworkImage(
                           fit: BoxFit.cover,
-                          imageUrl: (profileviewmodal?.profileViewPlayer?.profilePic).toString(),
+                          imageUrl:
+                              (profileviewmodal?.profileViewPlayer?.profilePic)
+                                  .toString(),
                           progressIndicatorBuilder: (context, url, progress) =>
                               CircularProgressIndicator(),
                           errorWidget: (context, url, error) => Image.asset(
@@ -111,11 +112,16 @@ class _MyProfileState extends State<MyProfile> {
                         children: [
                           Container(
                             width: 50.w,
-                            child: Text(profileviewmodal?.profileViewPlayer?.name ?? "", style: header),
+                            child: Text(
+                                profileviewmodal?.profileViewPlayer?.name ?? "",
+                                style: header),
                           ),
                           Container(
                             width: 50.w,
-                            child: Text(profileviewmodal?.profileViewPlayer?.eMail ?? "", style: mail),
+                            child: Text(
+                                profileviewmodal?.profileViewPlayer?.eMail ??
+                                    "",
+                                style: mail),
                           ),
                         ],
                       ),
@@ -128,7 +134,7 @@ class _MyProfileState extends State<MyProfile> {
                 Center(
                     child: InkWell(
                         onTap: () {
-                          Get.to(()=>EditProfile());
+                          Get.to(() => EditProfile());
                         },
                         child: Container(
                             padding: EdgeInsets.all(2.w),
@@ -165,10 +171,10 @@ class _MyProfileState extends State<MyProfile> {
                               fontSize: 13.sp),
                         ),
                         SizedBox(
-                          width: 17.w,
+                          width: 5.w,
                         ),
                         Text(
-                          '',
+                          '2',
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
@@ -180,40 +186,6 @@ class _MyProfileState extends State<MyProfile> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 2.h),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 3.w),
-                      height: 7.h,
-                      width: 95.w,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: secondary),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                        Text('2',style: secondarytxt2,),
-                          Container(
-                            height: 1.h,
-                            width: 75.w,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: secondary),
-                            child: Row(
-                              children: [
-                                Container(
-                                  height: 1.h,
-                                  width: 10.w,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color: primary),
-                                ),
-                              ],
-                            ),
-                          ),
-                        Text('3',style: secondarytxt2,),
-                      ],),
-                    ),
-
                   ],
                 ),
                 SizedBox(
@@ -249,7 +221,7 @@ class _MyProfileState extends State<MyProfile> {
                         SizedBox(
                           width: 40.w,
                           child: Text(
-                            '60/100',
+                            '60 / 100',
                             maxLines: 3,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -330,7 +302,10 @@ class _MyProfileState extends State<MyProfile> {
                       width: 12.3.w,
                     ),
                     Text(
-                      profileviewmodal?.profileViewPlayer?.age == null || profileviewmodal?.profileViewPlayer?.age == ""?"N/A": profileviewmodal?.profileViewPlayer?.age  ?? "",
+                      profileviewmodal?.profileViewPlayer?.age == null ||
+                              profileviewmodal?.profileViewPlayer?.age == ""
+                          ? "N/A"
+                          : profileviewmodal?.profileViewPlayer?.age ?? "",
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -389,7 +364,12 @@ class _MyProfileState extends State<MyProfile> {
                       child: Padding(
                         padding: EdgeInsets.only(top: 2.h, bottom: 2.h),
                         child: Text(
-                          profileviewmodal?.profileViewPlayer?.about == null || profileviewmodal?.profileViewPlayer?.about == ""?"N/A": profileviewmodal?.profileViewPlayer?.about  ?? "",
+                          profileviewmodal?.profileViewPlayer?.about == null ||
+                                  profileviewmodal?.profileViewPlayer?.about ==
+                                      ""
+                              ? "N/A"
+                              : profileviewmodal?.profileViewPlayer?.about ??
+                                  "",
                           style: appname,
                         ),
                       ),
@@ -406,24 +386,25 @@ class _MyProfileState extends State<MyProfile> {
       ),
     );
   }
-  viewap(){
+
+  viewap() {
     final Map<String, String> data = {};
 
-    data['uid'] = usermodal?.userData?.uid ??"";
+    data['uid'] = usermodal?.userData?.uid ?? "";
     data['action'] = 'profile_view_player';
 
     checkInternet().then((internet) async {
       if (internet) {
         authprovider().profileviewapi(data).then((response) async {
-          profileviewmodal = ProfileviewModal.fromJson(json.decode(response.body));
+          profileviewmodal =
+              ProfileviewModal.fromJson(json.decode(response.body));
 
-          if (response.statusCode == 200 && profileviewmodal?.status == "success") {
-
+          if (response.statusCode == 200 &&
+              profileviewmodal?.status == "success") {
             setState(() {
               // isLoading = false;
             });
-          } else {
-          }
+          } else {}
         });
       } else {
         setState(() {

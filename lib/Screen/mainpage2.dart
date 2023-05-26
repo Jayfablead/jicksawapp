@@ -132,7 +132,7 @@ class _mainpage2State extends State<mainpage2> {
                                         color: Colors.black,
                                         fontSize: 17.sp,
                                         fontWeight: FontWeight.normal,
-                                        fontFamily: 'game'),
+                                       fontFamily: 'Poppins',),
                                   ),
                                   Container(
                                     margin: EdgeInsets.symmetric(horizontal: 1.w),
@@ -180,7 +180,7 @@ class _mainpage2State extends State<mainpage2> {
                                         color: Colors.black,
                                         fontSize: 17.sp,
                                         fontWeight: FontWeight.normal,
-                                        fontFamily: 'game'),
+                                       fontFamily: 'Poppins',),
                                   ),
                                 ],
                               ),
@@ -209,7 +209,7 @@ class _mainpage2State extends State<mainpage2> {
                                         color: Colors.black,
                                         fontSize: 17.sp,
                                         fontWeight: FontWeight.normal,
-                                        fontFamily: 'game'),
+                                       fontFamily: 'Poppins',),
                                   ),
                                 ],
                               ),
@@ -240,74 +240,33 @@ class _mainpage2State extends State<mainpage2> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Image.asset(
-                                  'assets/1.jpg',
-                                  height: 10.h,
-                                  width: 20.w,
+Text('Continue Playing', style: TextStyle(
+  color: Colors.black,
+  fontSize: 15.sp,
+  fontWeight: FontWeight.normal,
+  fontFamily: 'Poppins',),),
+                            InkWell(
+                              onTap: () {
+                                Get.to(
+                                  Tutorial(),
+                                );
+                              },
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 5.5.h,
+                                width: 80.w,
+                                decoration: BoxDecoration(
+                                  color: primary,
+                                  borderRadius: BorderRadius.circular(30),
                                 ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Text(
-                                          'Beginner ',
-                                          style: TextStyle(
-                                              fontSize: 13.sp,
-                                              fontFamily: 'game'),
-                                        ),
-                                        SizedBox(width: 1.w),
-                                        Text(
-                                          'Level 1 ',
-                                          style: TextStyle(
-                                              fontSize: 13.sp,
-                                              color: primary,
-                                              fontFamily: 'game'),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 1.h,
-                                    ),
-                                    SizedBox(
-                                      width: 20.h,
-                                      child: Text(
-                                        'Learners Gain a deeper understanding',
-                                        style: TextStyle(
-                                            fontSize: 13.sp,
-                                            fontFamily: 'game'),
-                                      ),
-                                    ),
-                                  ],
+                                child: Text(
+                                  'Start',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'Poppins',
+                                      fontSize: 14.sp),
                                 ),
-                                InkWell(
-                                  onTap: () {
-                                    Get.to(
-                                      Tutorial(),
-                                    );
-                                  },
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    height: 4.5.h,
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 4.w),
-                                    decoration: BoxDecoration(
-                                      color: primary,
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    child: Text(
-                                      'Start',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontFamily: 'game',
-                                          fontSize: 14.sp),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
                           ],
                         ),

@@ -153,7 +153,7 @@ class _GameInfoState extends State<GameInfo> {
                         fontSize: 12.sp,
                         color: Color.fromARGB(255, 18, 28, 36),
                         fontWeight: FontWeight.bold,
-                        fontFamily: 'game',
+                      fontFamily: 'Poppins',
                         letterSpacing: 2,
                       ),
                     ),

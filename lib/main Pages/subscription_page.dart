@@ -114,7 +114,7 @@ class _subscriptionState extends State<subscription> {
                   Container(
                     child: Text("Watch Premium Content",
                       style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold,
-                          fontFamily: 'game'
+                         fontFamily: 'Poppins',
                       ),
                     ),
                   ),
@@ -150,7 +150,7 @@ SizedBox(height: 10.h,),
           Container(
             child: Text('Starting at 2400/month',
 
-              style: TextStyle(fontSize: 12.sp,  fontFamily: 'game', fontWeight: FontWeight.w200),
+              style: TextStyle(fontSize: 12.sp,fontFamily: 'Poppins', fontWeight: FontWeight.w200),
             ),
           ),
 
@@ -173,7 +173,7 @@ SizedBox(height: 10.h,),
                 color: Colors.deepOrangeAccent
               ),
               child: Text("Choose your plan",
-              style: TextStyle(color: Colors.black, fontSize: 12.sp,  fontFamily: 'game'),
+              style: TextStyle(color: Colors.black, fontSize: 12.sp, fontFamily: 'Poppins',),
               ),
                         ),
           ),
@@ -181,7 +181,7 @@ SizedBox(height: 10.h,),
           Container(
             child: Text(
               "Subscribed already?",
-              style: TextStyle(fontSize: 12.sp, color: Colors.black,  fontFamily: 'game'),
+              style: TextStyle(fontSize: 12.sp, color: Colors.black, fontFamily: 'Poppins',),
             ),
           )
         ],

@@ -17,7 +17,7 @@ class MyTitle extends StatelessWidget {
         style: TextStyle(
             color: primary,
             fontSize: 13.sp,
-            fontFamily: 'game',
+          fontFamily: 'Poppins',
             letterSpacing: 2,
             decoration: TextDecoration.none),
       ),

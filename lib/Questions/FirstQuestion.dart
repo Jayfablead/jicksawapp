@@ -141,7 +141,7 @@ class _FirstQueState extends State<FirstQue> {
                             color: ans1
                                 ? primary
                                 : Color.fromARGB(255, 18, 28, 36),
-                            fontFamily: 'game',
+                          fontFamily: 'Poppins',
                             fontWeight: FontWeight.bold,
                             letterSpacing: 2,
                           ),
@@ -188,7 +188,7 @@ class _FirstQueState extends State<FirstQue> {
                                   : Color.fromARGB(255, 18, 28, 36),
                               fontWeight: FontWeight.bold,
                               letterSpacing: 2,
-                              fontFamily: 'game'),
+                             fontFamily: 'Poppins',),
                         ),
                       ),
                     ),
@@ -231,7 +231,7 @@ class _FirstQueState extends State<FirstQue> {
                                 ? primary
                                 : Color.fromARGB(255, 18, 28, 36),
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'game',
+                          fontFamily: 'Poppins',
                             letterSpacing: 2,
                           ),
                         ),
@@ -276,7 +276,7 @@ class _FirstQueState extends State<FirstQue> {
                                 ? primary
                                 : Color.fromARGB(255, 18, 28, 36),
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'game',
+                          fontFamily: 'Poppins',
                             letterSpacing: 2,
                           ),
                         ),
@@ -316,7 +316,7 @@ class _FirstQueState extends State<FirstQue> {
                               fontSize: 13.sp,
                               color: Color.fromARGB(255, 18, 28, 36),
                               fontWeight: FontWeight.bold,
-                              fontFamily: 'game',
+                            fontFamily: 'Poppins',
                               letterSpacing: 2,
                             ),
                           ),

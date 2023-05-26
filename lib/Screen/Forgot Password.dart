@@ -85,7 +85,7 @@ class _ForgotpwdState extends State<Forgotpwd> {
                               color: Colors.black,
                               fontWeight: FontWeight.w700,
                               fontSize: 14.sp,
-                              fontFamily: 'game'),
+                             fontFamily: 'Poppins',),
                         )),
                     SizedBox(
                       height: 10.h,
@@ -111,7 +111,7 @@ class _ForgotpwdState extends State<Forgotpwd> {
                               alignment: Alignment.center,
                               child: TextFormField(  style: TextStyle( fontWeight: FontWeight.w700,
                                   color: Colors.black,
-                                  fontFamily: 'game',
+                                fontFamily: 'Poppins',
                                   letterSpacing: 2,
                                   fontSize: 12.sp),
                                 controller: _user,
@@ -136,7 +136,7 @@ class _ForgotpwdState extends State<Forgotpwd> {
                                     hintText: "Email Address",
                                     hintStyle: TextStyle(
                                         color: Colors.black,
-                                        fontFamily: 'game',
+                                      fontFamily: 'Poppins',
                                         fontSize: 12.sp)),
                               ),
                             ),
@@ -144,6 +144,7 @@ class _ForgotpwdState extends State<Forgotpwd> {
                             GestureDetector(
                               onTap: () {
                                 forgotpass();
+                                print('object your honor');
                                 // Get.offAll(()=>mainpage2());
                               },
                               child: Container(
@@ -157,7 +158,7 @@ class _ForgotpwdState extends State<Forgotpwd> {
                                 child: Text("Forgot Password",
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontFamily: 'game',
+                                      fontFamily: 'Poppins',
                                         fontSize: 12.sp)),
                               ),
                             )
@@ -182,16 +183,20 @@ class _ForgotpwdState extends State<Forgotpwd> {
       data['forgotEmail'] = _user.text.trim().toString();
 
       data['action'] = 'forgot_password';
-
+print(data);
       checkInternet().then((internet) async {
+        print(internet);
         if (internet) {
           authprovider().forgotpassapi(data).then(( response) async {
+            print(usermodal?.status);
             usermodal = UserModal.fromJson(json.decode(response.body));
             if (response.statusCode == 200 && usermodal?.status == "success") {
+              print(usermodal?.status);
               setState(() {
                 // isLoading = false;
               });
-              Get.offAll(()=>mainpage2());
+              buildErrorDialog(context, 'done', 'Check Your Mail');
+
             } else {
 
 

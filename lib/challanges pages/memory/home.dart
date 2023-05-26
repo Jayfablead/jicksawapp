@@ -149,7 +149,7 @@ class _MemoryChallengeState extends State<MemoryChallenge> {
                         style: TextStyle(
                             color: bgcolor,
                             fontSize: 13.sp,
-                            fontFamily: 'game',
+                          fontFamily: 'Poppins',
                             letterSpacing: 2,
                             fontWeight: FontWeight.w700),
                       ),

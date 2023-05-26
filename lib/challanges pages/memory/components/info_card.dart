@@ -25,7 +25,7 @@ padding: EdgeInsets.symmetric(vertical: 0.5.h),
               bgcolor
 
                 ,
-              fontFamily: 'game',letterSpacing: 2
+            fontFamily: 'Poppins',letterSpacing: 2
             ),
           ),
           // SizedBox(

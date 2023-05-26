@@ -101,7 +101,7 @@ class _progressState extends State<progress> {
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18.sp,
-                                      fontFamily: 'game'
+                                     fontFamily: 'Poppins',
                                   ),
                                 ),
                               ),
@@ -110,7 +110,7 @@ class _progressState extends State<progress> {
                                   "Abc",
                                   style: TextStyle(
                                     fontSize: 12.sp,
-                                      fontFamily: 'game'
+                                     fontFamily: 'Poppins',
                                   ),
                                 ),
                               ),
@@ -150,7 +150,7 @@ class _progressState extends State<progress> {
                                   style: TextStyle(
                                       fontSize: 14.sp,
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'game'
+                                     fontFamily: 'Poppins',
                                   ),
                                 ),
                                 SizedBox(
@@ -158,7 +158,7 @@ class _progressState extends State<progress> {
                                 ),
                                 Text("followers",
                                   style: TextStyle(fontSize: 12.sp,
-                                      fontFamily: 'game'
+                                     fontFamily: 'Poppins',
                                   ),
                                 ),
                               ],
@@ -171,7 +171,7 @@ class _progressState extends State<progress> {
                                   style: TextStyle(
                                       fontSize: 14.sp,
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'game'
+                                     fontFamily: 'Poppins',
                                   ),
                                 ),
                                 SizedBox(
@@ -179,7 +179,7 @@ class _progressState extends State<progress> {
                                 ),
                                 Text("followers",
                                   style: TextStyle(fontSize: 12.sp,
-                                      fontFamily: 'game'
+                                     fontFamily: 'Poppins',
                                   ),
                                 ),
                               ],
@@ -192,7 +192,7 @@ class _progressState extends State<progress> {
                                   style: TextStyle(
                                       fontSize: 14.sp,
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'game'
+                                     fontFamily: 'Poppins',
                                   ),
                                 ),
                                 SizedBox(
@@ -201,7 +201,7 @@ class _progressState extends State<progress> {
                                 Text(
                                   "followers",
                                   style: TextStyle(fontSize: 12.sp,
-                                      fontFamily: 'game'
+                                     fontFamily: 'Poppins',
                                   ),
                                 ),
                               ],
@@ -228,7 +228,7 @@ class _progressState extends State<progress> {
                           "Previous Games",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16.sp,
-                              fontFamily: 'game'
+                             fontFamily: 'Poppins',
                           ),
                         ),
                       ),
@@ -248,7 +248,7 @@ class _progressState extends State<progress> {
                               fontWeight: FontWeight.bold,
                               color: Colors.blue,
                               fontSize: 11.sp,
-                                fontFamily: 'game'
+                               fontFamily: 'Poppins',
                             ),
                           ),
                         ),
@@ -284,14 +284,14 @@ class _progressState extends State<progress> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15.sp,
-                                    fontFamily: 'game'
+                                   fontFamily: 'Poppins',
                                 ),
                               ),
                               Text(
                                 "Sliding Puzzle",
                                 style: TextStyle(
                                     fontSize: 10.sp, color: Colors.grey,
-                                    fontFamily: 'game'
+                                   fontFamily: 'Poppins',
                                 ),
                               ),
                             ],
@@ -327,14 +327,14 @@ class _progressState extends State<progress> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15.sp,
-                                    fontFamily: 'game'
+                                   fontFamily: 'Poppins',
                                 ),
                               ),
                               Text(
                                 "Sliding Puzzle",
                                 style: TextStyle(
                                     fontSize: 10.sp, color: Colors.grey,
-                                    fontFamily: 'game'
+                                   fontFamily: 'Poppins',
                                 ),
                               ),
                             ],
@@ -370,14 +370,14 @@ class _progressState extends State<progress> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15.sp,
-                                    fontFamily: 'game'
+                                   fontFamily: 'Poppins',
                                 ),
                               ),
                               Text(
                                 "Sliding Puzzle",
                                 style: TextStyle(
                                     fontSize: 10.sp, color: Colors.grey,
-                                    fontFamily: 'game'
+                                   fontFamily: 'Poppins',
                                 ),
                               ),
                             ],
@@ -393,7 +393,7 @@ class _progressState extends State<progress> {
                       "Active Games",
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 16.sp,
-                          fontFamily: 'game'
+                         fontFamily: 'Poppins',
                       ),
                     ),
                   ),
@@ -459,7 +459,7 @@ class _progressState extends State<progress> {
                                                     fontWeight: FontWeight.w700,
                                                     color: Colors.black,
                                                     fontSize: 15.sp,
-                                                    fontFamily: 'game'
+                                                   fontFamily: 'Poppins',
                                                 ),
                                               ),
                                               progressColor: Colors.red,
@@ -484,7 +484,7 @@ class _progressState extends State<progress> {
                                                 color: Colors.black,
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 18.sp,
-                                                fontFamily: 'game'
+                                               fontFamily: 'Poppins',
                                             ),
                                           ),
                                         ),
@@ -494,7 +494,7 @@ class _progressState extends State<progress> {
                                             style: TextStyle(
                                                 color: Colors.grey,
                                                 fontSize: 12.sp,
-                                                fontFamily: 'game'
+                                               fontFamily: 'Poppins',
                                             ),
                                           ),
                                         ),
@@ -566,7 +566,7 @@ class _progressState extends State<progress> {
                                                     fontWeight: FontWeight.w700,
                                                     color: Colors.black,
                                                     fontSize: 15.sp,
-                                                    fontFamily: 'game'
+                                                   fontFamily: 'Poppins',
                                                 ),
                                               ),
                                               progressColor: Colors.red,
@@ -591,7 +591,7 @@ class _progressState extends State<progress> {
                                                 color: Colors.black,
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 18.sp,
-                                                fontFamily: 'game'
+                                               fontFamily: 'Poppins',
                                             ),
                                           ),
                                         ),
@@ -601,7 +601,7 @@ class _progressState extends State<progress> {
                                             style: TextStyle(
                                                 color: Colors.grey,
                                                 fontSize: 12.sp,
-                                                fontFamily: 'game'
+                                               fontFamily: 'Poppins',
                                             ),
                                           ),
                                         ),

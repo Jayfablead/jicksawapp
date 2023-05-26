@@ -117,7 +117,7 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                             color: ans1
                                 ? primary
                                 : Color.fromARGB(255, 18, 28, 36),
-                            fontFamily: 'game',
+                          fontFamily: 'Poppins',
                             fontWeight: FontWeight.bold,
                             letterSpacing: 2,
                           ),
@@ -164,7 +164,7 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                                   : Color.fromARGB(255, 18, 28, 36),
                               fontWeight: FontWeight.bold,
                               letterSpacing: 2,
-                              fontFamily: 'game'),
+                             fontFamily: 'Poppins',),
                         ),
                       ),
                     ),
@@ -207,7 +207,7 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                                 ? primary
                                 : Color.fromARGB(255, 18, 28, 36),
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'game',
+                          fontFamily: 'Poppins',
                             letterSpacing: 2,
                           ),
                         ),
@@ -252,7 +252,7 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                                 ? primary
                                 : Color.fromARGB(255, 18, 28, 36),
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'game',
+                          fontFamily: 'Poppins',
                             letterSpacing: 2,
                           ),
                         ),
@@ -290,7 +290,7 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                         fontSize: 13.sp,
                         color: Color.fromARGB(255, 18, 28, 36),
                         fontWeight: FontWeight.bold,
-                        fontFamily: 'game',
+                      fontFamily: 'Poppins',
                         letterSpacing: 2,
                       ),
                     ),

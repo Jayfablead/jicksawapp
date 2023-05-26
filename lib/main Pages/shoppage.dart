@@ -105,7 +105,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                           color: Colors.black,
                           fontSize: 14.sp,
                           fontWeight: FontWeight.normal,
-                          fontFamily: 'game'),
+                         fontFamily: 'Poppins',),
                     ),
                     Container(
                       margin: EdgeInsets.symmetric(horizontal: 1.w),

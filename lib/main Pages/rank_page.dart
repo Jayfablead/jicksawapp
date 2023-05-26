@@ -91,7 +91,7 @@ class _rankState extends State<rank> {
                         Container(
                           child: Text("john",
                             style: TextStyle(
-                                fontFamily: 'game', fontSize: 15.sp,
+                              fontFamily: 'Poppins', fontSize: 15.sp,
                                 color: Colors.black
                             ),
                           ),
@@ -126,7 +126,7 @@ class _rankState extends State<rank> {
                         Container(
                           child: Text("john",
                             style: TextStyle(
-                                fontFamily: 'game', fontSize: 15.sp,
+                              fontFamily: 'Poppins', fontSize: 15.sp,
                               color: Colors.black
                             ),
                           ),
@@ -162,7 +162,7 @@ class _rankState extends State<rank> {
                         Container(
                           child: Text("john",
                             style: TextStyle(
-                                fontFamily: 'game', fontSize: 15.sp,
+                              fontFamily: 'Poppins', fontSize: 15.sp,
                                 color: Colors.black
                             ),
                           ),
@@ -183,7 +183,7 @@ class _rankState extends State<rank> {
                           width: 25.w,
                           child: Text("1",
                             style: TextStyle(
-                                color: Colors.white, fontFamily: 'game', fontSize: 25.sp
+                                color: Colors.white,fontFamily: 'Poppins', fontSize: 25.sp
                             ),
                           ),
                           decoration: BoxDecoration(
@@ -196,7 +196,7 @@ class _rankState extends State<rank> {
                           width: 25.w,
                           child: Text("2",
                             style: TextStyle(
-                                color: Colors.white, fontFamily: 'game', fontSize: 25.sp
+                                color: Colors.white,fontFamily: 'Poppins', fontSize: 25.sp
                             ),
                           ),
                           decoration: BoxDecoration(
@@ -209,7 +209,7 @@ class _rankState extends State<rank> {
                           width: 25.w,
                           child: Text("3",
                           style: TextStyle(
-                            color: Colors.white, fontFamily: 'game', fontSize: 25.sp
+                            color: Colors.white,fontFamily: 'Poppins', fontSize: 25.sp
                           ),
                           ),
                           decoration: BoxDecoration(
@@ -245,7 +245,7 @@ class _rankState extends State<rank> {
                         Container(
                           child: Text( '$serialNumber.',
 
-                            style: TextStyle(  fontFamily: 'game', fontSize: 14.sp,
+                            style: TextStyle(fontFamily: 'Poppins', fontSize: 14.sp,
                             ),
                           ),
                         ),
@@ -273,7 +273,7 @@ class _rankState extends State<rank> {
                        Container(
                          child: Text("john",
                          style: TextStyle(
-                           fontFamily: 'game', fontSize: 15.sp,
+                         fontFamily: 'Poppins', fontSize: 15.sp,
                            color: Colors.deepOrangeAccent
                          ),
                          ),
@@ -285,13 +285,13 @@ class _rankState extends State<rank> {
                             children: [
                               Text("score",
                                 style: TextStyle(
-                                    fontFamily: 'game', fontSize: 10.sp, color: Colors.grey
+                                  fontFamily: 'Poppins', fontSize: 10.sp, color: Colors.grey
                                 ),
 
                               ),
                               Text("1800",
                                 style: TextStyle(
-                                    fontFamily: 'game', fontSize: 15.sp
+                                  fontFamily: 'Poppins', fontSize: 15.sp
                                 ),
 
                               ),
@@ -323,7 +323,7 @@ child: Text(
   "Enter contest",
   style: TextStyle(
     color: Colors.black,
-    fontFamily: 'game',
+  fontFamily: 'Poppins',
     fontSize: 15.sp
   ),
 ),

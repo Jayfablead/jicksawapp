@@ -89,7 +89,7 @@ class _signupState extends State<signup> {
                       fontWeight: FontWeight.w700,
                       fontSize: 17.sp,
                       letterSpacing: 2,
-                      fontFamily: 'game'),
+                     fontFamily: 'Poppins',),
                 )),
                 SizedBox(
                   height: 5.h,
@@ -115,7 +115,7 @@ class _signupState extends State<signup> {
                           child: TextFormField(
                             style: TextStyle( fontWeight: FontWeight.w700,
                                 color: Colors.black,
-                                fontFamily: 'game',
+                              fontFamily: 'Poppins',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             controller: _user,
@@ -141,12 +141,12 @@ class _signupState extends State<signup> {
                                 ),
                                 hintText: "User Name",
                                 errorStyle: TextStyle(
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 1,
                                     fontSize: 10.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),
@@ -163,7 +163,7 @@ class _signupState extends State<signup> {
                           child: TextFormField(
                             style: TextStyle( fontWeight: FontWeight.w700,
                                 color: Colors.black,
-                                fontFamily: 'game',
+                              fontFamily: 'Poppins',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             controller: _email,
@@ -205,12 +205,12 @@ class _signupState extends State<signup> {
                                 ),
                                 hintText: "Email",
                                 errorStyle: TextStyle(
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 1,
                                     fontSize: 10.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),
@@ -227,7 +227,7 @@ class _signupState extends State<signup> {
                           child: TextFormField(
                             style: TextStyle( fontWeight: FontWeight.w700,
                                 color: Colors.black,
-                                fontFamily: 'game',
+                              fontFamily: 'Poppins',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             controller: _phone,
@@ -255,12 +255,12 @@ class _signupState extends State<signup> {
                                 ),
                                 hintText: "Phone number",
                                 errorStyle: TextStyle(
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 1,
                                     fontSize: 10.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),
@@ -277,7 +277,7 @@ class _signupState extends State<signup> {
                           child: TextFormField(
                             style: TextStyle( fontWeight: FontWeight.w700,
                                 color: Colors.black,
-                                fontFamily: 'game',
+                              fontFamily: 'Poppins',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             controller: _pasa,
@@ -303,12 +303,12 @@ class _signupState extends State<signup> {
                                 ),
                                 hintText: "Password",
                                 errorStyle: TextStyle(
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 1,
                                     fontSize: 10.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),
@@ -325,7 +325,7 @@ class _signupState extends State<signup> {
                           child: TextFormField(
                             style: TextStyle( fontWeight: FontWeight.w700,
                                 color: Colors.black,
-                                fontFamily: 'game',
+                              fontFamily: 'Poppins',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             controller: _conf,
@@ -351,12 +351,12 @@ class _signupState extends State<signup> {
                                 ),
                                 hintText: " Confirm password",
                                 errorStyle: TextStyle(
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 1,
                                     fontSize: 10.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),
@@ -379,7 +379,7 @@ class _signupState extends State<signup> {
                             child: Text("Sign Up",
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 12.sp)),
                           ),
@@ -401,7 +401,7 @@ class _signupState extends State<signup> {
                           style: TextStyle(
                               color: primary,
                               fontSize: 12.sp,
-                              fontFamily: 'game',
+                            fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400)),
                     )
                   ],

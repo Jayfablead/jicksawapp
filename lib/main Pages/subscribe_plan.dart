@@ -61,7 +61,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                         "Choose your plan",
                         style: TextStyle(
                             fontSize: 14.sp, fontWeight: FontWeight.bold,
-                            fontFamily: 'game'
+                           fontFamily: 'Poppins',
                         ),
                       ),
                       GestureDetector(
@@ -109,7 +109,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                     "MONTHLY",
                                     style: TextStyle(
                                         color: Colors.grey, fontSize: 11.sp,
-                                        fontFamily: 'game'
+                                       fontFamily: 'Poppins',
                                     ),
                                   ),
                                   Radio(
@@ -133,7 +133,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                     style: TextStyle(
                                         fontSize: 15.sp,
                                         fontWeight: FontWeight.w100,
-                                        fontFamily: 'game'
+                                       fontFamily: 'Poppins',
                                     ),
                                   ),
 
@@ -165,7 +165,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                       style:
                                           TextStyle(color: Color(0xffa0e1c1),
 
-                                              fontFamily: 'game'
+                                             fontFamily: 'Poppins',
                                           ),
                                     ),
                                   ),
@@ -185,7 +185,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                       "then \$17.99 per month. Cancel anytime",
                                       style: TextStyle(
                                           color: Colors.grey, fontSize: 12.sp,
-                                          fontFamily: 'game'
+                                         fontFamily: 'Poppins',
                                       ),
                                     ),
                                   ),
@@ -220,7 +220,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                     "MONTHLY",
                                     style: TextStyle(
                                         color: Colors.grey, fontSize: 11.sp,
-                                        fontFamily: 'game'
+                                       fontFamily: 'Poppins',
                                     ),
                                   ),
                                   Radio(
@@ -244,7 +244,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                     style: TextStyle(
                                         fontSize: 15.sp,
                                         fontWeight: FontWeight.w100,
-                                        fontFamily: 'game'
+                                       fontFamily: 'Poppins',
                                     ),
                                   ),
 
@@ -275,7 +275,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                       "1 week free trial",
                                       style:
                                           TextStyle(color: Color(0xffa0e1c1),
-                                              fontFamily: 'game'
+                                             fontFamily: 'Poppins',
                                           ),
                                     ),
                                   ),
@@ -295,7 +295,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                       "then \$17.99 per month. Cancel anytime",
                                       style: TextStyle(
                                           color: Colors.grey, fontSize: 12.sp,
-                                          fontFamily: 'game'
+                                         fontFamily: 'Poppins',
                                       ),
                                     ),
                                   ),
@@ -317,7 +317,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                         ),
                         child: Text("Continue to Checkout",
                           style: TextStyle(color: Colors.black, fontSize: 12.sp,
-                              fontFamily: 'game'
+                             fontFamily: 'Poppins',
                           ),
                         ),
                       ),

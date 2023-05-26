@@ -78,7 +78,7 @@ class _StorypageState extends State<Storypage> {
                   maxLines: 15,
                   style: TextStyle(
                       color: Colors.black,
-                      fontFamily: 'game',
+                    fontFamily: 'Poppins',
                       letterSpacing: 2),
                   cursorColor: Colors.black,
                   decoration: InputDecoration(
@@ -100,7 +100,7 @@ class _StorypageState extends State<Storypage> {
                     ),
                     hintStyle: TextStyle(
                       color: Colors.grey[500],
-                      fontFamily: 'game',
+                    fontFamily: 'Poppins',
                     ),
                     hintText: "Type your story here",
                   ),
@@ -115,7 +115,7 @@ class _StorypageState extends State<Storypage> {
                     style: TextStyle(
                         color: bgcolor,
                         fontSize: 13.sp,
-                        fontFamily: 'game',
+                      fontFamily: 'Poppins',
                         letterSpacing: 2,
                         fontWeight: FontWeight.w700),
                   ),

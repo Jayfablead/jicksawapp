@@ -63,7 +63,7 @@ class _settingState extends State<setting> {
                 // style: primarytxt1,
                 style: TextStyle(   color: primary,
                   fontSize: 15.sp,
-                  fontFamily: 'game',
+                fontFamily: 'Poppins',
                   letterSpacing: 2,),
               ),
             ),
@@ -99,7 +99,7 @@ class _settingState extends State<setting> {
                           Text('John Doe',
                             style: TextStyle( color: Colors.black,
                             fontSize: 15.sp,
-                            fontFamily: 'game',
+                          fontFamily: 'Poppins',
                             letterSpacing: 2,),
                           ),
                         ],
@@ -114,7 +114,7 @@ class _settingState extends State<setting> {
                             'Change Password',
                             style: TextStyle(
                               fontSize: 13.sp,
-                              fontFamily: 'game',
+                            fontFamily: 'Poppins',
 
 
                             ),
@@ -132,7 +132,7 @@ class _settingState extends State<setting> {
                             'Forgot Password',
                             style: TextStyle(
                               fontSize: 13.sp,
-                              fontFamily: 'game',
+                            fontFamily: 'Poppins',
 
                             ),
                           ),
@@ -168,7 +168,7 @@ class _settingState extends State<setting> {
                             'Support',
                             style: TextStyle(
                               fontSize: 15.sp,
-                              fontFamily: 'game',
+                            fontFamily: 'Poppins',
                               letterSpacing: 2,
                             color: primary
                             ),
@@ -185,7 +185,7 @@ class _settingState extends State<setting> {
                             'Terms of Service',
                             style: TextStyle(
                               fontSize: 13.sp,
-                              fontFamily: 'game',
+                            fontFamily: 'Poppins',
 
                             ),
                           ),
@@ -202,7 +202,7 @@ class _settingState extends State<setting> {
                             'Date Policy',
                             style: TextStyle(
                               fontSize: 13.sp,
-                              fontFamily: 'game',
+                            fontFamily: 'Poppins',
 
                             ),
                           ),
@@ -219,7 +219,7 @@ class _settingState extends State<setting> {
                             'About',
                             style: TextStyle(
                               fontSize: 13.sp,
-                              fontFamily: 'game',
+                            fontFamily: 'Poppins',
 
                             ),
                           ),
@@ -236,7 +236,7 @@ class _settingState extends State<setting> {
                             'Help/FAQ',
                             style: TextStyle(
                               fontSize: 13.sp,
-                              fontFamily: 'game',
+                            fontFamily: 'Poppins',
 
                             ),
                           ),
@@ -253,7 +253,7 @@ class _settingState extends State<setting> {
                             'Contact us',
                             style: TextStyle(
                               fontSize: 13.sp,
-                              fontFamily: 'game',
+                            fontFamily: 'Poppins',
 
                             ),
                           ),

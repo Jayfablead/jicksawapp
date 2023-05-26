@@ -29,7 +29,7 @@ AppBar appbar1(
     centerTitle: true,
     title: Text(title1),
     titleTextStyle:
-        TextStyle(color: primary, fontSize: 14.sp, fontFamily: 'game'),
+        TextStyle(color: primary, fontSize: 14.sp,fontFamily: 'Poppins',),
     iconTheme: IconThemeData(color: primary),
   );
 }
@@ -37,94 +37,94 @@ AppBar appbar1(
 TextStyle mainstyle = TextStyle(
   color: Colors.black,
   fontSize: 15.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 2,
 );
 TextStyle mainstyle1 = TextStyle(
   color: Colors.black,
   fontSize: 13.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 2,
 );
 TextStyle primarytxt = TextStyle(
   color: Colors.black,
   fontSize: 13.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 2,
 );
 TextStyle primarytxto = TextStyle(
   color: primary,
   fontSize: 13.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 2,
 );
 TextStyle header = TextStyle(
   color: Colors.black,
   fontSize: 15.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 2,
 );
 TextStyle mail = TextStyle(
   color: primary,
   fontSize: 13.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 2,
 );
 TextStyle primarytxtbig = TextStyle(
   color: Colors.black,
   fontSize: 15.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 2,
 );
 
 TextStyle primarytxt1 = TextStyle(
   color: primary,
   fontSize: 15.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 2,
 );
 
 TextStyle playertxt1 = TextStyle(
   color: Colors.pink,
   fontSize: 13.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 2,
 );
 
 TextStyle secondarytxt = TextStyle(
   color: primary,
   fontSize: 11.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 2,
 );
 TextStyle secondarytxt2 = TextStyle(
   color: primary,
   fontSize: 13.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 2,
 );
 TextStyle secondarytxtwhite = TextStyle(
   color: Colors.black,
   fontSize: 13.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 2,
 );
 TextStyle secondarytxtwhite1 = TextStyle(
   color: Colors.black,
   fontSize: 11.5.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 1,
 );
 TextStyle appname = TextStyle(
   color: Colors.black,
   fontSize: 12.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 1.5,
 );
 TextStyle textbtn = TextStyle(
   color: primary,
   fontSize: 14.sp,
-  fontFamily: 'game',
+fontFamily: 'Poppins',
   letterSpacing: 2,
 );
 

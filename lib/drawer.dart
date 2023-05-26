@@ -55,7 +55,7 @@ class _drawer1State extends State<drawer1> {
                   'Loading... ',
                   style: TextStyle(
 
-                      fontFamily: 'game',
+                    fontFamily: 'Poppins',
                       fontSize: 15.sp),
                 ),
                 SizedBox(height: 3.h),
@@ -126,7 +126,7 @@ class _drawer1State extends State<drawer1> {
                                 color: Colors.black,
                                 fontSize: 12.sp,
                                 letterSpacing: 0.5,
-                                fontFamily: 'game',
+                              fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w600),
                           ),
                           SizedBox(
@@ -138,7 +138,7 @@ class _drawer1State extends State<drawer1> {
                                 maxLines: 2,
                                 style: TextStyle(
                                     color: primary,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     fontSize: 11.sp,
                                     letterSpacing: 1,
                                     fontWeight: FontWeight.w600)),
@@ -191,7 +191,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'game',
+                                        fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -244,7 +244,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'game',
+                                        fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -297,7 +297,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'game',
+                                        fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -350,7 +350,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'game',
+                                        fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -403,7 +403,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'game',
+                                        fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -456,7 +456,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'game',
+                                        fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -509,7 +509,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'game',
+                                        fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -562,7 +562,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'game',
+                                        fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -615,7 +615,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'game',
+                                        fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -664,7 +664,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                          fontFamily: 'game',
+                                        fontFamily: 'Poppins',
                                           color: Colors.red,
                                         )),
                                   ],
@@ -688,7 +688,7 @@ class _drawer1State extends State<drawer1> {
   TextStyle textStyle = TextStyle(
       color: Colors.black,
       fontSize: 12.sp,
-      fontFamily: 'game',
+    fontFamily: 'Poppins',
       fontWeight: FontWeight.w600);
 
   viewap() {

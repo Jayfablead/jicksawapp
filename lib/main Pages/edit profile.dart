@@ -178,7 +178,7 @@ class _EditProfileState extends State<EditProfile> {
                           TextFormField(
                             style: TextStyle(
                                 color: Colors.black,
-                                fontFamily: 'game',
+                              fontFamily: 'Poppins',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             controller: _user,
@@ -205,7 +205,7 @@ class _EditProfileState extends State<EditProfile> {
                                 hintText: "Full Name",
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),
@@ -215,7 +215,7 @@ class _EditProfileState extends State<EditProfile> {
                           TextFormField(
                             style: TextStyle(
                                 color: Colors.black,
-                                fontFamily: 'game',
+                              fontFamily: 'Poppins',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             controller: _age,
@@ -242,7 +242,7 @@ class _EditProfileState extends State<EditProfile> {
                                 hintText: "Age",
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),
@@ -252,7 +252,7 @@ class _EditProfileState extends State<EditProfile> {
                           TextFormField(
                             style: TextStyle(
                                 color: Colors.black,
-                                fontFamily: 'game',
+                              fontFamily: 'Poppins',
                                 letterSpacing: 2,
                                 fontSize: 12.sp),
                             controller: _about,
@@ -280,7 +280,7 @@ class _EditProfileState extends State<EditProfile> {
                                 hintText: "About",
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                    fontFamily: 'game',
+                                  fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 11.sp)),
                           ),

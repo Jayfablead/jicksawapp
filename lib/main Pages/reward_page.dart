@@ -59,7 +59,7 @@ class _rewardState extends State<reward> {
                           " Hello, John",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 15.sp,
-                              fontFamily: 'game'
+                             fontFamily: 'Poppins',
                           ),
                         ),
                         SizedBox(width: 2.w),
@@ -93,7 +93,7 @@ class _rewardState extends State<reward> {
                   "Congratulations!",
                   style:
                       TextStyle(fontWeight: FontWeight.bold, fontSize: 18.sp,
-                          fontFamily: 'game'
+                         fontFamily: 'Poppins',
                       ),
                 ),
               ),
@@ -123,7 +123,7 @@ class _rewardState extends State<reward> {
                           "Points",
                           style: TextStyle(
                               fontSize: 14.sp, fontWeight: FontWeight.bold,
-                              fontFamily: 'game'
+                             fontFamily: 'Poppins',
                           ),
                         ),
                         Text(
@@ -132,7 +132,7 @@ class _rewardState extends State<reward> {
                               color: Color(0xffffb635),
                               fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
-                              fontFamily: 'game'
+                             fontFamily: 'Poppins',
                           ),
                         ),
                       ],
@@ -152,7 +152,7 @@ class _rewardState extends State<reward> {
                       "=",
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 25.sp,
-                          fontFamily: 'game'
+                         fontFamily: 'Poppins',
                       ),
                     ),
                   ),
@@ -182,7 +182,7 @@ class _rewardState extends State<reward> {
                         'USD',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16.sp,
-                            fontFamily: 'game'
+                           fontFamily: 'Poppins',
                         ),
                       ),
                       Text(
@@ -190,7 +190,7 @@ class _rewardState extends State<reward> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16.sp,
-                            fontFamily: 'game',
+                          fontFamily: 'Poppins',
                             color: Color(0xff258e52)),
                       ),
                     ],
@@ -234,7 +234,7 @@ class _rewardState extends State<reward> {
                           color: Colors.black,
                           fontSize: 14.sp,
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'game'
+                         fontFamily: 'Poppins',
                       ),
                     ),
                     SizedBox(
