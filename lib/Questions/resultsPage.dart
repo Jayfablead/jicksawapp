@@ -44,12 +44,7 @@ class _ResultsPageState extends State<ResultsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgcolor,
-      appBar: appbar1(
-          title1: '',
-          press: () {},
-          icn: Icon(null),
-          act: () {},
-          icn1: Icon(null)),
+
       body: (total! < 60)
           ? WillPopScope(
               onWillPop: dialog,
@@ -59,6 +54,9 @@ class _ResultsPageState extends State<ResultsPage> {
                   padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Column(
                     children: [
+                      SizedBox(
+                        height: 6.h,
+                      ),
                       Column(
                         children: [
                           Align(
@@ -77,10 +75,16 @@ class _ResultsPageState extends State<ResultsPage> {
                           ),
                           Text(
                             '😔 Sorry ',
-                            style: mainstyle,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Poppins',
+                                letterSpacing: 2,
+                              ),
                           ),
                           SizedBox(
-                            height: 2.h,
+                            height: 5.h,
                           ),
                           Text(
                             'You\'ve Lost',
@@ -126,7 +130,7 @@ class _ResultsPageState extends State<ResultsPage> {
                           Text('Press The Button And Restart The Game',
                               style: mainstyle, textAlign: TextAlign.center),
                           SizedBox(
-                            height: 10.h,
+                            height: 6.h,
                           ),
                           InkWell(
                             onTap: () {
@@ -169,6 +173,9 @@ class _ResultsPageState extends State<ResultsPage> {
                     ),
                     Column(
                       children: [
+                        SizedBox(
+                          height: 6.h,
+                        ),
                         Align(
                           alignment: Alignment.centerRight,
                           child: Text(
