@@ -80,13 +80,13 @@ fontFamily: 'Poppins',
 
 TextStyle primarytxt1 = TextStyle(
   color: primary,
-  fontSize: 15.sp,
+  fontSize: 13.sp,
 fontFamily: 'Poppins',
   letterSpacing: 2,
 );
 
 TextStyle playertxt1 = TextStyle(
-  color: Colors.pink,
+  color: primary,
   fontSize: 13.sp,
 fontFamily: 'Poppins',
   letterSpacing: 2,
