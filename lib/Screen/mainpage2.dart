@@ -258,7 +258,7 @@ class _mainpage2State extends State<mainpage2> {
                                       fontFamily: 'Poppins',
                                     ),
                                   ),
-                                  SizedBox(height:1.h),
+                                  SizedBox(height:1.5.h),
                                   InkWell(
                                     onTap: () {
                                       Get.to(

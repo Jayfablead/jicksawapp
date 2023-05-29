@@ -1,9 +1,15 @@
+import 'dart:convert';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Questions/gameinfo.dart';
 import 'package:sizer/sizer.dart';
 
+import '../Provider/ProfileviewModal.dart';
+import '../Provider/authprovider.dart';
+import '../Widget/buildErrorDialog.dart';
+import '../Widget/const.dart';
 import '../const widget.dart';
 import '../drawer.dart';
 import 'shop2.dart';
@@ -47,6 +53,12 @@ List<game> popular = [
 ];
 
 class _ShopmainPageState extends State<ShopmainPage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    viewap();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +105,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Welcome Back Mr.Jack",
+                      "Welcome Back ${profileviewmodal?.profileViewPlayer?.name}",
                       style: TextStyle(
                           wordSpacing: 3,
                           letterSpacing: 1,
@@ -110,7 +122,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                         borderRadius: BorderRadius.circular(90),
                         child: CachedNetworkImage(
                           fit: BoxFit.cover,
-                          imageUrl: '',
+                          imageUrl: profileviewmodal?.profileViewPlayer?.profilePic ?? '',
                           progressIndicatorBuilder: (context, url, progress) =>
                               CircularProgressIndicator(),
                           errorWidget: (context, url, error) => Image.asset(
@@ -443,5 +455,32 @@ class _ShopmainPageState extends State<ShopmainPage> {
         ),
       ),
     );
+  }
+  viewap() {
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['action'] = 'profile_view_player';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().profileviewapi(data).then((response) async {
+          profileviewmodal =
+              ProfileviewModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 &&
+              profileviewmodal?.status == "success") {
+            setState(() {
+              // isLoading = false;
+            });
+          } else {}
+        });
+      } else {
+        setState(() {
+          // isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
   }
 }

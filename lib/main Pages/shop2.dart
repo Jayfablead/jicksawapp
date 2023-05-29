@@ -133,7 +133,7 @@ class _GameInfoState extends State<GameInfo> {
                   ],
                 ),
                 InkWell(
-                  onTap: () {Get.to(PurchaseScreen());},
+                  onTap: () {Get.to(PurchaseScreen(name: widget.name ,img: widget.Image,));},
                   child: Container(
                     height: 5.h,
                     alignment: Alignment.center,
@@ -223,107 +223,7 @@ class _GameInfoState extends State<GameInfo> {
                     itemCount: img.length,
                   ),
                 ),
-                Divider(
-                  color: Colors.black,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Similar Games',
-                      style: secondarytxtwhite,
-                    ),
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'view more',
-                          style: secondarytxt,
-                        )),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                SizedBox(
-                  height: 150,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: popular.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 5.w),
-                        child: InkWell(
-                          onTap: () {
-                            Get.to(()=>GameInfo(
-                              Image: popular[index].image,
-                              name: popular[index].name,
-                              Star: popular[index].star,
-                              comp: popular[index].comp,
-                            ));
-                          },
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 10.h,
-                                width: 20.w,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: CachedNetworkImage(
-                                    fit: BoxFit.cover,
-                                    imageUrl: popular[index].image.toString(),
-                                    progressIndicatorBuilder:
-                                        (context, url, progress) =>
-                                        CircularProgressIndicator(),
-                                    errorWidget: (context, url, error) =>
-                                        Image.asset(
-                                          'assets/12.png',
-                                          fit: BoxFit.cover,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 1.h,
-                              ),
-                              Align(
-                                alignment: Alignment.center,
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      popular[index].name.toString(),
-                                      style: secondarytxtwhite1,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          popular[index].star.toString(),
-                                          style: TextStyle(
-                                              color: Color(0xff8f8d8d)),
-                                        ),
-                                        SizedBox(
-                                          width: 1.w,
-                                        ),
-                                        Text(
-                                          '★',
-                                          style: TextStyle(
-                                            color: Color(0xff8f8d8d),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
+             SizedBox(height: 2.h,)
               ],
             ),
           ),

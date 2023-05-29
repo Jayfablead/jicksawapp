@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Questions/FirstQuestion.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:sizer/sizer.dart';
@@ -21,7 +22,8 @@ final List<String> items = [
 ];
 int selectedValuei = 0;
 int selectedValuei2 = -1;
-
+bool selectedi = false;
+bool selecteda = false;
 String? selectedValue;
 final List<String> imgs = [
   'assets/chs/mathchs.jpg',
@@ -45,7 +47,20 @@ final List<String> ageimgs = [
   'assets/chs/midage.jpg',
   'assets/chs/old.jpg',
 ];
+
 class _CategoriesPageState extends State<CategoriesPage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      selectedagei2 = -1;
+      selectedValuei2 = -1;
+      selectedagei = 0;
+      selectedValuei = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,14 +80,18 @@ class _CategoriesPageState extends State<CategoriesPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: 1.h),
-                Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
                       'Select Your Favourite Category ',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 15.sp, color: primary),
                     ),
-                    Icon(Icons.category_outlined,color: primary,)
+                    Icon(
+                      Icons.category_outlined,
+                      color: primary,
+                    )
                   ],
                 ),
                 SizedBox(height: 3.h),
@@ -81,23 +100,24 @@ class _CategoriesPageState extends State<CategoriesPage> {
                   child: GridView.builder(
                     itemCount: imgs.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,childAspectRatio: 1/1.2),
+                        crossAxisCount: 2, childAspectRatio: 1 / 1.2),
                     itemBuilder: (context, index) {
-                      bool selectedi = index == selectedValuei2;
+                      selectedi = index == selectedValuei2;
                       return InkWell(
                         onTap: () {
                           setState(() {
-                            selectedValuei = index +1 ;
+                            selectedValuei = index + 1;
                             selectedValuei2 = index;
-
-
                           });
 
-                          print('Category: '+selectedValuei.toString());
+                          print('Category: ' + selectedValuei.toString());
                         },
-                        child: Container(padding: EdgeInsets.all(2.w),
-
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),border: Border.all(color: selectedi ?primary:secondary)),
+                        child: Container(
+                          padding: EdgeInsets.all(2.w),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(
+                                  color: selectedi ? primary : secondary)),
                           margin: EdgeInsets.all(2.w),
                           child: Column(
                             children: [
@@ -117,8 +137,8 @@ class _CategoriesPageState extends State<CategoriesPage> {
                               ),
                               SizedBox(height: 2.h),
                               Text(items[index].toString(),
-                                  style:
-                                      TextStyle(color: primary, fontSize: 14.sp)),
+                                  style: TextStyle(
+                                      color: primary, fontSize: 14.sp)),
                             ],
                           ),
                         ),
@@ -126,95 +146,114 @@ class _CategoriesPageState extends State<CategoriesPage> {
                     },
                   ),
                 ),
-                selectedValuei == 0 ?Container():Column(
-                  children: [
-                    SizedBox(height: 2.h),
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(
-                          'Select Your Age Group ',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 15.sp, color: primary),
-                        ),
-                        Icon(Icons.person_outline_outlined,color: primary,)
-                      ],
-                    ),
-                    SizedBox(height: 3.h),
-                    SizedBox(
-                      height: 52.h,
-                      child: GridView.builder(
-                        itemCount: ageimgs.length,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,childAspectRatio: 1/1.2),
-                        itemBuilder: (context, index) {
-                          bool selecteda = index == selectedagei2;
-                          return InkWell(
-                            onTap: () {
-                              setState(() {
-                                selectedagei = index +1 ;
-                                selectedagei2= index;
+                selectedValuei == 0
+                    ? Container()
+                    : Column(
+                        children: [
+                          SizedBox(height: 2.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(
+                                'Select Your Age Group ',
+                                textAlign: TextAlign.center,
+                                style:
+                                    TextStyle(fontSize: 15.sp, color: primary),
+                              ),
+                              Icon(
+                                Icons.person_outline_outlined,
+                                color: primary,
+                              )
+                            ],
+                          ),
+                          SizedBox(height: 3.h),
+                          SizedBox(
+                            height: 52.h,
+                            child: GridView.builder(
+                              itemCount: ageimgs.length,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      childAspectRatio: 1 / 1.2),
+                              itemBuilder: (context, index) {
+                                selecteda = index == selectedagei2;
+                                return InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      selectedagei = index + 1;
+                                      selectedagei2 = index;
+                                    });
 
-
-                              });
-
-                              print('AgeGroup: '+selectedagei.toString());
-                            },
-                            child: Container(padding: EdgeInsets.all(2.w),
-
-                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),border: Border.all(color: selecteda ?primary:secondary)),
-                              margin: EdgeInsets.all(2.w),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 15.h,
-                                    width: 32.w,
+                                    print(
+                                        'AgeGroup: ' + selectedagei.toString());
+                                  },
+                                  child: Container(
+                                    padding: EdgeInsets.all(2.w),
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(100),
-                                    ),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(100),
-                                      child: Image.asset(
-                                        ageimgs[index].toString(),
-                                        fit: BoxFit.contain,
-                                      ),
+                                        borderRadius: BorderRadius.circular(20),
+                                        border: Border.all(
+                                            color: selecteda
+                                                ? primary
+                                                : secondary)),
+                                    margin: EdgeInsets.all(2.w),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height: 15.h,
+                                          width: 32.w,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(100),
+                                          ),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(100),
+                                            child: Image.asset(
+                                              ageimgs[index].toString(),
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(height: 2.h),
+                                        Text(
+                                          ages[index].toString(),
+                                          style: TextStyle(
+                                              color: primary, fontSize: 14.sp),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  SizedBox(height: 2.h),
-                                  Text(ages[index].toString(),
-                                      style:
-                                      TextStyle(color: primary, fontSize: 14.sp),),
-
-                                ],
-                              ),
+                                );
+                              },
                             ),
-                          );
-                        },
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                selectedValuei == 0 || selectedagei == 0
+                    ? Container()
+                    : GestureDetector(
+                        onTap: () {
+                          Get.to(FirstQue());
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 6.5.h,
+                          width: 70.w,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(900),
+                              color: primary),
+                          child: Text("DONE",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Poppins',
+                                  letterSpacing: 2,
+                                  fontSize: 12.sp)),
+                        ),
+                      ),
+                SizedBox(
+                  height: 3.h,
                 ),
-
-                selectedValuei == 0 && selectedagei == 0?Container():GestureDetector(
-                  onTap: () {
-Get.offAll(mainpage2());
-
-                  },
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: 6.5.h,
-                    width: 70.w,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(900),
-                        color: primary),
-                    child: Text("DONE",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Poppins',
-                            letterSpacing: 2,
-                            fontSize: 12.sp)),
-                  ),
-                ),
-SizedBox(height: 3.h,),              ],
+              ],
             ),
           ),
         ),

@@ -5,6 +5,8 @@ import 'package:jicksaw/Questions/SeconQue.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:sizer/sizer.dart';
 
+import 'gameinfo.dart';
+
 class FirstQue extends StatefulWidget {
   const FirstQue({Key? key}) : super(key: key);
 
@@ -33,19 +35,16 @@ class _FirstQueState extends State<FirstQue> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-      bgcolor
-      // Colors.black
-      ,
+      backgroundColor: bgcolor,
       appBar: appbar1(
         title1: '',
         press: () {
-          Get.back();
+          Get.to(
+            Tutorial(),
+          );
         },
         icn: Icon(Icons.arrow_back_ios_new_rounded),
-        act: () {
-
-        },
+        act: () {},
         icn1: Icon(null),
       ),
       body: SingleChildScrollView(
@@ -118,7 +117,6 @@ class _FirstQueState extends State<FirstQue> {
                                 borderRadius: BorderRadius.circular(90),
                                 color: secondary)
                             : BoxDecoration(
-
                                 borderRadius: BorderRadius.circular(90),
                                 color: primary),
                         padding: EdgeInsets.all(2.h),
@@ -126,11 +124,8 @@ class _FirstQueState extends State<FirstQue> {
                           'Open Source Backend Framework',
                           style: TextStyle(
                             fontSize: 13.sp,
-                            color: ans1
-                                ? primary
-                                : Colors.white,
-                          fontFamily: 'Poppins',
-
+                            color: ans1 ? primary : Colors.white,
+                            fontFamily: 'Poppins',
                           ),
                         ),
                       ),
@@ -155,19 +150,16 @@ class _FirstQueState extends State<FirstQue> {
                                 borderRadius: BorderRadius.circular(90),
                                 color: secondary)
                             : BoxDecoration(
-                               
                                 borderRadius: BorderRadius.circular(90),
                                 color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'Open Source UI Tool-Kit',
                           style: TextStyle(
-                              fontSize: 13.sp,
-                              color: ans2
-                                  ? primary
-                                  : Colors.white,
-
-                             fontFamily: 'Poppins',),
+                            fontSize: 13.sp,
+                            color: ans2 ? primary : Colors.white,
+                            fontFamily: 'Poppins',
+                          ),
                         ),
                       ),
                     ),
@@ -191,7 +183,6 @@ class _FirstQueState extends State<FirstQue> {
                                 borderRadius: BorderRadius.circular(90),
                                 color: secondary)
                             : BoxDecoration(
-                               
                                 borderRadius: BorderRadius.circular(90),
                                 color: primary),
                         padding: EdgeInsets.all(2.h),
@@ -199,12 +190,8 @@ class _FirstQueState extends State<FirstQue> {
                           'Open Source App Development',
                           style: TextStyle(
                             fontSize: 13.sp,
-                            color: ans3
-                                ? primary
-                                : Colors.white,
-
-                          fontFamily: 'Poppins',
-
+                            color: ans3 ? primary : Colors.white,
+                            fontFamily: 'Poppins',
                           ),
                         ),
                       ),
@@ -229,7 +216,6 @@ class _FirstQueState extends State<FirstQue> {
                                 borderRadius: BorderRadius.circular(90),
                                 color: secondary)
                             : BoxDecoration(
-                               
                                 borderRadius: BorderRadius.circular(90),
                                 color: primary),
                         padding: EdgeInsets.all(2.h),
@@ -237,12 +223,8 @@ class _FirstQueState extends State<FirstQue> {
                           'DBMS Tool-Kit',
                           style: TextStyle(
                             fontSize: 13.sp,
-                            color: ans4
-                                ? primary
-                                : Colors.white,
-
-                          fontFamily: 'Poppins',
-
+                            color: ans4 ? primary : Colors.white,
+                            fontFamily: 'Poppins',
                           ),
                         ),
                       ),
@@ -255,8 +237,8 @@ class _FirstQueState extends State<FirstQue> {
                 (ans1 || ans2 || ans3 || ans4)
                     ? InkWell(
                         onTap: () {
-                          Get.to(()=>
-                            SecQue(firstans: ans3 ? 20 : 0),
+                          Get.to(
+                            () => SecQue(firstans: ans3 ? 20 : 0),
                           );
                         },
                         child: Container(
@@ -264,7 +246,6 @@ class _FirstQueState extends State<FirstQue> {
                           width: 85.w,
                           margin: EdgeInsets.only(top: 2.h),
                           decoration: BoxDecoration(
-
                               borderRadius: BorderRadius.circular(90),
                               color: primary),
                           padding: EdgeInsets.all(2.h),

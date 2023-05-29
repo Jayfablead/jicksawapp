@@ -295,7 +295,7 @@ class _loginState extends State<login> {
               });
               await SaveDataLocal.saveLogInData(usermodal!);
 
-              Get.offAll(() => const CategoriesPage());
+              Get.offAll(() => const mainpage2());
             } else {
               buildErrorDialog(
                   context, "Login Error", (usermodal?.message).toString());

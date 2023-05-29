@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/main%20Pages/subscription_page.dart';
@@ -7,7 +8,9 @@ import 'package:sizer/sizer.dart';
 import '../const widget.dart';
 
 class PurchaseScreen extends StatefulWidget {
-  const PurchaseScreen({Key? key}) : super(key: key);
+  String? name;
+  String? img;
+   PurchaseScreen({Key? key,this.img,this.name}) : super(key: key);
 
   @override
   State<PurchaseScreen> createState() => _PurchaseScreenState();
@@ -42,7 +45,37 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                     ),
                   ),
                 ),
-                Positioned(top: 20.h,left: 3.w,child: Text('Purchase This Jigsaw Image',style: TextStyle(color: primary,fontSize: 15.sp),))
+                Positioned(top: 18.h,left: 5.w,child: SizedBox(width: 90.w,
+                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Text('Purchasing ${widget.name} ',style: TextStyle(color: Colors.white,fontSize: 15.sp),),
+
+                        ],
+                      ),
+                      Container(
+                        height: 5.h,
+                        width: 11.w,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10)),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: CachedNetworkImage(
+                            fit: BoxFit.cover,
+                            imageUrl: widget.img.toString(),
+                            progressIndicatorBuilder: (context, url, progress) =>
+                                CircularProgressIndicator(),
+                            errorWidget: (context, url, error) => Image.asset(
+                              'assets/12.png',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ))
               ],
             ),
           ),

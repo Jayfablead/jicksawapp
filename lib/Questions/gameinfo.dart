@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:jicksaw/Questions/FirstQuestion.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/drawer.dart';
+import 'package:jicksaw/new%20pages/categories%20&%20age.dart';
 import 'package:sizer/sizer.dart';
 
 class Tutorial extends StatefulWidget {
@@ -74,7 +75,7 @@ class _TutorialState extends State<Tutorial> {
                 SizedBox(
                   width: 85.w,
                   child: Text(
-                    'Each Player Get 5 Questions if They Give Right Answer They got 20 Points.',
+                    'Each Player have to Select Your Favourite Category and Age Group.',
                     style: secondarytxtwhite1,
                   ),
                 ),
@@ -94,7 +95,7 @@ class _TutorialState extends State<Tutorial> {
                 SizedBox(
                   width: 85.w,
                   child: Text(
-                    'Each Player Want Minimum 60 Points to Play.',
+                    'The Questions Will Be Based on Their Selected Age Group and Category.',
                     style: secondarytxtwhite1,
                   ),
                 ),
@@ -114,13 +115,14 @@ class _TutorialState extends State<Tutorial> {
                 SizedBox(
                   width: 85.w,
                   child: Text(
-                    'Each Player Will Get 4 Options. Where One is Correct and Others are Wrong.',
+                    'Each Player Get 5 Questions if They Give Right Answer They got 20 Points.',
                     style: secondarytxtwhite1,
                   ),
                 ),
                 SizedBox(
                   height: 5.h,
                 ),
+
                 Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
@@ -134,7 +136,7 @@ class _TutorialState extends State<Tutorial> {
                 SizedBox(
                   width: 85.w,
                   child: Text(
-                    'Each Player Has to Guess Correct Answer.',
+                    'Each Player Want Minimum 60 Points to Play.',
                     style: secondarytxtwhite1,
                   ),
                 ),
@@ -154,6 +156,46 @@ class _TutorialState extends State<Tutorial> {
                 SizedBox(
                   width: 85.w,
                   child: Text(
+                    'Each Player Will Get 4 Options. Where One is Correct and Others are Wrong.',
+                    style: secondarytxtwhite1,
+                  ),
+                ),
+                SizedBox(
+                  height: 5.h,
+                ),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    'Rule 6:',
+                    style: primarytxto,
+                  ),
+                ),
+                SizedBox(
+                  height: 0.5.h,
+                ),
+                SizedBox(
+                  width: 85.w,
+                  child: Text(
+                    'Each Player Has to Guess Correct Answer.',
+                    style: secondarytxtwhite1,
+                  ),
+                ),
+                SizedBox(
+                  height: 5.h,
+                ),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    'Rule 7:',
+                    style: primarytxto,
+                  ),
+                ),
+                SizedBox(
+                  height: 0.5.h,
+                ),
+                SizedBox(
+                  width: 85.w,
+                  child: Text(
                     'Once a Player Answered a Question They Can\'t Goback And Change thier Answer.',
                     style: secondarytxtwhite1,
                   ),
@@ -163,7 +205,7 @@ class _TutorialState extends State<Tutorial> {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to(()=>FirstQue());
+                    Get.to(()=>CategoriesPage());
                   },
                   child: Container(
                     alignment: Alignment.center,
