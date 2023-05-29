@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/main%20Pages/purchase_Screen.dart';
 import 'package:sizer/sizer.dart';
 
 import '../const widget.dart';
@@ -29,26 +30,21 @@ List img = [
 List<game> popular = [
   game(
       "https://cdn.jim-nielsen.com/ios/512/jigsaw-puzzles-puzzle-games-2021-05-11.png",
-      "Puzzle mania",
+      "Star Image",
       '',
       '3',
-      'mania'),
-  game("https://m.media-amazon.com/images/I/61Q2CtZJDqL.png", "Trivia", '', '4',
-      'trivia'),
+      'Star'),
+  game("https://m.media-amazon.com/images/I/61Q2CtZJDqL.png", "Universe Image", '', '4',
+      'Universe'),
   game(
       "https://thumbnail.imgbin.com/2/12/7/imgbin-jigty-jigsaw-puzzles-candy-crush-jelly-saga-android-blue-puzzle-icon-KbQRmqHQqYHpmWbD3zDhCDivi_t.jpg",
-      "Playzle",
+      "Actor Image",
       '',
       '3',
-      'plyzle'),
-  game("https://cdn-icons-png.flaticon.com/512/229/229800.png", "Role Dice", '',
-      '5', 'Dice'),
-  game(
-      "https://is2-ssl.mzstatic.com/image/thumb/Purple128/v4/fd/ef/4f/fdef4f9f-f5fb-47a7-b66f-171d52707922/AppIcon-1x_U007emarketing-85-220-8.png/512x512bb.jpg",
-      "Just Jigsaw",
-      '',
-      '5',
-      'magic'),
+      'Actor'),
+  game("https://cdn-icons-png.flaticon.com/512/229/229800.png", "Nature Image", '',
+      '5', 'Nature'),
+
 ];
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -137,7 +133,7 @@ class _GameInfoState extends State<GameInfo> {
                   ],
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {Get.to(PurchaseScreen());},
                   child: Container(
                     height: 5.h,
                     alignment: Alignment.center,
@@ -148,7 +144,7 @@ class _GameInfoState extends State<GameInfo> {
                         color: primary),
                     // padding: EdgeInsets.all(2.h),
                     child: Text(
-                      'download',
+                      'Purchase',
                       style: TextStyle(
                         fontSize: 12.sp,
                         color: Colors.white,

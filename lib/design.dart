@@ -51,14 +51,16 @@ class _designState extends State<design> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: drawer1(),
+        drawer: drawer1(),
         key: _scaffoldKey,
         backgroundColor: bgcolor
         // Colors.black
         ,
         appBar: appbar1(
             title1: '',
-            press: () {_scaffoldKey.currentState?.openDrawer();},
+            press: () {
+              _scaffoldKey.currentState?.openDrawer();
+            },
             icn: Icon(
               Icons.menu_rounded,
               color: primary,
@@ -163,7 +165,6 @@ class _designState extends State<design> with TickerProviderStateMixin {
                           ],
                         ),
                       )),
-                
 
                   //block1
                   Positioned(
@@ -174,9 +175,9 @@ class _designState extends State<design> with TickerProviderStateMixin {
                       child: CustomPaint(
                         //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
                         painter: JigsawClipper1(),
-                        child: Container(alignment: Alignment.center,
-                          padding:
-                              EdgeInsets.all(7.w),
+                        child: Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.all(7.w),
                           // decoration: BoxDecoration(
                           //     border: Border.all(width: 3.0, color: Colors.black)),
                           // color: Colors.blue,
@@ -189,8 +190,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                             decoration: BoxDecoration(
                                 border: Border.all(color: primary),
                                 color: secondary,
-                                borderRadius:
-                                    BorderRadius.circular(20.0)),
+                                borderRadius: BorderRadius.circular(20.0)),
                             child: Text(
                               'Start',
                               style: TextStyle(color: primary),
@@ -208,8 +208,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                         size: Size(250, 300),
                         // painter: JigsawClipper2(),
                         child: Container(
-                          padding:
-                              EdgeInsets.only(top: 1.5.h, left: 1.5.w, right: 1.w),
+                          padding: EdgeInsets.only(
+                              top: 1.5.h, left: 1.5.w, right: 1.w),
                           alignment: Alignment.center,
                           // height: 100,
                           width: 80,
@@ -231,16 +231,15 @@ class _designState extends State<design> with TickerProviderStateMixin {
                       )),
                   //block3
                   Positioned(
-                      top: 0.0,
-                      left: 50.w,
-                      right: 50.w,
-                      bottom: 260.0,
-                      child: CustomPaint(
-                        size: Size(200, 300),
-                        painter: JigsawClipper3(),
-                        child: Container(color: Colors. orange,height: 10.h,width:20.w ,),
-
-                      )),
+                    top: 0.0,
+                    left: 50.w,
+                    right: 50.w,
+                    bottom: 260.0,
+                    child: CustomPaint(
+                      size: Size(200, 300),
+                      painter: JigsawClipper3(),
+                    ),
+                  ),
                   // block4
                   Positioned(
                     top: 0.0,
@@ -278,7 +277,6 @@ class _designState extends State<design> with TickerProviderStateMixin {
                       top: 20.w,
                       child: CustomPaint(
                         painter: JigsawClipper5(),
-
                       )),
                   //block6
                   Positioned(
@@ -290,13 +288,13 @@ class _designState extends State<design> with TickerProviderStateMixin {
                         painter: JigsawClipper6(),
                         child: Container(
                           padding:
-                          EdgeInsets.only(top: 3.h, left: 5.w, right: 1.w),
+                              EdgeInsets.only(top: 3.h, left: 5.w, right: 1.w),
                           child: Center(
                               child: Text(
-                                "Bonus",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(color: primary),
-                              )),
+                            "Bonus",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: primary),
+                          )),
                         ),
                       )),
                   // block7
@@ -367,8 +365,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                     child: CustomPaint(
                       painter: JigsawClipper10(),
                       child: Container(
-                        padding:
-                        EdgeInsets.only(top: 0.h, right: 1.3.w),
+                        padding: EdgeInsets.only(top: 0.h, right: 1.3.w),
                         alignment: Alignment.center,
                         // height: 100,
                         // width:80,
@@ -379,10 +376,10 @@ class _designState extends State<design> with TickerProviderStateMixin {
                         // ),
                         child: Center(
                             child: Text(
-                              "Warp",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(color: primary),
-                            )),
+                          "Warp",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: primary),
+                        )),
                       ),
                     ),
                   ),
@@ -393,27 +390,28 @@ class _designState extends State<design> with TickerProviderStateMixin {
                     right: 240.0,
                     top: 80.w,
                     child: CustomPaint(
-                        painter: JigsawClipper11(),
-                        child: Container(
-                          padding: EdgeInsets.only(right: 7.w),
-                          alignment: Alignment.center,
-                          // height: 100,
-                          // width:80,
-                          // decoration: BoxDecoration(
-                          //   border: Border.all(color: Colors.black),
-                          //   // color: Colors.green,
-                          //   // shape: BoxShape.rectangle,
-                          // ),
-                          child: SizedBox(
-                              width: 24.w,
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  "Double",
-                                  style: TextStyle(color: primary),
-                                ),
-                              )),
-                        ),),
+                      painter: JigsawClipper11(),
+                      child: Container(
+                        padding: EdgeInsets.only(right: 7.w),
+                        alignment: Alignment.center,
+                        // height: 100,
+                        // width:80,
+                        // decoration: BoxDecoration(
+                        //   border: Border.all(color: Colors.black),
+                        //   // color: Colors.green,
+                        //   // shape: BoxShape.rectangle,
+                        // ),
+                        child: SizedBox(
+                            width: 24.w,
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "Double",
+                                style: TextStyle(color: primary),
+                              ),
+                            )),
+                      ),
+                    ),
                   ),
                   //block12
                   Positioned(
@@ -423,7 +421,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                     child: CustomPaint(
                       painter: JigsawClipper12(),
                       child: Container(
-                        padding: EdgeInsets.only(top: 4.h, right: 6.w,left: 3.w),
+                        padding:
+                            EdgeInsets.only(top: 4.h, right: 6.w, left: 3.w),
                         alignment: Alignment.center,
                         // height: 100,
                         // width:80,
@@ -453,8 +452,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                     top: 40.w,
                     child: CustomPaint(
                       painter: JigsawClipper13(),
-                      child: Container(
-                         ),
+                      child: Container(),
                     ),
                   ),
                   //block 14
@@ -465,9 +463,9 @@ class _designState extends State<design> with TickerProviderStateMixin {
                     child: CustomPaint(
                       painter: JigsawClipper14(),
                       child: Container(
-                        padding: EdgeInsets.only(top: 3.7.h, right: 6.w,left: 3.5.w),
+                        padding: EdgeInsets.only(
+                            top: 3.7.h, right: 6.w, left: 3.5.w),
                         alignment: Alignment.center,
-
                         child: SizedBox(
                             width: 24.w,
                             child: Align(
@@ -485,37 +483,37 @@ class _designState extends State<design> with TickerProviderStateMixin {
               SizedBox(
                 height: 2.h,
               ),
-
-              Row(mainAxisAlignment: MainAxisAlignment.center,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
-                    onTap: () {setState(() {
-                      _showImage = true;
-                    });
-                    _animationController!.reset();
-                    _animationController!.forward();
-                    Timer(const Duration(seconds: 3), () {
+                    onTap: () {
                       setState(() {
-                        _value = Random().nextInt(6) + 1;
-                        print(_value);
-                        _showImage = false;
+                        _showImage = true;
                       });
-                    });},
+                      _animationController!.reset();
+                      _animationController!.forward();
+                      Timer(const Duration(seconds: 3), () {
+                        setState(() {
+                          _value = Random().nextInt(6) + 1;
+                          print(_value);
+                          _showImage = false;
+                        });
+                      });
+                    },
                     child: Container(
                       alignment: Alignment.center,
                       width: 35.w,
                       margin: EdgeInsets.only(top: 2.h),
                       decoration: BoxDecoration(
-
                           borderRadius: BorderRadius.circular(90),
                           color: primary),
                       padding: EdgeInsets.all(2.h),
-                      child:Text(
+                      child: Text(
                         (_value == 0) ? 'Roll Dice' : "Roll again",
                         style: TextStyle(
                           fontSize: 13.sp,
                           color: Colors.white,
-
                           fontFamily: 'Poppins',
                         ),
                       ),
@@ -528,21 +526,21 @@ class _designState extends State<design> with TickerProviderStateMixin {
               ),
               (_value == 0)
                   ? Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    '★ Tap on Roll Dice Button To Start Game ★',textAlign: TextAlign.center,
-                    style: primarytxt1,
-                  ))
+                      alignment: Alignment.center,
+                      child: Text(
+                        '★ Tap on Roll Dice Button To Start Game ★',
+                        textAlign: TextAlign.center,
+                        style: primarytxt1,
+                      ))
                   : Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Run ${_value} times',
-                    style: playertxt1,
-                  )),
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Run ${_value} times',
+                        style: playertxt1,
+                      )),
               SizedBox(
                 height: 3.h,
               ),
-
             ],
           ),
         ));
