@@ -4,6 +4,7 @@ import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Screen/splashscreen.dart';
 import 'package:jicksaw/design.dart';
 import 'package:jicksaw/jigsaw.dart';
+import 'package:jicksaw/new%20pages/categories%20&%20age.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -30,11 +31,11 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
             
-              primarySwatch: Colors.blue,
+              primarySwatch: Colors.orange,
             ),
 
 
-            home: const design()),
+            home: const SplashScreen()),
       );
     });
   }

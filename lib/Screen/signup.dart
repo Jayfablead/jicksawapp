@@ -11,6 +11,7 @@ import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/sharedpreferance.dart';
+import 'package:jicksaw/new%20pages/categories%20&%20age.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import 'package:http/http.dart';
@@ -110,7 +111,7 @@ class _signupState extends State<signup> {
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
-                              color: secondary,
+                              border: Border.all(color: secondary,),
                               borderRadius: BorderRadius.circular(20)),
                           height: 7.h,
                           alignment: Alignment.center,
@@ -129,12 +130,13 @@ class _signupState extends State<signup> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(
+                            decoration: InputDecoration(errorBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.transparent),),
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: primary),
+                                  borderSide: BorderSide(color: Colors.transparent),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: primary),
+                                  borderSide: BorderSide(color: Colors.transparent),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.person,
@@ -158,7 +160,7 @@ class _signupState extends State<signup> {
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
-                              color: secondary,
+                              border: Border.all(color: secondary,),
                               borderRadius: BorderRadius.circular(20)),
                           height: 7.h,
                           alignment: Alignment.center,
@@ -193,12 +195,13 @@ class _signupState extends State<signup> {
                                 }
                               }
                             },
-                            decoration: InputDecoration(
+                            decoration: InputDecoration(errorBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.transparent),),
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: primary),
+                                  borderSide: BorderSide(color: Colors.transparent),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: primary),
+                                  borderSide: BorderSide(color: Colors.transparent),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.email_outlined,
@@ -222,7 +225,7 @@ class _signupState extends State<signup> {
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
-                              color: secondary,
+                              border: Border.all(color: secondary,),
                               borderRadius: BorderRadius.circular(20)),
                           height: 7.h,
                           alignment: Alignment.center,
@@ -243,12 +246,13 @@ class _signupState extends State<signup> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(
+                            decoration: InputDecoration(errorBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.transparent),),
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: primary),
+                                  borderSide: BorderSide(color: Colors.transparent),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: primary),
+                                  borderSide: BorderSide(color: Colors.transparent),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.phone,
@@ -272,7 +276,7 @@ class _signupState extends State<signup> {
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
-                              color: secondary,
+                              border: Border.all(color: secondary,),
                               borderRadius: BorderRadius.circular(20)),
                           height: 7.h,
                           alignment: Alignment.center,
@@ -291,12 +295,13 @@ class _signupState extends State<signup> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(
+                            decoration: InputDecoration(errorBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.transparent),),
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: primary),
+                                  borderSide: BorderSide(color: Colors.transparent),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: primary),
+                                  borderSide: BorderSide(color: Colors.transparent),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.lock,
@@ -320,7 +325,7 @@ class _signupState extends State<signup> {
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
-                              color: secondary,
+                              border: Border.all(color: secondary,),
                               borderRadius: BorderRadius.circular(20)),
                           height: 7.h,
                           alignment: Alignment.center,
@@ -339,12 +344,13 @@ class _signupState extends State<signup> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(
+                            decoration: InputDecoration(errorBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.transparent),),
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: primary),
+                                  borderSide: BorderSide(color: Colors.transparent),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: primary),
+                                  borderSide: BorderSide(color: Colors.transparent),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.lock,
@@ -406,7 +412,9 @@ class _signupState extends State<signup> {
                               fontWeight: FontWeight.w400)),
                     )
                   ],
-                )
+                ),
+                SizedBox(height:
+                  2.h,)
               ],
             ),
           ),
@@ -433,7 +441,7 @@ class _signupState extends State<signup> {
               });
               await SaveDataLocal.saveLogInData(usermodal!);
 
-              Get.offAll(() => const mainpage2());
+              Get.offAll(() => const CategoriesPage());
             } else {
               buildErrorDialog(
                   context, "Login Error", (usermodal?.message).toString());

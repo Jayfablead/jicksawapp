@@ -238,6 +238,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                       child: CustomPaint(
                         size: Size(200, 300),
                         painter: JigsawClipper3(),
+                        child: Container(color: Colors. orange,height: 10.h,width:20.w ,),
+
                       )),
                   // block4
                   Positioned(
@@ -316,7 +318,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                       painter: JigsawClipper8(),
                       child: Container(
                         padding:
-                            EdgeInsets.only(top: 15.0, left: 20.0, right: 5.0),
+                            EdgeInsets.only(top: 0.h, left: 2.w, right: 1.3.w),
                         alignment: Alignment.center,
                         // height: 100,
                         // width:80,
@@ -327,7 +329,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                         // ),
                         child: Center(
                             child: Text(
-                          "Answer a Question to pickup a pieace",
+                          "Penalty",
                           textAlign: TextAlign.center,
                           style: TextStyle(color: primary),
                         )),
@@ -360,19 +362,28 @@ class _designState extends State<design> with TickerProviderStateMixin {
                   Positioned(
                     bottom: 0.0,
                     left: 30.w,
-                    right: 270.0,
+                    right: 45.w,
                     top: 80.w,
                     child: CustomPaint(
                       painter: JigsawClipper10(),
                       child: Container(
-                          // height: 20,
-                          // width:100,
-                          // decoration: BoxDecoration(
-                          //   border:Border.all(color:Colors.black),
-                          //   // color: Colors.green,
-                          //   shape: BoxShape.rectangle,
-                          // ),
-                          ),
+                        padding:
+                        EdgeInsets.only(top: 0.h, right: 1.3.w),
+                        alignment: Alignment.center,
+                        // height: 100,
+                        // width:80,
+                        // decoration: BoxDecoration(
+                        //   border: Border.all(color: Colors.black),
+                        //   // color: Colors.green,
+                        //   // shape: BoxShape.rectangle,
+                        // ),
+                        child: Center(
+                            child: Text(
+                              "Warp",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(color: primary),
+                            )),
+                      ),
                     ),
                   ),
                   //block11
@@ -384,7 +395,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                     child: CustomPaint(
                         painter: JigsawClipper11(),
                         child: Container(
-                          padding: EdgeInsets.only(top: 15.0, right: 40.0),
+                          padding: EdgeInsets.only(right: 7.w),
                           alignment: Alignment.center,
                           // height: 100,
                           // width:80,
@@ -398,11 +409,11 @@ class _designState extends State<design> with TickerProviderStateMixin {
                               child: Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  "Answer a Question to pickup a pieace",
+                                  "Double",
                                   style: TextStyle(color: primary),
                                 ),
                               )),
-                        )),
+                        ),),
                   ),
                   //block12
                   Positioned(
@@ -412,14 +423,25 @@ class _designState extends State<design> with TickerProviderStateMixin {
                     child: CustomPaint(
                       painter: JigsawClipper12(),
                       child: Container(
-                          // height: 20,
-                          // width:100,
-                          // decoration: BoxDecoration(
-                          //   border:Border.all(color:Colors.black),
-                          //   // color: Colors.green,
-                          //   shape: BoxShape.rectangle,
-                          // ),
-                          ),
+                        padding: EdgeInsets.only(top: 4.h, right: 6.w,left: 3.w),
+                        alignment: Alignment.center,
+                        // height: 100,
+                        // width:80,
+                        // decoration: BoxDecoration(
+                        //   border: Border.all(color: Colors.black),
+                        //   // color: Colors.green,
+                        //   // shape: BoxShape.rectangle,
+                        // ),
+                        child: SizedBox(
+                            width: 24.w,
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "Choice",
+                                style: TextStyle(color: primary),
+                              ),
+                            )),
+                      ),
                     ),
                   ),
 
@@ -443,14 +465,19 @@ class _designState extends State<design> with TickerProviderStateMixin {
                     child: CustomPaint(
                       painter: JigsawClipper14(),
                       child: Container(
-                          // height: 20,
-                          // width:100,
-                          // decoration: BoxDecoration(
-                          //   border:Border.all(color:Colors.black),
-                          //   // color: Colors.green,
-                          //   shape: BoxShape.rectangle,
-                          // ),
-                          ),
+                        padding: EdgeInsets.only(top: 3.7.h, right: 6.w,left: 3.5.w),
+                        alignment: Alignment.center,
+
+                        child: SizedBox(
+                            width: 24.w,
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "Mystery",
+                                style: TextStyle(color: primary),
+                              ),
+                            )),
+                      ),
                     ),
                   ),
                 ],
@@ -503,7 +530,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                   ? Align(
                   alignment: Alignment.center,
                   child: Text(
-                    '★ Tap on Roll Dice Button To Start Game ★',
+                    '★ Tap on Roll Dice Button To Start Game ★',textAlign: TextAlign.center,
                     style: primarytxt1,
                   ))
                   : Align(

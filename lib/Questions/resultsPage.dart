@@ -44,7 +44,6 @@ class _ResultsPageState extends State<ResultsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgcolor,
-
       body: (total! < 60)
           ? WillPopScope(
               onWillPop: dialog,
@@ -59,13 +58,6 @@ class _ResultsPageState extends State<ResultsPage> {
                       ),
                       Column(
                         children: [
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: Text(
-                              'Total : ${total}/100',
-                              style: primarytxt1,
-                            ),
-                          ),
                           Container(
                             height: 21.h,
                             child: Lottie.asset('assets/over.json'),
@@ -75,16 +67,31 @@ class _ResultsPageState extends State<ResultsPage> {
                           ),
                           Text(
                             '😔 Sorry ',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.w600,
+                              fontFamily: 'Poppins',
+                              letterSpacing: 2,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 2.5.h,
+                          ),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              'Total : ${total}/100',
                               style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.w600,
+                                color: primary,
+                                fontSize: 15.sp,
                                 fontFamily: 'Poppins',
                                 letterSpacing: 2,
                               ),
+                            ),
                           ),
                           SizedBox(
-                            height: 5.h,
+                            height: 2.5.h,
                           ),
                           Text(
                             'You\'ve Lost',
@@ -174,17 +181,7 @@ class _ResultsPageState extends State<ResultsPage> {
                     Column(
                       children: [
                         SizedBox(
-                          height: 6.h,
-                        ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            'Total : ${total}/100',
-                            style: primarytxt1,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5.h,
+                          height: 8.h,
                         ),
                         Text(
                           '🎊 Congratulations 🎊 ',
@@ -198,7 +195,22 @@ class _ResultsPageState extends State<ResultsPage> {
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(
-                          height: 13.h,
+                          height: 5.h,
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'Total : ${total}/100',
+                            style: TextStyle(
+                              color: primary,
+                              fontSize: 15.sp,
+                              fontFamily: 'Poppins',
+                              letterSpacing: 2,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 7.h,
                         ),
                         Text(
                           'You\'ve Passed',

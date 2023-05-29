@@ -15,6 +15,7 @@ import 'package:jicksaw/Widget/sharedpreferance.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/jigsawclipper.dart';
 import 'package:jicksaw/Screen/signup.dart';
+import 'package:jicksaw/new%20pages/categories%20&%20age.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
@@ -110,7 +111,7 @@ class _loginState extends State<login> {
                       children: [
                         Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
-                              color: secondary,
+                              border: Border.all(color: secondary,),
                               borderRadius: BorderRadius.circular(20)),
                           height: 7.h,
                           alignment: Alignment.center,
@@ -132,11 +133,13 @@ class _loginState extends State<login> {
                             decoration: InputDecoration(
                                 enabledBorder: const UnderlineInputBorder(
                                     borderSide: BorderSide(
-                                  color: primary,
+                                  color: Colors.transparent,
                                 )),
                                 focusedBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(color: primary),
+                                  borderSide: BorderSide(color: Colors.transparent),
                                 ),
+                                errorBorder: const UnderlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.transparent),),
                                 suffixIcon: const Icon(
                                   Icons.person,
                                   color: Colors.black,
@@ -158,8 +161,8 @@ class _loginState extends State<login> {
                         ),
                         Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
-                              color: secondary,
-                              borderRadius: BorderRadius.circular(20)),
+                             border: Border.all(color: secondary),
+                              borderRadius: BorderRadius.circular(15)),
                           height: 7.h,
                           alignment: Alignment.center,
                           child: TextFormField(
@@ -176,12 +179,13 @@ class _loginState extends State<login> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(
+                            decoration: InputDecoration(errorBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.transparent),),
                                 enabledBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(color: primary),
+                                  borderSide: BorderSide(color: Colors.transparent),
                                 ),
                                 focusedBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(color: primary),
+                                  borderSide: BorderSide(color: Colors.transparent),
                                 ),
                                 suffixIcon: const Icon(
                                   Icons.lock,
@@ -244,7 +248,7 @@ class _loginState extends State<login> {
                   ),
                 ),
                 SizedBox(
-                  height: 10.h,
+                  height: 4.h,
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -291,7 +295,7 @@ class _loginState extends State<login> {
               });
               await SaveDataLocal.saveLogInData(usermodal!);
 
-              Get.offAll(() => const mainpage2());
+              Get.offAll(() => const CategoriesPage());
             } else {
               buildErrorDialog(
                   context, "Login Error", (usermodal?.message).toString());

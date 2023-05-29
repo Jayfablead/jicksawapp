@@ -8,7 +8,7 @@ const Color bgcolor = Colors.white;
 
 // const Color bgcolor = Color.fromARGB(255, 18, 28, 36);
 const Color primary = Color(0xffff7e2e);
-Color secondary = Colors.grey.withOpacity(0.1);
+Color secondary = Colors.grey.withOpacity(0.2);
 
 const Color cCorrect = Color(0xFF538D4E);
 const Color cInWorld = Color(0xFFB49F3A);

@@ -152,7 +152,7 @@ class _InitscreenState extends State<Initscreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 1.h),
+                    SizedBox(height: 3.h),
                   ],
                 ),
               ),

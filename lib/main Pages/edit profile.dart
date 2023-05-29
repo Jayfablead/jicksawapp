@@ -170,7 +170,7 @@ class _EditProfileState extends State<EditProfile> {
                         children: [
                           Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                             decoration: BoxDecoration(
-                                color: secondary,
+                                border: Border.all(color: secondary,),
                                 borderRadius: BorderRadius.circular(20)),
                             height: 7.h,
                             alignment: Alignment.center,
@@ -189,14 +189,17 @@ class _EditProfileState extends State<EditProfile> {
                                 }
                                 return null;
                               },
-                              decoration: InputDecoration(
+                              decoration: InputDecoration(errorBorder: UnderlineInputBorder(
+                                borderSide:
+                                BorderSide(color: Colors.transparent),
+                              ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: primary),
+                                    BorderSide(color: Colors.transparent),
                                   ),
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: primary),
+                                    BorderSide(color: Colors.transparent),
                                   ),
                                   suffixIcon: Icon(
                                     Icons.person,
@@ -215,7 +218,7 @@ class _EditProfileState extends State<EditProfile> {
                           ),
                           Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                             decoration: BoxDecoration(
-                                color: secondary,
+                                border: Border.all(color: secondary,),
                                 borderRadius: BorderRadius.circular(20)),
                             height: 7.h,
                             alignment: Alignment.center,
@@ -235,13 +238,17 @@ class _EditProfileState extends State<EditProfile> {
                                 return null;
                               },
                               decoration: InputDecoration(
+                                errorBorder: UnderlineInputBorder(
+                                  borderSide:
+                                  BorderSide(color: Colors.transparent),
+                                ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: primary),
+                                    BorderSide(color: Colors.transparent),
                                   ),
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: primary),
+                                    BorderSide(color: Colors.transparent),
                                   ),
                                   suffixIcon: Icon(
                                     Icons.person_pin_circle_outlined,
@@ -260,7 +267,7 @@ class _EditProfileState extends State<EditProfile> {
                           ),
                           Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                             decoration: BoxDecoration(
-                                color: secondary,
+                                border: Border.all(color: secondary,),
                                 borderRadius: BorderRadius.circular(20)),
                             
                             alignment: Alignment.center,
@@ -281,13 +288,17 @@ class _EditProfileState extends State<EditProfile> {
                                 return null;
                               },
                               decoration: InputDecoration(
+                                errorBorder: UnderlineInputBorder(
+                                  borderSide:
+                                  BorderSide(color: Colors.transparent),
+                                ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: primary),
+                                        BorderSide(color: Colors.transparent),
                                   ),
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: primary),
+                                    BorderSide(color: Colors.transparent),
                                   ),
                                   suffixIcon: Icon(
                                     Icons.info_outline_rounded,
