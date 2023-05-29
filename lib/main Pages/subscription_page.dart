@@ -148,7 +148,7 @@ class _subscriptionState extends State<subscription> {
           ),
 SizedBox(height: 10.h,),
           Container(
-            child: Text('Starting at 2400/month',
+            child: Text('Starting at \$ 17.99/month',
 
               style: TextStyle(fontSize: 12.sp,fontFamily: 'Poppins', fontWeight: FontWeight.w200),
             ),

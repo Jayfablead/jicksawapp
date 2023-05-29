@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Questions/FirstQuestion.dart';
+import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:jicksaw/new%20pages/categories%20&%20age.dart';
@@ -37,7 +38,7 @@ class _TutorialState extends State<Tutorial> {
                   children: [
                     IconButton(
                         onPressed: () {
-                         Get.back();
+                         Get.offAll(mainpage2());
                         },
                         icon: Icon(
                           Icons.arrow_back_ios_new_rounded,

@@ -11,7 +11,7 @@ import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:jicksaw/main%20Pages/edit%20profile.dart';
-import 'package:http/http.dart';
+
 import 'package:sizer/sizer.dart';
 
 class MyProfile extends StatefulWidget {
@@ -176,7 +176,7 @@ class _MyProfileState extends State<MyProfile> {
                           style: TextStyle(
                               color: Colors.black,
                               letterSpacing: 2,
-                              fontFamily: "game",
+                              fontFamily: "Poppins",
                               fontWeight: FontWeight.w500,
                               fontSize: 13.sp),
                         ),
@@ -190,7 +190,7 @@ class _MyProfileState extends State<MyProfile> {
                           style: TextStyle(
                               color: Colors.black,
                               letterSpacing: 2,
-                              fontFamily: "game",
+                              fontFamily: "Poppins",
                               fontWeight: FontWeight.w500,
                               fontSize: 13.sp),
                         ),
@@ -221,7 +221,7 @@ class _MyProfileState extends State<MyProfile> {
                           style: TextStyle(
                               color: Colors.black,
                               letterSpacing: 2,
-                              fontFamily: "game",
+                              fontFamily: "Poppins",
                               fontWeight: FontWeight.w500,
                               fontSize: 13.sp),
                         ),
@@ -237,7 +237,7 @@ class _MyProfileState extends State<MyProfile> {
                             style: TextStyle(
                                 color: Colors.black,
                                 letterSpacing: 2,
-                                fontFamily: "game",
+                                fontFamily: "Poppins",
                                 fontWeight: FontWeight.w500,
                                 fontSize: 13.sp),
                           ),
@@ -262,7 +262,7 @@ class _MyProfileState extends State<MyProfile> {
                           style: TextStyle(
                               color: Colors.black,
                               letterSpacing: 2,
-                              fontFamily: "game",
+                              fontFamily: "Poppins",
                               fontWeight: FontWeight.w500,
                               fontSize: 13.sp),
                         ),
@@ -270,7 +270,7 @@ class _MyProfileState extends State<MyProfile> {
                           width: 4.w,
                         ),
                         SizedBox(
-                          width: 40.w,
+                          width: 30.w,
                           child: Text(
                             '70',
                             maxLines: 2,
@@ -278,7 +278,7 @@ class _MyProfileState extends State<MyProfile> {
                             style: TextStyle(
                                 color: Colors.black,
                                 letterSpacing: 2,
-                                fontFamily: "game",
+                                fontFamily: "Poppins",
                                 fontWeight: FontWeight.w500,
                                 fontSize: 13.sp),
                           ),
@@ -304,7 +304,7 @@ class _MyProfileState extends State<MyProfile> {
                       style: TextStyle(
                           color: Colors.black,
                           letterSpacing: 2,
-                          fontFamily: "game",
+                          fontFamily: "Poppins",
                           fontWeight: FontWeight.w500,
                           fontSize: 13.sp),
                     ),
@@ -321,7 +321,7 @@ class _MyProfileState extends State<MyProfile> {
                       style: TextStyle(
                           color: Colors.black,
                           letterSpacing: 2,
-                          fontFamily: "game",
+                          fontFamily: "Poppins",
                           fontWeight: FontWeight.w500,
                           fontSize: 13.sp),
                     ),
@@ -347,7 +347,7 @@ class _MyProfileState extends State<MyProfile> {
                           style: TextStyle(
                               color: Colors.black,
                               letterSpacing: 2,
-                              fontFamily: "game",
+                              fontFamily: "Poppins",
                               fontWeight: FontWeight.w500,
                               fontSize: 13.sp),
                         ),
@@ -442,7 +442,7 @@ class _MyProfileState extends State<MyProfile> {
 //       style: TextStyle(
 //         fontSize: 8.w,
 //         fontWeight: FontWeight.w600,
-//         fontFamily: "game",
+//         fontFamily: "Poppins",
 //         color: Color(0xffeaeaea),
 //       ),
 //     ),
@@ -452,7 +452,7 @@ class _MyProfileState extends State<MyProfile> {
 //       style: TextStyle(
 //         fontSize: 4.w,
 //         fontWeight: FontWeight.w600,
-//         fontFamily: "game",
+//         fontFamily: "Poppins",
 //         color: Color(0xff0DF5E3),
 //       ),
 //     ),
@@ -477,7 +477,7 @@ class _MyProfileState extends State<MyProfile> {
 //                   style: TextStyle(
 //                     fontSize: 7.w,
 //                     fontWeight: FontWeight.w500,
-//                     fontFamily: "game",
+//                     fontFamily: "Poppins",
 //                     color: Color(0xffffffff),letterSpacing: 2,
 //                   ),
 //                 ),
@@ -486,7 +486,7 @@ class _MyProfileState extends State<MyProfile> {
 //                   style: TextStyle(
 //                     fontSize: 3.5.w,
 //                     fontWeight: FontWeight.w500,
-//                     fontFamily: "game",
+//                     fontFamily: "Poppins",
 //                     color: Color(0xffb4b4b4),
 //                   ),
 //                 ),
@@ -500,7 +500,7 @@ class _MyProfileState extends State<MyProfile> {
 //                   style: TextStyle(
 //                     fontSize: 7.w,
 //                     fontWeight: FontWeight.w500,
-//                     fontFamily: "game",
+//                     fontFamily: "Poppins",
 //                     color: Color(0xffffffff),letterSpacing: 2,
 //                   ),
 //                 ),
@@ -509,7 +509,7 @@ class _MyProfileState extends State<MyProfile> {
 //                   style: TextStyle(
 //                     fontSize: 3.5.w,
 //                     fontWeight: FontWeight.w500,
-//                     fontFamily: "game",
+//                     fontFamily: "Poppins",
 //                     color: Color(0xffb4b4b4),
 //                   ),
 //                 ),
@@ -523,7 +523,7 @@ class _MyProfileState extends State<MyProfile> {
 //                   style: TextStyle(
 //                     fontSize: 7.w,
 //                     fontWeight: FontWeight.w500,
-//                     fontFamily: "game",
+//                     fontFamily: "Poppins",
 //                     color: Color(0xffffffff),letterSpacing: 2,
 //                   ),
 //                 ),
@@ -532,7 +532,7 @@ class _MyProfileState extends State<MyProfile> {
 //                   style: TextStyle(
 //                     fontSize: 3.5.w,
 //                     fontWeight: FontWeight.w500,
-//                     fontFamily: "game",
+//                     fontFamily: "Poppins",
 //                     color: Color(0xffb4b4b4),
 //                   ),
 //                 ),
@@ -569,7 +569,7 @@ class _MyProfileState extends State<MyProfile> {
 //               style: TextStyle(
 //                 fontSize: 4.w,
 //                 fontWeight: FontWeight.w500,
-//                 fontFamily: "game",
+//                 fontFamily: "Poppins",
 //                 color: Color(0xffeaeaea),
 //               ),
 //             )
@@ -603,7 +603,7 @@ class _MyProfileState extends State<MyProfile> {
 //               style: TextStyle(
 //                 fontSize: 4.w,
 //                 fontWeight: FontWeight.w500,
-//                 fontFamily: "game",
+//                 fontFamily: "Poppins",
 //                 color: Color(0xffeaeaea),
 //               ),
 //             )
@@ -629,7 +629,7 @@ class _MyProfileState extends State<MyProfile> {
 //     //       style: TextStyle(
 //     //         fontSize: 4.w,
 //     //         fontWeight: FontWeight.w500,
-//     //         fontFamily: "game",
+//     //         fontFamily: "Poppins",
 //     //         color: Color(0xffeaeaea),
 //     //       ),
 //     //     ),
@@ -659,7 +659,7 @@ class _MyProfileState extends State<MyProfile> {
 //     //       style: TextStyle(
 //     //         fontSize: 4.w,
 //     //         fontWeight: FontWeight.w500,
-//     //         fontFamily: "game",
+//     //         fontFamily: "Poppins",
 //     //         color: Color(0xffeaeaea),
 //     //       ),
 //     //     ),
@@ -689,7 +689,7 @@ class _MyProfileState extends State<MyProfile> {
 //     //       style: TextStyle(
 //     //         fontSize: 4.w,
 //     //         fontWeight: FontWeight.w500,
-//     //         fontFamily: "game",
+//     //         fontFamily: "Poppins",
 //     //         color: Color(0xffeaeaea),
 //     //       ),
 //     //     ),

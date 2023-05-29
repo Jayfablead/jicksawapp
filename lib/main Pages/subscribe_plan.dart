@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:jicksaw/main%20Pages/subscription_page.dart';
 
 import 'package:sizer/sizer.dart';
@@ -68,11 +69,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pop();
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => subscription()),
-                          );
+                          Get.back();
                         },
                         child: Icon(
                           Icons.cancel,
@@ -219,7 +216,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    "MONTHLY",
+                                    "YEARLY",
                                     style: TextStyle(
                                         color: Colors.grey, fontSize: 11.sp,
                                        fontFamily: 'Poppins',
@@ -242,7 +239,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    "\$17.99/month",
+                                    "\$ 65.99/Year",
                                     style: TextStyle(
                                         fontSize: 15.sp,
                                         fontWeight: FontWeight.w100,
@@ -274,7 +271,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                         borderRadius: BorderRadius.circular(20),
                                         color: Color(0xffeefbf5)),
                                     child: Text(
-                                      "1 week free trial",
+                                      "1 month free trial",
                                       style:
                                           TextStyle(color: Color(0xffa0e1c1),
                                              fontFamily: 'Poppins',
@@ -294,7 +291,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                     //     color: Color(0xffeefbf5)
                                     // ),
                                     child: Text(
-                                      "then \$17.99 per month. Cancel anytime",
+                                      "then \$ 65.99 per year. Cancel anytime",
                                       style: TextStyle(
                                           color: Colors.grey, fontSize: 12.sp,
                                          fontFamily: 'Poppins',

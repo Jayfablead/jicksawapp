@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/main%20Pages/checkoutPage.dart';
 import 'package:jicksaw/main%20Pages/subscription_page.dart';
 
 import 'package:sizer/sizer.dart';
@@ -175,15 +176,6 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                                     ),
                                   ),
 
-                                  // // // Radio(
-                                  // // //   value: 1,
-                                  // // //   groupValue: _selectedValue,
-                                  // // //   onChanged: (value) {
-                                  // // //     setState(() {
-                                  // // //       _selectedValue = value!;
-                                  // // //     });
-                                  // //   },
-                                  // ),
                                 ],
                               ),
                               SizedBox(
@@ -343,19 +335,23 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 3.h,),
-                      Container(
-                        alignment: Alignment.center,
-                        height: 6.h,
-                        width: 80.w,
+                      SizedBox(height: 10.h,),
+                      InkWell(onTap:(){
+                        Get.to(CheckoutPage(imgs:widget.img,name: widget.name,method: _selectedValue == 1?'Razor Pay':'Net Banking',));
+                      },
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 6.h,
+                          width: 80.w,
 
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: primary
-                        ),
-                        child: Text("Continue to Checkout",
-                          style: TextStyle(color: Colors.black, fontSize: 12.sp,
-                            fontFamily: 'Poppins',
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: primary
+                          ),
+                          child: Text("Continue to Checkout",
+                            style: TextStyle(color: Colors.white, fontSize: 12.sp,
+                              fontFamily: 'Poppins',
+                            ),
                           ),
                         ),
                       ),
