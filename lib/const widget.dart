@@ -94,7 +94,7 @@ fontFamily: 'Poppins',
 
 TextStyle secondarytxt = TextStyle(
   color: primary,
-  fontSize: 11.sp,
+  fontSize: 12.sp,
 fontFamily: 'Poppins',
   letterSpacing: 2,
 );

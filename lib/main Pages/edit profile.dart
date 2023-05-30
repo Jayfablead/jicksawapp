@@ -176,7 +176,7 @@ class _EditProfileState extends State<EditProfile> {
                             alignment: Alignment.center,
                             child: TextFormField(
                               style: TextStyle(
-                                  fontWeight: FontWeight.w700,
+                             
                                   color: Colors.black,
                                   fontFamily: 'Poppins',
                                   letterSpacing: 2,
@@ -224,7 +224,7 @@ class _EditProfileState extends State<EditProfile> {
                             alignment: Alignment.center,
                             child: TextFormField(
                               style: TextStyle(
-                                  fontWeight: FontWeight.w700,
+                                  fontWeight: FontWeight.w500,
                                   color: Colors.black,
                                   fontFamily: 'Poppins',
                                   letterSpacing: 2,
@@ -273,7 +273,7 @@ class _EditProfileState extends State<EditProfile> {
                             alignment: Alignment.center,
                             child: TextFormField(
                               style: TextStyle(
-                                  fontWeight: FontWeight.w700,
+                                  fontWeight: FontWeight.w500,
                                   color: Colors.black,
                                   fontFamily: 'Poppins',
                                   letterSpacing: 2,

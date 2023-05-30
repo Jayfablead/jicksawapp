@@ -104,13 +104,7 @@ class _mainpage2State extends State<mainpage2> {
                                             Icons.menu_rounded,
                                             color: primary,
                                           )),
-                                      SizedBox(
-                                        width: 30.w,
-                                      ),
-                                      Text(
-                                        'Home',
-                                        style: primarytxt1,
-                                      ),
+
                                     ],
                                   ),
                                 ],

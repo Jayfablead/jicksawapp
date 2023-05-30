@@ -5,6 +5,7 @@ import 'package:jicksaw/Screen/splashscreen.dart';
 import 'package:jicksaw/design.dart';
 import 'package:jicksaw/jigsaw.dart';
 import 'package:jicksaw/new%20pages/categories%20&%20age.dart';
+import 'package:jicksaw/new%20pages/myurchases.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
             ),
 
 
-            home: const SplashScreen()),
+            home: const MyPurchases()),
       );
     });
   }

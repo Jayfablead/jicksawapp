@@ -105,39 +105,49 @@ class _ForgotpwdState extends State<Forgotpwd> {
                           children: [
                             Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                               decoration: BoxDecoration(
-                                  color: secondary,
+                                  border: Border.all(color: secondary,),
                                   borderRadius: BorderRadius.circular(20)),
-                              height: 7.h,
+                              height: 7.5.h,
                               alignment: Alignment.center,
-                              child: TextFormField(  style: TextStyle( fontWeight: FontWeight.w700,
+                              child: TextFormField(
+                                style: TextStyle(
                                   color: Colors.black,
-                                fontFamily: 'Poppins',
+                                  fontSize: 13.sp,
+                                  fontFamily: 'Poppins',
                                   letterSpacing: 2,
-                                  fontSize: 12.sp),
+                                ),
                                 controller: _user,
                                 keyboardType: TextInputType.text,
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return "Please enter the email address";
+                                    return "Please enter the email";
                                   }
                                   return null;
                                 },
-                                decoration: InputDecoration(
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(color:primary),
+                                decoration: InputDecoration(contentPadding: EdgeInsets.only(top: 1.5.h),
+                                    enabledBorder: const UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                        )),
+                                    focusedBorder: const UnderlineInputBorder(
+                                      borderSide: BorderSide(color: Colors.transparent),
                                     ),
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(color:primary),
-                                    ),
-                                    suffixIcon: Icon(
+                                    errorBorder: const UnderlineInputBorder(
+                                      borderSide: BorderSide(color: Colors.transparent),),
+                                    suffixIcon: const Icon(
                                       Icons.person,
                                       color: Colors.black,
                                     ),
-                                    hintText: "Email Address",
+                                    hintText: "E-mail",
+                                    errorStyle: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 1,
+                                        fontSize: 11.sp),
                                     hintStyle: TextStyle(
-                                        color: Colors.black,
-                                      fontFamily: 'Poppins',
-                                        fontSize: 12.sp)),
+                                        color: Colors.black87,
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 2,
+                                        fontSize: 13.sp)),
                               ),
                             ),
                             SizedBox(height: 5.h,),

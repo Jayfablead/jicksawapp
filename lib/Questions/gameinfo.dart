@@ -13,6 +13,7 @@ class Tutorial extends StatefulWidget {
   @override
   State<Tutorial> createState() => _TutorialState();
 }
+
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _TutorialState extends State<Tutorial> {
@@ -20,11 +21,9 @@ class _TutorialState extends State<Tutorial> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor:
-       bgcolor
+      backgroundColor: bgcolor
       // Colors.black
       ,
-
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
@@ -38,7 +37,7 @@ class _TutorialState extends State<Tutorial> {
                   children: [
                     IconButton(
                         onPressed: () {
-                         Get.offAll(mainpage2());
+                          Get.offAll(mainpage2());
                         },
                         icon: Icon(
                           Icons.arrow_back_ios_new_rounded,
@@ -58,7 +57,12 @@ class _TutorialState extends State<Tutorial> {
                 ),
                 Text(
                   'How to Play?',
-                  style: mainstyle,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14.sp,
+                    fontFamily: 'Poppins',
+                    letterSpacing: 2,
+                  ),
                 ),
                 SizedBox(
                   height: 2.h,
@@ -77,7 +81,12 @@ class _TutorialState extends State<Tutorial> {
                   width: 85.w,
                   child: Text(
                     'Each Player have to Select Your Favourite Category and Age Group.',
-                    style: secondarytxtwhite1,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.sp,
+                      fontFamily: 'Poppins',
+                      letterSpacing: 2,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -97,7 +106,12 @@ class _TutorialState extends State<Tutorial> {
                   width: 85.w,
                   child: Text(
                     'The Questions Will Be Based on Their Selected Age Group and Category.',
-                    style: secondarytxtwhite1,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.sp,
+                      fontFamily: 'Poppins',
+                      letterSpacing: 2,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -117,13 +131,17 @@ class _TutorialState extends State<Tutorial> {
                   width: 85.w,
                   child: Text(
                     'Each Player Get 5 Questions if They Give Right Answer They got 20 Points.',
-                    style: secondarytxtwhite1,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.sp,
+                      fontFamily: 'Poppins',
+                      letterSpacing: 2,
+                    ),
                   ),
                 ),
                 SizedBox(
                   height: 5.h,
                 ),
-
                 Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
@@ -138,7 +156,12 @@ class _TutorialState extends State<Tutorial> {
                   width: 85.w,
                   child: Text(
                     'Each Player Want Minimum 60 Points to Play.',
-                    style: secondarytxtwhite1,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.sp,
+                      fontFamily: 'Poppins',
+                      letterSpacing: 2,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -158,7 +181,12 @@ class _TutorialState extends State<Tutorial> {
                   width: 85.w,
                   child: Text(
                     'Each Player Will Get 4 Options. Where One is Correct and Others are Wrong.',
-                    style: secondarytxtwhite1,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.sp,
+                      fontFamily: 'Poppins',
+                      letterSpacing: 2,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -178,7 +206,12 @@ class _TutorialState extends State<Tutorial> {
                   width: 85.w,
                   child: Text(
                     'Each Player Has to Guess Correct Answer.',
-                    style: secondarytxtwhite1,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.sp,
+                      fontFamily: 'Poppins',
+                      letterSpacing: 2,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -198,7 +231,12 @@ class _TutorialState extends State<Tutorial> {
                   width: 85.w,
                   child: Text(
                     'Once a Player Answered a Question They Can\'t Goback And Change thier Answer.',
-                    style: secondarytxtwhite1,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.sp,
+                      fontFamily: 'Poppins',
+                      letterSpacing: 2,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -206,7 +244,7 @@ class _TutorialState extends State<Tutorial> {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to(()=>CategoriesPage());
+                    Get.to(() => CategoriesPage());
                   },
                   child: Container(
                     alignment: Alignment.center,
@@ -218,11 +256,10 @@ class _TutorialState extends State<Tutorial> {
                     padding: EdgeInsets.all(1.5.h),
                     child: Text(
                       'Start',
-                      style:  TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'Poppins',
-                        fontSize: 14.sp),
-
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Poppins',
+                          fontSize: 14.sp),
                     ),
                   ),
                 ),

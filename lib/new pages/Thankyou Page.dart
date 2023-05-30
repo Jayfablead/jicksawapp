@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
@@ -17,8 +19,10 @@ class ThankyouPage extends StatefulWidget {
 class _ThankyouPageState extends State<ThankyouPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 2.w),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Padding(
+      padding:  EdgeInsets.symmetric(horizontal: 2.5.w),
       child: Column (
         children: [
           SizedBox(
@@ -26,10 +30,10 @@ class _ThankyouPageState extends State<ThankyouPage> {
           ),
           Column(
             children: [
-              // Container(
-              //   height: 21.h,
-              //   child: Lottie.asset(''),
-              // ),
+              Container(
+                height: 21.h,
+                child: Lottie.asset('assets/you.json'),
+              ),
               SizedBox(
                 height: 2.h,
               ),
@@ -48,7 +52,7 @@ class _ThankyouPageState extends State<ThankyouPage> {
                 height: 2.5.h,
               ),
               Text(
-                'You have Subscribed our ${widget.plan} Package.',
+                'You have Subscribed our ${widget.plan} Subscription Package.',
                 style: mainstyle,textAlign: TextAlign.center,
               ),
               SizedBox(
@@ -63,22 +67,27 @@ class _ThankyouPageState extends State<ThankyouPage> {
               SizedBox(
                 height: 2.h,
               ),
+              Text('We are Happy to Make You our Premium Member',
+                  style: mainstyle, textAlign: TextAlign.center),
+              SizedBox(
+                height: 2.h,
+              ),
               Text(
-                'You are now our Premium Member for ${widget.subs}',
+                'You are now our Premium Member for whole ${widget.subs}',
                 style: mainstyle,
                 textAlign: TextAlign.center,
               ),
               SizedBox(
                 height: 3.h,
               ),
-              Text('Press The Button And Restart The Game',
+              Text('Stay tuned with us',
                   style: mainstyle, textAlign: TextAlign.center),
               SizedBox(
                 height: 6.h,
               ),
               InkWell(
                 onTap: () {
-
+Get.to(mainpage2());
                 },
                 child: Container(
                   alignment: Alignment.center,
@@ -89,7 +98,7 @@ class _ThankyouPageState extends State<ThankyouPage> {
                       color: primary),
                   padding: EdgeInsets.all(2.h),
                   child: Text(
-                    'Restart the Game',
+                    'CONTINUE PLAYING',
                     style: TextStyle(
                       fontSize: 13.sp,
                       color: Colors.white,

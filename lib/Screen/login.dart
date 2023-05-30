@@ -73,13 +73,13 @@ class _loginState extends State<login> {
                 SizedBox(
                   height: 3.h,
                 ),
-                // Center(
-                //   child: Container(
-                //     height: 20.h,
-                //     width: 90.w,
-                //     child: Lottie.asset('assets/lin.json'),
-                //   ),
-                // ),
+                Center(
+                  child: Container(
+                    height: 20.h,
+                    width: 90.w,
+                    child: Lottie.asset('assets/lin.json'),
+                  ),
+                ),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -113,10 +113,15 @@ class _loginState extends State<login> {
                           decoration: BoxDecoration(
                               border: Border.all(color: secondary,),
                               borderRadius: BorderRadius.circular(20)),
-                          height: 7.h,
+                          height: 7.5.h,
                           alignment: Alignment.center,
                           child: TextFormField(
-                            style: mainstyle,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 13.sp,
+                              fontFamily: 'Poppins',
+                              letterSpacing: 2,
+                            ),
                             controller: _user,
                             keyboardType: TextInputType.text,
                             validator: (value) {
@@ -125,7 +130,7 @@ class _loginState extends State<login> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(
+                            decoration: InputDecoration(contentPadding: EdgeInsets.only(top:1.5.h),
                                 enabledBorder: const UnderlineInputBorder(
                                     borderSide: BorderSide(
                                   color: Colors.transparent,
@@ -143,12 +148,12 @@ class _loginState extends State<login> {
                                 errorStyle: TextStyle(
                                   fontFamily: 'Poppins',
                                     letterSpacing: 1,
-                                    fontSize: 10.sp),
+                                    fontSize: 11.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
                                   fontFamily: 'Poppins',
                                     letterSpacing: 2,
-                                    fontSize: 11.sp)),
+                                    fontSize: 13.sp)),
                           ),
                         ),
                         SizedBox(
@@ -158,11 +163,16 @@ class _loginState extends State<login> {
                           decoration: BoxDecoration(
                              border: Border.all(color: secondary),
                               borderRadius: BorderRadius.circular(15)),
-                          height: 7.h,
+                          height: 7.5.h,
                           alignment: Alignment.center,
                           child: TextFormField(
                             controller: _pasa,
-                            style: mainstyle,
+                            style:TextStyle(
+                              color: Colors.black,
+                              fontSize: 13.sp,
+                              fontFamily: 'Poppins',
+                              letterSpacing: 2,
+                            ),
                             keyboardType: TextInputType.text,
                             validator: (value) {
                               if (value!.isEmpty) {
@@ -170,7 +180,7 @@ class _loginState extends State<login> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(errorBorder: const UnderlineInputBorder(
+                            decoration: InputDecoration(contentPadding: EdgeInsets.only(top:1.5.h),errorBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.transparent),),
                                 enabledBorder: const UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.transparent),
@@ -186,12 +196,12 @@ class _loginState extends State<login> {
                                 errorStyle: TextStyle(
                                   fontFamily: 'Poppins',
                                     letterSpacing: 1,
-                                    fontSize: 10.sp),
+                                    fontSize: 11.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
                                   fontFamily: 'Poppins',
                                     letterSpacing: 2,
-                                    fontSize: 11.sp)),
+                                    fontSize: 13.sp)),
                           ),
                         ),
                         SizedBox(

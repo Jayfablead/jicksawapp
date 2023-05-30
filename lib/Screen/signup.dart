@@ -113,15 +113,15 @@ class _signupState extends State<signup> {
                           decoration: BoxDecoration(
                               border: Border.all(color: secondary,),
                               borderRadius: BorderRadius.circular(20)),
-                          height: 7.h,
+                          height: 7.5.h,
                           alignment: Alignment.center,
                           child: TextFormField(
                             style: TextStyle(
-                                fontWeight: FontWeight.w700,
+
                                 color: Colors.black,
                                 fontFamily: 'Poppins',
                                 letterSpacing: 2,
-                                fontSize: 12.sp),
+                                fontSize: 13.sp),
                             controller: _user,
                             keyboardType: TextInputType.text,
                             validator: (value) {
@@ -130,7 +130,8 @@ class _signupState extends State<signup> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(errorBorder: const UnderlineInputBorder(
+                            decoration: InputDecoration(
+                                contentPadding: EdgeInsets.only(top: 1.5.h),errorBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.transparent),),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.transparent),
@@ -146,12 +147,12 @@ class _signupState extends State<signup> {
                                 errorStyle: TextStyle(
                                     fontFamily: 'Poppins',
                                     letterSpacing: 1,
-                                    fontSize: 10.sp),
+                                    fontSize: 13.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
                                     fontFamily: 'Poppins',
                                     letterSpacing: 2,
-                                    fontSize: 11.sp)),
+                                    fontSize: 13.sp)),
                           ),
                         ),
                         SizedBox(
@@ -162,15 +163,14 @@ class _signupState extends State<signup> {
                           decoration: BoxDecoration(
                               border: Border.all(color: secondary,),
                               borderRadius: BorderRadius.circular(20)),
-                          height: 7.h,
+                          height: 7.5.h,
                           alignment: Alignment.center,
                           child: TextFormField(
                             style: TextStyle(
-                                fontWeight: FontWeight.w700,
                                 color: Colors.black,
                                 fontFamily: 'Poppins',
                                 letterSpacing: 2,
-                                fontSize: 12.sp),
+                                fontSize: 13.sp),
                             controller: _email,
                             keyboardType: TextInputType.emailAddress,
                             validator: (value) {
@@ -195,7 +195,9 @@ class _signupState extends State<signup> {
                                 }
                               }
                             },
-                            decoration: InputDecoration(errorBorder: const UnderlineInputBorder(
+                            decoration: InputDecoration(
+                                contentPadding: EdgeInsets.only(top: 1.5.h),
+                                errorBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.transparent),),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.transparent),
@@ -211,12 +213,12 @@ class _signupState extends State<signup> {
                                 errorStyle: TextStyle(
                                     fontFamily: 'Poppins',
                                     letterSpacing: 1,
-                                    fontSize: 10.sp),
+                                    fontSize: 13.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
                                     fontFamily: 'Poppins',
                                     letterSpacing: 2,
-                                    fontSize: 11.sp)),
+                                    fontSize: 13.sp)),
                           ),
                         ),
                         SizedBox(
@@ -227,15 +229,14 @@ class _signupState extends State<signup> {
                           decoration: BoxDecoration(
                               border: Border.all(color: secondary,),
                               borderRadius: BorderRadius.circular(20)),
-                          height: 7.h,
+                          height: 7.5.h,
                           alignment: Alignment.center,
                           child: TextFormField(
                             style: TextStyle(
-                                fontWeight: FontWeight.w700,
                                 color: Colors.black,
                                 fontFamily: 'Poppins',
                                 letterSpacing: 2,
-                                fontSize: 12.sp),
+                                fontSize: 13.sp),
                             controller: _phone,
                             keyboardType: TextInputType.phone,
                             validator: (value) {
@@ -246,7 +247,7 @@ class _signupState extends State<signup> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(errorBorder: const UnderlineInputBorder(
+                            decoration: InputDecoration(contentPadding: EdgeInsets.only(top: 1.5.h),errorBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.transparent),),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.transparent),
@@ -262,12 +263,12 @@ class _signupState extends State<signup> {
                                 errorStyle: TextStyle(
                                     fontFamily: 'Poppins',
                                     letterSpacing: 1,
-                                    fontSize: 10.sp),
+                                    fontSize: 13.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
                                     fontFamily: 'Poppins',
                                     letterSpacing: 2,
-                                    fontSize: 11.sp)),
+                                    fontSize: 13.sp)),
                           ),
                         ),
                         SizedBox(
@@ -278,15 +279,14 @@ class _signupState extends State<signup> {
                           decoration: BoxDecoration(
                               border: Border.all(color: secondary,),
                               borderRadius: BorderRadius.circular(20)),
-                          height: 7.h,
+                          height: 7.5.h,
                           alignment: Alignment.center,
                           child: TextFormField(
                             style: TextStyle(
-                                fontWeight: FontWeight.w700,
                                 color: Colors.black,
                                 fontFamily: 'Poppins',
                                 letterSpacing: 2,
-                                fontSize: 12.sp),
+                                fontSize: 13.sp),
                             controller: _pasa,
                             keyboardType: TextInputType.text,
                             validator: (value) {
@@ -295,7 +295,7 @@ class _signupState extends State<signup> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(errorBorder: const UnderlineInputBorder(
+                            decoration: InputDecoration(contentPadding: EdgeInsets.only(top: 1.5.h),errorBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.transparent),),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.transparent),
@@ -311,12 +311,12 @@ class _signupState extends State<signup> {
                                 errorStyle: TextStyle(
                                     fontFamily: 'Poppins',
                                     letterSpacing: 1,
-                                    fontSize: 10.sp),
+                                    fontSize: 13.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
                                     fontFamily: 'Poppins',
                                     letterSpacing: 2,
-                                    fontSize: 11.sp)),
+                                    fontSize: 13.sp)),
                           ),
                         ),
                         SizedBox(
@@ -327,15 +327,14 @@ class _signupState extends State<signup> {
                           decoration: BoxDecoration(
                               border: Border.all(color: secondary,),
                               borderRadius: BorderRadius.circular(20)),
-                          height: 7.h,
+                          height: 7.5.h,
                           alignment: Alignment.center,
                           child: TextFormField(
                             style: TextStyle(
-                                fontWeight: FontWeight.w700,
                                 color: Colors.black,
                                 fontFamily: 'Poppins',
                                 letterSpacing: 2,
-                                fontSize: 12.sp),
+                                fontSize: 13.sp),
                             controller: _conf,
                             keyboardType: TextInputType.text,
                             validator: (value) {
@@ -344,7 +343,7 @@ class _signupState extends State<signup> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(errorBorder: const UnderlineInputBorder(
+                            decoration: InputDecoration(contentPadding: EdgeInsets.only(top: 1.5.h),errorBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.transparent),),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.transparent),
@@ -360,12 +359,12 @@ class _signupState extends State<signup> {
                                 errorStyle: TextStyle(
                                     fontFamily: 'Poppins',
                                     letterSpacing: 1,
-                                    fontSize: 10.sp),
+                                    fontSize: 13.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
                                     fontFamily: 'Poppins',
                                     letterSpacing: 2,
-                                    fontSize: 11.sp)),
+                                    fontSize: 13.sp)),
                           ),
                         ),
                         SizedBox(

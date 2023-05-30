@@ -16,6 +16,7 @@ import 'package:jicksaw/main%20Pages/reward_page.dart';
 import 'package:jicksaw/main%20Pages/settings.dart';
 import 'package:jicksaw/main%20Pages/shoppage.dart';
 import 'package:jicksaw/main%20Pages/subscription_page.dart';
+import 'package:jicksaw/new%20pages/myurchases.dart';
 
 import 'package:sizer/sizer.dart';
 
@@ -351,6 +352,58 @@ class _drawer1State extends State<drawer1> {
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
                                         fontFamily: 'Poppins',
+                                          color: Colors.black,
+                                        )),
+                                  ],
+                                ),
+                                Icon(
+                                  Icons.chevron_right_rounded,
+                                  color: Colors.black,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),InkWell(
+                    onTap: () {
+                      Get.to(() => MyPurchases());
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (context) => mainpage2(),
+                      //   ),
+                      // );
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 6.w,
+                          ),
+                          Container(
+                            width: 64.w,
+                            child: Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.attach_money_rounded,
+                                      color: Colors.black,
+                                    ),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Text("My Purchased",
+                                        style: TextStyle(
+                                          fontSize: 12.sp,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
