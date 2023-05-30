@@ -254,7 +254,7 @@ class _loginState extends State<login> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Text("Don't have an account ? ",style:TextStyle(color: Colors.grey.shade100,fontSize: 9.sp,fontFamily: 'game',fontWeight: FontWeight.w400) ,),
+                    // Text("Don't have an account ? ",style:TextStyle(color: Colors.grey.shade100,fontSize: 9.sp,fontFamily: 'Poppins',fontWeight: FontWeight.w400) ,),
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(

@@ -41,32 +41,31 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
 
-    return SafeArea(
-        child: Scaffold(
-          backgroundColor: Colors.white,
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [SizedBox(
-                height: 10.h,
-              ),
-                Container(
-                  // height: 90.h,
-                  // width: 95.w,
-
-                  child: Lottie.asset('assets/logo.json'),
-                ),
-                SizedBox(
-                  height: 8.h,
-                ),
-                Container(
-                  height: 40.h,
-                  width: 80.w,
-                  child: Lottie.asset('assets/loading.json'),
-                ),
-              ],
-            ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [SizedBox(
+            height: 10.h,
           ),
-        ));
+            Container(
+              // height: 90.h,
+              // width: 95.w,
+
+              child: Lottie.asset('assets/logo.json'),
+            ),
+            SizedBox(
+              height: 8.h,
+            ),
+            Container(
+              height: 40.h,
+              width: 80.w,
+              child: Lottie.asset('assets/loading.json'),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -1,9 +1,12 @@
+// TriviaChallenge
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Questions/SeconQue.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:sizer/sizer.dart';
+
+
 
 class TriviaChallenge extends StatefulWidget {
   const TriviaChallenge({Key? key}) : super(key: key);
@@ -33,40 +36,22 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-      bgcolor
-      // Colors.black
-      ,
-
+      backgroundColor: bgcolor,
+      appBar: appbar1(
+        title1: 'TriviaChallenge',
+        press: () {
+          Get.back();
+        },
+        icn: Icon(Icons.arrow_back_ios_new_rounded),
+        act: () {},
+        icn1: Icon(null),
+      ),
       body: SingleChildScrollView(
         child: Center(
           child: SizedBox(
             child: Column(
               children: [
-                SizedBox(
-                  height: 3.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: Icon(
-                          Icons.arrow_back_ios_new_rounded,
-                          color: primary,
-                        )),
-                    Text(
-                      'Trivia Challenge',
-                      style: primarytxt1,
-                    ),
-                    SizedBox(
-                      width: 7.w,
-                    )
-                  ],
-                ),
+
                 SizedBox(
                   height: 10.h,
                 ),
@@ -96,23 +81,18 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                         decoration: ans1
                             ? BoxDecoration(
                             border: Border.all(color: primary),
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(90),
                             color: secondary)
                             : BoxDecoration(
-                            
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(90),
                             color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'Open Source Backend Framework',
                           style: TextStyle(
                             fontSize: 13.sp,
-                            color: ans1
-                                ? primary
-                                : Colors.white,
-                          fontFamily: 'Poppins',
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 2,
+                            color: ans1 ? primary : Colors.white,
+                            fontFamily: 'Poppins',
                           ),
                         ),
                       ),
@@ -134,23 +114,19 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                         decoration: ans2
                             ? BoxDecoration(
                             border: Border.all(color: primary),
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(90),
                             color: secondary)
                             : BoxDecoration(
-                            
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(90),
                             color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'Open Source UI Tool-Kit',
                           style: TextStyle(
-                              fontSize: 13.sp,
-                              color: ans2
-                                  ? primary
-                                  : Colors.white,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 2,
-                             fontFamily: 'Poppins',),
+                            fontSize: 13.sp,
+                            color: ans2 ? primary : Colors.white,
+                            fontFamily: 'Poppins',
+                          ),
                         ),
                       ),
                     ),
@@ -171,23 +147,18 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                         decoration: ans3
                             ? BoxDecoration(
                             border: Border.all(color: primary),
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(90),
                             color: secondary)
                             : BoxDecoration(
-                            
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(90),
                             color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'Open Source App Development',
                           style: TextStyle(
                             fontSize: 13.sp,
-                            color: ans3
-                                ? primary
-                                : Colors.white,
-                            fontWeight: FontWeight.bold,
-                          fontFamily: 'Poppins',
-                            letterSpacing: 2,
+                            color: ans3 ? primary : Colors.white,
+                            fontFamily: 'Poppins',
                           ),
                         ),
                       ),
@@ -209,23 +180,18 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                         decoration: ans4
                             ? BoxDecoration(
                             border: Border.all(color: primary),
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(90),
                             color: secondary)
                             : BoxDecoration(
-                            
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(90),
                             color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
                           'DBMS Tool-Kit',
                           style: TextStyle(
                             fontSize: 13.sp,
-                            color: ans4
-                                ? primary
-                                : Colors.white,
-                            fontWeight: FontWeight.bold,
-                          fontFamily: 'Poppins',
-                            letterSpacing: 2,
+                            color: ans4 ? primary : Colors.white,
+                            fontFamily: 'Poppins',
                           ),
                         ),
                       ),
@@ -233,31 +199,29 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                   ],
                 ),
                 SizedBox(
-                  height: 10.h,
+                  height: 6.h,
                 ),
                 (ans1 || ans2 || ans3 || ans4)
                     ? InkWell(
                   onTap: () {
-
+                    Get.to(
+                          () => SecQue(firstans: ans3 ? 20 : 0),
+                    );
                   },
                   child: Container(
                     alignment: Alignment.center,
                     width: 85.w,
                     margin: EdgeInsets.only(top: 2.h),
                     decoration: BoxDecoration(
-                        
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(90),
                         color: primary),
                     padding: EdgeInsets.all(2.h),
                     child: Text(
                       'Next',
                       style: TextStyle(
-                        fontSize: 13.sp,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      fontFamily: 'Poppins',
-                        letterSpacing: 2,
-                      ),
+                          color: Colors.white,
+                          fontFamily: 'Poppins',
+                          fontSize: 14.sp),
                     ),
                   ),
                 )
@@ -270,3 +234,6 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
     );
   }
 }
+
+
+

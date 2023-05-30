@@ -173,7 +173,7 @@ SizedBox(height: 10.h,),
                 color: primary
               ),
               child: Text("Choose your plan",
-              style: TextStyle(color: Colors.black, fontSize: 12.sp, fontFamily: 'Poppins',),
+              style: TextStyle(color: Colors.white, fontSize: 12.sp, fontFamily: 'Poppins',),
               ),
                         ),
           ),

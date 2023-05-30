@@ -138,7 +138,7 @@ class _MathtPageState extends State<MathtPage> {
                       color: primary,
                     )),
                 Text(
-                  'Creativity Challenge',
+                  'Math Challenge',
                   style: primarytxt1,
                 ),
                 SizedBox(

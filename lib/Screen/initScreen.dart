@@ -113,7 +113,7 @@ class _InitscreenState extends State<Initscreen> {
                           'GET STARTED',
                           style: TextStyle(
                             color: Colors.white,
-                            fontFamily: 'game',
+                            fontFamily: 'Poppins',
                             fontWeight: FontWeight.bold,
                             letterSpacing: 2,
                           ),

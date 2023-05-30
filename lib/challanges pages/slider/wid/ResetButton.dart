@@ -15,11 +15,11 @@ class ResetButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
           padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 3.w),
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0)
+              borderRadius: BorderRadius.circular(90)
           ),
           backgroundColor: primary
       ),
-      child: Text("Reset",style: TextStyle(color: bgcolor,fontWeight: FontWeight.w700,letterSpacing: 2,fontSize: 14.sp,fontFamily: 'game'),),
+      child: Text("Reset",style: TextStyle(color: bgcolor,fontWeight: FontWeight.w700,letterSpacing: 2,fontSize: 14.sp,fontFamily: 'Poppins'),),
     );
   }
 }

@@ -16,7 +16,7 @@ class Move extends StatelessWidget {
         style: TextStyle(
             color: Colors.black,
             decoration: TextDecoration.none,
-            fontSize: 18,fontFamily: 'game',letterSpacing: 2,fontWeight: FontWeight.w400
+            fontSize: 18,fontFamily: 'Poppins',letterSpacing: 2,fontWeight: FontWeight.w400
         ),
       ),
     );

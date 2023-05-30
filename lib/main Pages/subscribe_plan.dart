@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/main%20Pages/plancheckoutpage.dart';
 import 'package:jicksaw/main%20Pages/subscription_page.dart';
 
 import 'package:sizer/sizer.dart';
@@ -305,18 +306,22 @@ class _subscribe_planState extends State<subscribe_plan> {
                         ),
                       ),
                       SizedBox(height: 3.h,),
-                      Container(
-                        alignment: Alignment.center,
-                        height: 6.h,
-                        width: 80.w,
+                      InkWell(onTap: (){
+                        Get.to(PlanCheckoutPage(method:_selectedValue==0?'Monthly':'Yearly' ,price: _selectedValue==0?'17.99':'65.99',));
+                      },
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 6.h,
+                          width: 80.w,
 
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: primary
-                        ),
-                        child: Text("Continue to Checkout",
-                          style: TextStyle(color: Colors.black, fontSize: 12.sp,
-                             fontFamily: 'Poppins',
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: primary
+                          ),
+                          child: Text("Continue to Checkout",
+                            style: TextStyle(color: Colors.white, fontSize: 12.sp,
+                               fontFamily: 'Poppins',
+                            ),
                           ),
                         ),
                       ),

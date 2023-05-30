@@ -6,11 +6,11 @@ import 'package:sizer/sizer.dart';
 import '../const widget.dart';
 
 class PlanCheckoutPage extends StatefulWidget {
-  String? name;
-  String? imgs;
-  String? method;
 
-  PlanCheckoutPage({Key? key, this.name, this.imgs, this.method}) : super(key: key);
+  String? method;
+  String? price;
+
+  PlanCheckoutPage({Key? key, this.price,this.method}) : super(key: key);
 
   @override
   State<PlanCheckoutPage> createState() => _PlanCheckoutPageState();
@@ -57,7 +57,7 @@ class _PlanCheckoutPageState extends State<PlanCheckoutPage> {
                                 fontSize: 14.sp),
                           ),
                           Text(
-                            '\$ 06.99',
+                            '\$ ${widget.price}',
                             style: TextStyle(
                                 color: Colors.black.withOpacity(0.65),
                                 fontSize: 14.sp),
@@ -93,7 +93,7 @@ class _PlanCheckoutPageState extends State<PlanCheckoutPage> {
                                 fontSize: 14.sp),
                           ),
                           Text(
-                            '\$ 00.99',
+                            '\$ 00.00',
                             style: TextStyle(
                                 color: Colors.black.withOpacity(0.65),
                                 fontSize: 14.sp),
@@ -113,7 +113,7 @@ class _PlanCheckoutPageState extends State<PlanCheckoutPage> {
                             TextStyle(color: Colors.black, fontSize: 15.sp),
                           ),
                           Text(
-                            '\$ 05.99',
+                            '\$ ${widget.price}',
                             style:
                             TextStyle(color: Colors.black, fontSize: 15.sp),
                           ),
@@ -147,42 +147,20 @@ class _PlanCheckoutPageState extends State<PlanCheckoutPage> {
                       SizedBox(
                         height: 2.h,
                       ),
-                      Row(
-                        children: [
-                          Container(
-                            height: 5.h,
-                            width: 11.w,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10)),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: CachedNetworkImage(
-                                fit: BoxFit.cover,
-                                imageUrl: widget.imgs.toString(),
-                                progressIndicatorBuilder:
-                                    (context, url, progress) =>
-                                    CircularProgressIndicator(),
-                                errorWidget: (context, url, error) =>
-                                    Image.asset(
-                                      'assets/12.png',
-                                      fit: BoxFit.cover,
-                                    ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 5.w,
-                          ),
-                          Text(
-                            '${widget.name} ',
-                            style:
-                            TextStyle(color: Colors.black, fontSize: 15.sp),
-                          ),
-                        ],
-                      ),
+Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  children: [
+        SizedBox(width: 55.w,
+          child: Text('${widget.method} Plan Subscription'  , style:
+          TextStyle(color: Colors.black, fontSize: 15.sp),
+                    ),
+        ),   Text('\$ ${widget.price}'  , style:
+        TextStyle(color: Colors.black, fontSize: 15.sp),
+                  ),
+  ],
+),
                       SizedBox(height: 2.h,),
                       Text(
-                        'You Are Paying Using ${widget.method} For This Order.',
+                        'You Are Subscribing For ${widget.method} Subscription Plan.',
                         style:
                         TextStyle(color: primary, fontSize: 15.sp),
                       ),

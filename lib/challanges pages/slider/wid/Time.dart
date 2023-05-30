@@ -16,7 +16,7 @@ class Time extends StatelessWidget {
         style: TextStyle(
           fontSize: 18,
           decoration: TextDecoration.none,
-          color: Colors.black,fontFamily: 'game',letterSpacing: 3,fontWeight: FontWeight.w400
+          color: Colors.black,fontFamily: 'Poppins',letterSpacing: 3,fontWeight: FontWeight.w400
         ),
       ),
     );
