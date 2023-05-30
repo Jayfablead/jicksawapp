@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/new%20pages/Thankyou%20Page.dart';
 import 'package:sizer/sizer.dart';
 
 import '../const widget.dart';
@@ -9,8 +10,9 @@ class PlanCheckoutPage extends StatefulWidget {
 
   String? method;
   String? price;
+  String? sub;
 
-  PlanCheckoutPage({Key? key, this.price,this.method}) : super(key: key);
+  PlanCheckoutPage({Key? key, this.price,this.method,this.sub}) : super(key: key);
 
   @override
   State<PlanCheckoutPage> createState() => _PlanCheckoutPageState();
@@ -170,7 +172,7 @@ Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {Get.to(ThankyouPage(price: widget.price,plan: widget.method,subs: widget.sub,));},
               child: Container(
                 alignment: Alignment.center,
                 width: 85.w,

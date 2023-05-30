@@ -73,13 +73,13 @@ class _loginState extends State<login> {
                 SizedBox(
                   height: 3.h,
                 ),
-                Center(
-                  child: Container(
-                    height: 20.h,
-                    width: 90.w,
-                    child: Lottie.asset('assets/lin.json'),
-                  ),
-                ),
+                // Center(
+                //   child: Container(
+                //     height: 20.h,
+                //     width: 90.w,
+                //     child: Lottie.asset('assets/lin.json'),
+                //   ),
+                // ),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -116,12 +116,7 @@ class _loginState extends State<login> {
                           height: 7.h,
                           alignment: Alignment.center,
                           child: TextFormField(
-                            style: TextStyle(
-                                color: Colors.black,
-                              fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w700,
-                                letterSpacing: 2,
-                                fontSize: 12.sp),
+                            style: mainstyle,
                             controller: _user,
                             keyboardType: TextInputType.text,
                             validator: (value) {
@@ -167,11 +162,7 @@ class _loginState extends State<login> {
                           alignment: Alignment.center,
                           child: TextFormField(
                             controller: _pasa,
-                            style: TextStyle(
-                                color: Colors.black, fontWeight: FontWeight.w700,
-                              fontFamily: 'Poppins',
-                                letterSpacing: 2,
-                                fontSize: 12.sp),
+                            style: mainstyle,
                             keyboardType: TextInputType.text,
                             validator: (value) {
                               if (value!.isEmpty) {
