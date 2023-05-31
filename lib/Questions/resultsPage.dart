@@ -7,44 +7,34 @@ import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
 class ResultsPage extends StatefulWidget {
-  int firstans;
-  int secans;
-  int thirdans;
-  int fourthans;
-  int fifthans;
+  String? firstans;
+
 
   ResultsPage(
       {Key? key,
       required this.firstans,
-      required this.secans,
-      required this.thirdans,
-      required this.fourthans,
-      required this.fifthans})
+      })
       : super(key: key);
 
   @override
   State<ResultsPage> createState() => _ResultsPageState();
 }
 
-int? total;
+int total = 0;
 
 class _ResultsPageState extends State<ResultsPage> {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    total = widget.firstans +
-        widget.secans +
-        widget.thirdans +
-        widget.fourthans +
-        widget.fifthans;
+
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgcolor,
-      body: (total! < 60)
+      body: (widget.firstans  == '0')
           ? WillPopScope(
               onWillPop: dialog,
               child: SingleChildScrollView(
@@ -76,23 +66,9 @@ class _ResultsPageState extends State<ResultsPage> {
                             ),
                           ),
                           SizedBox(
-                            height: 2.5.h,
+                            height: 5.h,
                           ),
-                          Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              'Total : ${total}/100',
-                              style: TextStyle(
-                                color: primary,
-                                fontSize: 15.sp,
-                                fontFamily: 'Poppins',
-                                letterSpacing: 2,
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 2.5.h,
-                          ),
+
                           Text(
                             'You\'ve Lost',
                             style: mainstyle,
@@ -100,23 +76,12 @@ class _ResultsPageState extends State<ResultsPage> {
                           SizedBox(
                             height: 2.h,
                           ),
-                          total == 0
-                              ? Text(
-                                  'You Haven\'t Guessed a Single Answer Right',
+                         Text(
+                                  'The Answer You Guessed is Wrong',
                                   style: mainstyle,
                                   textAlign: TextAlign.center,
-                                )
-                              : total == 10
-                                  ? Text(
-                                      'You only Guessed a Sinle Answer Right',
-                                      style: mainstyle,
-                                      textAlign: TextAlign.center,
-                                    )
-                                  : Text(
-                                      'You only Guessed 2 Answers Right',
-                                      style: mainstyle,
-                                      textAlign: TextAlign.center,
-                                    ),
+                                ),
+
                           SizedBox(
                             height: 2.h,
                           ),
@@ -181,7 +146,7 @@ class _ResultsPageState extends State<ResultsPage> {
                     Column(
                       children: [
                         SizedBox(
-                          height: 8.h,
+                          height: 9.h,
                         ),
                         Text(
                           '🎊 Congratulations 🎊 ',
@@ -194,23 +159,9 @@ class _ResultsPageState extends State<ResultsPage> {
                           ),
                           textAlign: TextAlign.center,
                         ),
+
                         SizedBox(
-                          height: 5.h,
-                        ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Total : ${total}/100',
-                            style: TextStyle(
-                              color: primary,
-                              fontSize: 15.sp,
-                              fontFamily: 'Poppins',
-                              letterSpacing: 2,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 7.h,
+                          height: 13.h,
                         ),
                         Text(
                           'You\'ve Passed',
@@ -220,23 +171,12 @@ class _ResultsPageState extends State<ResultsPage> {
                         SizedBox(
                           height: 2.h,
                         ),
-                        total == 100
-                            ? Text(
-                                'You Guessed All Answers Right',
+                        Text(
+                                'The Answer You Guessed is Right',
                                 style: mainstyle,
                                 textAlign: TextAlign.center,
                               )
-                            : total == 80
-                                ? Text(
-                                    'You Guessed 4 Answers Right',
-                                    style: mainstyle,
-                                    textAlign: TextAlign.center,
-                                  )
-                                : Text(
-                                    'You Guessed 3 Answers Right',
-                                    style: mainstyle,
-                                    textAlign: TextAlign.center,
-                                  ),
+                        ,
                         SizedBox(
                           height: 2.h,
                         ),

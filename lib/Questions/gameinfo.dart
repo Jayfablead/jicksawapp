@@ -31,7 +31,7 @@ class _TutorialState extends State<Tutorial> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 3.h,
+                  height: 5.h,
                 ),
                 Row(
                   children: [

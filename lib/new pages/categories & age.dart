@@ -96,11 +96,11 @@ class _CategoriesPageState extends State<CategoriesPage> {
                 ),
                 SizedBox(height: 3.h),
                 SizedBox(
-                  height: 52.h,
+                  height: 55.h,
                   child: GridView.builder(
                     itemCount: imgs.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, childAspectRatio: 1 / 1.2),
+                        crossAxisCount: 2, childAspectRatio: 1 / 1.25),
                     itemBuilder: (context, index) {
                       selectedi = index == selectedValuei2;
                       return InkWell(

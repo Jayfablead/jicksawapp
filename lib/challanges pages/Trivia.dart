@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jicksaw/Questions/SeconQue.dart';
+
 import 'package:jicksaw/const%20widget.dart';
 import 'package:sizer/sizer.dart';
 
@@ -204,9 +204,7 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
                 (ans1 || ans2 || ans3 || ans4)
                     ? InkWell(
                   onTap: () {
-                    Get.to(
-                          () => SecQue(firstans: ans3 ? 20 : 0),
-                    );
+
                   },
                   child: Container(
                     alignment: Alignment.center,
