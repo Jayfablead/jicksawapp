@@ -60,7 +60,7 @@ class _FirstQueState extends State<FirstQue> {
         body: SingleChildScrollView(
           child: isloading
               ? Container()
-              : questions?.getQuestionRandom?.quetionsOptions?.length == 0?Container(height: 75.h,alignment: Alignment.center,child: Text('No Questions Available For You',style: TextStyle(
+              : questions?.getQuestionRandom?.quetionsOptions?.length == 0 || questions?.getQuestionRandom?.quetionsOptions?.length == null ?Container(height: 75.h,alignment: Alignment.center,child: Text('No Questions Available For You',style: TextStyle(
             color: Colors.black,
             fontSize: 14.sp,
             fontFamily: 'Poppins',
@@ -89,7 +89,7 @@ class _FirstQueState extends State<FirstQue> {
                                 padding: EdgeInsets.symmetric(horizontal: 3.w),
                                 shrinkWrap: true,
                                 physics: NeverScrollableScrollPhysics(),
-                                itemCount: questions?.getQuestionRandom?.quetionsOptions?.length,
+                                itemCount: 4,
                                 itemBuilder: (context, index) {
                                   return InkWell(
                                     onTap: () {
@@ -174,22 +174,26 @@ class _FirstQueState extends State<FirstQue> {
     data['catagory_id'] = widget.catId.toString();
     data['age'] = widget.ageId.toString();
 print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  ${data}");
+    print(questions?.getQuestionRandom?.quetionsOptions?.length);
     checkInternet().then((internet) async {
       if (internet) {
         authprovider().getques(data).then((response) async {
           questions = QuestionsModal.fromJson(json.decode(response.body));
 
           if (response.statusCode == 200 && questions?.status == "success") {
+            print(questions?.getQuestionRandom?.quetionsOptions?.length);
             setState(() {
               isloading = false;
             });
           } else {  setState(() {
             isloading = false;
+            print(questions?.getQuestionRandom?.quetionsOptions?.length);
           });}
         });
       } else {
         setState(() {
           isloading = false;
+          print(questions?.getQuestionRandom?.quetionsOptions?.length);
         });
         buildErrorDialog(context, 'Error', "Internate Required");
       }
