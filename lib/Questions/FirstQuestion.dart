@@ -7,6 +7,7 @@ import 'package:jicksaw/Modal/questionsmodal.dart';
 
 import 'package:jicksaw/Questions/resultsPage.dart';
 import 'package:jicksaw/Widget/const.dart';
+import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:sizer/sizer.dart';
 
@@ -16,7 +17,9 @@ import '../Widget/buildErrorDialog.dart';
 import 'gameinfo.dart';
 
 class FirstQue extends StatefulWidget {
-  const FirstQue({Key? key}) : super(key: key);
+  String? catId;
+  String? ageId;
+   FirstQue({Key? key,this.ageId,this.catId}) : super(key: key);
 
   @override
   State<FirstQue> createState() => _FirstQueState();
@@ -31,126 +34,136 @@ class _FirstQueState extends State<FirstQue> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    print( '=-=-=-=-=-=-=-=-=-=-=-=-=-=-='+ widget.catId.toString());
+    print('=-=-=-=-=-=-=-=-=-=-=-=-=-=-='+widget.ageId.toString());
     ques();
     ans = 5;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: bgcolor,
-      appBar: appbar1(
-        title1: '',
-        press: () {
-          Get.to(
-            Tutorial(),
-          );
-        },
-        icn: Icon(Icons.arrow_back_ios_new_rounded),
-        act: () {},
-        icn1: Icon(null),
-      ),
-      body: SingleChildScrollView(
-        child: isloading
-            ? Container()
-            : Center(
-                child: SizedBox(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Text(
-                        questions?.getQuestionRandom?[0].questionTitle ?? '',
-                        style: primarytxt,
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      questions?.getQuestionRandom?[0].questionTitle?.length ==
-                              0
-                          ? Container()
-                          : ListView.builder(
-                              padding: EdgeInsets.symmetric(horizontal: 3.w),
-                              shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
-                              itemCount: 4,
-                              itemBuilder: (context, index) {
-                                return InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      ans = index;
-                                      op = questions?.getQuestionRandom?[0]
-                                          .quetionsOptions?[index].isChecked;
-                                    });
-                                  },
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    width: 85.w,
-                                    margin: EdgeInsets.only(top: 2.h),
-                                    decoration: ans == index
-                                        ? BoxDecoration(
-                                            border: Border.all(color: primary),
-                                            borderRadius:
-                                                BorderRadius.circular(90),
-                                            color: secondary)
-                                        : BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(90),
-                                            color: primary),
-                                    padding: EdgeInsets.all(2.h),
-                                    child: Text(
-                                      questions
-                                              ?.getQuestionRandom?[0]
-                                              .quetionsOptions?[index]
-                                              .optionText ??
-                                          '',
-                                      style: TextStyle(
-                                        fontSize: 13.sp,
-                                        color: ans == index
-                                            ? primary
-                                            : Colors.white,
-                                        fontFamily: 'Poppins',
+    return  
+      commanScreen(isLoading: isloading,
+        scaffold: Scaffold(
+        backgroundColor: bgcolor,
+        appBar: appbar1(
+          title1: '',
+          press: () {
+            Get.to(
+              Tutorial(),
+            );
+          },
+          icn: Icon(Icons.arrow_back_ios_new_rounded),
+          act: () {},
+          icn1: Icon(null),
+        ),
+        body: SingleChildScrollView(
+          child: isloading
+              ? Container()
+              : questions?.getQuestionRandom?.quetionsOptions?.length == 0?Container(height: 75.h,alignment: Alignment.center,child: Text('No Questions Available For You',style: TextStyle(
+            color: Colors.black,
+            fontSize: 14.sp,
+            fontFamily: 'Poppins',
+            letterSpacing: 2,
+          ),),):Center(
+                  child: SizedBox(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Text(
+                          questions?.getQuestionRandom?.questionTitle ?? '',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 13.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 2,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                      ListView.builder(
+                                padding: EdgeInsets.symmetric(horizontal: 3.w),
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemCount: questions?.getQuestionRandom?.quetionsOptions?.length,
+                                itemBuilder: (context, index) {
+                                  return InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        ans = index;
+                                        op = questions?.getQuestionRandom?.quetionsOptions?[index].isChecked;
+                                      });
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      width: 85.w,
+                                      margin: EdgeInsets.only(top: 2.h),
+                                      decoration: ans == index
+                                          ? BoxDecoration(
+                                              border: Border.all(color: primary),
+                                              borderRadius:
+                                                  BorderRadius.circular(90),
+                                              color: secondary)
+                                          : BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(90),
+                                              color: primary),
+                                      padding: EdgeInsets.all(2.h),
+                                      child: Text(
+                                        questions?.getQuestionRandom?.quetionsOptions?[index]
+                                                .optionText ??
+                                            '',
+                                        style: TextStyle(
+                                          fontSize: 13.sp,
+                                          color: ans == index
+                                              ? primary
+                                              : Colors.white,
+                                          fontFamily: 'Poppins',
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              },
-                            ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      ans != 5
-                          ? InkWell(
-                              onTap: () {
-                                Get.to(ResultsPage(
-                                  firstans: op,
-                                ));
-                              },
-                              child: Container(
-                                alignment: Alignment.center,
-                                width: 90.w,
-                                margin: EdgeInsets.only(top: 2.h),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(90),
-                                    color: primary),
-                                padding: EdgeInsets.all(2.h),
-                                child: Text(
-                                  'Next',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sp),
-                                ),
+                                  );
+                                },
                               ),
-                            )
-                          : Container(),
-                    ],
+                        SizedBox(
+                          height: 6.h,
+                        ),
+                        ans != 5
+                            ? InkWell(
+                                onTap: () {
+                                  Get.to(ResultsPage(
+                                    firstans: op,
+                                  ));
+                                },
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  width: 90.w,
+                                  margin: EdgeInsets.only(top: 2.h),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(90),
+                                      color: primary),
+                                  padding: EdgeInsets.all(2.h),
+                                  child: Text(
+                                    'Next',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'Poppins',
+                                        fontSize: 14.sp),
+                                  ),
+                                ),
+                              )
+                            : Container(),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-      ),
-    );
+        ),
+    ),
+      );
   }
 
   ques() {
@@ -158,9 +171,9 @@ class _FirstQueState extends State<FirstQue> {
 
     // data['uid'] = usermodal?.userData?.uid ?? "";
     data['action'] = 'get_que_from_cata_age';
-    data['catagory_id'] = '1';
-    data['age'] = '1';
-
+    data['catagory_id'] = widget.catId.toString();
+    data['age'] = widget.ageId.toString();
+print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  ${data}");
     checkInternet().then((internet) async {
       if (internet) {
         authprovider().getques(data).then((response) async {
@@ -170,7 +183,9 @@ class _FirstQueState extends State<FirstQue> {
             setState(() {
               isloading = false;
             });
-          } else {}
+          } else {  setState(() {
+            isloading = false;
+          });}
         });
       } else {
         setState(() {

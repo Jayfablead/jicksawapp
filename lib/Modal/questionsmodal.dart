@@ -1,25 +1,21 @@
 class QuestionsModal {
   String? status;
-  List<GetQuestionRandom>? getQuestionRandom;
+  GetQuestionRandom? getQuestionRandom;
 
   QuestionsModal({this.status, this.getQuestionRandom});
 
   QuestionsModal.fromJson(Map<String, dynamic> json) {
     status = json['status'];
-    if (json['get_question_random'] != null) {
-      getQuestionRandom = <GetQuestionRandom>[];
-      json['get_question_random'].forEach((v) {
-        getQuestionRandom!.add(new GetQuestionRandom.fromJson(v));
-      });
-    }
+    getQuestionRandom = json['get_question_random'] != null
+        ? new GetQuestionRandom.fromJson(json['get_question_random'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['status'] = this.status;
     if (this.getQuestionRandom != null) {
-      data['get_question_random'] =
-          this.getQuestionRandom!.map((v) => v.toJson()).toList();
+      data['get_question_random'] = this.getQuestionRandom!.toJson();
     }
     return data;
   }

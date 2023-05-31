@@ -34,6 +34,10 @@ dependencies:
   provider:
   http:
   shared_preferences:
+  flutter_spinkit:
+  keyboard_dismisser:
+  modal_progress_hud_nsn:
+  flutter_easyloading:
 
   cupertino_icons: ^1.0.2
 
