@@ -42,7 +42,7 @@ fontFamily: 'Poppins',
 );
 TextStyle mainstyle1 = TextStyle(
   color: Colors.black,
-  fontSize: 13.sp,
+  fontSize: 15.sp,
 fontFamily: 'Poppins',
   letterSpacing: 2,
 );

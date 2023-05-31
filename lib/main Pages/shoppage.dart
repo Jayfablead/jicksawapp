@@ -20,7 +20,7 @@ class ShopmainPage extends StatefulWidget {
   @override
   State<ShopmainPage> createState() => _ShopmainPageState();
 }
-
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 class game {
   String? image;
   String? name;
@@ -31,7 +31,7 @@ class game {
   game(this.image, this.name, this.type, this.star, this.comp);
 }
 
-final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
 List<game> popular = [
   game(
       "https://cdn.jim-nielsen.com/ios/512/jigsaw-puzzles-puzzle-games-2021-05-11.png",
