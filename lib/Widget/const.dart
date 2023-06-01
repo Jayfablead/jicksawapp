@@ -3,6 +3,7 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:jicksaw/Modal/CAtegoryModal.dart';
 import 'package:jicksaw/Modal/UserModal.dart';
+import 'package:jicksaw/Modal/gameModal.dart';
 import 'package:jicksaw/Modal/questionsmodal.dart';
 import 'package:jicksaw/Provider/ProfileviewModal.dart';
 
@@ -22,4 +23,5 @@ UserModal? usermodal;
 ProfileviewModal? profileviewmodal;
 QuestionsModal? questions;
 CatModal? category;
+gameModal? gamedata;
 

@@ -299,7 +299,7 @@ class _loginState extends State<login> {
               Get.offAll(() => const mainpage2());
             } else {
               buildErrorDialog(
-                  context, "Login Error", (usermodal?.message).toString());
+                  context, "Login Error", 'Please Use Valid Credentials');
             }
           });
         } else {

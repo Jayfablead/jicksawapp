@@ -32,7 +32,9 @@ class Sachen {
 
   Sachen(this.image, this.name, this.score);
 }
+
 bool isloading = true;
+
 class _mainpage2State extends State<mainpage2> {
   List<Sachen> past = [
     Sachen("https://cdn-icons-png.flaticon.com/512/6857/6857448.png",
@@ -58,7 +60,8 @@ class _mainpage2State extends State<mainpage2> {
 
   @override
   Widget build(BuildContext context) {
-    return commanScreen(isLoading: isloading,
+    return commanScreen(
+      isLoading: isloading,
       scaffold: Scaffold(
         key: _scaffoldKey,
         backgroundColor: Colors.white
@@ -68,214 +71,171 @@ class _mainpage2State extends State<mainpage2> {
         body: WillPopScope(
           onWillPop: dialog,
           child: SingleChildScrollView(
-            child: isloading?Container():Container(
-              margin: EdgeInsets.symmetric(horizontal: 0.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    height: 100.h,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                            'assets/wall2.webp',
-                          ),
-                          fit: BoxFit.cover),
-                    ),
+            child: isloading
+                ? Container()
+                : Container(
+                    margin: EdgeInsets.symmetric(horizontal: 0.w),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(top: 4.h, left: 3.w),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 3.w),
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        IconButton(
-                                            onPressed: () {
-                                              _scaffoldKey.currentState
-                                                  ?.openDrawer();
-                                            },
-                                            icon: Icon(
-                                              Icons.menu_rounded,
-                                              color: primary,
-                                            )),
-
-                                      ],
-                                    ),
-                                  ],
+                          height: 100.h,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(
+                                  'assets/wall2.webp',
                                 ),
-                              ),
+                                fit: BoxFit.cover),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
                               Container(
-                                margin: EdgeInsets.only(top: 1.5.h),
-                                padding: EdgeInsets.symmetric(horizontal: 3.w),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                margin: EdgeInsets.only(top: 4.h, left: 3.w),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      "Hii " +
-                                          (usermodal?.userData?.name).toString() +
-                                          " !!",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 17.sp,
-                                        fontWeight: FontWeight.normal,
-                                        fontFamily: 'Poppins',
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 3.w),
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              IconButton(
+                                                  onPressed: () {
+                                                    _scaffoldKey.currentState
+                                                        ?.openDrawer();
+                                                  },
+                                                  icon: Icon(
+                                                    Icons.menu_rounded,
+                                                    color: primary,
+                                                  )),
+                                            ],
+                                          ),
+                                        ],
                                       ),
                                     ),
                                     Container(
-                                      margin:
-                                          EdgeInsets.symmetric(horizontal: 1.w),
-                                      height: 6.h,
-                                      width: 13.w,
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(90),
-                                        child: CachedNetworkImage(
-                                          fit: BoxFit.cover,
-                                          imageUrl: (profileviewmodal
-                                                  ?.profileViewPlayer?.profilePic)
-                                              .toString(),
-                                          progressIndicatorBuilder:
-                                              (context, url, progress) =>
-                                                  CircularProgressIndicator(),
-                                          errorWidget: (context, url, error) =>
-                                              Image.asset(
-                                            'assets/user.png',
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(height: 2.h),
-                              Container(
-                                padding: EdgeInsets.all(4.w),
-                                decoration: BoxDecoration(
-                                    color: Colors.deepOrange.withOpacity(0.2),
-                                    borderRadius: BorderRadius.circular(90)),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      '01',
-                                      style: TextStyle(
-                                          color: primary,
-                                          fontSize: 25.sp,
-                                          fontWeight: FontWeight.normal,
-                                          fontFamily: 'style'),
-                                    ),
-                                    Text(
-                                      'Level',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 17.sp,
-                                        fontWeight: FontWeight.normal,
-                                        fontFamily: 'Poppins',
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 1.h,
-                              ),
-                              Container(
-                                padding: EdgeInsets.all(4.w),
-                                decoration: BoxDecoration(
-                                    color: Colors.deepOrange.withOpacity(0.2),
-                                    borderRadius: BorderRadius.circular(90)),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      '20',
-                                      style: TextStyle(
-                                          color: primary,
-                                          fontSize: 25.sp,
-                                          fontWeight: FontWeight.normal,
-                                          fontFamily: 'style'),
-                                    ),
-                                    Text(
-                                      'Points',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 17.sp,
-                                        fontWeight: FontWeight.normal,
-                                        fontFamily: 'Poppins',
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          height: 25.h,
-                          padding: EdgeInsets.symmetric(horizontal: 3.w),
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(50),
-                              topLeft: Radius.circular(50),
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                height: 0.5.h,
-                                width: 8.w,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: Colors.deepOrange.withOpacity(0.7),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              SizedBox(height:1.h),
-                              Container(margin: EdgeInsets.only(bottom: 4.h),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      'CONTINUE PLAYING',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 15.sp,
-                                        fontWeight: FontWeight.normal,
-                                        fontFamily: 'Poppins',
-                                      ),
-                                    ),
-                                    SizedBox(height:1.5.h),
-                                    InkWell(
-                                      onTap: () {
-                                        Get.to(
-                                          Tutorial(),
-                                        );
-                                      },
-                                      child: Container(
-                                        alignment: Alignment.center,
-                                        height: 5.5.h,
-                                        width: 80.w,
-                                        decoration: BoxDecoration(
-                                          color: primary,
-                                          borderRadius: BorderRadius.circular(30),
-                                        ),
-                                        child: Text(
-                                          'PLAY',
-                                          style: TextStyle(
-                                              color: Colors.white,
+                                      margin: EdgeInsets.only(top: 1.5.h),
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 3.w),
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Hii " +
+                                                (usermodal?.userData?.name)
+                                                    .toString() +
+                                                " !!",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 17.sp,
+                                              fontWeight: FontWeight.normal,
                                               fontFamily: 'Poppins',
-                                              fontSize: 14.sp),
-                                        ),
+                                            ),
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 1.w),
+                                            height: 6.h,
+                                            width: 13.w,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(90),
+                                              child: CachedNetworkImage(
+                                                fit: BoxFit.cover,
+                                                imageUrl: (profileviewmodal
+                                                        ?.profileViewPlayer
+                                                        ?.profilePic)
+                                                    .toString(),
+                                                progressIndicatorBuilder: (context,
+                                                        url, progress) =>
+                                                    CircularProgressIndicator(),
+                                                errorWidget:
+                                                    (context, url, error) =>
+                                                        Image.asset(
+                                                  'assets/user.png',
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height: 25.h,
+                                padding: EdgeInsets.symmetric(horizontal: 3.w),
+                                width: MediaQuery.of(context).size.width,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(50),
+                                    topLeft: Radius.circular(50),
+                                  ),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      height: 0.5.h,
+                                      width: 8.w,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        color:
+                                            Colors.deepOrange.withOpacity(0.7),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                    SizedBox(height: 1.h),
+                                    Container(
+                                      margin: EdgeInsets.only(bottom: 4.h),
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            'CONTINUE PLAYING',
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 15.sp,
+                                              fontWeight: FontWeight.normal,
+                                              fontFamily: 'Poppins',
+                                            ),
+                                          ),
+                                          SizedBox(height: 1.5.h),
+                                          InkWell(
+                                            onTap: () {
+                                              Get.to(
+                                                Tutorial(),
+                                              );
+                                            },
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              height: 5.5.h,
+                                              width: 80.w,
+                                              decoration: BoxDecoration(
+                                                color: primary,
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                              ),
+                                              child: Text(
+                                                'PLAY',
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 14.sp),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -283,13 +243,10 @@ class _mainpage2State extends State<mainpage2> {
                               ),
                             ],
                           ),
-                        ),
+                        )
                       ],
                     ),
-                  )
-                ],
-              ),
-            ),
+                  ),
           ),
         ),
       ),
@@ -346,11 +303,13 @@ class _mainpage2State extends State<mainpage2> {
             setState(() {
               isloading = false;
             });
-          } else { isloading = false;}
+          } else {
+            isloading = false;
+          }
         });
       } else {
         setState(() {
-         isloading = false;
+          isloading = false;
         });
         buildErrorDialog(context, 'Error', "Internate Required");
       }

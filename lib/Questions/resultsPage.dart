@@ -1,20 +1,25 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Provider/ProfileviewModal.dart';
+import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/design.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
+import '../Widget/const.dart';
+import '../challanges pages/memory/utils/alertdialog.dart';
+
 class ResultsPage extends StatefulWidget {
   String? firstans;
 
-
-  ResultsPage(
-      {Key? key,
-      required this.firstans,
-      })
-      : super(key: key);
+  ResultsPage({
+    Key? key,
+    required this.firstans,
+  }) : super(key: key);
 
   @override
   State<ResultsPage> createState() => _ResultsPageState();
@@ -27,14 +32,13 @@ class _ResultsPageState extends State<ResultsPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgcolor,
-      body: (widget.firstans  == '0')
+      body: (widget.firstans == '0')
           ? WillPopScope(
               onWillPop: dialog,
               child: SingleChildScrollView(
@@ -68,7 +72,6 @@ class _ResultsPageState extends State<ResultsPage> {
                           SizedBox(
                             height: 5.h,
                           ),
-
                           Text(
                             'You\'ve Lost',
                             style: mainstyle,
@@ -76,12 +79,11 @@ class _ResultsPageState extends State<ResultsPage> {
                           SizedBox(
                             height: 2.h,
                           ),
-                         Text(
-                                  'The Answer You Guessed is Wrong',
-                                  style: mainstyle,
-                                  textAlign: TextAlign.center,
-                                ),
-
+                          Text(
+                            'The Answer You Guessed is Wrong',
+                            style: mainstyle,
+                            textAlign: TextAlign.center,
+                          ),
                           SizedBox(
                             height: 2.h,
                           ),
@@ -159,7 +161,6 @@ class _ResultsPageState extends State<ResultsPage> {
                           ),
                           textAlign: TextAlign.center,
                         ),
-
                         SizedBox(
                           height: 13.h,
                         ),
@@ -172,11 +173,10 @@ class _ResultsPageState extends State<ResultsPage> {
                           height: 2.h,
                         ),
                         Text(
-                                'The Answer You Guessed is Right',
-                                style: mainstyle,
-                                textAlign: TextAlign.center,
-                              )
-                        ,
+                          'The Answer You Guessed is Right',
+                          style: mainstyle,
+                          textAlign: TextAlign.center,
+                        ),
                         SizedBox(
                           height: 2.h,
                         ),
@@ -206,7 +206,7 @@ class _ResultsPageState extends State<ResultsPage> {
                           alignment: Alignment.bottomCenter,
                           child: InkWell(
                             onTap: () {
-                              Get.to(() => design());
+                              start();
                             },
                             child: Container(
                               alignment: Alignment.center,
@@ -239,5 +239,44 @@ class _ResultsPageState extends State<ResultsPage> {
   Future<bool> dialog() async {
     home(context);
     return await false;
+  }
+
+  start() {
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['action'] = 'game_start';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().startgameapi(data).then((response) async {
+          profileviewmodal =
+              ProfileviewModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 &&
+              profileviewmodal?.status == "success") {
+            Get.to(() => design());
+            Get.snackbar(
+              "Game Started",
+              "Successfully",
+              icon: Image(image: AssetImage('assets/logo.png')),
+              snackPosition: SnackPosition.TOP,
+
+            );
+            print("Started");
+            setState(() {
+              isloading = false;
+            });
+          } else {
+            isloading = false;
+          }
+        });
+      } else {
+        setState(() {
+          isloading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
   }
 }

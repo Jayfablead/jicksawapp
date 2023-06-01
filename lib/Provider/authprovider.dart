@@ -113,4 +113,60 @@ class authprovider with ChangeNotifier{
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> startgameapi(Map<String, String> bodyData) async {
+    const url = '$baseUrl/?action=game_start';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> gameapi(Map<String, String> bodyData) async {
+    const url = '$baseUrl/?action=get_follow_steps';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> stepsapi(Map<String, String> bodyData) async {
+    const url = '$baseUrl/?action=follow_steps';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> endapi(Map<String, String> bodyData) async {
+    const url = '$baseUrl/?action=game_end';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
 }
