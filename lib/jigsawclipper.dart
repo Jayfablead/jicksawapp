@@ -146,7 +146,7 @@ class JigsawClipper4 extends CustomPainter {
     paint.color =  Colors.black;
     paint.style = PaintingStyle.stroke;
     paint.strokeWidth = 1;
-    var center = Offset(width*0.7,height+8);
+    var center = Offset(width*0.55,height+8);
     var center2 = Offset(width*0.055,height*0.6);
     var linePaint = Paint()
       ..color = Colors.black
@@ -169,10 +169,10 @@ class JigsawClipper4 extends CustomPainter {
       false, // Use center
       paint,
     );
-    var startPoint1 = Offset(width*0.33, height+0.5);
-    var endPoint1 = Offset(width*0.65, height+0.5);
+    var startPoint1 = Offset(width*0.13, height+0.5);
+    var endPoint1 = Offset(width*0.48, height+0.5);
     canvas.drawLine(startPoint1, endPoint1, linePaint);
-    var startPoint2 = Offset(width*0.75, height+0.5);
+    var startPoint2 = Offset(width*0.65, height+0.5);
     var endPoint2 = Offset(width, height+0.5);
     canvas.drawLine(startPoint2, endPoint2, linePaint);
     var startPoint4 = Offset(width*0.0, height*0.0);
@@ -193,13 +193,13 @@ class JigsawClipper5 extends CustomPainter {
     double height=20.w;
     double width = 20.w;
     var paint = Paint();
-    paint.color =  Colors.black;
+    paint.color =  Colors.red;
     paint.style = PaintingStyle.stroke;
     paint.strokeWidth = 1;
-    var center = Offset(width*0.6,height*0.91);
-    var center2 = Offset(width*0.55,height*0.1);
+    var center = Offset(width*0.35,height*0.91);
+    var center2 = Offset(width*0.33,height*0.1);
     var linePaint = Paint()
-      ..color = Colors.black
+      ..color = Colors.red
       ..strokeWidth = 1;
 
     var startPoint = Offset(width, 0.0);
@@ -222,13 +222,13 @@ class JigsawClipper5 extends CustomPainter {
     var startPoint1 = Offset(width*0.0, height);
     var endPoint1 = Offset(width*0.52, height);
     canvas.drawLine(startPoint1, endPoint1, linePaint);
-    var startPoint2 = Offset(width*0.67, height);
+    var startPoint2 = Offset(width*0.5, height);
     var endPoint2 = Offset(width, height);
     canvas.drawLine(startPoint2, endPoint2, linePaint);
-    var startPoint3 = Offset(width*00, height*0.01);
-    var endPoint3 = Offset(width*0.47, height*0.01);
+    var startPoint3 = Offset(width*0.25, height*0.01);
+    var endPoint3 = Offset(width*0.20, height*0.01);
     canvas.drawLine(startPoint3, endPoint3, linePaint);
-    var startPoint4 = Offset(width*0.63, height*0.01);
+    var startPoint4 = Offset(width*0.40, height*0.01);
     var endPoint4 = Offset(width, height*0.01);
     canvas.drawLine(startPoint4, endPoint4, linePaint);
 
@@ -278,7 +278,7 @@ class JigsawClipper6 extends CustomPainter {
     var endPoint2 = Offset(width, height);
     canvas.drawLine(startPoint2, endPoint2, linePaint);
     var startPoint3 = Offset(width*0.0, height*0.0);
-    var endPoint3 = Offset(width*0.52, height*0.0);
+    var endPoint3 = Offset(width*0.25, height*0.0);
     canvas.drawLine(startPoint3, endPoint3, linePaint);
     var startPoint4 = Offset(width*0.67, height*0.0);
     var endPoint4 = Offset(width, height*0.0);
