@@ -89,7 +89,7 @@ class _FirstQueState extends State<FirstQue> {
                                 padding: EdgeInsets.symmetric(horizontal: 3.w),
                                 shrinkWrap: true,
                                 physics: NeverScrollableScrollPhysics(),
-                                itemCount: 4,
+                                itemCount: questions?.getQuestionRandom?.quetionsOptions?.length,
                                 itemBuilder: (context, index) {
                                   return InkWell(
                                     onTap: () {

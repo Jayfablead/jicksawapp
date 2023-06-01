@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Modal/gameModal.dart';
+import 'package:jicksaw/Questions/gameinfo.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/const%20widget.dart';
@@ -31,13 +32,15 @@ class _designState extends State<design> with TickerProviderStateMixin {
   int _value = 0;
   double marginheight = 0.0;
   double margin = 0.0;
-  num? step;
+  String? step;
 
   @override
   void initState() {
     super.initState();
     setState(() {
-      step = _value;
+      gameapi();
+
+
     });
     _animationController = AnimationController(
       duration: Duration(seconds: 3),
@@ -49,7 +52,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
           });
         }
       });
-    gameapi();
+
   }
 
   @override
@@ -76,7 +79,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
               title1: '',
               press: () {},
               icn: Icon(null),
-              act: () {},
+              act: () {gameexit(context,
+                  'Are You Sure ?', 'You want to Quit?',callback: endapi);},
               icn1: Icon(Icons.logout_rounded)),
           body: SingleChildScrollView(
             child: isloading?Container():Column(
@@ -265,7 +269,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(color: primary),
                                 ),
-                                gamedata?.gameData?.steps == 1
+                                gamedata?.gameData?.steps == '1'
                                     ? Column(
                                         children: [
                                           SizedBox(
@@ -297,7 +301,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                       child: CustomPaint(
                         size: Size(200, 300),
                         painter: JigsawClipper3(),
-                        child: gamedata?.gameData?.steps == 2
+                        child: gamedata?.gameData?.steps == '2'
                             ? Column(
                                 children: [
                                   SizedBox(
@@ -342,7 +346,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                 textAlign: TextAlign.center,
                                 style: TextStyle(color: primary),
                               ),
-                              gamedata?.gameData?.steps == 3
+                              gamedata?.gameData?.steps == '3'
                                   ? Column(
                                       children: [
                                         SizedBox(
@@ -375,7 +379,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                         top: 20.w,
                         child: CustomPaint(
                           painter: JigsawClipper5(),
-                          child: gamedata?.gameData?.steps == 4
+                          child: gamedata?.gameData?.steps =='4'
                               ? Column(
                                   children: [
                                     SizedBox(
@@ -413,7 +417,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                   "Bonus",
                                   style: TextStyle(color: primary),
                                 ),
-                                gamedata?.gameData?.steps == 5
+                                gamedata?.gameData?.steps == '5'
                                     ? Column(
                                         children: [
                                           Container(
@@ -443,7 +447,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                           painter: JigsawClipper7(),
                           child: Padding(
                             padding: EdgeInsets.all(3.h),
-                            child: gamedata?.gameData?.steps == 6
+                            child: gamedata?.gameData?.steps == '6'
                                 ? Column(
                                     children: [
                                       Container(
@@ -488,7 +492,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                 textAlign: TextAlign.center,
                                 style: TextStyle(color: primary),
                               ),
-                              gamedata?.gameData?.steps == 7
+                              gamedata?.gameData?.steps == '7'
                                   ? Column(
                                       children: [
                                         SizedBox(height: 1.5.h),
@@ -523,7 +527,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                           painter: JigsawClipper9(),
                           child: Padding(
                             padding: EdgeInsets.all(2.5.w),
-                            child: gamedata?.gameData?.steps == 8
+                            child: gamedata?.gameData?.steps =='8'
                                 ? Column(
                                     children: [
                                       SizedBox(height: 1.5.h),
@@ -568,7 +572,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                 textAlign: TextAlign.center,
                                 style: TextStyle(color: primary),
                               ),
-                              gamedata?.gameData?.steps == 9
+                              gamedata?.gameData?.steps == '9'
                                   ? Column(
                                       children: [
                                         SizedBox(height: 1.5.h),
@@ -600,9 +604,9 @@ class _designState extends State<design> with TickerProviderStateMixin {
                         painter: JigsawClipper11(),
                         child: Container(
                           padding: EdgeInsets.only(
-                              right: gamedata?.gameData?.steps == 10 ? 7.w : 9.w,
+                              right: gamedata?.gameData?.steps == '10' ? 7.w : 9.w,
                               top: 1.5.h,
-                              left: gamedata?.gameData?.steps == 10 ? 5.w : 0.w),
+                              left: gamedata?.gameData?.steps == '10' ? 5.w : 0.w),
                           alignment: Alignment.center,
                           // height: 100,
                           // width:80,
@@ -621,7 +625,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                       "Double",
                                       style: TextStyle(color: primary),
                                     ),
-                                    gamedata?.gameData?.steps == 10
+                                    gamedata?.gameData?.steps == '10'
                                         ? Column(
                                             children: [
                                               SizedBox(height: 1.5.h),
@@ -653,7 +657,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                         painter: JigsawClipper12(),
                         child: Container(
                           padding: EdgeInsets.only(
-                              top: 2.h, right: 6.w, left: gamedata?.gameData?.steps == 11 ? 3.w : 0),
+                              top: 2.h, right: 6.w, left: gamedata?.gameData?.steps == '11' ? 3.w : 0),
                           alignment: Alignment.center,
                           // height: 100,
                           // width:80,
@@ -672,7 +676,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                       "Choice",
                                       style: TextStyle(color: primary),
                                     ),
-                                    gamedata?.gameData?.steps == 11
+                                    gamedata?.gameData?.steps == '11'
                                         ? Column(
                                             children: [
                                               Container(
@@ -705,7 +709,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                         painter: JigsawClipper13(),
                         child: Padding(
                           padding: EdgeInsets.all(2.5.h),
-                          child: gamedata?.gameData?.steps == 12
+                          child: gamedata?.gameData?.steps == '12'
                               ? Column(
                                   children: [
                                     SizedBox(height: 1.5.h),
@@ -735,7 +739,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                           padding: EdgeInsets.only(
                               top: 1.7.h,
                               right: 10.w,
-                              left: gamedata?.gameData?.steps == 13 ? 3.5.w : 0),
+                              left: gamedata?.gameData?.steps == '13' ? 3.5.w : 0),
                           alignment: Alignment.center,
                           child: SizedBox(
                               width: 24.w,
@@ -747,7 +751,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                       "Mystery",
                                       style: TextStyle(color: primary),
                                     ),
-                                    gamedata?.gameData?.steps == 13
+                                    gamedata?.gameData?.steps == '13'
                                         ? Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
@@ -783,6 +787,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                   children: [
                     InkWell(
                       onTap: () {
+
                         setState(() {
                           _showImage = true;
                         });
@@ -792,10 +797,12 @@ class _designState extends State<design> with TickerProviderStateMixin {
                           setState(() {
                             _value = Random().nextInt(6) + 1;
                             print(_value);
+                            stepsapi();
                             _showImage = false;
+
                           });
                         });
-                        stepsapi();
+
                       },
                       child: Container(
                         alignment: Alignment.center,
@@ -856,8 +863,10 @@ class _designState extends State<design> with TickerProviderStateMixin {
           gamedata = gameModal.fromJson(json.decode(response.body));
 
           if (response.statusCode == 200 &&
-              profileviewmodal?.status == "success") {
+              gamedata?.status == "success") {
+            print("-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=- run: ${gamedata?.gameData?.steps}");
             setState(() {
+              step = gamedata?.gameData?.steps;
               isloading = false;
             });
           } else {
@@ -917,6 +926,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
           if (response.statusCode == 200 &&
               profileviewmodal?.status == "success") {
+            Get.offAll(Tutorial());
             Get.snackbar(
               "Game Ended",
               "Successfully",
