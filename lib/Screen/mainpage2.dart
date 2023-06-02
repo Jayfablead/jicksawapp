@@ -33,7 +33,7 @@ class Sachen {
   Sachen(this.image, this.name, this.score);
 }
 
-bool isloading = true;
+bool isloading = false;
 
 class _mainpage2State extends State<mainpage2> {
   List<Sachen> past = [
@@ -94,7 +94,7 @@ class _mainpage2State extends State<mainpage2> {
                               Container(
                                 margin: EdgeInsets.only(top: 4.h, left: 3.w),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Padding(
                                       padding:
@@ -117,53 +117,117 @@ class _mainpage2State extends State<mainpage2> {
                                         ],
                                       ),
                                     ),
+                                    // Container(
+                                    //   margin: EdgeInsets.only(top: 1.5.h),
+                                    //   padding:
+                                    //       EdgeInsets.symmetric(horizontal: 3.w),
+                                    //   child: Row(
+                                    //     crossAxisAlignment:
+                                    //         CrossAxisAlignment.center,
+                                    //     mainAxisAlignment:
+                                    //         MainAxisAlignment.spaceBetween,
+                                    //     children: [
+                                    //       Text(
+                                    //         "Hii " +
+                                    //             (usermodal?.userData?.name)
+                                    //                 .toString() +
+                                    //             " !!",
+                                    //         style: TextStyle(
+                                    //           color: Colors.black,
+                                    //           fontSize: 17.sp,
+                                    //           fontWeight: FontWeight.normal,
+                                    //           fontFamily: 'Poppins',
+                                    //         ),
+                                    //       ),
+                                    //       Container(
+                                    //         margin: EdgeInsets.symmetric(
+                                    //             horizontal: 1.w),
+                                    //         height: 6.h,
+                                    //         width: 13.w,
+                                    //         child: ClipRRect(
+                                    //           borderRadius:
+                                    //               BorderRadius.circular(90),
+                                    //           child: CachedNetworkImage(
+                                    //             fit: BoxFit.cover,
+                                    //             imageUrl: (profileviewmodal
+                                    //                     ?.profileViewPlayer
+                                    //                     ?.profilePic)
+                                    //                 .toString(),
+                                    //             progressIndicatorBuilder: (context,
+                                    //                     url, progress) =>
+                                    //                 CircularProgressIndicator(),
+                                    //             errorWidget:
+                                    //                 (context, url, error) =>
+                                    //                     Image.asset(
+                                    //               'assets/user.png',
+                                    //               color: Colors.black,
+                                    //             ),
+                                    //           ),
+                                    //         ),
+                                    //       ),
+                                    //     ],
+                                    //   ),
+                                    // ),
+
                                     Container(
-                                      margin: EdgeInsets.only(top: 1.5.h),
                                       padding:
                                           EdgeInsets.symmetric(horizontal: 3.w),
+                                      width: 90.w,
+                                      height: 6.h,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(25),
+                                      ),
                                       child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text(
-                                            "Hii " +
-                                                (usermodal?.userData?.name)
-                                                    .toString() +
-                                                " !!",
-                                            style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 17.sp,
-                                              fontWeight: FontWeight.normal,
-                                              fontFamily: 'Poppins',
-                                            ),
-                                          ),
-                                          Container(
-                                            margin: EdgeInsets.symmetric(
-                                                horizontal: 1.w),
-                                            height: 6.h,
-                                            width: 13.w,
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(90),
-                                              child: CachedNetworkImage(
-                                                fit: BoxFit.cover,
-                                                imageUrl: (profileviewmodal
-                                                        ?.profileViewPlayer
-                                                        ?.profilePic)
-                                                    .toString(),
-                                                progressIndicatorBuilder: (context,
-                                                        url, progress) =>
-                                                    CircularProgressIndicator(),
-                                                errorWidget:
-                                                    (context, url, error) =>
-                                                        Image.asset(
-                                                  'assets/user.png',
-                                                  color: Colors.black,
-                                                ),
+                                          Row(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Image.asset(
+                                                    'assets/coin.webp',
+                                                    width: 8.w,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 1.w,
+                                                  ),
+                                                  Text('450'),
+                                                ],
                                               ),
-                                            ),
+                                              SizedBox(
+                                                width: 2.w,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Image.asset(
+                                                    'assets/diamond.png',
+                                                    width: 8.w,
+                                                  ),
+                                                  Text('84'),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                width: 2.w,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Image.asset(
+                                                    'assets/heart.png',
+                                                    width: 8.w,
+                                                  ),
+                                                  Text('3'),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                width: 2.w,
+                                              ),
+                                            ],
+                                          ),
+                                          Image.asset(
+                                            'assets/profile.png',
+                                            width: 8.w,
                                           ),
                                         ],
                                       ),
@@ -172,7 +236,7 @@ class _mainpage2State extends State<mainpage2> {
                                 ),
                               ),
                               Container(
-                                height: 25.h,
+                                height: 20.h,
                                 padding: EdgeInsets.symmetric(horizontal: 3.w),
                                 width: MediaQuery.of(context).size.width,
                                 decoration: BoxDecoration(
@@ -199,15 +263,61 @@ class _mainpage2State extends State<mainpage2> {
                                     SizedBox(height: 1.h),
                                     Container(
                                       margin: EdgeInsets.only(bottom: 4.h),
-                                      child: Column(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
                                         children: [
-                                          Text(
-                                            'CONTINUE PLAYING',
-                                            style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 15.sp,
-                                              fontWeight: FontWeight.normal,
-                                              fontFamily: 'Poppins',
+                                          Image.asset(
+                                            'assets/1.jpg',
+                                            height: 8.h,
+                                            width: 17.w,
+                                          ),
+                                          Container(
+                                            width: 50.w,
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 2.w),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceEvenly,
+                                                  children: [
+                                                    Text(
+                                                      'Beginner',
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 15.sp,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily: 'Poppins',
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'Level 1',
+                                                      style: TextStyle(
+                                                        color: primary,
+                                                        fontSize: 15.sp,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily: 'Poppins',
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Text(
+                                                  'Learners Gain a Deeper Understanding',
+                                                  style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 12.sp,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontFamily: 'Poppins',
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
                                           SizedBox(height: 1.5.h),
@@ -219,8 +329,8 @@ class _mainpage2State extends State<mainpage2> {
                                             },
                                             child: Container(
                                               alignment: Alignment.center,
-                                              height: 5.5.h,
-                                              width: 80.w,
+                                              height: 5.h,
+                                              width: 22.w,
                                               decoration: BoxDecoration(
                                                 color: primary,
                                                 borderRadius:
