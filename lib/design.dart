@@ -7,6 +7,7 @@ import 'package:jicksaw/Modal/gameModal.dart';
 import 'package:jicksaw/Questions/gameinfo.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/loader.dart';
+import 'package:jicksaw/challanges%20pages/Trivia.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:jicksaw/jigsawclipper.dart';
@@ -801,7 +802,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                             print(_value);
                             stepsapi();
                             _showImage = false;
-
+gamedata?.gameData?.steps == '1'?goquestions:Container();
                           });
                         });
 
@@ -950,5 +951,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
         buildErrorDialog(context, 'Error', "Internate Required");
       }
     });
+  }
+  void goquestions()async{
+    await Get.to(TriviaChallenge());
   }
 }
