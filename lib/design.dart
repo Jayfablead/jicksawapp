@@ -793,6 +793,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
                         setState(() {
                           _showImage = true;
+
                         });
                         _animationController!.reset();
                         _animationController!.forward();
@@ -802,7 +803,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                             print(_value);
                             stepsapi();
                             _showImage = false;
-gamedata?.gameData?.steps == '1'?goquestions:Container();
+
                           });
                         });
 
@@ -868,6 +869,7 @@ gamedata?.gameData?.steps == '1'?goquestions:Container();
           if (response.statusCode == 200 &&
               gamedata?.status == "success") {
             print("-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=- run: ${gamedata?.gameData?.steps}");
+            gamedata?.gameData?.steps == '1'?gameexit(context, 'You will get a Question', 'Give Correct Answer and get a Jigsaw Piece',callback: goquestions):Container();
             setState(() {
               step = gamedata?.gameData?.steps;
               isloading = false;
@@ -889,7 +891,7 @@ gamedata?.gameData?.steps == '1'?goquestions:Container();
 
     data['uid'] = usermodal?.userData?.uid ?? "";
     data['game_status'] = '1';
-    data['steps_on_dice'] = _value.toString();
+    data['steps_on_dice'] ='1';
     data['action'] = 'follow_steps';
 
     checkInternet().then((internet) async {
