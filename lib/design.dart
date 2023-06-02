@@ -83,7 +83,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                   'Are You Sure ?', 'You want to Quit?',callback: endapi);},
               icn1: Icon(Icons.logout_rounded)),
           body: SingleChildScrollView(
-            child: isloading?Container():Column(
+            child: isloading?Container():
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               // mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -93,6 +94,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                 Stack(
                   children: [
                     Container(
+                      padding: EdgeInsets.symmetric(horizontal: 3.w),
                       height: MediaQuery.of(context).size.width,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
