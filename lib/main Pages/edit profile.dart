@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:http/http.dart';
 import 'package:image_picker/image_picker.dart';
@@ -12,6 +13,7 @@ import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/drawer.dart';
+import 'package:jicksaw/main%20Pages/porfilePage.dart';
 
 import 'package:sizer/sizer.dart';
 
@@ -25,7 +27,6 @@ class EditProfile extends StatefulWidget {
   String? age;
   String? pos;
   String? about;
-
   EditProfile({
     super.key,
     this.name,
@@ -36,39 +37,32 @@ class EditProfile extends StatefulWidget {
     this.about,
     this.pos,
   });
-
   @override
   State<EditProfile> createState() => _EditProfileState();
 }
-
 class _EditProfileState extends State<EditProfile> {
   TextEditingController _user = TextEditingController(text: "");
   TextEditingController _age = TextEditingController(text: "");
-
   TextEditingController _email = TextEditingController(text: "");
   TextEditingController _about = TextEditingController(text: "");
   ImagePicker _picker = ImagePicker();
   ImagePicker _picker1 = ImagePicker();
   var imagesTemporary;
   File? imagefile;
-
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool isLoading = true;
   XFile? image;
   XFile? video;
   List<XFile>? _imageFileList;
-
   int? select;
   String? it;
   bool isloading = true;
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     viewap();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -355,7 +349,6 @@ class _EditProfileState extends State<EditProfile> {
       ),
     );
   }
-
   TextStyle textStyle =
       TextStyle(color: Colors.black, fontSize: 12.sp, fontFamily: "Meta1");
   TextStyle textStyle1 = TextStyle(
@@ -363,7 +356,6 @@ class _EditProfileState extends State<EditProfile> {
       fontSize: 10.sp,
       color: Colors.grey,
       fontWeight: FontWeight.w400);
-
   InputDecoration inputDecoration({
     required String lable,
     required Icon icon,
@@ -409,14 +401,13 @@ class _EditProfileState extends State<EditProfile> {
       ),
     );
   }
-
   editap() {
     final Map<String, String> data = {};
     data['uid'] = usermodal?.userData?.uid ?? '';
     data['username'] = _user.text.trim().toString();
     data['age'] = _age.text.trim().toString();
     data['about'] = _about.text.trim().toString();
-    data['img_file'] = imagefile!.path;
+    // data['img_file'] = imagefile!.path;
     data['action'] = 'profile_update_player';
     print(data);
     checkInternet().then((internet) async {
@@ -428,7 +419,12 @@ class _EditProfileState extends State<EditProfile> {
           print(response.statusCode);
           print(usermodal?.status);
           if (response.statusCode == 200 && usermodal?.status == "success") {
-            update(context, 'Success', "Profile Updated Successfully");
+            update(context, 'Success', "Profile Updated Successfully",
+                callback:(){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyProfile()));
+              // Get.offAll(MyProfile());
+                }
+            );
             setState(() {
               // isLoading = false;
             });
@@ -445,11 +441,10 @@ class _EditProfileState extends State<EditProfile> {
       }
     });
   }
-
   viewap() {
     final Map<String, String> data = {};
 
-    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['uid'] = (usermodal?.userData?.uid).toString();
     data['action'] = 'profile_view_player';
 
     checkInternet().then((internet) async {
@@ -460,13 +455,16 @@ class _EditProfileState extends State<EditProfile> {
 
           if (response.statusCode == 200 &&
               profileviewmodal?.status == "success") {
+            print(profileviewmodal?.profileViewPlayer?.profilePic);
+            print(profileviewmodal?.profileViewPlayer?.name);
+            print(profileviewmodal?.profileViewPlayer?.age);
+            print(profileviewmodal?.profileViewPlayer?.about);
             setState(() {
               _user.text =
                   (profileviewmodal?.profileViewPlayer?.name).toString();
               _age.text = profileviewmodal?.profileViewPlayer?.age ?? "";
               _about.text = profileviewmodal?.profileViewPlayer?.about ?? "";
             });
-
             setState(() {
               // isLoading = false;
             });

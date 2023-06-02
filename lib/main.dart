@@ -9,20 +9,16 @@ import 'package:jicksaw/new%20pages/categories%20&%20age.dart';
 import 'package:jicksaw/new%20pages/myurchases.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-
 void main() {
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
     final puzzleKey = GlobalKey<JigsawWidgetState>();
-
     return Sizer(builder: (context, orientation, deviceType) {
       return MultiProvider(
         providers: [
@@ -32,12 +28,9 @@ class MyApp extends StatelessWidget {
             title: 'Jigsaw',
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-            
               primarySwatch: Colors.orange,
             ),
-
-
-            home: const SplashScreen()),
+            home:  SplashScreen()),
       );
     });
   }

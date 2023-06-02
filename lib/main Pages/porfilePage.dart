@@ -11,16 +11,12 @@ import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:jicksaw/main%20Pages/edit%20profile.dart';
-
 import 'package:sizer/sizer.dart';
-
 class MyProfile extends StatefulWidget {
-  const MyProfile({Key? key}) : super(key: key);
-
+   MyProfile({Key? key}) : super(key: key);
   @override
   State<MyProfile> createState() => _MyProfileState();
 }
-
 class _MyProfileState extends State<MyProfile> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -38,9 +34,9 @@ class _MyProfileState extends State<MyProfile> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    print("hiii");
     viewap();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -396,13 +392,11 @@ class _MyProfileState extends State<MyProfile> {
       ),
     );
   }
-
   viewap() {
     final Map<String, String> data = {};
-
     data['uid'] = usermodal?.userData?.uid ?? "";
     data['action'] = 'profile_view_player';
-
+    print(data);
     checkInternet().then((internet) async {
       if (internet) {
         authprovider().profileviewapi(data).then((response) async {
@@ -411,6 +405,10 @@ class _MyProfileState extends State<MyProfile> {
 
           if (response.statusCode == 200 &&
               profileviewmodal?.status == "success") {
+            print(profileviewmodal?.profileViewPlayer?.name);
+            print(profileviewmodal?.profileViewPlayer?.age);
+            print(profileviewmodal?.profileViewPlayer?.about);
+            print(profileviewmodal?.profileViewPlayer?.profilePic);
             setState(() {
               // isLoading = false;
             });
@@ -426,274 +424,4 @@ class _MyProfileState extends State<MyProfile> {
   }
 }
 
-//======================================== crousals for follower ==============================================
 
-// Column(
-//   children: [
-//     CircleAvatar(
-//       backgroundImage: NetworkImage(
-//         'https://icdn.football-espana.net/wp-content/uploads/2022/06/Neymar-Junior2.jpeg',
-//       ),
-//       radius: 7.h,
-//     ),
-//     SizedBox(height: 2.h),
-//     Text(
-//       'Neymar JR.',
-//       style: TextStyle(
-//         fontSize: 8.w,
-//         fontWeight: FontWeight.w600,
-//         fontFamily: "Poppins",
-//         color: Color(0xffeaeaea),
-//       ),
-//     ),
-//     SizedBox(height: 1.h),
-//     Text(
-//       'neymar.jr@gmail.com',
-//       style: TextStyle(
-//         fontSize: 4.w,
-//         fontWeight: FontWeight.w600,
-//         fontFamily: "Poppins",
-//         color: Color(0xff0DF5E3),
-//       ),
-//     ),
-//     SizedBox(height: 2.h),
-//     Container(
-//         alignment: Alignment.center,
-//         height: 10.h,
-//         width: MediaQuery.of(context).size.width,
-//         decoration: BoxDecoration(
-//           color: Colors.white.withOpacity(0.15),
-//           borderRadius: BorderRadius.circular(10),
-//         ),
-//         child: Row(
-//           crossAxisAlignment: CrossAxisAlignment.center,
-//           mainAxisAlignment: MainAxisAlignment.spaceAround,
-//           children: [
-//             Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: [
-//                 Text(
-//                   '28',
-//                   style: TextStyle(
-//                     fontSize: 7.w,
-//                     fontWeight: FontWeight.w500,
-//                     fontFamily: "Poppins",
-//                     color: Color(0xffffffff),letterSpacing: 2,
-//                   ),
-//                 ),
-//                 Text(
-//                   'Posts',
-//                   style: TextStyle(
-//                     fontSize: 3.5.w,
-//                     fontWeight: FontWeight.w500,
-//                     fontFamily: "Poppins",
-//                     color: Color(0xffb4b4b4),
-//                   ),
-//                 ),
-//               ],
-//             ),
-//             Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: [
-//                 Text(
-//                   '69',
-//                   style: TextStyle(
-//                     fontSize: 7.w,
-//                     fontWeight: FontWeight.w500,
-//                     fontFamily: "Poppins",
-//                     color: Color(0xffffffff),letterSpacing: 2,
-//                   ),
-//                 ),
-//                 Text(
-//                   'Following',
-//                   style: TextStyle(
-//                     fontSize: 3.5.w,
-//                     fontWeight: FontWeight.w500,
-//                     fontFamily: "Poppins",
-//                     color: Color(0xffb4b4b4),
-//                   ),
-//                 ),
-//               ],
-//             ),
-//             Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: [
-//                 Text(
-//                   '1.5B',
-//                   style: TextStyle(
-//                     fontSize: 7.w,
-//                     fontWeight: FontWeight.w500,
-//                     fontFamily: "Poppins",
-//                     color: Color(0xffffffff),letterSpacing: 2,
-//                   ),
-//                 ),
-//                 Text(
-//                   'Followers',
-//                   style: TextStyle(
-//                     fontSize: 3.5.w,
-//                     fontWeight: FontWeight.w500,
-//                     fontFamily: "Poppins",
-//                     color: Color(0xffb4b4b4),
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ],
-//         )),
-//   ],
-// ),
-// SizedBox(height: 2.h),
-// Row(
-//   mainAxisAlignment: MainAxisAlignment.spaceAround,
-//   children: [
-//     InkWell(
-//       onTap: () {},
-//       child: Container(
-//         alignment: Alignment.center,
-//         height: 9.h,
-//         width: 35.w,
-//         decoration: BoxDecoration(
-//             color: Colors.white.withOpacity(0.10),
-//             borderRadius: BorderRadius.circular(15),
-//             border: Border.all(color: Colors.white)),
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             Icon(
-//               size: 9.w,
-//               Icons.person_outline_rounded,
-//               color: Colors.white,
-//             ),
-//             Text(
-//               'View Profile',
-//               style: TextStyle(
-//                 fontSize: 4.w,
-//                 fontWeight: FontWeight.w500,
-//                 fontFamily: "Poppins",
-//                 color: Color(0xffeaeaea),
-//               ),
-//             )
-//           ],
-//         ),
-//       ),
-//     ),
-//     InkWell(
-//       onTap: () {},
-//       child: Container(
-//         alignment: Alignment.center,
-//         height: 9.h,
-//         width: 35.w,
-//         decoration: BoxDecoration(
-//             color: Colors.white.withOpacity(0.10),
-//             borderRadius: BorderRadius.circular(15),
-//             border: Border.all(color: Colors.white)),
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             Icon(
-//               size: 7.w,
-//               Icons.mode_edit_outline_outlined,
-//               color: Colors.white,
-//             ),
-//             SizedBox(
-//               height: 0.5.h,
-//             ),
-//             Text(
-//               'Edit',
-//               style: TextStyle(
-//                 fontSize: 4.w,
-//                 fontWeight: FontWeight.w500,
-//                 fontFamily: "Poppins",
-//                 color: Color(0xffeaeaea),
-//               ),
-//             )
-//           ],
-//         ),
-//       ),
-//     ),
-//     // InkWell(
-//     //   onTap: () {},
-//     //   child: Container(
-//     //     alignment: Alignment.center,
-//     //     height: 6.h,
-//     //     width: 34.w,
-//     //     decoration: BoxDecoration(
-//     //       color: Colors.grey.withOpacity(0.05),
-//     //       borderRadius: BorderRadius.circular(30),
-//     //       border: Border.all(
-//     //         color: Color(0xff0DF5E3),
-//     //       ),
-//     //     ),
-//     //     child: Text(
-//     //       'Connect',
-//     //       style: TextStyle(
-//     //         fontSize: 4.w,
-//     //         fontWeight: FontWeight.w500,
-//     //         fontFamily: "Poppins",
-//     //         color: Color(0xffeaeaea),
-//     //       ),
-//     //     ),
-//     //   ),
-//     // ),
-//     // InkWell(
-//     //   onTap: () {
-//     //     Navigator.of(context).push(
-//     //       MaterialPageRoute(
-//     //         builder: (context) => ChatPage(),
-//     //       ),
-//     //     );
-//     //   },
-//     //   child: Container(
-//     //     alignment: Alignment.center,
-//     //     height: 6.h,
-//     //     width: 30.w,
-//     //     decoration: BoxDecoration(
-//     //       color: Colors.grey.withOpacity(0.05),
-//     //       borderRadius: BorderRadius.circular(30),
-//     //       border: Border.all(
-//     //         color: Color(0xff0DF5E3),
-//     //       ),
-//     //     ),
-//     //     child: Text(
-//     //       'Message',
-//     //       style: TextStyle(
-//     //         fontSize: 4.w,
-//     //         fontWeight: FontWeight.w500,
-//     //         fontFamily: "Poppins",
-//     //         color: Color(0xffeaeaea),
-//     //       ),
-//     //     ),
-//     //   ),
-//     // ),
-//     // InkWell(
-//     //   onTap: () {
-//     //     Navigator.of(context).push(
-//     //       MaterialPageRoute(
-//     //         builder: (context) => Helathreport(),
-//     //       ),
-//     //     );
-//     //   },
-//     //   child: Container(
-//     //     alignment: Alignment.center,
-//     //     height: 6.h,
-//     //     width: 27.w,
-//     //     decoration: BoxDecoration(
-//     //       color: Colors.grey.withOpacity(0.05),
-//     //       borderRadius: BorderRadius.circular(30),
-//     //       border: Border.all(
-//     //         color: Color(0xff0DF5E3),
-//     //       ),
-//     //     ),
-//     //     child: Text(
-//     //       'Health',
-//     //       style: TextStyle(
-//     //         fontSize: 4.w,
-//     //         fontWeight: FontWeight.w500,
-//     //         fontFamily: "Poppins",
-//     //         color: Color(0xffeaeaea),
-//     //       ),
-//     //     ),
-//     //   ),
-//     // ),
-//   ],
-// ),

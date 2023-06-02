@@ -240,13 +240,7 @@ update(BuildContext context, String title, String contant,
                fontFamily: 'Poppins',)),
       ),
     ),
-    onTap: () {
-      // if (callback == null) {
-      Get.offAll(MyProfile());
-      // } else {
-
-      // }
-    },
+    onTap: callback,
   );
 
   if (Platform.isAndroid) {
