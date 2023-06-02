@@ -11,6 +11,7 @@ import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:jicksaw/main%20Pages/edit%20profile.dart';
+
 import 'package:sizer/sizer.dart';
 class MyProfile extends StatefulWidget {
    MyProfile({Key? key}) : super(key: key);
@@ -130,7 +131,8 @@ class _MyProfileState extends State<MyProfile> {
                 Center(
                   child: InkWell(
                     onTap: () {
-                      Get.to(() => EditProfile());
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>EditProfile()));
+                      // Get.to(() => EditProfile());
                     },
                     child: Container(
                       alignment: Alignment.center,
@@ -394,7 +396,7 @@ class _MyProfileState extends State<MyProfile> {
   }
   viewap() {
     final Map<String, String> data = {};
-    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['uid'] = (usermodal?.userData?.uid).toString() ;
     data['action'] = 'profile_view_player';
     print(data);
     checkInternet().then((internet) async {
@@ -405,10 +407,10 @@ class _MyProfileState extends State<MyProfile> {
 
           if (response.statusCode == 200 &&
               profileviewmodal?.status == "success") {
-            print(profileviewmodal?.profileViewPlayer?.name);
-            print(profileviewmodal?.profileViewPlayer?.age);
-            print(profileviewmodal?.profileViewPlayer?.about);
-            print(profileviewmodal?.profileViewPlayer?.profilePic);
+            // print(profileviewmodal?.profileViewPlayer?.name);
+            // print(profileviewmodal?.profileViewPlayer?.age);
+            // print(profileviewmodal?.profileViewPlayer?.about);
+            // print(profileviewmodal?.profileViewPlayer?.profilePic);
             setState(() {
               // isLoading = false;
             });

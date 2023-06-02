@@ -407,7 +407,7 @@ class _EditProfileState extends State<EditProfile> {
     data['username'] = _user.text.trim().toString();
     data['age'] = _age.text.trim().toString();
     data['about'] = _about.text.trim().toString();
-    // data['img_file'] = imagefile!.path;
+    data['img_file'] = imagefile!.path;
     data['action'] = 'profile_update_player';
     print(data);
     checkInternet().then((internet) async {
