@@ -72,7 +72,7 @@ class _ForgotpwdState extends State<Forgotpwd> {
                         height: 20.h,
                         width: 90.w,
 
-                        child: Lottie.asset('assets/lin.json'),
+                        child: Lottie.asset('assets/main.json'),
                       ),
                     ),
                     SizedBox(

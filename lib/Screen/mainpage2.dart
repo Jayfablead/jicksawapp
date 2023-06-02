@@ -235,121 +235,203 @@ class _mainpage2State extends State<mainpage2> {
                                   ],
                                 ),
                               ),
-                              Container(
-                                height: 20.h,
-                                padding: EdgeInsets.symmetric(horizontal: 3.w),
-                                width: MediaQuery.of(context).size.width,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(50),
-                                    topLeft: Radius.circular(50),
-                                  ),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Container(
-                                      height: 0.5.h,
-                                      width: 8.w,
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                        color:
-                                            Colors.deepOrange.withOpacity(0.7),
-                                        borderRadius: BorderRadius.circular(10),
+                              Column(
+                                children: [
+                                  Container(
+                                    alignment: Alignment.bottomCenter,
+                                    height: 22.h,
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 3.w),
+                                    width: MediaQuery.of(context).size.width,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(50),
+                                        topLeft: Radius.circular(50),
                                       ),
                                     ),
-                                    SizedBox(height: 1.h),
-                                    Container(
-                                      margin: EdgeInsets.only(bottom: 4.h),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Image.asset(
-                                            'assets/1.jpg',
-                                            height: 8.h,
-                                            width: 17.w,
-                                          ),
-                                          Container(
-                                            width: 50.w,
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 2.w),
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
-                                              children: [
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceEvenly,
-                                                  children: [
-                                                    Text(
-                                                      'Beginner',
-                                                      style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontSize: 15.sp,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily: 'Poppins',
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      'Level 1',
-                                                      style: TextStyle(
-                                                        color: primary,
-                                                        fontSize: 15.sp,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily: 'Poppins',
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Text(
-                                                  'Learners Gain a Deeper Understanding',
-                                                  style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 12.sp,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                    fontFamily: 'Poppins',
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          SizedBox(height: 1.5.h),
-                                          InkWell(
-                                            onTap: () {
-                                              Get.to(
-                                                Tutorial(),
-                                              );
-                                            },
-                                            child: Container(
+                                    child: Stack(
+                                      children: [
+                                        Positioned(top: 8.h,child: Image.asset('assets/moun.png')),
+                                        Column(
+
+                                          children: [
+                                            Container(margin: EdgeInsets.symmetric(vertical: 1.h),
+                                              height: 0.5.h,
+                                              width: 8.w,
                                               alignment: Alignment.center,
-                                              height: 5.h,
-                                              width: 22.w,
                                               decoration: BoxDecoration(
-                                                color: primary,
+                                                color: Colors.orange
+                                                    .withOpacity(0.7),
                                                 borderRadius:
-                                                    BorderRadius.circular(30),
-                                              ),
-                                              child: Text(
-                                                'PLAY',
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 14.sp),
+                                                    BorderRadius.circular(10),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
+SizedBox(height: 2.h,),
+                                            Container(
+                                              margin: EdgeInsets.only(bottom: 4.h),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.spaceEvenly,
+                                                children: [
+                                                  Image.asset(
+                                                    'assets/1.jpg',
+                                                    height: 8.h,
+                                                    width: 17.w,
+                                                  ),
+                                                  Container(
+                                                    width: 50.w,
+                                                    padding: EdgeInsets.symmetric(
+                                                        horizontal: 2.w),
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceAround,
+                                                      children: [
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceEvenly,
+                                                          children: [
+                                                            Text(
+                                                              'Beginner',
+                                                              style: TextStyle(
+                                                                color: Colors.black,
+                                                                fontSize: 15.sp,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                              ),
+                                                            ),
+                                                            Text(
+                                                              'Level 1',
+                                                              style: TextStyle(
+                                                                color: primary,
+                                                                fontSize: 15.sp,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Text(
+                                                          'Learners Gain a Deeper Understanding',
+                                                          style: TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 12.sp,
+                                                            fontWeight:
+                                                                FontWeight.normal,
+                                                            fontFamily: 'Poppins',
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  SizedBox(height: 1.5.h),
+                                                  InkWell(
+                                                    onTap: () {
+                                                      Get.to(
+                                                        Tutorial(),
+                                                      );
+                                                    },
+                                                    child: Container(
+                                                      alignment: Alignment.center,
+                                                      height: 5.h,
+                                                      width: 22.w,
+                                                      decoration: BoxDecoration(
+                                                        color: primary,
+                                                        borderRadius:
+                                                            BorderRadius.circular(
+                                                                30),
+                                                      ),
+                                                      child: Text(
+                                                        'View',
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontFamily: 'Poppins',
+                                                            fontSize: 14.sp),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+
+                                  Container(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 1.h,horizontal: 5.w),
+                                    alignment: Alignment.topCenter,
+                                    height: 9.h,
+                                    width: 100.w,
+                                    color: Colors.white,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Container(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 1.w),
+                                          width: 25.w,
+                                          height: 5.h,
+                                          decoration: BoxDecoration(
+                                              color: primary1,
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              Container(
+                                                height: 4.h,
+                                                width: 4.h,
+                                                decoration: BoxDecoration(
+                                                    color: Colors.white
+                                                        .withOpacity(0.3),
+                                                    shape: BoxShape.circle),
+                                                child: Icon(
+                                                  Icons.home,
+                                                  color: Colors.black,
+                                                  size: 14.sp,
+                                                ),
+                                              ),
+                                              Text('Home')
+                                            ],
+                                          ),
+                                        ),
+                                        Icon(
+                                          Icons.search,
+                                          color: Colors.black,
+                                          size: 20.sp,
+                                        ),
+                                        Icon(
+                                          Icons.center_focus_weak_rounded,
+                                          color: Colors.black,
+                                          size: 20.sp,
+                                        ),
+                                        Icon(
+                                          Icons.plumbing_outlined,
+                                          color: Colors.black,
+                                          size: 20.sp,
+                                        ),
+                                        Icon(
+                                          Icons.align_vertical_center_sharp,
+                                          color: Colors.black,
+                                          size: 20.sp,
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
                               ),
                             ],
                           ),

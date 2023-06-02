@@ -15,6 +15,7 @@ class _congratulationState extends State<congratulation> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          SizedBox(height: 2.h),
           GestureDetector(
             onTap: (){
 

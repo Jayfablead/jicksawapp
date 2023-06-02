@@ -74,9 +74,9 @@ class _signupState extends State<signup> {
                 ),
                 Center(
                   child: Container(
-                    height: 20.h,
-                    width: 90.w,
-                    child: Lottie.asset('assets/lin.json'),
+                    height: 25.h,
+                    width: 100.w,
+                    child: Lottie.asset('assets/main.json'),
                   ),
                 ),
                 SizedBox(
