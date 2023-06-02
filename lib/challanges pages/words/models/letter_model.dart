@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-import '../../../const widget.dart';
+import '../../../other/const widget.dart';
 
 enum LetterStatus { initial, notInWord, inWord, correct }
 

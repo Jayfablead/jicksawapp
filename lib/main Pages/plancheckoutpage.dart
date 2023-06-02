@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:jicksaw/new%20pages/Thankyou%20Page.dart';
 import 'package:sizer/sizer.dart';
 
-import '../const widget.dart';
+import '../other/const widget.dart';
 
 class PlanCheckoutPage extends StatefulWidget {
 

@@ -4,7 +4,7 @@ import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
-import '../const widget.dart';
+import '../other/const widget.dart';
 
 class ThankyouPage extends StatefulWidget {
   String? plan;

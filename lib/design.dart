@@ -8,7 +8,7 @@ import 'package:jicksaw/Questions/gameinfo.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/challanges%20pages/Trivia.dart';
-import 'package:jicksaw/const%20widget.dart';
+import 'package:jicksaw/other/const%20widget.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:jicksaw/jigsawclipper.dart';
 import 'package:jicksaw/jigsawcontainer.dart';

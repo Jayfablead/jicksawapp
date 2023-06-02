@@ -7,7 +7,7 @@ import 'package:jicksaw/challanges%20pages/words/widgets/keyboard.dart';
 import 'package:sizer/sizer.dart';
 
 
-import '../../const widget.dart';
+import '../../other/const widget.dart';
 import 'data/word_list.dart';
 import 'models/letter_model.dart';
 import 'models/word_model.dart';

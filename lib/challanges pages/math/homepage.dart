@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:jicksaw/challanges%20pages/math/result.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../const widget.dart';
+import '../../other/const widget.dart';
 import 'const.dart';
 import 'my_buttons.dart';
 

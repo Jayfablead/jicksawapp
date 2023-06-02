@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:sizer/sizer.dart';
 
-import '../const widget.dart';
+import '../other/const widget.dart';
 
 class MyPurchases extends StatefulWidget {
   const MyPurchases({Key? key}) : super(key: key);

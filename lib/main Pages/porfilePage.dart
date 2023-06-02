@@ -8,7 +8,7 @@ import 'package:jicksaw/Provider/ProfileviewModal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/const.dart';
-import 'package:jicksaw/const%20widget.dart';
+import 'package:jicksaw/other/const%20widget.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:jicksaw/main%20Pages/edit%20profile.dart';
 

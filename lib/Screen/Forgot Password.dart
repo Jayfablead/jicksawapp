@@ -8,7 +8,7 @@ import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/const.dart';
-import 'package:jicksaw/const%20widget.dart';
+import 'package:jicksaw/other/const%20widget.dart';
 import 'package:jicksaw/jigsawclipper.dart';
 import 'package:jicksaw/Screen/signup.dart';
 import 'package:lottie/lottie.dart';

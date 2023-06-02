@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:jicksaw/const%20widget.dart';
+import 'package:get/get.dart';
+import 'package:jicksaw/other/const%20widget.dart';
+import 'package:jicksaw/question.dart';
 import 'package:sizer/sizer.dart';
-
 class congratulation extends StatefulWidget {
-  const congratulation({Key? key}) : super(key: key);
-
+   congratulation({Key? key}) : super(key: key);
   @override
   State<congratulation> createState() => _congratulationState();
 }
-
 class _congratulationState extends State<congratulation> {
   @override
   Widget build(BuildContext context) {
@@ -166,7 +165,7 @@ class _congratulationState extends State<congratulation> {
           SizedBox(height: 5.h,),
           GestureDetector(
             onTap: (){
-
+              Get.offAll(question());
             },
             child:Container(
               alignment: Alignment.center,
@@ -182,7 +181,6 @@ class _congratulationState extends State<congratulation> {
               ),),
             ),
           )
-
         ],
       ),
     );

@@ -16,7 +16,7 @@ import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import 'package:http/http.dart';
 
-import '../const widget.dart';
+import '../other/const widget.dart';
 
 class signup extends StatefulWidget {
   const signup({Key? key}) : super(key: key);

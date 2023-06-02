@@ -13,7 +13,7 @@ import 'package:jicksaw/Widget/sharedpreferance.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
-import '../const widget.dart';
+import '../other/const widget.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

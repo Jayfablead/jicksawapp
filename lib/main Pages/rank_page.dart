@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
-import 'package:jicksaw/const%20widget.dart';
+import 'package:jicksaw/other/const%20widget.dart';
 import 'package:jicksaw/main%20Pages/shoppage.dart';
 import 'package:sizer/sizer.dart';
 

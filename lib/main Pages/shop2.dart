@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:jicksaw/main%20Pages/purchase_Screen.dart';
 import 'package:sizer/sizer.dart';
 
-import '../const widget.dart';
+import '../other/const widget.dart';
 import 'shoppage.dart';
 
 class GameInfo extends StatefulWidget {

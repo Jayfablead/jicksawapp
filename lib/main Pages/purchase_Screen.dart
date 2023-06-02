@@ -6,7 +6,7 @@ import 'package:jicksaw/main%20Pages/subscription_page.dart';
 
 import 'package:sizer/sizer.dart';
 
-import '../const widget.dart';
+import '../other/const widget.dart';
 
 class PurchaseScreen extends StatefulWidget {
   String? name;

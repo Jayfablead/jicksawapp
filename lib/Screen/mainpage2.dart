@@ -16,7 +16,7 @@ import 'package:sizer/sizer.dart';
 import '../Provider/ProfileviewModal.dart';
 import '../Provider/authprovider.dart';
 import '../Widget/buildErrorDialog.dart';
-import '../const widget.dart';
+import '../other/const widget.dart';
 
 class mainpage2 extends StatefulWidget {
   const mainpage2({Key? key}) : super(key: key);

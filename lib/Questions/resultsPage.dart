@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:jicksaw/Provider/ProfileviewModal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
-import 'package:jicksaw/const%20widget.dart';
+import 'package:jicksaw/other/const%20widget.dart';
 import 'package:jicksaw/design.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';

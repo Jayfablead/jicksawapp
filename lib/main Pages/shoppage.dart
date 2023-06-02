@@ -10,7 +10,7 @@ import '../Provider/ProfileviewModal.dart';
 import '../Provider/authprovider.dart';
 import '../Widget/buildErrorDialog.dart';
 import '../Widget/const.dart';
-import '../const widget.dart';
+import '../other/const widget.dart';
 import '../drawer.dart';
 import 'shop2.dart';
 

@@ -17,7 +17,7 @@ import 'package:jicksaw/main%20Pages/porfilePage.dart';
 
 import 'package:sizer/sizer.dart';
 
-import '../const widget.dart';
+import '../other/const widget.dart';
 
 class EditProfile extends StatefulWidget {
   String? name;
