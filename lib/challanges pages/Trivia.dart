@@ -1,237 +1,200 @@
-// TriviaChallenge
+
+//TriviaChallenge
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Modal/questionsmodal.dart';
 
+import 'package:jicksaw/Questions/resultsPage.dart';
+import 'package:jicksaw/Widget/const.dart';
+import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/const%20widget.dart';
 import 'package:sizer/sizer.dart';
 
+import '../Provider/ProfileviewModal.dart';
+import '../Provider/authprovider.dart';
+import '../Widget/buildErrorDialog.dart';
 
 
 class TriviaChallenge extends StatefulWidget {
-  const TriviaChallenge({Key? key}) : super(key: key);
+
+
+  TriviaChallenge({Key? key}) : super(key: key);
 
   @override
   State<TriviaChallenge> createState() => _TriviaChallengeState();
 }
 
-bool ans1 = false;
-bool ans2 = false;
-bool ans3 = false;
-bool ans4 = false;
+int ans = 5;
+String? op;
+bool isloading = true;
 
 class _TriviaChallengeState extends State<TriviaChallenge> {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    setState(() {
-      ans1 = false;
-      ans2 = false;
-      ans3 = false;
-      ans4 = false;
-    });
+
+    ques();
+
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: bgcolor,
-      appBar: appbar1(
-        title1: 'TriviaChallenge',
-        press: () {
-          Get.back();
-        },
-        icn: Icon(Icons.arrow_back_ios_new_rounded),
-        act: () {},
-        icn1: Icon(null),
-      ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: SizedBox(
-            child: Column(
-              children: [
+    return
+      commanScreen(isLoading: isloading,
+        scaffold: Scaffold(
+          backgroundColor: bgcolor,
+          appBar: appbar1(
+            title1: '',
+            press: () {
 
-                SizedBox(
-                  height: 10.h,
-                ),
-                Text(
-                  'What is Flutter?',
-                  style: primarytxt,
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Column(
+            },
+            icn: Icon(Icons.arrow_back_ios_new_rounded),
+            act: () {},
+            icn1: Icon(null),
+          ),
+          body: SingleChildScrollView(
+            child: isloading
+                ? Container()
+                : questions?.getQuestionRandom?.quetionsOptions?.length == 0 || questions?.getQuestionRandom?.quetionsOptions?.length == null ?Container(height: 75.h,alignment: Alignment.center,child: Text('No Questions Available For You',style: TextStyle(
+              color: Colors.black,
+              fontSize: 14.sp,
+              fontFamily: 'Poppins',
+              letterSpacing: 2,
+            ),),):Center(
+              child: SizedBox(
+                child: Column(
                   children: [
-                    InkWell(
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    Text(
+                      questions?.getQuestionRandom?.questionTitle ?? '',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 13.sp,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 2,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    ListView.builder(
+                      padding: EdgeInsets.symmetric(horizontal: 3.w),
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: questions?.getQuestionRandom?.quetionsOptions?.length,
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            setState(() {
+                              ans = index;
+                              op = questions?.getQuestionRandom?.quetionsOptions?[index].isChecked;
+                            });
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 85.w,
+                            margin: EdgeInsets.only(top: 2.h),
+                            decoration: ans == index
+                                ? BoxDecoration(
+                                border: Border.all(color: primary),
+                                borderRadius:
+                                BorderRadius.circular(90),
+                                color: secondary)
+                                : BoxDecoration(
+                                borderRadius:
+                                BorderRadius.circular(90),
+                                color: primary),
+                            padding: EdgeInsets.all(2.h),
+                            child: Text(
+                              questions?.getQuestionRandom?.quetionsOptions?[index]
+                                  .optionText ??
+                                  '',
+                              style: TextStyle(
+                                fontSize: 13.sp,
+                                color: ans == index
+                                    ? primary
+                                    : Colors.white,
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    SizedBox(
+                      height: 6.h,
+                    ),
+                    ans != 5
+                        ? InkWell(
                       onTap: () {
-                        setState(() {
-                          ans1 = true;
-                          ans2 = false;
-                          ans3 = false;
-                          ans4 = false;
-                          print('Answer 1 :  ${ans1},${ans2},${ans3},${ans4} ');
-                        });
+                        Get.to(ResultsPage(
+                          firstans: op,
+                        ));
                       },
                       child: Container(
                         alignment: Alignment.center,
-                        width: 85.w,
+                        width: 90.w,
                         margin: EdgeInsets.only(top: 2.h),
-                        decoration: ans1
-                            ? BoxDecoration(
-                            border: Border.all(color: primary),
-                            borderRadius: BorderRadius.circular(90),
-                            color: secondary)
-                            : BoxDecoration(
+                        decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(90),
                             color: primary),
                         padding: EdgeInsets.all(2.h),
                         child: Text(
-                          'Open Source Backend Framework',
+                          'Next',
                           style: TextStyle(
-                            fontSize: 13.sp,
-                            color: ans1 ? primary : Colors.white,
-                            fontFamily: 'Poppins',
-                          ),
+                              color: Colors.white,
+                              fontFamily: 'Poppins',
+                              fontSize: 14.sp),
                         ),
                       ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          ans1 = false;
-                          ans2 = true;
-                          ans3 = false;
-                          ans4 = false;
-                          print('Answer 2 :  ${ans1},${ans2},${ans3},${ans4} ');
-                        });
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: 85.w,
-                        margin: EdgeInsets.only(top: 2.h),
-                        decoration: ans2
-                            ? BoxDecoration(
-                            border: Border.all(color: primary),
-                            borderRadius: BorderRadius.circular(90),
-                            color: secondary)
-                            : BoxDecoration(
-                            borderRadius: BorderRadius.circular(90),
-                            color: primary),
-                        padding: EdgeInsets.all(2.h),
-                        child: Text(
-                          'Open Source UI Tool-Kit',
-                          style: TextStyle(
-                            fontSize: 13.sp,
-                            color: ans2 ? primary : Colors.white,
-                            fontFamily: 'Poppins',
-                          ),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          ans1 = false;
-                          ans2 = false;
-                          ans3 = true;
-                          ans4 = false;
-                          print('Answer 3 :  ${ans1},${ans2},${ans3},${ans4} ');
-                        });
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: 85.w,
-                        margin: EdgeInsets.only(top: 2.h),
-                        decoration: ans3
-                            ? BoxDecoration(
-                            border: Border.all(color: primary),
-                            borderRadius: BorderRadius.circular(90),
-                            color: secondary)
-                            : BoxDecoration(
-                            borderRadius: BorderRadius.circular(90),
-                            color: primary),
-                        padding: EdgeInsets.all(2.h),
-                        child: Text(
-                          'Open Source App Development',
-                          style: TextStyle(
-                            fontSize: 13.sp,
-                            color: ans3 ? primary : Colors.white,
-                            fontFamily: 'Poppins',
-                          ),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          ans1 = false;
-                          ans2 = false;
-                          ans3 = false;
-                          ans4 = true;
-                          print('Answer 4 :  ${ans1},${ans2},${ans3},${ans4} ');
-                        });
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: 85.w,
-                        margin: EdgeInsets.only(top: 2.h),
-                        decoration: ans4
-                            ? BoxDecoration(
-                            border: Border.all(color: primary),
-                            borderRadius: BorderRadius.circular(90),
-                            color: secondary)
-                            : BoxDecoration(
-                            borderRadius: BorderRadius.circular(90),
-                            color: primary),
-                        padding: EdgeInsets.all(2.h),
-                        child: Text(
-                          'DBMS Tool-Kit',
-                          style: TextStyle(
-                            fontSize: 13.sp,
-                            color: ans4 ? primary : Colors.white,
-                            fontFamily: 'Poppins',
-                          ),
-                        ),
-                      ),
-                    ),
+                    )
+                        : Container(),
                   ],
                 ),
-                SizedBox(
-                  height: 6.h,
-                ),
-                (ans1 || ans2 || ans3 || ans4)
-                    ? InkWell(
-                  onTap: () {
-
-                  },
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: 85.w,
-                    margin: EdgeInsets.only(top: 2.h),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(90),
-                        color: primary),
-                    padding: EdgeInsets.all(2.h),
-                    child: Text(
-                      'Next',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Poppins',
-                          fontSize: 14.sp),
-                    ),
-                  ),
-                )
-                    : Container(),
-              ],
+              ),
             ),
           ),
         ),
-      ),
-    );
+      );
+  }
+
+  ques() {
+    final Map<String, String> data = {};
+
+    // data['uid'] = usermodal?.userData?.uid ?? "";
+    data['action'] = 'get_random_question';
+
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  ${data}");
+    print(questions?.getQuestionRandom?.quetionsOptions?.length);
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().rndmQuesapi(data).then((response) async {
+          questions = QuestionsModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && questions?.status == "success") {
+            print(questions?.getQuestionRandom?.quetionsOptions?.length);
+            setState(() {
+              isloading = false;
+            });
+          } else {  setState(() {
+            isloading = false;
+            print(questions?.getQuestionRandom?.quetionsOptions?.length);
+          });}
+        });
+      } else {
+        setState(() {
+          isloading = false;
+          print(questions?.getQuestionRandom?.quetionsOptions?.length);
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
   }
 }
-
-
-
