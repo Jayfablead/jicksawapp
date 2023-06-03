@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/new%20pages/thanks%20puzzle.dart';
 import 'package:sizer/sizer.dart';
 
 import '../other/const widget.dart';
@@ -9,8 +10,10 @@ class CheckoutPage extends StatefulWidget {
   String? name;
   String? imgs;
   String? method;
+  String? price;
 
-  CheckoutPage({Key? key, this.name, this.imgs, this.method}) : super(key: key);
+
+  CheckoutPage({Key? key, this.name, this.imgs, this.method,this.price}) : super(key: key);
 
   @override
   State<CheckoutPage> createState() => _CheckoutPageState();
@@ -192,7 +195,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {Get.to(PurchaseTYPage(price: widget.price,name: widget.name,),);},
               child: Container(
                 alignment: Alignment.center,
                 width: 85.w,

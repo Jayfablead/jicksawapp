@@ -94,7 +94,7 @@ class _loginState extends State<login> {
                      fontFamily: 'Poppins',),
                 )),
                 SizedBox(
-                  height: 10.h,
+                  height: 5.h,
                 ),
                 Container(
                   padding: EdgeInsets.all(3.w),
@@ -249,7 +249,7 @@ class _loginState extends State<login> {
                   ),
                 ),
                 SizedBox(
-                  height: 4.h,
+                  height: 2.5.h,
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,

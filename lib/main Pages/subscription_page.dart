@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/other/const%20widget.dart';
 import 'package:jicksaw/main%20Pages/subscribe_plan.dart';
@@ -18,16 +19,12 @@ class _subscriptionState extends State<subscription> {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 3.h,),
+          SizedBox(height: 5.h,),
           Row(
             children: [
               IconButton(
                   onPressed: () {
-                    Navigator.of(context).pop();
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => mainpage2()),
-                    );
+                    Get.to(mainpage2());
                   },
                   icon: Icon(
                     Icons.arrow_back_ios,

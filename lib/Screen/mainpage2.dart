@@ -226,8 +226,8 @@ class _mainpage2State extends State<mainpage2> {
                                             ],
                                           ),
                                           Image.asset(
-                                            'assets/profile.png',
-                                            width: 8.w,
+                                            'assets/user.png',
+                                            width: 9.w,
                                           ),
                                         ],
                                       ),

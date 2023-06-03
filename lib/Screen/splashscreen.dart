@@ -47,21 +47,26 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [SizedBox(
-            height: 10.h,
+            height: 3.h,
           ),
             Container(
-              // height: 90.h,
-              // width: 95.w,
+              height: 60.h,
+              width: 85.w,
 
-              child: Lottie.asset('assets/logo.json'),
+              child: Lottie.asset('assets/splash/cube.json'),
             ),
             SizedBox(
-              height: 8.h,
+              height: 3.h,
             ),
-            Container(
-              height: 40.h,
-              width: 80.w,
-              child: Lottie.asset('assets/loading.json'),
+            Column(
+              children: [
+                Container(
+                  height: 20.h,
+                  width:100.w,
+                  child: Lottie.asset('assets/splash/circle.json'),
+                ),
+                Text('Please Wait ...',style: TextStyle(color: primary,fontSize: 13.sp,fontFamily: 'Poppins'),)
+              ],
             ),
           ],
         ),

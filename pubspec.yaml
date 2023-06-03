@@ -57,6 +57,7 @@ flutter:
     - assets/memory/
     - assets/chs/
     - assets/reward_cup/
+    - assets/splash/
 
   fonts:
     - family: Poppins

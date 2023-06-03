@@ -11,7 +11,8 @@ import '../other/const widget.dart';
 class PurchaseScreen extends StatefulWidget {
   String? name;
   String? img;
-   PurchaseScreen({Key? key,this.img,this.name}) : super(key: key);
+  String? price;
+   PurchaseScreen({Key? key,this.img,this.name,this.price}) : super(key: key);
 
   @override
   State<PurchaseScreen> createState() => _PurchaseScreenState();
@@ -337,7 +338,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                       ),
                       SizedBox(height: 10.h,),
                       InkWell(onTap:(){
-                        Get.to(CheckoutPage(imgs:widget.img,name: widget.name,method: _selectedValue == 1?'Razor Pay':'Net Banking',));
+                        Get.to(CheckoutPage(imgs:widget.img,name: widget.name,price: '05.99',method: _selectedValue == 1?'Razor Pay':'Net Banking',));
                       },
                         child: Container(
                           alignment: Alignment.center,

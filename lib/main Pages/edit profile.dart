@@ -78,17 +78,9 @@ class _EditProfileState extends State<EditProfile> {
               SizedBox(
                 height: 4.h,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Edit Profile',
-                    style: primarytxt1,
-                  ),
-                ],
-              ),
+
               SizedBox(
-                height: 3.h,
+                height: 7.h,
               ),
               Column(
                 children: [
@@ -125,7 +117,7 @@ class _EditProfileState extends State<EditProfile> {
                       ),
                       Positioned(
                           top: 9.5.h,
-                          left: 23.w,
+                          left: 21.w,
                           child: InkWell(
                               onTap: () async {
                                 final image = await _picker.pickImage(

@@ -69,8 +69,8 @@ class _ForgotpwdState extends State<Forgotpwd> {
                     ),
                     Center(
                       child:  Container(
-                        height: 20.h,
-                        width: 90.w,
+                        height: 25.h,
+                        width: 100.w,
 
                         child: Lottie.asset('assets/main.json'),
                       ),
@@ -82,13 +82,14 @@ class _ForgotpwdState extends State<Forgotpwd> {
                         child: Text(
                           "Jigsaw Puzzle",
                           style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 14.sp,
-                             fontFamily: 'Poppins',),
+                            color: Colors.black,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 17.sp,
+                            letterSpacing: 2,
+                            fontFamily: 'Poppins',),
                         )),
                     SizedBox(
-                      height: 10.h,
+                      height: 7.h,
                     ),
                     Container(
                       padding: EdgeInsets.all(5.w),

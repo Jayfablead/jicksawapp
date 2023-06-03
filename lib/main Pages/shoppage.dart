@@ -75,7 +75,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 3.h,
+                  height: 5.h,
                 ),
                 Row(
                   children: [
@@ -91,10 +91,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                     SizedBox(
                       width: 30.w,
                     ),
-                    Text(
-                      'Shop',
-                      style: primarytxt1,
-                    ),
+
                   ],
                 ),
                 SizedBox(
