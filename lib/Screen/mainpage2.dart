@@ -225,9 +225,26 @@ class _mainpage2State extends State<mainpage2> {
                                               ),
                                             ],
                                           ),
-                                          Image.asset(
-                                            'assets/user.png',
+                                          Container(
+                                            margin: EdgeInsets.symmetric(horizontal: 1.w),
+
                                             width: 9.w,
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.circular(90),
+                                              child: CachedNetworkImage(
+                                                fit: BoxFit.cover,
+                                                imageUrl: (profileviewmodal
+                                                    ?.profileViewPlayer?.profilePic)
+                                                    .toString(),
+                                                progressIndicatorBuilder:
+                                                    (context, url, progress) =>
+                                                    CircularProgressIndicator(),
+                                                errorWidget: (context, url, error) => Image.asset(
+                                                  'assets/user.png',
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -480,10 +497,9 @@ SizedBox(height: 2.h,),
 
   viewap() {
     final Map<String, String> data = {};
-
-    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['uid'] = (usermodal?.userData?.uid).toString() ;
     data['action'] = 'profile_view_player';
-
+    print(data);
     checkInternet().then((internet) async {
       if (internet) {
         authprovider().profileviewapi(data).then((response) async {
@@ -492,16 +508,18 @@ SizedBox(height: 2.h,),
 
           if (response.statusCode == 200 &&
               profileviewmodal?.status == "success") {
+            // print(profileviewmodal?.profileViewPlayer?.name);
+            // print(profileviewmodal?.profileViewPlayer?.age);
+            // print(profileviewmodal?.profileViewPlayer?.about);
+            // print(profileviewmodal?.profileViewPlayer?.profilePic);
             setState(() {
-              isloading = false;
+              // isLoading = false;
             });
-          } else {
-            isloading = false;
-          }
+          } else {}
         });
       } else {
         setState(() {
-          isloading = false;
+          // isLoading = false;
         });
         buildErrorDialog(context, 'Error', "Internate Required");
       }

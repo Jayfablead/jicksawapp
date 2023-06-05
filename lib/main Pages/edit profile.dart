@@ -8,10 +8,12 @@ import 'package:get/get.dart';
 import 'package:http/http.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:jicksaw/Modal/UserModal.dart';
+import 'package:jicksaw/Modal/editmodal.dart';
 import 'package:jicksaw/Provider/ProfileviewModal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/const.dart';
+import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:jicksaw/main%20Pages/porfilePage.dart';
 
@@ -65,277 +67,279 @@ class _EditProfileState extends State<EditProfile> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: bgcolor
-      // Colors.black
-      ,
-      key: _scaffoldKey,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 4.w),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 4.h,
-              ),
+    return commanScreen(isLoading: isLoading,
+      scaffold: Scaffold(
+        backgroundColor: bgcolor
+        // Colors.black
+        ,
+        key: _scaffoldKey,
+        body:isLoading?Container(): SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 4.w),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 4.h,
+                ),
 
-              SizedBox(
-                height: 7.h,
-              ),
-              Column(
-                children: [
-                  Stack(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 1.w),
-                        height: 15.h,
-                        width: 30.w,
-                        padding: EdgeInsets.all(1.w),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(90),
-                          child: (imagefile != null)
-                              ? Image.file(
-                                  imagefile!,
-                                  width: 300.0,
-                                  fit: BoxFit.cover,
-                                )
-                              : CachedNetworkImage(
-                                  fit: BoxFit.cover,
-                                  imageUrl: profileviewmodal
-                                          ?.profileViewPlayer?.profilePic ??
-                                      '',
-                                  progressIndicatorBuilder:
-                                      (context, url, progress) =>
-                                          CircularProgressIndicator(),
-                                  errorWidget: (context, url, error) =>
-                                      Image.asset(
-                                    'assets/user.png',
-                                    color: Colors.black,
+                SizedBox(
+                  height: 7.h,
+                ),
+                Column(
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 1.w),
+                          height: 15.h,
+                          width: 30.w,
+                          padding: EdgeInsets.all(1.w),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(90),
+                            child: (imagefile != null)
+                                ? Image.file(
+                                    imagefile!,
+                                    width: 300.0,
+                                    fit: BoxFit.cover,
+                                  )
+                                : CachedNetworkImage(
+                                    fit: BoxFit.cover,
+                                    imageUrl: profileviewmodal
+                                            ?.profileViewPlayer?.profilePic ??
+                                        '',
+                                    progressIndicatorBuilder:
+                                        (context, url, progress) =>
+                                            CircularProgressIndicator(),
+                                    errorWidget: (context, url, error) =>
+                                        Image.asset(
+                                      'assets/user.png',
+                                      color: Colors.black,
+                                    ),
                                   ),
-                                ),
+                          ),
                         ),
-                      ),
-                      Positioned(
-                          top: 9.5.h,
-                          left: 21.w,
-                          child: InkWell(
-                              onTap: () async {
-                                final image = await _picker.pickImage(
-                                    source: ImageSource.gallery);
-                                setState(() {
-                                  imagefile = File(image!.path);
-                                });
-                              },
-                              child: Container(
-                                  padding: EdgeInsets.all(2.w),
-                                  decoration: BoxDecoration(
-                                      color:
-                                          // bgcolor
-                                          Colors.black,
-                                      borderRadius: BorderRadius.circular(20)),
-                                  child: const Icon(
-                                    Icons.camera_alt_outlined,
-                                    color: primary,
-                                  )))),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 4.h,
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(3.w),
-                    margin: EdgeInsets.all(3.w),
-                    // height: .h,
-                    width: 99.w,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20.0),
-                        border: Border.all(color: primary)),
-                    child: Form(
-                      child: Column(
-                        children: [
-                          Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: secondary,),
-                                borderRadius: BorderRadius.circular(20)),
-                            height: 7.h,
-                            alignment: Alignment.center,
-                            child: TextFormField(
-                              style: TextStyle(
-                             
-                                  color: Colors.black,
-                                  fontFamily: 'Poppins',
-                                  letterSpacing: 2,
-                                  fontSize: 12.sp),
-                              controller: _user,
-                              keyboardType: TextInputType.text,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "Please enter the user name";
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(errorBorder: UnderlineInputBorder(
-                                borderSide:
-                                BorderSide(color: Colors.transparent),
+                        Positioned(
+                            top: 9.5.h,
+                            left: 21.w,
+                            child: InkWell(
+                                onTap: () async {
+                                  final image = await _picker.pickImage(
+                                      source: ImageSource.gallery);
+                                  setState(() {
+                                    imagefile = File(image!.path);
+                                  });
+                                },
+                                child: Container(
+                                    padding: EdgeInsets.all(2.w),
+                                    decoration: BoxDecoration(
+                                        color:
+                                            // bgcolor
+                                            Colors.black,
+                                        borderRadius: BorderRadius.circular(20)),
+                                    child: const Icon(
+                                      Icons.camera_alt_outlined,
+                                      color: primary,
+                                    )))),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 4.h,
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(3.w),
+                      margin: EdgeInsets.all(3.w),
+                      // height: .h,
+                      width: 99.w,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20.0),
+                          border: Border.all(color: primary)),
+                      child: Form(
+                        child: Column(
+                          children: [
+                            Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: secondary,),
+                                  borderRadius: BorderRadius.circular(20)),
+                              height: 7.h,
+                              alignment: Alignment.center,
+                              child: TextFormField(
+                                style: TextStyle(
+
+                                    color: Colors.black,
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 2,
+                                    fontSize: 12.sp),
+                                controller: _user,
+                                keyboardType: TextInputType.text,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return "Please enter the user name";
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(errorBorder: UnderlineInputBorder(
+                                  borderSide:
+                                  BorderSide(color: Colors.transparent),
+                                ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                    ),
+                                    suffixIcon: Icon(
+                                      Icons.person,
+                                      color: Colors.black,
+                                    ),
+                                    hintText: "Full Name",
+                                    hintStyle: TextStyle(
+                                        color: Colors.black87,
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 2,
+                                        fontSize: 11.sp)),
                               ),
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide:
-                                    BorderSide(color: Colors.transparent),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide:
-                                    BorderSide(color: Colors.transparent),
-                                  ),
-                                  suffixIcon: Icon(
-                                    Icons.person,
-                                    color: Colors.black,
-                                  ),
-                                  hintText: "Full Name",
-                                  hintStyle: TextStyle(
-                                      color: Colors.black87,
-                                      fontFamily: 'Poppins',
-                                      letterSpacing: 2,
-                                      fontSize: 11.sp)),
                             ),
-                          ),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                          Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: secondary,),
-                                borderRadius: BorderRadius.circular(20)),
-                            height: 7.h,
-                            alignment: Alignment.center,
-                            child: TextFormField(
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black,
-                                  fontFamily: 'Poppins',
-                                  letterSpacing: 2,
-                                  fontSize: 12.sp),
-                              controller: _age,
-                              keyboardType: TextInputType.text,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "Please enter the age";
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide:
-                                  BorderSide(color: Colors.transparent),
-                                ),
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide:
-                                    BorderSide(color: Colors.transparent),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide:
-                                    BorderSide(color: Colors.transparent),
-                                  ),
-                                  suffixIcon: Icon(
-                                    Icons.person_pin_circle_outlined,
-                                    color: Colors.black,
-                                  ),
-                                  hintText: "Age",
-                                  hintStyle: TextStyle(
-                                      color: Colors.black87,
-                                      fontFamily: 'Poppins',
-                                      letterSpacing: 2,
-                                      fontSize: 11.sp)),
+                            SizedBox(
+                              height: 2.h,
                             ),
-                          ),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                          Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: secondary,),
-                                borderRadius: BorderRadius.circular(20)),
-                            
-                            alignment: Alignment.center,
-                            child: TextFormField(
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black,
-                                  fontFamily: 'Poppins',
-                                  letterSpacing: 2,
-                                  fontSize: 12.sp),
-                              controller: _about,
-                              keyboardType: TextInputType.text,
-                              maxLines: 5,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "Enter About Detials";
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide:
-                                  BorderSide(color: Colors.transparent),
-                                ),
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Colors.transparent),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
+                            Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: secondary,),
+                                  borderRadius: BorderRadius.circular(20)),
+                              height: 7.h,
+                              alignment: Alignment.center,
+                              child: TextFormField(
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black,
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 2,
+                                    fontSize: 12.sp),
+                                controller: _age,
+                                keyboardType: TextInputType.text,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return "Please enter the age";
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                  errorBorder: UnderlineInputBorder(
                                     borderSide:
                                     BorderSide(color: Colors.transparent),
                                   ),
-                                  suffixIcon: Icon(
-                                    Icons.info_outline_rounded,
-                                    color: Colors.black,
-                                  ),
-                                  hintText: "About",
-                                  hintStyle: TextStyle(
-                                      color: Colors.black87,
-                                      fontFamily: 'Poppins',
-                                      letterSpacing: 2,
-                                      fontSize: 11.sp)),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                    ),
+                                    suffixIcon: Icon(
+                                      Icons.person_pin_circle_outlined,
+                                      color: Colors.black,
+                                    ),
+                                    hintText: "Age",
+                                    hintStyle: TextStyle(
+                                        color: Colors.black87,
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 2,
+                                        fontSize: 11.sp)),
+                              ),
                             ),
-                          ),
-                        ],
+                            SizedBox(
+                              height: 2.h,
+                            ),
+                            Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: secondary,),
+                                  borderRadius: BorderRadius.circular(20)),
+
+                              alignment: Alignment.center,
+                              child: TextFormField(
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black,
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 2,
+                                    fontSize: 12.sp),
+                                controller: _about,
+                                keyboardType: TextInputType.text,
+                                maxLines: 5,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return "Enter About Detials";
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                  errorBorder: UnderlineInputBorder(
+                                    borderSide:
+                                    BorderSide(color: Colors.transparent),
+                                  ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide:
+                                          BorderSide(color: Colors.transparent),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                    ),
+                                    suffixIcon: Icon(
+                                      Icons.info_outline_rounded,
+                                      color: Colors.black,
+                                    ),
+                                    hintText: "About",
+                                    hintStyle: TextStyle(
+                                        color: Colors.black87,
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 2,
+                                        fontSize: 11.sp)),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 4.h,
-                  ),
-                  Center(
-                    child: InkWell(
-                      onTap: () async {
-                        print('zoro');
-                        editap();
-                      },
-                      child: Container(
-                        height: 5.5.h,
-                        width: 45.w,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            color: primary,
-                            borderRadius: BorderRadius.circular(30)),
-                        child: Text(
-                          'Update Profile',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 13.sp,
-                            fontFamily: 'Poppins',
-                            letterSpacing: 2,
+                    SizedBox(
+                      height: 4.h,
+                    ),
+                    Center(
+                      child: InkWell(
+                        onTap: () async {
+                          print('zoro');
+                          editap();
+                        },
+                        child: Container(
+                          height: 5.5.h,
+                          width: 45.w,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: primary,
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Text(
+                            'Update Profile',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 13.sp,
+                              fontFamily: 'Poppins',
+                              letterSpacing: 2,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 4.h,
-                  ),
-                ],
-              ),
-            ],
+                    SizedBox(
+                      height: 4.h,
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -399,26 +403,26 @@ class _EditProfileState extends State<EditProfile> {
     data['username'] = _user.text.trim().toString();
     data['age'] = _age.text.trim().toString();
     data['about'] = _about.text.trim().toString();
-    data['img_file'] = imagefile!.path;
+    data['img_file'] = imagefile == null?'': imagefile!.path ;
     data['action'] = 'profile_update_player';
     print(data);
     checkInternet().then((internet) async {
       print('hello');
       if (internet) {
         authprovider().profileupdateapi(data).then((response) async {
-          usermodal = UserModal.fromJson(json.decode(response.body));
+          edit = editModal.fromJson(json.decode(response.body));
           print(response.body);
           print(response.statusCode);
-          print(usermodal?.status);
-          if (response.statusCode == 200 && usermodal?.status == "success") {
+          print(edit?.status);
+          if (response.statusCode == 200 && edit?.status == "success") {
             update(context, 'Success', "Profile Updated Successfully",
                 callback:(){
-              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyProfile()));
-              // Get.offAll(MyProfile());
+              // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyProfile()));
+              Get.offAll(MyProfile());
                 }
             );
             setState(() {
-              // isLoading = false;
+               isLoading = false;
             });
           } else {
             buildErrorDialog(
@@ -427,7 +431,7 @@ class _EditProfileState extends State<EditProfile> {
         });
       } else {
         setState(() {
-          // isLoading = false;
+           isLoading = false;
         });
         buildErrorDialog(context, 'Error', "Internate Required");
       }
@@ -456,15 +460,14 @@ class _EditProfileState extends State<EditProfile> {
                   (profileviewmodal?.profileViewPlayer?.name).toString();
               _age.text = profileviewmodal?.profileViewPlayer?.age ?? "";
               _about.text = profileviewmodal?.profileViewPlayer?.about ?? "";
+
+               isLoading = false;
             });
-            setState(() {
-              // isLoading = false;
-            });
-          } else {}
+          } else {isLoading = false;}
         });
       } else {
         setState(() {
-          // isLoading = false;
+           isLoading = false;
         });
         buildErrorDialog(context, 'Error', "Internate Required");
       }

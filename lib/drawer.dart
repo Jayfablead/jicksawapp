@@ -122,7 +122,7 @@ class _drawer1State extends State<drawer1> {
                             height: 0.5.h,
                           ),
                           Text(
-                            usermodal?.userData?.name ?? "",
+                           profileviewmodal?.profileViewPlayer?.name ?? '',
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 12.sp,
@@ -749,7 +749,7 @@ class _drawer1State extends State<drawer1> {
 
     data['uid'] = usermodal?.userData?.uid ?? "";
     data['action'] = 'profile_view_player';
-
+print(data);
     checkInternet().then((internet) async {
       if (internet) {
         authprovider().profileviewapi(data).then((response) async {
