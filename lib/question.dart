@@ -6,6 +6,7 @@ import 'package:jicksaw/Questions/gameinfo.dart';
 import 'package:jicksaw/Questions/resultsPage.dart';
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/main%20Pages/congratulation.dart';
+import 'package:jicksaw/main%20Pages/game%20over%20page.dart';
 import 'package:jicksaw/other/const%20widget.dart';
 import 'package:sizer/sizer.dart';
 
@@ -199,7 +200,7 @@ class _questionState extends State<question> {
                   SizedBox(height: 1.5.h,),
                   ans != 5
                       ? InkWell(
-                          onTap: () {op == '1' ?Get.to(congratulation()):Get.to(ResultsPage(firstans: op));},
+                          onTap: () {op == '1' ?Get.to(congratulation()):Get.to(GameOver());},
                           child: Container(
                             alignment: Alignment.center,
                             width: 82.w,

@@ -31,7 +31,7 @@ class _TutorialState extends State<Tutorial> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 5.h,
+                  height: 6.h,
                 ),
                 Row(
                   children: [
@@ -80,7 +80,7 @@ class _TutorialState extends State<Tutorial> {
                 SizedBox(
                   width: 85.w,
                   child: Text(
-                    'Each Player have to Select Your Favourite Category and Age Group.',
+                    'Each Player have to Select Their Favourite Category and Age Group.',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 14.sp,
@@ -130,7 +130,7 @@ class _TutorialState extends State<Tutorial> {
                 SizedBox(
                   width: 85.w,
                   child: Text(
-                    'Each Player Get 5 Questions if They Give Right Answer They got 20 Points.',
+                    'Each Player Get 1 Question.',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 14.sp,
@@ -155,7 +155,7 @@ class _TutorialState extends State<Tutorial> {
                 SizedBox(
                   width: 85.w,
                   child: Text(
-                    'Each Player Want Minimum 60 Points to Play.',
+                    'Each Player Has to Guess Correct Answer.',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 14.sp,
@@ -180,7 +180,7 @@ class _TutorialState extends State<Tutorial> {
                 SizedBox(
                   width: 85.w,
                   child: Text(
-                    'Each Player Will Get 4 Options. Where One is Correct and Others are Wrong.',
+                    'Each Player Will Get 4 Options per Question. Where One is Correct and Others are Wrong.',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 14.sp,
@@ -205,7 +205,7 @@ class _TutorialState extends State<Tutorial> {
                 SizedBox(
                   width: 85.w,
                   child: Text(
-                    'Each Player Has to Guess Correct Answer.',
+                    'If they gave Correct Answer They get Chance to Roll Dice.',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 14.sp,
@@ -230,7 +230,7 @@ class _TutorialState extends State<Tutorial> {
                 SizedBox(
                   width: 85.w,
                   child: Text(
-                    'Once a Player Answered a Question They Can\'t Goback And Change thier Answer.',
+                    'Once a Player Answered a Question They Can\'t Go-back OR Change their Answer.',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 14.sp,

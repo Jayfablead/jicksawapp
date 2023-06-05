@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jicksaw/design.dart';
+import 'package:jicksaw/Questions/gameinfo.dart';
 import 'package:jicksaw/other/const%20widget.dart';
 import 'package:jicksaw/question.dart';
 import 'package:sizer/sizer.dart';
-class congratulation extends StatefulWidget {
-   congratulation({Key? key}) : super(key: key);
+class GameOver extends StatefulWidget {
+  GameOver({Key? key}) : super(key: key);
   @override
-  State<congratulation> createState() => _congratulationState();
+  State<GameOver> createState() => _GameOverState();
 }
-class _congratulationState extends State<congratulation> {
+class _GameOverState extends State<GameOver> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,16 +37,16 @@ class _congratulationState extends State<congratulation> {
           ),
           SizedBox(height: 6.h,),
           Center(
-            child: Text("Congratulations!",style: TextStyle(
+            child: Text("GameOver!",style: TextStyle(
                 fontFamily: "Poppins",
-              fontSize: 24.sp,
-              fontWeight: FontWeight.bold,
-              color: Colors.black
+                fontSize: 24.sp,
+                fontWeight: FontWeight.bold,
+                color: Colors.black
             ),),
           ),
           SizedBox(height: 2.h,),
           Center(
-            child: Text("Level 2 unlocked",style: TextStyle(
+            child: Text("Level 1",style: TextStyle(
                 fontFamily: "Poppins",
                 fontSize: 14.sp,
                 fontWeight: FontWeight.bold,
@@ -58,29 +58,21 @@ class _congratulationState extends State<congratulation> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
-               children: [
-                 Image.asset("assets/1.jpg",height: 20.w,width: 20.w,),
-                 SizedBox(height: 1.h,),
-                 Text("Beginner Level",
-                     style: TextStyle(
-                     fontFamily: "Poppins",
-                     fontSize: 8.sp,
-                     fontWeight: FontWeight.normal,
-                     color: Colors.grey.shade900
-                 ),
-                 )
-               ],
-              ),
-              Column(
                 children: [
-                  Image.asset("assets/level2.png",height: 40.w,width: 40.w,),
+                  Container(height: 20.w,width: 20.w,),
+
+                ],
+              ), Column(
+                children: [
+                  Image.asset("assets/1.jpg",height: 35.w,width: 35.w,),
+
                 ],
               ),
               Column(
                 children: [
-                  Image.asset("assets/level3.png",height: 20.w,width: 20.w,),
+                  Image.asset("assets/level2.png",height: 20.w,width: 20.w,),
                   SizedBox(height: 1.h,),
-                  Text("Beginner Level",
+                  Text("Elementary Level",
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 8.sp,
@@ -89,11 +81,25 @@ class _congratulationState extends State<congratulation> {
                     ),
                   )
                 ],
-              )
+              ),
+              // Column(
+              //   children: [
+              //     Image.asset("assets/level3.png",height: 20.w,width: 20.w,),
+              //     SizedBox(height: 1.h,),
+              //     Text("Beginner Level",
+              //       style: TextStyle(
+              //           fontFamily: "Poppins",
+              //           fontSize: 8.sp,
+              //           fontWeight: FontWeight.normal,
+              //           color: Colors.grey.shade900
+              //       ),
+              //     )
+              //   ],
+              // )
             ],
           ),
           SizedBox(height: 2.h,),
-          Text("Elementry Level",
+          Text("Beginner Level",
             style: TextStyle(
                 fontFamily: "Poppins",
                 fontSize: 18.sp,
@@ -120,9 +126,9 @@ class _congratulationState extends State<congratulation> {
               borderRadius: BorderRadius.circular(20.0),
               gradient: LinearGradient(
                   colors: [
-                  primary1,
+                    primary1,
                     primary2,
-                  primary
+                    primary
                   ],
                   begin: const FractionalOffset(0.0, 0.0),
                   end: const FractionalOffset(1.0, 0.0),
@@ -134,16 +140,16 @@ class _congratulationState extends State<congratulation> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Level 1",style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12.sp,fontFamily: "Poppins"
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12.sp,fontFamily: "Poppins"
                 ),),
                 Container(
                   height: 4.h,
                   width: 4.h,
                   decoration: BoxDecoration(
-                  color: Colors.white,
-                    shape: BoxShape.circle
-                ),
+                      color: Colors.white,
+                      shape: BoxShape.circle
+                  ),
                   child: Icon(Icons.star,color: primary,size: 14.sp,),
                 )
               ],
@@ -154,20 +160,20 @@ class _congratulationState extends State<congratulation> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Exp.250",style: TextStyle(
+              Text("Exp.0",style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 12.sp,fontFamily: "Poppins"
               ),),
               Text("/250",style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 12.sp,fontFamily: "Poppins",color: Colors.grey
+                  fontSize: 12.sp,fontFamily: "Poppins",color: Colors.black54
               ),),
             ],
           ),
           SizedBox(height: 5.h,),
           GestureDetector(
             onTap: (){
-              Get.offAll(design());
+              Get.offAll(Tutorial());
             },
             child:Container(
               alignment: Alignment.center,
@@ -177,7 +183,7 @@ class _congratulationState extends State<congratulation> {
                 borderRadius: BorderRadius.circular(30.0),
                 border: Border.all(color: primary,width: 2.0),
               ),
-              child:  Text("Continue",style: TextStyle(
+              child:  Text("Try Again",style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 14.sp,fontFamily: "Poppins",color: primary
               ),),

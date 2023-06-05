@@ -69,386 +69,311 @@ class _ShopmainPageState extends State<ShopmainPage> {
       ,
       drawer: drawer1(),
       body: SingleChildScrollView(
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 4.w),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 5.h,
-                ),
-                Row(
+        child: Stack(
+          children: [
+            Container(height: 100.h,child: Image.asset('assets/wall2.webp',fit: BoxFit.fitHeight,)),
+            Container(height: 100.h,color: Colors.black.withOpacity(0.20),),
+            Container(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 4.w),
+                child: Column(
                   children: [
-                    IconButton(
-                        onPressed: () {
-                          print('object');
-                          _scaffoldKey.currentState?.openDrawer();
-                        },
-                        icon: Icon(
-                          Icons.menu_rounded,
-                          color: primary,
-                        )),
                     SizedBox(
-                      width: 30.w,
+                      height: 6.h,
                     ),
+                    Row(
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              print('object');
+                              _scaffoldKey.currentState?.openDrawer();
+                            },
+                            icon: Icon(
+                              Icons.menu_rounded,
+                              color: primary,
+                            )),
+                        SizedBox(
+                          width: 30.w,
+                        ),
 
-                  ],
-                ),
-                SizedBox(
-                  height: 2.h,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Welcome Back ${profileviewmodal?.profileViewPlayer?.name}",
-                      style: TextStyle(
-                          wordSpacing: 3,
-                          letterSpacing: 1,
-                          color: Colors.black,
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.normal,
-                         fontFamily: 'Poppins',),
+                      ],
                     ),
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 1.w),
-                      height: 5.h,
-                      width: 10.w,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(90),
-                        child: CachedNetworkImage(
-                          fit: BoxFit.cover,
-                          imageUrl: profileviewmodal?.profileViewPlayer?.profilePic ?? '',
-                          progressIndicatorBuilder: (context, url, progress) =>
-                              CircularProgressIndicator(),
-                          errorWidget: (context, url, error) => Image.asset(
-                            'assets/user.png',
-                            color: Colors.black,
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Welcome Back ${profileviewmodal?.profileViewPlayer?.name}",
+                          style: TextStyle(
+                              wordSpacing: 3,
+                              letterSpacing: 1,
+                              color: Colors.white,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.normal,
+                             fontFamily: 'Poppins',),
+                        ),
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 1.w),
+                          height: 5.h,
+                          width: 10.w,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(90),
+                            child: CachedNetworkImage(
+                              fit: BoxFit.cover,
+                              imageUrl: profileviewmodal?.profileViewPlayer?.profilePic ?? '',
+                              progressIndicatorBuilder: (context, url, progress) =>
+                                  CircularProgressIndicator(),
+                              errorWidget: (context, url, error) => Image.asset(
+                                'assets/user.png',
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                ),
-                SizedBox(
-                  height: 2.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Popular',
-                      style: secondarytxtwhite,
+                    SizedBox(
+                      height: 2.h,
                     ),
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'view more',
-                          style: secondarytxt,
-                        )),
-                  ],
-                ),
-                Divider(
-                  color: Colors.black,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                SizedBox(
-                  height: 150,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: popular.length,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {
-                          Get.to(()=>GameInfo(
-                            Image: popular[index].image,
-                            name: popular[index].name,
-                            Star: popular[index].star,
-                            comp: popular[index].comp,
-                          ));
-                        },
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 5.w),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: 10.h,
-                                width: 20.w,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: CachedNetworkImage(
-                                    fit: BoxFit.cover,
-                                    imageUrl: popular[index].image.toString(),
-                                    progressIndicatorBuilder:
-                                        (context, url, progress) =>
-                                            CircularProgressIndicator(),
-                                    errorWidget: (context, url, error) =>
-                                        Image.asset(
-                                      'assets/12.png',
-                                          fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 1.h,
-                              ),
-                              Align(
-                                alignment: Alignment.center,
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      popular[index].name.toString(),
-                                      style: appname,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          popular[index].star.toString(),
-                                          style: TextStyle(
-                                              color: Color(0xff8f8d8d)),
-                                        ),
-                                        SizedBox(
-                                          width: 1.w,
-                                        ),
-                                        Text(
-                                          '★',
-                                          style: TextStyle(
-                                            color: Color(0xff8f8d8d),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Popular',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 13.sp,
+                            fontFamily: 'Poppins',
+                            letterSpacing: 2,
                           ),
                         ),
-                      );
-                    },
-                  ),
-                ),
-
-                // Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     Text('Picked ups',style: secondarytxtwhite,),
-                //     TextButton(onPressed: (){}, child: Text('view more',style: secondarytxt,)),
-                //   ],
-                // ),
-                Divider(
-                  color: Colors.black,
-                ),
-
-                SizedBox(
-                  height: 30.h,
-                  child: ListView.builder(
-                    // scrollDirection: Axis.horizontal,
-                    itemCount: popular.length,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {
-                          Get.to(()=>GameInfo(
-                            Image: popular[index].image,
-                            name: popular[index].name,
-                            Star: popular[index].star,
-                            comp: popular[index].comp,
-                          ));
-                        },
-                        child: Padding(
-                          padding: EdgeInsets.only(bottom: 2.h),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: 6.h,
-                                width: 12.w,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: CachedNetworkImage(
-                                    fit: BoxFit.cover,
-                                    imageUrl: popular[index].image.toString(),
-                                    progressIndicatorBuilder:
-                                        (context, url, progress) =>
-                                            CircularProgressIndicator(),
-                                    errorWidget: (context, url, error) =>
-                                        Image.asset(
-                                      'assets/12.png',
-                                          fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 7.w,
-                              ),
-                              SizedBox(
-                                width: 32.w,
-                                child: Row(
-                                  children: [
-                                    SizedBox(width: 30.w,
-                                      child: Text(
-                                        popular[index].name.toString(),
-                                        style: appname,
+                        TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'view more',
+                              style: secondarytxt,
+                            )),
+                      ],
+                    ),
+                    Divider(
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    SizedBox(
+                      height: 23.h,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: popular.length,
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                            onTap: () {
+                              Get.to(()=>GameInfo(
+                                Image: popular[index].image,
+                                name: popular[index].name,
+                                Star: popular[index].star,
+                                comp: popular[index].comp,
+                              ));
+                            },
+                            child: Container(decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(20)
+                            ),
+                              padding: EdgeInsets.symmetric(horizontal: 4.w,vertical: 1.h),
+                              margin: EdgeInsets.symmetric(horizontal:1.w),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    height: 10.h,
+                                    width: 20.w,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20)),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(15),
+                                      child: CachedNetworkImage(
+                                        fit: BoxFit.cover,
+                                        imageUrl: popular[index].image.toString(),
+                                        progressIndicatorBuilder:
+                                            (context, url, progress) =>
+                                                CircularProgressIndicator(),
+                                        errorWidget: (context, url, error) =>
+                                            Image.asset(
+                                          'assets/12.png',
+                                              fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                width: 10.w,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    popular[index].star.toString(),
-                                    style: TextStyle(color: Color(0xff8f8d8d)),
                                   ),
                                   SizedBox(
-                                    width: 1.w,
+                                    height: 1.h,
                                   ),
-                                  Text(
-                                    '★',
-                                    style: TextStyle(
-                                      color: Color(0xff8f8d8d),
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          popular[index].name.toString(),
+                                          style: appname,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Text(
+                                             '\$ 01.99',
+                                              style: TextStyle(
+                                                  color: Color(0xff2c2c2c)),
+                                            ),
+                                            SizedBox(height: 0.5.h),
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  popular[index].star.toString(),
+                                                  style: TextStyle(
+                                                      color: Color(0xff2c2c2c)),
+                                                ),
+                                                SizedBox(
+                                                  width: 1.w,
+                                                ),
+                                                Text(
+                                                  '★',
+                                                  style: TextStyle(
+                                                    color: Color(0xff8f8d8d),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ],
                               ),
-                              SizedBox(
-                                width: 10.w,
-                              ),
-                              IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.more_vert_rounded,
-                                    color: Colors.black,
-                                    size: 15.sp,
-                                  ))
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                // Divider(color: Colors.white,),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Editor\'s Choice',
-                      style: secondarytxtwhite,
+                            ),
+                          );
+                        },
+                      ),
                     ),
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'view more',
-                          style: secondarytxt,
-                        )),
-                  ],
-                ),
-                Divider(
-                  color: Colors.black,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                SizedBox(
-                  height: 150,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: popular.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 5.w),
-                        child: InkWell(
-                          onTap: () {
-                            Get.to(()=>GameInfo(
-                              Image: popular[index].image,
-                              name: popular[index].name,
-                              Star: popular[index].star,
-                              comp: popular[index].comp,
-                            ));
-                          },
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 10.h,
-                                width: 20.w,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: CachedNetworkImage(
-                                    fit: BoxFit.cover,
-                                    imageUrl: popular[index].image.toString(),
-                                    progressIndicatorBuilder:
-                                        (context, url, progress) =>
-                                            CircularProgressIndicator(),
-                                    errorWidget: (context, url, error) =>
-                                        Image.asset(
-                                      'assets/12.png',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 1.h,
-                              ),
-                              Align(
-                                alignment: Alignment.center,
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      popular[index].name.toString(),
-                                      style: appname,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          popular[index].star.toString(),
-                                          style: TextStyle(
-                                              color: Color(0xff8f8d8d)),
-                                        ),
-                                        SizedBox(
-                                          width: 1.w,
-                                        ),
-                                        Text(
-                                          '★',
-                                          style: TextStyle(
-                                            color: Color(0xff8f8d8d),
+
+                    // Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   children: [
+                    //     Text('Picked ups',style: secondarytxtwhite,),
+                    //     TextButton(onPressed: (){}, child: Text('view more',style: secondarytxt,)),
+                    //   ],
+                    // ),
+                    SizedBox(height: 1.h,),
+                    Divider(
+                      color: Colors.white,
+                    ),
+                    SizedBox(height: 1.h,),
+
+                    SizedBox(
+                      height: 40.h,
+                      child: ListView.builder(
+                        // scrollDirection: Axis.horizontal,
+                        itemCount: popular.length,padding: EdgeInsets.zero,
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                            onTap: () {
+                              Get.to(()=>GameInfo(
+                                Image: popular[index].image,
+                                name: popular[index].name,
+                                Star: popular[index].star,
+                                comp: popular[index].comp,
+                              ));
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(15)),
+                              padding: EdgeInsets.all(1.h),
+                              margin: EdgeInsets.symmetric(vertical: 0.5.h),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        height: 6.h,
+                                        width: 12.w,
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(20)),
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.circular(15),
+                                          child: CachedNetworkImage(
+                                            fit: BoxFit.cover,
+                                            imageUrl: popular[index].image.toString(),
+                                            progressIndicatorBuilder:
+                                                (context, url, progress) =>
+                                                    CircularProgressIndicator(),
+                                            errorWidget: (context, url, error) =>
+                                                Image.asset(
+                                              'assets/12.png',
+                                                  fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                                      ),
+                                      SizedBox(
+                                        width: 5.w,
+                                      ),
+                                      SizedBox(
+                                        width: 32.w,
+                                        child: Row(
+                                          children: [
+                                            SizedBox(width: 30.w,
+                                              child: Text(
+                                                popular[index].name.toString(),
+                                                style: appname,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        popular[index].star.toString(),
+                                        style: TextStyle(color: Color(0xff8f8d8d)),
+                                      ),
+                                      SizedBox(
+                                        width: 1.w,
+                                      ),
+                                      Text(
+                                        '★',
+                                        style: TextStyle(
+                                          color: Color(0xff8f8d8d),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Text(
+                                    '\$ 01.99',
+                                    style: TextStyle(color: Color(0xff8f8d8d)),
+                                  ),
+
+                                ],
                               ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+
+
+
+
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
