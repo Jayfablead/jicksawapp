@@ -153,8 +153,13 @@ class _ShopmainPageState extends State<ShopmainPage> {
                         TextButton(
                             onPressed: () {},
                             child: Text(
-                              'view more',
-                              style: secondarytxt,
+                              'VIEW MORE',
+                              style: TextStyle(
+                                color: Colors.deepOrange,
+                                fontSize: 11.sp,
+                                fontFamily: 'Poppins',
+                                letterSpacing: 2,
+                              ),
                             )),
                       ],
                     ),

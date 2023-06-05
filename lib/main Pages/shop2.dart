@@ -110,7 +110,7 @@ class _GameInfoState extends State<GameInfo> {
                     ),
                     SizedBox(width: 5.w),
                     SizedBox(
-                      height: 11.h,
+                      height: 12.h,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,6 +127,7 @@ class _GameInfoState extends State<GameInfo> {
                             "${widget.Star.toString()} ★ ",
                             style: secondarytxtwhite1,
                           ),
+
                         ],
                       ),
                     )
@@ -144,7 +145,7 @@ class _GameInfoState extends State<GameInfo> {
                         color: primary),
                     // padding: EdgeInsets.all(2.h),
                     child: Text(
-                      'Purchase',
+                      'Purchase (\$ 05.99)',
                       style: TextStyle(
                         fontSize: 12.sp,
                         color: Colors.white,

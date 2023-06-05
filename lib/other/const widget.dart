@@ -38,7 +38,7 @@ AppBar appbar1(
 
 TextStyle mainstyle = TextStyle(
   color: Colors.black,
-  fontSize: 16.sp,
+  fontSize: 15.sp,
 fontFamily: 'Poppins',
   letterSpacing: 2,
 );

@@ -128,6 +128,61 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
             ),
             Container(
+              height: 13.h,
+              width: MediaQuery.of(context).size.width,
+              child: Card(
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                child: Padding(
+                  padding: EdgeInsets.all(3.w),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding:  EdgeInsets.symmetric(horizontal: 3.w),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Payment Option',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14.sp),
+                            ),
+                            Text(
+                              'Edit',
+                              style: TextStyle(
+                                  color: primary,
+                                  fontSize: 14.sp),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            '* * * * 0788',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 15.sp),
+                          ),
+                          Text(
+                            widget.method.toString(),
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 15.sp),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Container(
               height: 25.h,
               width: MediaQuery.of(context).size.width,
               child: Card(
@@ -195,7 +250,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
             ),
             InkWell(
-              onTap: () {Get.to(PurchaseTYPage(price: widget.price,name: widget.name,),);},
+              onTap: () {Get.to(PurchaseTYPage(price: widget.price,name: widget.name,method: widget.method),);},
               child: Container(
                 alignment: Alignment.center,
                 width: 85.w,

@@ -10,9 +10,10 @@ import '../other/const widget.dart';
 class PurchaseTYPage extends StatefulWidget {
   String? name;
   String? price;
+  String? method;
 
 
-  PurchaseTYPage({Key? key, this.name, this.price}) : super(key: key);
+  PurchaseTYPage({Key? key, this.name, this.method,this.price}) : super(key: key);
 
   @override
   State<PurchaseTYPage> createState() => _PurchaseTYPageState();
@@ -33,7 +34,7 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
             Column(
               children: [
                 Container(
-                  height: 21.h,
+                  height: 20.h,
                   child: Lottie.asset('assets/you.json'),
                 ),
                 SizedBox(
@@ -50,35 +51,160 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 2.5.h,
+                  height: 2.h,
                 ),
                 Text(
                   'You have Purchased ${widget.name}.',
                   style: mainstyle,
                   textAlign: TextAlign.center,
                 ),
+                Container(
+                  height: 30.h,
+                  width: MediaQuery.of(context).size.width,
+                  child: Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Padding(
+                      padding: EdgeInsets.all(3.w),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Order-No',
+                                style: TextStyle(
+                                    color: Colors.black.withOpacity(0.90),
+                                    fontSize: 14.sp),
+                              ),
+                              Text(
+                                '12',
+                                style: TextStyle(
+                                    color:Colors.black.withOpacity(0.80),
+                                    fontSize: 14.sp),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Order Type',
+                                style: TextStyle(
+                                    color: Colors.black.withOpacity(0.90),
+                                    fontSize: 14.sp),
+                              ),
+                              Text(
+                                'In-App Purchases',
+                                style: TextStyle(
+                                    color:Colors.black.withOpacity(0.80),
+                                    fontSize: 14.sp),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Order-Id',
+                                style: TextStyle(
+                                    color: Colors.black.withOpacity(0.90),
+                                    fontSize: 14.sp),
+                              ),
+                              Text(
+                                '33009988223',
+                                style: TextStyle(
+                                    color:Colors.black.withOpacity(0.80),
+                                    fontSize: 14.sp),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Order Details :',
+                                style: TextStyle(
+                                    color: Colors.black.withOpacity(0.90),
+                                    fontSize: 14.sp),
+                              ),
+                              Text(
+                                '',
+                                style: TextStyle(
+                                    color:Colors.black.withOpacity(0.80),
+                                    fontSize: 14.sp),
+                              ),
+                            ],
+                          ),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                              widget.name.toString(),
+                                style: TextStyle(
+                                    color: Colors.black.withOpacity(0.90),
+                                    fontSize: 14.sp),
+                              ),
+                              Text(
+                               ' \$ ${widget.price}',
+                                style: TextStyle(
+                                    color:Colors.black.withOpacity(0.80),
+                                    fontSize: 14.sp),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Payment Type',
+                                style: TextStyle(
+                                    color: Colors.black.withOpacity(0.90),
+                                    fontSize: 14.sp),
+                              ),
+                              Text(
+                                widget.method.toString(),
+                                style: TextStyle(
+                                    color:Colors.black.withOpacity(0.80),
+                                    fontSize: 14.sp),
+                              ),
+                            ],
+                          ),
+
+
+
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
                 SizedBox(
                   height: 2.h,
                 ),
                 Text(
-                  'Thanks for Paying \$ ${widget.price} to Us.',
+                  'Thanks for Paying. Keep Shopping with Us.',
                   style: mainstyle,
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
                   height: 2.h,
                 ),
-                Text('We are Happy to Serve You our Puzzle Images',
+                Text('We are Happy to Serve You',
                     style: mainstyle, textAlign: TextAlign.center),
 
                 SizedBox(
-                  height: 3.h,
+                  height: 1.h,
                 ),
-                Text('Stay tuned with us',
-                    style: mainstyle, textAlign: TextAlign.center),
-                SizedBox(
-                  height: 6.h,
-                ),
+
                 InkWell(
                   onTap: () {
                     Get.to(
