@@ -924,8 +924,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                     'Give Correct Answer and get a Jigsaw Piece',
                     callback: goquestions)
                 : gamedata?.gameData?.steps == '3'
-                    ? gameexit(context, 'You will get a Question',
-                        'Give Correct Answer and get a Jigsaw Piece',
+                    ? gameexit(context, 'You will a Random Challenge',
+                        'Do Challenge and Win a Jigsaw Piece',
                         callback: gochallange)
                     : Container();
             setState(() {

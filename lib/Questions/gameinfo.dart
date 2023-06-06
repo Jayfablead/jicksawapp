@@ -53,7 +53,7 @@ class _TutorialState extends State<Tutorial> {
                   ],
                 ),
                 SizedBox(
-                  height: 3.h,
+                  height: 1.h,
                 ),
                 Text(
                   'How to Play?',
