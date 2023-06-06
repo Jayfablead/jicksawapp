@@ -265,7 +265,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                               // bottom: 160.0,
                               child: CustomPaint(
                                 size: Size(250, 300),
-                                // painter: JigsawClipper2(),
+                                 painter: JigsawClipper2(),
                                 child: Container(
                                   padding: EdgeInsets.only(
                                       top: 1.5.h, left: 1.5.w, right: 1.w),
@@ -898,6 +898,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
     final Map<String, String> data = {};
 
     data['uid'] = usermodal?.userData?.uid ?? "";
+    // data['uid'] =  "45";
     data['game_status'] = '1';
     data['action'] = 'get_follow_steps';
 
@@ -935,8 +936,10 @@ class _designState extends State<design> with TickerProviderStateMixin {
     final Map<String, String> data = {};
 
     data['uid'] = usermodal?.userData?.uid ?? "";
+    // data['uid'] = "45";
     data['game_status'] = '1';
-    data['steps_on_dice'] = '1';
+    // data['steps_on_dice'] = '1';
+    data['steps_on_dice'] = _value.toString();
     data['action'] = 'follow_steps';
 
     checkInternet().then((internet) async {
@@ -967,6 +970,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
     final Map<String, String> data = {};
 
     data['uid'] = usermodal?.userData?.uid ?? "";
+    // data['uid'] = '45';
 
     data['action'] = 'game_end';
 
