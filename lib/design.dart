@@ -866,7 +866,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                   color: primary),
                               padding: EdgeInsets.all(2.h),
                               child: Text(
-                                (_value == 0) ? 'Roll Dice' : "Roll again",
+                                (_value == null) ? 'Roll Dice' : "Roll again",
                                 style: TextStyle(
                                   fontSize: 13.sp,
                                   color: Colors.white,
