@@ -19,7 +19,7 @@ class _subscriptionState extends State<subscription> {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 5.h,),
+          SizedBox(height: 6.h,),
           Row(
             children: [
               IconButton(

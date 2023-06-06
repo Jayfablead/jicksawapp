@@ -14,12 +14,12 @@ import 'package:jicksaw/drawer.dart';
 import 'package:jicksaw/main%20Pages/edit%20profile.dart';
 
 import 'package:sizer/sizer.dart';
-class MyProfile extends StatefulWidget {
-   MyProfile({Key? key}) : super(key: key);
+class UserProfile extends StatefulWidget {
+  UserProfile({Key? key}) : super(key: key);
   @override
-  State<MyProfile> createState() => _MyProfileState();
+  State<UserProfile> createState() => _UserProfileState();
 }
-class _MyProfileState extends State<MyProfile> {
+class _UserProfileState extends State<UserProfile> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   List img = [
@@ -29,7 +29,7 @@ class _MyProfileState extends State<MyProfile> {
     "assets/ney1.jpg",
     "assets/ney.jpg"
   ];
-  bool isLoading = true;
+  bool isLoading = false;
   bool isPlay = false;
   int lenght = 0;
   bool _isExpanded = false;
@@ -39,7 +39,9 @@ class _MyProfileState extends State<MyProfile> {
     // TODO: implement initState
     super.initState();
     print("hiii");
-    viewap();
+    String? dis = 'Monkey D. Luffy also known as "Straw Hat" Luffy, is a fictional character and the protagonist of the One Piece manga series.';
+    lenght = dis!.length == 0 ? 0 : dis.length;
+    // viewap();
   }
   @override
   Widget build(BuildContext context) {
@@ -63,17 +65,17 @@ class _MyProfileState extends State<MyProfile> {
                     children: [
                       IconButton(
                           onPressed: () {
-                            _scaffoldKey.currentState?.openDrawer();
+                           Get.back();
                           },
                           icon: Icon(
-                            Icons.menu_rounded,
+                            Icons.arrow_back_ios_new_rounded,
                             color: primary,
                           )),
                       SizedBox(
-                        width: 25.w,
+                        width: 22.w,
                       ),
                       Text(
-                        'My Profile',
+                        'User Profile',
                         style: primarytxt1,
                       ),
                     ],
@@ -95,8 +97,7 @@ class _MyProfileState extends State<MyProfile> {
                           child: CachedNetworkImage(
                             fit: BoxFit.cover,
                             imageUrl:
-                                (profileviewmodal?.profileViewPlayer?.profilePic)
-                                    .toString(),
+                           'https://i1.sndcdn.com/avatars-UidYWfW20bjki8Ub-GJKpBQ-t500x500.jpg',
                             progressIndicatorBuilder: (context, url, progress) =>
                                 CircularProgressIndicator(),
                             errorWidget: (context, url, error) => Image.asset(
@@ -114,14 +115,14 @@ class _MyProfileState extends State<MyProfile> {
                             Container(
                               width: 52.w,
                               child: Text(
-                                  profileviewmodal?.profileViewPlayer?.name ?? "",
+                                  "Snack man",
                                   style: header),
                             ),
                             Container(
                               width: 52.w,
                               child: Text(
-                                  profileviewmodal?.profileViewPlayer?.eMail ??
-                                      "",
+
+                                      "luffy@gmail.com",
                                   style: mail),
                             ),
                           ],
@@ -132,31 +133,7 @@ class _MyProfileState extends State<MyProfile> {
                   SizedBox(
                     height: 2.h,
                   ),
-                  Center(
-                    child: InkWell(
-                      onTap: () {
-                         Get.to(() => EditProfile());
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 5.5.h,
-                        width: 40.w,
-                        decoration: BoxDecoration(
-                            color: primary,
-                            borderRadius: BorderRadius.circular(90)),
-                        child: Text(
-                          'Edit Profile',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 13.sp,
-                            fontFamily: 'Poppins',
-                            letterSpacing: 2,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 1.h),
+
                   Divider(
                     color: Color(0xff7a7a7a),
                   ),
@@ -196,11 +173,11 @@ class _MyProfileState extends State<MyProfile> {
                               maxLines: 3,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14.sp,
-                        fontFamily: 'Poppins',
-                        letterSpacing: 2,
-                      ),
+                                color: Colors.black,
+                                fontSize: 14.sp,
+                                fontFamily: 'Poppins',
+                                letterSpacing: 2,
+                              ),
                             ),
                           ),
                         ],
@@ -232,11 +209,11 @@ class _MyProfileState extends State<MyProfile> {
                       SizedBox(
                         width: 12.3.w,
                       ),
-                      Text(
-                        profileviewmodal?.profileViewPlayer?.age == null ||
-                                profileviewmodal?.profileViewPlayer?.age == ""
-                            ? "N/A"
-                            : profileviewmodal?.profileViewPlayer?.age ?? "",
+                      Text('21',
+                        // profileviewmodal?.profileViewPlayer?.age == null ||
+                        //     profileviewmodal?.profileViewPlayer?.age == ""
+                        //     ? "N/A"
+                        //     : profileviewmodal?.profileViewPlayer?.age ?? "",
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -279,19 +256,17 @@ class _MyProfileState extends State<MyProfile> {
                         children: [
                           Container(
                             alignment: Alignment.center,
-                            width: profileviewmodal?.profileViewPlayer
-                                ?.about ==
-                                ''
-                                ? 36.w
-                                : 60.w,
+                            width: 60.w,
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             child: Text(
-                              profileviewmodal?.profileViewPlayer?.about == null ||
-                                      profileviewmodal?.profileViewPlayer?.about ==
-                                          ""
-                                  ? "N/A"
-                                  : profileviewmodal?.profileViewPlayer?.about ??
-                                      "", maxLines: _isExpanded ? 20 : 2,
+                              'Monkey D. Luffy also known as "Straw Hat" Luffy, is a fictional character and the protagonist of the One Piece manga series.',
+                              // profileviewmodal?.profileViewPlayer?.about == null ||
+                              //     profileviewmodal?.profileViewPlayer?.about ==
+                              //         ""
+                              //     ? "N/A"
+                              //     : profileviewmodal?.profileViewPlayer?.about ??
+                              //     "",
+                              maxLines: _isExpanded ? 20 : 2,
                               overflow: _isExpanded
                                   ? TextOverflow.visible
                                   : TextOverflow.ellipsis,
@@ -320,7 +295,7 @@ class _MyProfileState extends State<MyProfile> {
                                         fontSize: 11.sp,
                                         fontFamily: 'Poppins'),
                                   )
-                                      : Text("Read More+...",
+                                      : Text("Read More...",
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontWeight:
@@ -345,38 +320,38 @@ class _MyProfileState extends State<MyProfile> {
       ),
     );
   }
-  viewap() {
-    final Map<String, String> data = {};
-    data['uid'] = (usermodal?.userData?.uid).toString() ;
-    data['action'] = 'profile_view_player';
-    print(data);
-    checkInternet().then((internet) async {
-      if (internet) {
-        authprovider().profileviewapi(data).then((response) async {
-          profileviewmodal =
-              ProfileviewModal.fromJson(json.decode(response.body));
-
-          if (response.statusCode == 200 &&
-              profileviewmodal?.status == "success") {
-            print(profileviewmodal?.profileViewPlayer?.name);
-            print(profileviewmodal?.profileViewPlayer?.age);
-            print(profileviewmodal?.profileViewPlayer?.about);
-            String? dis = profileviewmodal?.profileViewPlayer?.about.toString();
-            lenght = dis!.length == 0 ? 0 : dis.length;
-            print(profileviewmodal?.profileViewPlayer?.profilePic);
-            setState(() {
-               isLoading = false;
-            });
-          } else {isLoading = false;}
-        });
-      } else {
-        setState(() {
-           isLoading = false;
-        });
-        buildErrorDialog(context, 'Error', "Internate Required");
-      }
-    });
-  }
+  // viewap() {
+  //   final Map<String, String> data = {};
+  //   data['uid'] = (usermodal?.userData?.uid).toString() ;
+  //   data['action'] = 'profile_view_player';
+  //   print(data);
+  //   checkInternet().then((internet) async {
+  //     if (internet) {
+  //       authprovider().profileviewapi(data).then((response) async {
+  //         profileviewmodal =
+  //             ProfileviewModal.fromJson(json.decode(response.body));
+  //
+  //         if (response.statusCode == 200 &&
+  //             profileviewmodal?.status == "success") {
+  //           print(profileviewmodal?.profileViewPlayer?.name);
+  //           print(profileviewmodal?.profileViewPlayer?.age);
+  //           print(profileviewmodal?.profileViewPlayer?.about);
+  //           String? dis = profileviewmodal?.profileViewPlayer?.about.toString();
+  //           lenght = dis!.length == 0 ? 0 : dis.length;
+  //           print(profileviewmodal?.profileViewPlayer?.profilePic);
+  //           setState(() {
+  //             isLoading = false;
+  //           });
+  //         } else {isLoading = false;}
+  //       });
+  //     } else {
+  //       setState(() {
+  //         isLoading = false;
+  //       });
+  //       buildErrorDialog(context, 'Error', "Internate Required");
+  //     }
+  //   });
+  // }
 }
 
 

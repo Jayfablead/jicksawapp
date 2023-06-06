@@ -258,8 +258,7 @@ class _loginState extends State<login> {
                     // Text("Don't have an account ? ",style:TextStyle(color: Colors.grey.shade100,fontSize: 9.sp,fontFamily: 'Poppins',fontWeight: FontWeight.w400) ,),
                     TextButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const signup()));
+                        Get.to(signup());
                       },
                       child: Text("New Member ?",
                           style: TextStyle(
