@@ -1,9 +1,16 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/design.dart';
 import 'package:jicksaw/other/const%20widget.dart';
 import 'package:jicksaw/question.dart';
 import 'package:sizer/sizer.dart';
+
+import '../Provider/ProfileviewModal.dart';
+import '../Provider/authprovider.dart';
+import '../Widget/buildErrorDialog.dart';
+import '../Widget/const.dart';
 class congratulation extends StatefulWidget {
    congratulation({Key? key}) : super(key: key);
   @override
@@ -167,7 +174,7 @@ class _congratulationState extends State<congratulation> {
           SizedBox(height: 5.h,),
           GestureDetector(
             onTap: (){
-              Get.offAll(design());
+              start();
             },
             child:Container(
               alignment: Alignment.center,
@@ -186,5 +193,43 @@ class _congratulationState extends State<congratulation> {
         ],
       ),
     );
+  }
+  start() {
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['action'] = 'game_start';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().startgameapi(data).then((response) async {
+          profileviewmodal =
+              ProfileviewModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 &&
+              profileviewmodal?.status == "success") {
+            Get.to(() => design());
+            Get.snackbar(
+              "Game Started",
+              "Successfully",
+              icon: Image(image: AssetImage('assets/logo.png')),
+              snackPosition: SnackPosition.TOP,
+
+            );
+            print("Started");
+            setState(() {
+              isloading = false;
+            });
+          } else {
+            isloading = false;
+          }
+        });
+      } else {
+        setState(() {
+          isloading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
   }
 }

@@ -50,7 +50,7 @@ class _TriviaChallengeState extends State<TriviaChallenge> {
           appBar: appbar1(
             title1: '',
             press: () {
-
+Get.back();
             },
             icn: Icon(Icons.arrow_back_ios_new_rounded),
             act: () {},

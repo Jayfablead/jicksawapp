@@ -206,7 +206,7 @@ class _ResultsPageState extends State<ResultsPage> {
                           alignment: Alignment.bottomCenter,
                           child: InkWell(
                             onTap: () {
-                              start();
+                            Get.to(design());
                             },
                             child: Container(
                               alignment: Alignment.center,
@@ -241,42 +241,5 @@ class _ResultsPageState extends State<ResultsPage> {
     return await false;
   }
 
-  start() {
-    final Map<String, String> data = {};
 
-    data['uid'] = usermodal?.userData?.uid ?? "";
-    data['action'] = 'game_start';
-
-    checkInternet().then((internet) async {
-      if (internet) {
-        authprovider().startgameapi(data).then((response) async {
-          profileviewmodal =
-              ProfileviewModal.fromJson(json.decode(response.body));
-
-          if (response.statusCode == 200 &&
-              profileviewmodal?.status == "success") {
-            Get.to(() => design());
-            Get.snackbar(
-              "Game Started",
-              "Successfully",
-              icon: Image(image: AssetImage('assets/logo.png')),
-              snackPosition: SnackPosition.TOP,
-
-            );
-            print("Started");
-            setState(() {
-              isloading = false;
-            });
-          } else {
-            isloading = false;
-          }
-        });
-      } else {
-        setState(() {
-          isloading = false;
-        });
-        buildErrorDialog(context, 'Error', "Internate Required");
-      }
-    });
-  }
 }
