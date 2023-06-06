@@ -6,6 +6,7 @@ import 'package:jicksaw/Modal/UserModal.dart';
 import 'package:jicksaw/Modal/editmodal.dart';
 import 'package:jicksaw/Modal/gameModal.dart';
 import 'package:jicksaw/Modal/questionsmodal.dart';
+import 'package:jicksaw/Modal/shopitemmodal.dart';
 import 'package:jicksaw/Provider/ProfileviewModal.dart';
 
 Future<bool> checkInternet() async {
@@ -26,4 +27,5 @@ QuestionsModal? questions;
 CatModal? category;
 gameModal? gamedata;
 editModal? edit;
+shopitemModal? shop;
 
