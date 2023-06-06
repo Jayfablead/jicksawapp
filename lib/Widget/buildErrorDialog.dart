@@ -307,7 +307,7 @@ update(BuildContext context, String title, String contant,
                 SizedBox(height: 2.h),
                 Divider(
                   height: 1.0,
-                  color: Colors.grey,
+                  color: Colors.black45,
                 ),
                 SizedBox(height: 2.h),
                 okButton,

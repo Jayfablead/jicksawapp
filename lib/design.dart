@@ -33,12 +33,21 @@ class _designState extends State<design> with TickerProviderStateMixin {
   int? tap = 0;
   bool _showImage = false;
   AnimationController? _animationController;
-  int? _value ;
+  int? _value;
+
   double marginheight = 0.0;
   double margin = 0.0;
   String? step;
+  final List<String> pages = [
+    '/MemoryChallenge',
+    '/TriviaChallenge',
+    '/Board',
+    '/MathtPage'
+  ];
+  final Random random = Random();
+
   // List navigation = [
-  //   Get.to(MemoryChallenge()),
+  //   MemoryChallenge(),
   //   Get.to(TriviaChallenge()),
   //   Get.to(Board()),
   //   Get.to(MathtPage()),
@@ -265,7 +274,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                               // bottom: 160.0,
                               child: CustomPaint(
                                 size: Size(250, 300),
-                                 painter: JigsawClipper2(),
+                                painter: JigsawClipper2(),
                                 child: Container(
                                   padding: EdgeInsets.only(
                                       top: 1.5.h, left: 1.5.w, right: 1.w),
@@ -914,7 +923,11 @@ class _designState extends State<design> with TickerProviderStateMixin {
                 ? gameexit(context, 'You will get a Question',
                     'Give Correct Answer and get a Jigsaw Piece',
                     callback: goquestions)
-                : Container();
+                : gamedata?.gameData?.steps == '3'
+                    ? gameexit(context, 'You will get a Question',
+                        'Give Correct Answer and get a Jigsaw Piece',
+                        callback: gochallange)
+                    : Container();
             setState(() {
               step = gamedata?.gameData?.steps;
               isloading = false;
@@ -938,8 +951,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
     data['uid'] = usermodal?.userData?.uid ?? "";
     // data['uid'] = "45";
     data['game_status'] = '1';
-    // data['steps_on_dice'] = '1';
-    data['steps_on_dice'] = _value.toString();
+    data['steps_on_dice'] = '1';
+    // data['steps_on_dice'] = _value.toString();
     data['action'] = 'follow_steps';
 
     checkInternet().then((internet) async {
@@ -1006,5 +1019,10 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
   void goquestions() async {
     await Get.to(TriviaChallenge());
+  }
+
+  void gochallange() {
+    int index = random.nextInt(pages.length);
+    Get.toNamed(pages[index]);
   }
 }
