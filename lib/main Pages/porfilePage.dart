@@ -320,7 +320,7 @@ class _MyProfileState extends State<MyProfile> {
                                         fontSize: 11.sp,
                                         fontFamily: 'Poppins'),
                                   )
-                                      : Text("Read More+...",
+                                      : Text("Read More...",
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontWeight:

@@ -3,12 +3,15 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:jicksaw/Modal/CAtegoryModal.dart';
 import 'package:jicksaw/Modal/UserModal.dart';
+import 'package:jicksaw/Modal/addcardModal.dart';
 import 'package:jicksaw/Modal/editmodal.dart';
 import 'package:jicksaw/Modal/gameModal.dart';
 import 'package:jicksaw/Modal/playermodal.dart';
 import 'package:jicksaw/Modal/questionsmodal.dart';
 import 'package:jicksaw/Modal/shopinfoModal.dart';
 import 'package:jicksaw/Modal/shopitemmodal.dart';
+import 'package:jicksaw/Modal/subsModal.dart';
+import 'package:jicksaw/Modal/viewcard.dart';
 import 'package:jicksaw/Provider/ProfileviewModal.dart';
 
 Future<bool> checkInternet() async {
@@ -32,4 +35,6 @@ editModal? edit;
 shopitemModal? shop;
 shopinfoModal? shopitem;
 AllplayersModal? players;
-
+addcardModal? addcard;
+viewcardModal? viewcard;
+subscribeModal? subs;

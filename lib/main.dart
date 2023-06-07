@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         ],
         child: GetMaterialApp(
             title: 'Jigsaw',
-            debugShowCheckedModeBanner: false,
+            debugShowCheckedModeBanner: false,builder: EasyLoading.init(),
             getPages: [
               GetPage(name: '/', page: ()=>SplashScreen()),
               GetPage(name: '/MemoryChallenge', page: ()=> MemoryChallenge()),

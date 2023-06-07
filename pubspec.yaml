@@ -37,7 +37,7 @@ dependencies:
   flutter_spinkit:
   keyboard_dismisser:
   modal_progress_hud_nsn:
-  flutter_easyloading:
+  flutter_easyloading: ^3.0.5
   flutter_credit_card_container: ^0.0.3
   cupertino_icons: ^1.0.2
 

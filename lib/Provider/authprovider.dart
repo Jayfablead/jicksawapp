@@ -66,6 +66,48 @@ class authprovider with ChangeNotifier{
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> addnewcardapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=add_user_card';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> subscribeapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=user_subscribe';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> viewcardapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=get_user_cards';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
   Future<http.Response> shopinfoapi(Map<String, dynamic> bodyData) async {
     const url = '$baseUrl/?action=item_details';
     var responseJson;

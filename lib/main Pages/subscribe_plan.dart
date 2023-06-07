@@ -130,7 +130,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    "\$17.99/month",
+                                    "\$ 17.99/month",
                                     style: TextStyle(
                                         fontSize: 15.sp,
                                         fontWeight: FontWeight.w100,
@@ -183,7 +183,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                                     //     color: Color(0xffeefbf5)
                                     // ),
                                     child: Text(
-                                      "then \$17.99 per month. Cancel anytime",
+                                      "then \$ 17.99 per month. Cancel anytime",
                                       style: TextStyle(
                                           color: Colors.grey, fontSize: 12.sp,
                                          fontFamily: 'Poppins',
