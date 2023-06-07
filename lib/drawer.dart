@@ -24,6 +24,7 @@ import 'Provider/ProfileviewModal.dart';
 import 'Provider/authprovider.dart';
 import 'Screen/login.dart';
 import 'Widget/sharedpreferance.dart';
+import 'new pages/AllPlayers.dart';
 
 class drawer1 extends StatefulWidget {
   const drawer1({Key? key}) : super(key: key);
@@ -319,59 +320,7 @@ class _drawer1State extends State<drawer1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(() => Challangepage());
-                      // Navigator.of(context).push(
-                      //   MaterialPageRoute(
-                      //     builder: (context) => mainpage2(),
-                      //   ),
-                      // );
-                    },
-                    child: Container(
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 6.w,
-                          ),
-                          Container(
-                            width: 64.w,
-                            child: Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.chalet_outlined,
-                                      color: Colors.black,
-                                    ),
-                                    SizedBox(
-                                      width: 2.w,
-                                    ),
-                                    Text("Challenges",
-                                        style: TextStyle(
-                                          fontSize: 12.sp,
-                                          fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                        )),
-                                  ],
-                                ),
-                                Icon(
-                                  Icons.chevron_right_rounded,
-                                  color: Colors.black,
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),InkWell(
-                    onTap: () {
-                      Get.to(() => MyPurchases());
+                      Get.to(() => AllPlayers());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
@@ -393,13 +342,13 @@ class _drawer1State extends State<drawer1> {
                                 Row(
                                   children: [
                                     Icon(
-                                      Icons.attach_money_rounded,
+                                      Icons.people_outline,
                                       color: Colors.black,
                                     ),
                                     SizedBox(
                                       width: 2.w,
                                     ),
-                                    Text("My Purchased",
+                                    Text('All Players',
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
@@ -419,112 +368,7 @@ class _drawer1State extends State<drawer1> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Get.to(() => progress());
-                      // Navigator.of(context).push(
-                      //   MaterialPageRoute(
-                      //     builder: (context) => mainpage2(),
-                      //   ),
-                      // );
-                    },
-                    child: Container(
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 6.w,
-                          ),
-                          Container(
-                            width: 64.w,
-                            child: Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.circle_notifications_sharp,
-                                      color: Colors.black,
-                                    ),
-                                    SizedBox(
-                                      width: 2.w,
-                                    ),
-                                    Text("Progress",
-                                        style: TextStyle(
-                                          fontSize: 12.sp,
-                                          fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                        )),
-                                  ],
-                                ),
-                                Icon(
-                                  Icons.chevron_right_rounded,
-                                  color: Colors.black,
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Get.to(() => reward());
-                      // Navigator.of(context).push(
-                      //   MaterialPageRoute(
-                      //     builder: (context) => mainpage2(),
-                      //   ),
-                      // );
-                    },
-                    child: Container(
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 6.w,
-                          ),
-                          Container(
-                            width: 64.w,
-                            child: Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.currency_bitcoin,
-                                      color: Colors.black,
-                                    ),
-                                    SizedBox(
-                                      width: 2.w,
-                                    ),
-                                    Text("Rewards",
-                                        style: TextStyle(
-                                          fontSize: 12.sp,
-                                          fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                        )),
-                                  ],
-                                ),
-                                Icon(
-                                  Icons.chevron_right_rounded,
-                                  color: Colors.black,
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+
                   SizedBox(
                     height: 2.h,
                   ),
@@ -631,59 +475,7 @@ class _drawer1State extends State<drawer1> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Get.to(() => rank());
-                      // Navigator.of(context).push(
-                      //   MaterialPageRoute(
-                      //     builder: (context) => mainpage2(),
-                      //   ),
-                      // );
-                    },
-                    child: Container(
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 6.w,
-                          ),
-                          Container(
-                            width: 64.w,
-                            child: Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.stacked_bar_chart,
-                                      color: Colors.black,
-                                    ),
-                                    SizedBox(
-                                      width: 2.w,
-                                    ),
-                                    Text("Ranking",
-                                        style: TextStyle(
-                                          fontSize: 12.sp,
-                                          fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                        )),
-                                  ],
-                                ),
-                                Icon(
-                                  Icons.chevron_right_rounded,
-                                  color: Colors.black,
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+
                   SizedBox(
                     height: 6.h,
                   ),

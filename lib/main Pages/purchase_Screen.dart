@@ -27,15 +27,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
         Positioned(
           top: 0.h,
           child: Container(
-            decoration: BoxDecoration(
-              // boxShadow: [
-              //   BoxShadow(
-              //     color: Colors.grey.withOpacity(0.10),
-              //     blurRadius: 10,
-              //     offset: Offset(0, 5),
-              //   ),
-              // ],
-            ),
+
             child: Stack(
               children: [
                 ClipRRect(
@@ -146,7 +138,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                                 MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    "Razor Pay",
+                                    "Stripe",
                                     style: TextStyle(
                                       color: Colors.grey, fontSize: 11.sp,
                                       fontFamily: 'Poppins',
@@ -169,7 +161,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                                 MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    "\$05.99",
+                                    "\$ ${widget.price}",
                                     style: TextStyle(
                                       fontSize: 15.sp,
                                       fontWeight: FontWeight.w100,
@@ -226,119 +218,11 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Container(
-                        height: 20.h,
-                        width: 100.w,
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                                color: _selectedValue == 1
-                                    ? Colors.grey
-                                    : primary,
-                                width: 2.sp),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 2.h),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "Net Banking",
-                                    style: TextStyle(
-                                      color: Colors.grey, fontSize: 11.sp,
-                                      fontFamily: 'Poppins',
-                                    ),
-                                  ),
-                                  Radio(
-                                    value: 2,
-                                    groupValue: _selectedValue,
-                                    activeColor: primary,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        _selectedValue = value!;
-                                      });
-                                    },
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "\$05.99",
-                                    style: TextStyle(
-                                      fontSize: 15.sp,
-                                      fontWeight: FontWeight.w100,
-                                      fontFamily: 'Poppins',
-                                    ),
-                                  ),
 
-                                  // // // Radio(
-                                  // // //   value: 1,
-                                  // // //   groupValue: _selectedValue,
-                                  // // //   onChanged: (value) {
-                                  // // //     setState(() {
-                                  // // //       _selectedValue = value!;
-                                  // // //     });
-                                  // //   },
-                                  // ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 1.h,
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    height: 4.h,
-                                    width: 38.w,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Color(0xffeefbf5)),
-                                    child: Text(
-                                      "One Time Use Only",
-                                      style:
-                                      TextStyle(color: Color(0xffa0e1c1),
-                                        fontFamily: 'Poppins',
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    height: 4.h,
 
-                                    // decoration: BoxDecoration(
-                                    //     borderRadius: BorderRadius.circular(20),
-                                    //     color: Color(0xffeefbf5)
-                                    // ),
-                                    child: Text(
-                                      "then \$02.99 per month. discard anytime",
-                                      style: TextStyle(
-                                        color: Colors.grey, fontSize: 12.sp,
-                                        fontFamily: 'Poppins',
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 10.h,),
+                      SizedBox(height: 35.h,),
                       InkWell(onTap:(){
-                        Get.to(CheckoutPage(imgs:widget.img,name: widget.name,price: '05.99',method: _selectedValue == 1?'Razor Pay':'Net Banking',));
+                        Get.to(CheckoutPage(imgs:widget.img,name: widget.name,price: widget.price,method: 'Stripe',type: 0,));
                       },
                         child: Container(
                           alignment: Alignment.center,

@@ -15,7 +15,8 @@ import 'package:jicksaw/main%20Pages/edit%20profile.dart';
 
 import 'package:sizer/sizer.dart';
 class UserProfile extends StatefulWidget {
-  UserProfile({Key? key}) : super(key: key);
+  String? uid;
+  UserProfile({Key? key,this.uid}) : super(key: key);
   @override
   State<UserProfile> createState() => _UserProfileState();
 }
@@ -39,9 +40,10 @@ class _UserProfileState extends State<UserProfile> {
     // TODO: implement initState
     super.initState();
     print("hiii");
-    String? dis = 'Monkey D. Luffy also known as "Straw Hat" Luffy, is a fictional character and the protagonist of the One Piece manga series.';
-    lenght = dis!.length == 0 ? 0 : dis.length;
-    // viewap();
+    // String? dis = 'Monkey D. Luffy also known as "Straw Hat" Luffy, is a fictional character and the protagonist of the One Piece manga series.';
+    // lenght = dis!.length == 0 ? 0 : dis.length;
+    viewap();
+    print(widget.uid);
   }
   @override
   Widget build(BuildContext context) {
@@ -97,7 +99,7 @@ class _UserProfileState extends State<UserProfile> {
                           child: CachedNetworkImage(
                             fit: BoxFit.cover,
                             imageUrl:
-                           'https://i1.sndcdn.com/avatars-UidYWfW20bjki8Ub-GJKpBQ-t500x500.jpg',
+                          profileviewmodal?.profileViewPlayer?.profilePic ?? '',
                             progressIndicatorBuilder: (context, url, progress) =>
                                 CircularProgressIndicator(),
                             errorWidget: (context, url, error) => Image.asset(
@@ -115,14 +117,14 @@ class _UserProfileState extends State<UserProfile> {
                             Container(
                               width: 52.w,
                               child: Text(
-                                  "Snack man",
+                                  profileviewmodal?.profileViewPlayer?.name ?? '',
                                   style: header),
                             ),
                             Container(
                               width: 52.w,
                               child: Text(
 
-                                      "luffy@gmail.com",
+                                  profileviewmodal?.profileViewPlayer?.eMail ?? '',
                                   style: mail),
                             ),
                           ],
@@ -209,11 +211,11 @@ class _UserProfileState extends State<UserProfile> {
                       SizedBox(
                         width: 12.3.w,
                       ),
-                      Text('21',
-                        // profileviewmodal?.profileViewPlayer?.age == null ||
-                        //     profileviewmodal?.profileViewPlayer?.age == ""
-                        //     ? "N/A"
-                        //     : profileviewmodal?.profileViewPlayer?.age ?? "",
+                      Text(
+                        profileviewmodal?.profileViewPlayer?.age == null ||
+                            profileviewmodal?.profileViewPlayer?.age == ""
+                            ? "N/A"
+                            : profileviewmodal?.profileViewPlayer?.age ?? "",
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -259,13 +261,13 @@ class _UserProfileState extends State<UserProfile> {
                             width: 60.w,
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             child: Text(
-                              'Monkey D. Luffy also known as "Straw Hat" Luffy, is a fictional character and the protagonist of the One Piece manga series.',
-                              // profileviewmodal?.profileViewPlayer?.about == null ||
-                              //     profileviewmodal?.profileViewPlayer?.about ==
-                              //         ""
-                              //     ? "N/A"
-                              //     : profileviewmodal?.profileViewPlayer?.about ??
-                              //     "",
+                              // 'Monkey D. Luffy also known as "Straw Hat" Luffy, is a fictional character and the protagonist of the One Piece manga series.',
+                              profileviewmodal?.profileViewPlayer?.about == null ||
+                                  profileviewmodal?.profileViewPlayer?.about ==
+                                      ""
+                                  ? "N/A"
+                                  : profileviewmodal?.profileViewPlayer?.about ??
+                                  "",
                               maxLines: _isExpanded ? 20 : 2,
                               overflow: _isExpanded
                                   ? TextOverflow.visible
@@ -320,38 +322,38 @@ class _UserProfileState extends State<UserProfile> {
       ),
     );
   }
-  // viewap() {
-  //   final Map<String, String> data = {};
-  //   data['uid'] = (usermodal?.userData?.uid).toString() ;
-  //   data['action'] = 'profile_view_player';
-  //   print(data);
-  //   checkInternet().then((internet) async {
-  //     if (internet) {
-  //       authprovider().profileviewapi(data).then((response) async {
-  //         profileviewmodal =
-  //             ProfileviewModal.fromJson(json.decode(response.body));
-  //
-  //         if (response.statusCode == 200 &&
-  //             profileviewmodal?.status == "success") {
-  //           print(profileviewmodal?.profileViewPlayer?.name);
-  //           print(profileviewmodal?.profileViewPlayer?.age);
-  //           print(profileviewmodal?.profileViewPlayer?.about);
-  //           String? dis = profileviewmodal?.profileViewPlayer?.about.toString();
-  //           lenght = dis!.length == 0 ? 0 : dis.length;
-  //           print(profileviewmodal?.profileViewPlayer?.profilePic);
-  //           setState(() {
-  //             isLoading = false;
-  //           });
-  //         } else {isLoading = false;}
-  //       });
-  //     } else {
-  //       setState(() {
-  //         isLoading = false;
-  //       });
-  //       buildErrorDialog(context, 'Error', "Internate Required");
-  //     }
-  //   });
-  // }
+  viewap() {
+    final Map<String, String> data = {};
+    data['uid'] =widget.uid.toString() ;
+    data['action'] = 'profile_view_player';
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().profileviewapi(data).then((response) async {
+          profileviewmodal =
+              ProfileviewModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 &&
+              profileviewmodal?.status == "success") {
+            print(profileviewmodal?.profileViewPlayer?.name);
+            print(profileviewmodal?.profileViewPlayer?.age);
+            print(profileviewmodal?.profileViewPlayer?.about);
+            String? dis = profileviewmodal?.profileViewPlayer?.about.toString();
+            lenght = dis!.length == 0 ? 0 : dis.length;
+            print(profileviewmodal?.profileViewPlayer?.profilePic);
+            setState(() {
+              isLoading = false;
+            });
+          } else {isLoading = false;}
+        });
+      } else {
+        setState(() {
+          isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
 }
 
 

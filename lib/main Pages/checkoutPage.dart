@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Widget/const.dart';
+import 'package:jicksaw/main%20Pages/AddCardPage.dart';
 import 'package:jicksaw/new%20pages/thanks%20puzzle.dart';
 import 'package:sizer/sizer.dart';
 
@@ -11,9 +13,11 @@ class CheckoutPage extends StatefulWidget {
   String? imgs;
   String? method;
   String? price;
+  String? sub;
+  int? type;
 
 
-  CheckoutPage({Key? key, this.name, this.imgs, this.method,this.price}) : super(key: key);
+  CheckoutPage({Key? key, this.name,required this.type,this.imgs, this.sub ,this.method,this.price}) : super(key: key);
 
   @override
   State<CheckoutPage> createState() => _CheckoutPageState();
@@ -60,7 +64,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                 fontSize: 14.sp),
                           ),
                           Text(
-                            '\$ 06.99',
+                            '\$ ${widget.price}',
                             style: TextStyle(
                                 color: Colors.black.withOpacity(0.65),
                                 fontSize: 14.sp),
@@ -96,7 +100,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                 fontSize: 14.sp),
                           ),
                           Text(
-                            '\$ 00.99',
+                            '\$ 00.00',
                             style: TextStyle(
                                 color: Colors.black.withOpacity(0.65),
                                 fontSize: 14.sp),
@@ -116,7 +120,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                 TextStyle(color: Colors.black, fontSize: 15.sp),
                           ),
                           Text(
-                            '\$ 05.99',
+                            '\$ ${widget.price}',
                             style:
                                 TextStyle(color: Colors.black, fontSize: 15.sp),
                           ),
@@ -128,7 +132,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
             ),
             Container(
-              height: 13.h,
+              height: 15.h,
               width: MediaQuery.of(context).size.width,
               child: Card(
                 elevation: 2,
@@ -139,26 +143,23 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding:  EdgeInsets.symmetric(horizontal: 3.w),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Payment Option',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 14.sp),
-                            ),
-                            Text(
-                              'Edit',
-                              style: TextStyle(
-                                  color: primary,
-                                  fontSize: 14.sp),
-                            ),
-                          ],
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Card Option',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14.sp),
+                          ),
+                          TextButton(onPressed: (){Get.to(AddCardPage());}, child: Text(
+                            'Edit',
+                            style: TextStyle(
+                                color: primary,
+                                fontSize: 14.sp),
+                          ),)
+                        ],
                       ),
 
                       Row(
@@ -171,7 +172,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                 TextStyle(color: Colors.black, fontSize: 15.sp),
                           ),
                           Text(
-                            widget.method.toString(),
+                           usermodal?.userData?.name ?? '',
                             style:
                                 TextStyle(color: Colors.black, fontSize: 15.sp),
                           ),
@@ -183,7 +184,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
             ),
             Container(
-              height: 25.h,
+              height: widget.type == 1?20.h:25.h,
               width: MediaQuery.of(context).size.width,
               child: Card(
                 elevation: 2,
@@ -205,7 +206,16 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       SizedBox(
                         height: 2.h,
                       ),
-                      Row(
+                     widget.type == 1?Row(
+                       children: [
+                         Text(
+                          '${widget.method} Subscription Plan ',
+
+                           style:
+                           TextStyle(color: Colors.black, fontSize: 15.sp),
+                         ),
+                       ],
+                     ): Row(
                         children: [
                           Container(
                             height: 5.h,
@@ -240,7 +250,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       ),
                       SizedBox(height: 2.h,),
                       Text(
-                        'You Are Paying Using ${widget.method} For This Order.',
+                        widget.type == 1?'You Are Subscribing ${widget.method} Our Subscription Plan .':'You Are Paying Using ${widget.method} For This Order.',
                         style:
                         TextStyle(color: primary, fontSize: 15.sp),
                       ),
@@ -250,7 +260,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
             ),
             InkWell(
-              onTap: () {Get.to(PurchaseTYPage(price: widget.price,name: widget.name,method: widget.method),);},
+              onTap: () {Get.to(PurchaseTYPage(price: widget.price,name: widget.name,method: widget.method,type: widget.type,),);},
               child: Container(
                 alignment: Alignment.center,
                 width: 85.w,

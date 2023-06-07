@@ -11,9 +11,10 @@ class PurchaseTYPage extends StatefulWidget {
   String? name;
   String? price;
   String? method;
+  int? type;
 
 
-  PurchaseTYPage({Key? key, this.name, this.method,this.price}) : super(key: key);
+  PurchaseTYPage({Key? key, this.name, this.method,this.price,this.type}) : super(key: key);
 
   @override
   State<PurchaseTYPage> createState() => _PurchaseTYPageState();
@@ -54,7 +55,7 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
                   height: 2.h,
                 ),
                 Text(
-                  'You have Purchased ${widget.name}.',
+                  widget.type == 1?'You have Purchased ${widget.method} Subscription Plan.':'You have Purchased ${widget.name}.',
                   style: mainstyle,
                   textAlign: TextAlign.center,
                 ),
@@ -148,7 +149,7 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
-                              widget.name.toString(),
+                              widget.type == 1?widget.method.toString() + ' Subscription plan':widget.name.toString(),
                                 style: TextStyle(
                                     color: Colors.black.withOpacity(0.90),
                                     fontSize: 14.sp),
@@ -172,7 +173,7 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
                                     fontSize: 14.sp),
                               ),
                               Text(
-                                widget.method.toString(),
+                               'Stripe',
                                 style: TextStyle(
                                     color:Colors.black.withOpacity(0.80),
                                     fontSize: 14.sp),
@@ -191,7 +192,7 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
                   height: 2.h,
                 ),
                 Text(
-                  'Thanks for Paying. Keep Shopping with Us.',
+                  'Thanks for Purchasing. Keep Shopping with Us.',
                   style: mainstyle,
                   textAlign: TextAlign.center,
                 ),
@@ -208,7 +209,7 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
                 InkWell(
                   onTap: () {
                     Get.to(
-                      ShopmainPage(),
+                      mainpage2(),
                     );
                   },
                   child: Container(
