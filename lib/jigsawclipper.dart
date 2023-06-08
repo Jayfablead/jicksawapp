@@ -20,7 +20,7 @@ class JigsawClipper1 extends CustomClipper<Path> {
     path.lineTo(0.0, height*0.0);
     path.lineTo(width, height*0.0);
     path.lineTo(width*0.7, height*0.0);
-    path.lineTo(width*0.7, height*0.3);
+    path.lineTo(width*0.7, height*0.2);
     // for vertical
     path.arcTo(Rect.fromCircle(center: center1, radius: radius), startAngle1, sweepAngle1, false);
     path.lineTo(width*0.7, height*0.4);
@@ -65,11 +65,11 @@ class JigsawClipper2 extends  CustomClipper<Path> {
     path.lineTo(width*0.5, height*0.63);
     path.lineTo(width*0.7, height*0.63);
     path.lineTo(width*0.0, height*0.63);
-    path.lineTo(width*0.0, height*0.55);
+    path.lineTo(width*0.0, height*0.5);
     //for vertical left
     path.arcTo(Rect.fromCircle(center: center, radius: radius), startAngle, sweepAngle, false);
-    path.lineTo(width*0.0, height*0.45);
-    path.lineTo(0.0,0.0 );
+    path.lineTo(width*0.0, height*0.3);
+
     return path;
   }
 
@@ -124,7 +124,7 @@ class JigsawClipper4 extends CustomClipper<Path> {
     double height = 32.w;
     double width = 43.w;
     final path = Path();
-    final center = Offset(width*0.5, height*0.7);
+    final center = Offset(width*0.505, height*0.7);
     final center1 = Offset(width*0.04, height*0.35);
     final radius = math.min(width*0.1, height*0.1);
 
@@ -178,7 +178,7 @@ class JigsawClipper5 extends CustomClipper<Path> {
     //for horizontal
     path.lineTo(width*0.5, height*0.63);
     path.arcTo(Rect.fromCircle(center: center, radius: radius), startAngle, sweepAngle, false);
-    path.lineTo(width*0.4, height*0.63);
+    path.lineTo(width*0.6, height*0.63);
     path.lineTo(width*0.0, height*0.63);
 
     path.lineTo(0.0,0.0 );
@@ -272,7 +272,7 @@ class JigsawClipper8 extends CustomClipper<Path> {
     double height = 32.w;
     double width = 44.w;
     final path = Path();
-    final center = Offset(width*0.13, height*0.35);
+    final center = Offset(width*0.11, height*0.35);
     final center1 = Offset(width*0.7,height*0.09);
     final radius = math.min(width*0.1, height*0.1);
 
@@ -419,11 +419,11 @@ class JigsawClipper11 extends CustomClipper<Path> {
 class JigsawClipper12 extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    double height = 28.5.w;
+    double height = 29.w;
     double width = 39.w;
     final path = Path();
-    final center = Offset(width*0.26, height*0.77);
-    final center1 = Offset(width*0.26, height*0.12);
+    final center = Offset(width*0.26, height*0.79);
+    final center1 = Offset(width*0.26, height*0.15);
     final radius = math.min(width*0.1, height*0.1);
     final radius1 = math.min(width*0.117, height*0.117);
     final startAngle = math.pi / 4; // 45 degrees in radians
@@ -460,7 +460,7 @@ class JigsawClipper13 extends CustomClipper<Path> {
     double width = 39.w;
     final path = Path();
     final center = Offset(width*0.26, height*0.93);
-    final center1 = Offset(width*0.26, height*0.135);
+    final center1 = Offset(width*0.26, height*0.16);
     final radius = math.min(width*0.11, height*0.11);
 
     final startAngle = math.pi / 4; // 45 degrees in radians
@@ -478,7 +478,7 @@ class JigsawClipper13 extends CustomClipper<Path> {
     //for horizontal
     path.lineTo(width*0.5, height);
     path.arcTo(Rect.fromCircle(center: center, radius: radius), startAngle, sweepAngle, false);
-    path.lineTo(width*0.3, height);
+    path.lineTo(width*0.2, height);
     path.lineTo(width*0.0, height);
     path.lineTo(0.0,0.0 );
     return path;
@@ -496,7 +496,7 @@ class JigsawClipper14 extends CustomClipper<Path> {
     double height = 31.w;
     double width = 39.w;
     final path = Path();
-    final center = Offset(width*0.26, height*0.55);
+    final center = Offset(width*0.26, height*0.57);
     final center1 = Offset(width*0.25, height*0.074);
     final radius = math.min(width*0.1, height*0.1);
     final startAngle = math.pi / 4; // 45 degrees in radians
@@ -504,19 +504,19 @@ class JigsawClipper14 extends CustomClipper<Path> {
     final startAngle1 = -math.pi + math.pi / 4; // 45 degrees in radians
     final sweepAngle1 = -math.pi * 3 / 2; //
     path.moveTo(0.0, height*0.0);
-    path.lineTo(0.0, height*0.0);
+    // path.lineTo(0.0, height*0.0);
     path.lineTo(width*0.3, height*0.0);
     path.arcTo(Rect.fromCircle(center: center1, radius: radius), startAngle1, sweepAngle1, false);
-    path.lineTo(width*0.5, height*0.0);
-    path.lineTo(width*0.7, height*0.0);
-    path.lineTo(width*0.7, height);
+    path.lineTo(width*0.8, height*0.0);
+    // path.lineTo(width*0.7, height*0.0);
+    // path.lineTo(width*0.7, height);
     //for horizontal
-    path.lineTo(width*0.6, height);
+    path.lineTo(width*0.7, height);
     path.arcTo(Rect.fromCircle(center: center, radius: radius), startAngle, sweepAngle, false);
-    path.lineTo(width*0.2, height);
+    path.lineTo(width*0.4, height);
     path.lineTo(width*0.0, height);
 
-    path.lineTo(0.0,0.0 );
+    // path.lineTo(0.0,0.0 );
     return path;
   }
 
