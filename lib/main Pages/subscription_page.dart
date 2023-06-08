@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
@@ -30,68 +31,26 @@ class _subscriptionState extends State<subscription> {
       body: Column(
         children: [
           Container(
+            padding: EdgeInsets.all(1.w),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(30),
-              child: Image.network(
-                  "https://media.istockphoto.com/id/1302382693/photo/woman-choosing-subscription-plan.jpg?b=1&s=170667a&w=0&k=20&c=xj4iIV6iDqze5As9s0B5XS5wWsd97WzyrLx9XtF7Zgo="),
+              borderRadius: BorderRadius.circular(20),
+              child: CachedNetworkImage(
+                fit: BoxFit.cover,
+                imageUrl:
+                    "https://media.istockphoto.com/id/1302382693/photo/woman-choosing-subscription-plan.jpg?b=1&s=170667a&w=0&k=20&c=xj4iIV6iDqze5As9s0B5XS5wWsd97WzyrLx9XtF7Zgo=",
+                progressIndicatorBuilder: (context, url, progress) =>
+                    CircularProgressIndicator(),
+                errorWidget: (context, url, error) => Image.asset(
+                  'assets/default.jpeg',
+                  color: Colors.black,
+                ),
+              ),
             ),
           ),
 
           SizedBox(
             height: 2.h,
           ),
-
-          // ListView.builder(
-          //   scrollDirection: Axis.horizontal,
-          //   itemCount: 3,
-          //
-          //   itemBuilder: (BuildContext context, int index) {
-          //     return Column(
-          //       children: [
-          //
-          //         Padding(
-          //           padding:  EdgeInsets.symmetric(horizontal: 8.h),
-          //           child: Container(
-          //             width: 100.w,
-          //             child: Column(
-          //               children: [
-          //                 Container(
-          //                   child: Text("Watch Premium Content",
-          //                     style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
-          //                   ),
-          //                 ),
-          //
-          //                 SizedBox(height: 1.h,),
-          //                 Container(
-          //
-          //
-          //                   child: Text("You will get access on all our platforms. Explore and watch videos on your phone.",
-          //                     style: TextStyle(fontSize: 14.sp, color: Colors.grey),
-          //                     textAlign: TextAlign.center,
-          //                   ),
-          //                 ),
-          //
-          //
-          //
-          //
-          //
-          //                 // ListView.builder(
-          //                 // scrollDirection: Axis.horizontal,
-          //                 // itemCount: 3,
-          //                 // itemBuilder: (BuildContext context, int index) =>
-          //                 // Container(
-          //                 //   child: Text("kfjvdkj"),
-          //                 //
-          //                 // ))
-          //               ],
-          //             ),
-          //           ),
-          //         )
-          //       ],
-          //     );
-          //   },
-          // ),
-
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 2.h),
             child: Container(
@@ -144,11 +103,9 @@ class _subscriptionState extends State<subscription> {
                   fontWeight: FontWeight.w200),
             ),
           ),
-
           SizedBox(
             height: 2.h,
           ),
-
           GestureDetector(
             onTap: () {
               Navigator.push(

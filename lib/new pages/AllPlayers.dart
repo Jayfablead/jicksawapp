@@ -10,6 +10,7 @@ import 'package:jicksaw/Modal/playermodal.dart';
 import 'package:jicksaw/Questions/FirstQuestion.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/loader.dart';
+import 'package:jicksaw/drawer.dart';
 import 'package:jicksaw/new%20pages/userprofilepage.dart';
 import 'package:jicksaw/other/const%20widget.dart';
 import 'package:jicksaw/question.dart';
@@ -61,6 +62,7 @@ final List<String> ageimgs = [
   'assets/chs/old1.png',
 ];
 bool isloading = true;
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _AllPlayersState extends State<AllPlayers> {
   @override
@@ -81,7 +83,12 @@ class _AllPlayersState extends State<AllPlayers> {
   Widget build(BuildContext context) {
     return commanScreen(
       isLoading: isloading,
+
       scaffold: Scaffold(
+        extendBodyBehindAppBar: true,
+        key: _scaffoldKey,
+        drawer: drawer1(),
+        appBar: appbar1(title1: 'All Players', press: (){ _scaffoldKey.currentState?.openDrawer();}, icn: Icon(Icons.menu), act: (){}, icn1: Icon(null)),
         backgroundColor: bgcolor,
         body: SingleChildScrollView(
           child: isloading
@@ -105,19 +112,8 @@ class _AllPlayersState extends State<AllPlayers> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            SizedBox(height: 8.h),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Text(
-                                  'All Players ',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 15.sp, color: Colors.white),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 3.h),
+
+                            SizedBox(height: 15.h),
                             SizedBox(
                               height: 82.h,
                               child: GridView.builder(

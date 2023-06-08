@@ -1,7 +1,20 @@
+import 'dart:convert';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Widget/loader.dart';
+import 'package:jicksaw/new%20pages/allsubspage.dart';
 import 'package:jicksaw/other/const%20widget.dart';
 import 'package:sizer/sizer.dart';
+
+import '../Provider/ProfileviewModal.dart';
+import '../Provider/authprovider.dart';
+import '../Widget/buildErrorDialog.dart';
+import '../Widget/const.dart';
+import '../drawer.dart';
 
 class setting extends StatefulWidget {
   const setting({Key? key}) : super(key: key);
@@ -10,262 +23,286 @@ class setting extends StatefulWidget {
   State<setting> createState() => _settingState();
 }
 
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+bool isLoading = false;
+
 class _settingState extends State<setting> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    viewap();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.grey.shade300,
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 2.h),
-          child: Column(children: [
-            SizedBox(height: 2.h,),
-            Container(
-              height: 10.h,
-              alignment: Alignment.center,
-              child:
-                  // Icon(Icons.arrow_back),
-
-                  Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => mainpage2()),
-                      );
-                    },
-                    child: Icon(
-                      Icons.arrow_back_ios,
-                      size: 3.h,
-                      color: primary,
+    return commanScreen(
+      isLoading: isLoading,
+      scaffold: Scaffold(
+          extendBodyBehindAppBar: true,
+          key: _scaffoldKey,
+          drawer: drawer1(),
+          backgroundColor: Colors.grey.shade300,
+          appBar: appbar1(
+              title1: 'Settings',
+              press: () {
+                _scaffoldKey.currentState?.openDrawer();
+              },
+              icn: Icon(Icons.menu),
+              act: () {},
+              icn1: Icon(null)),
+          body: isLoading
+              ? Container()
+              : Stack(
+                  children: [
+                    Container(
+                        height: 100.h,
+                        child: Image.asset(
+                          'assets/wall2.webp',
+                          fit: BoxFit.fitHeight,
+                        )),
+                    Container(
+                      height: 100.h,
+                      color: Colors.black.withOpacity(0.40),
                     ),
-                  ),
-                  Text(
-                    'Settings',
-                     style: primarytxt1,
-                        // TextStyle(
-                        //   // fontWeight: FontWeight.bold, fontSize: 13.sp, color:primary,
-                        //
-                        // ),
-                  ),
-                  Text(''),
-                ],
-              ),
-            ),
-            SizedBox(height: 2.h,),
-            Container(
-              margin: EdgeInsets.only(left: 8.w),
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "General Settings",
-                // style: primarytxt1,
-                style: TextStyle(   color: primary,
-                  fontSize: 15.sp,
-                fontFamily: 'Poppins',
-                  letterSpacing: 2,),
-              ),
-            ),
-            SizedBox(
-              height: 2.h,
-            ),
-            Card(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              elevation: 0,
-              color: Colors.white,
-              child: SizedBox(
-                height: 30.h,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 2.h),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 3.h,
-                      ),
-                      Container(
-                          child: Row(
-                        children: [
-                          CircleAvatar(
-
-                            radius: 4.h,
-                            backgroundImage: NetworkImage(
-                                "https://unsplash.com/photos/t3zrEm88ehc",
-
-                            ),
-                          ),
-                          SizedBox(width: 4.w),
-                          Text('John Doe',
-                            style: TextStyle( color: Colors.black,
-                            fontSize: 15.sp,
-                          fontFamily: 'Poppins',
-                            letterSpacing: 2,),
-                          ),
-                        ],
-                      )),
-                      SizedBox(
-                        height: 3.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Change Password',
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 2.w),
+                      child: Column(children: [
+                        SizedBox(
+                          height: 14.h,
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(left: 8.w),
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "General Settings",
+                            // style: primarytxt1,
                             style: TextStyle(
-                              fontSize: 13.sp,
-                            fontFamily: 'Poppins',
-
-
-                            ),
-                          ),
-                          Icon(Icons.arrow_forward_ios)
-                        ],
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Forgot Password',
-                            style: TextStyle(
-                              fontSize: 13.sp,
-                            fontFamily: 'Poppins',
-
-                            ),
-                          ),
-                          Icon(Icons.arrow_forward_ios)
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 2.h,
-            ),
-            Card(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              elevation: 0,
-              color: Colors.white,
-              child: SizedBox(
-                height: 35.h,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 2.h),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 3.h,
-                      ),
-                      Container(
-                          child: Row(
-                        children: [
-                          Text(
-                            'Support',
-                            style: TextStyle(
+                              color: primary,
                               fontSize: 15.sp,
-                            fontFamily: 'Poppins',
+                              fontFamily: 'Poppins',
                               letterSpacing: 2,
-                            color: primary
                             ),
                           ),
-                        ],
-                      )),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Terms of Service',
-                            style: TextStyle(
-                              fontSize: 13.sp,
-                            fontFamily: 'Poppins',
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          elevation: 0,
+                          color: Colors.white,
+                          child: SizedBox(
+                            height: 60.h,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 2.h),
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    height: 3.h,
+                                  ),
+                                  Container(
+                                      child: Row(
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 1.w),
+                                        height: 9.h,
+                                        width: 19.w,
+                                        padding: EdgeInsets.all(1.w),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(90),
+                                          child: CachedNetworkImage(
+                                            fit: BoxFit.cover,
+                                            imageUrl: (profileviewmodal
+                                                    ?.profileViewPlayer
+                                                    ?.profilePic)
+                                                .toString(),
+                                            progressIndicatorBuilder:
+                                                (context, url, progress) =>
+                                                    CircularProgressIndicator(),
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    Image.asset(
+                                              'assets/user.png',
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(width: 3.w),
+                                      Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            (profileviewmodal
+                                                    ?.profileViewPlayer?.name)
+                                                .toString(),
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 15.sp,
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 2,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            width: 60.w,
+                                            child: Text(
+                                              (profileviewmodal
+                                                      ?.profileViewPlayer
+                                                      ?.eMail)
+                                                  .toString(),
+                                              maxLines: 2,
+                                              style: TextStyle(
+                                                color: primary,
+                                                fontSize: 13.sp,
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 2,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),),SizedBox(
+                                    height: 0.5.h,
+                                  ),
+                                  Divider(color: Colors.black45,),
+                                  SizedBox(
+                                    height: 1.h,
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      print('object');
+                                    },
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'Forgot Password',
+                                          style: TextStyle(
+                                            fontSize: 13.sp,
+                                            fontFamily: 'Poppins',
+                                          ),
+                                        ),
+                                        Icon(Icons.arrow_forward_ios)
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 2.h,
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      print('changepwd');
+                                    },
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'Change Password',
+                                          style: TextStyle(
+                                            fontSize: 13.sp,
+                                            fontFamily: 'Poppins',
+                                          ),
+                                        ),
+                                        Icon(Icons.arrow_forward_ios)
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 2.h,
+                                  ),
 
+                                  InkWell(
+                                    onTap: () {
+                                     Get.to(MySubscriptions());
+                                    },
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'My Subscription',
+                                          style: TextStyle(
+                                            fontSize: 13.sp,
+                                            fontFamily: 'Poppins',
+                                          ),
+                                        ),
+                                        Icon(Icons.arrow_forward_ios)
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 2.h,
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      print('changepwd');
+                                    },
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'My Purchases',
+                                          style: TextStyle(
+                                            fontSize: 13.sp,
+                                            fontFamily: 'Poppins',
+                                          ),
+                                        ),
+                                        Icon(Icons.arrow_forward_ios)
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                          Icon(Icons.arrow_forward_ios)
-                        ],
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Date Policy',
-                            style: TextStyle(
-                              fontSize: 13.sp,
-                            fontFamily: 'Poppins',
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                      ]),
+                    ),
+                  ],
+                )),
+    );
+  }
 
-                            ),
-                          ),
-                          Icon(Icons.arrow_forward_ios)
-                        ],
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'About',
-                            style: TextStyle(
-                              fontSize: 13.sp,
-                            fontFamily: 'Poppins',
+  viewap() {
+    final Map<String, String> data = {};
+    data['uid'] = (usermodal?.userData?.uid).toString();
+    data['action'] = 'profile_view_player';
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().profileviewapi(data).then((response) async {
+          profileviewmodal =
+              ProfileviewModal.fromJson(json.decode(response.body));
 
-                            ),
-                          ),
-                          Icon(Icons.arrow_forward_ios)
-                        ],
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Help/FAQ',
-                            style: TextStyle(
-                              fontSize: 13.sp,
-                            fontFamily: 'Poppins',
-
-                            ),
-                          ),
-                          Icon(Icons.arrow_forward_ios)
-                        ],
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Contact us',
-                            style: TextStyle(
-                              fontSize: 13.sp,
-                            fontFamily: 'Poppins',
-
-                            ),
-                          ),
-                          Icon(Icons.arrow_forward_ios)
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ]),
-        ));
+          if (response.statusCode == 200 &&
+              profileviewmodal?.status == "success") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            isLoading = false;
+          }
+        });
+      } else {
+        setState(() {
+          isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
   }
 }
