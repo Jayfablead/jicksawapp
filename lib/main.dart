@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
             title: 'Jigsaw',
             debugShowCheckedModeBanner: false,builder: EasyLoading.init(),
             getPages: [
-              GetPage(name: '/', page: ()=>SplashScreen()),
+              GetPage(name: '/', page: ()=>design()),
               GetPage(name: '/MemoryChallenge', page: ()=> MemoryChallenge()),
               GetPage(name: '/TriviaChallenge', page: ()=> TriviaChallenge()),
               GetPage(name: '/Board', page: ()=> Board()),

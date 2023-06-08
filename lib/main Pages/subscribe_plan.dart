@@ -150,28 +150,9 @@ class _subscribe_planState extends State<subscribe_plan> {
                                 ],
                               ),
                               SizedBox(
-                                height: 1.h,
+                                height: 4.h,
                               ),
-                              Row(
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    height: 4.h,
-                                    width: 30.w,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Color(0xffeefbf5)),
-                                    child: Text(
-                                      "1 week free trial",
-                                      style:
-                                          TextStyle(color: Color(0xffa0e1c1),
 
-                                             fontFamily: 'Poppins',
-                                          ),
-                                    ),
-                                  ),
-                                ],
-                              ),
                               Row(
                                 children: [
                                   Container(
@@ -261,27 +242,9 @@ class _subscribe_planState extends State<subscribe_plan> {
                                 ],
                               ),
                               SizedBox(
-                                height: 1.h,
+                                height: 4.h,
                               ),
-                              Row(
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    height: 4.h,
-                                    width: 30.w,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Color(0xffeefbf5)),
-                                    child: Text(
-                                      "1 month free trial",
-                                      style:
-                                          TextStyle(color: Color(0xffa0e1c1),
-                                             fontFamily: 'Poppins',
-                                          ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+
                               Row(
                                 children: [
                                   Container(

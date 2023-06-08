@@ -11,6 +11,7 @@ import 'package:jicksaw/Modal/questionsmodal.dart';
 import 'package:jicksaw/Modal/shopinfoModal.dart';
 import 'package:jicksaw/Modal/shopitemmodal.dart';
 import 'package:jicksaw/Modal/subsModal.dart';
+import 'package:jicksaw/Modal/transactionModal.dart';
 import 'package:jicksaw/Modal/viewcard.dart';
 import 'package:jicksaw/Provider/ProfileviewModal.dart';
 
@@ -38,3 +39,4 @@ AllplayersModal? players;
 addcardModal? addcard;
 viewcardModal? viewcard;
 subscribeModal? subs;
+TransactionModal? trans;
