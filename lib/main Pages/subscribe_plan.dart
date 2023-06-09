@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/main%20Pages/checkoutPage.dart';
-import 'package:jicksaw/main%20Pages/plancheckoutpage.dart';
+
 import 'package:jicksaw/main%20Pages/subscription_page.dart';
 
 import 'package:sizer/sizer.dart';
