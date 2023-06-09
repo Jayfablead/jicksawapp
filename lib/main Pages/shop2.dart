@@ -107,7 +107,7 @@ class _GameInfoState extends State<GameInfo> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(PurchaseScreen(name:  shopitem?.itemDetails?.itemName ?? '', img:  shopitem?.itemDetails?.itemLogo ?? '',price: shopitem?.itemDetails?.price ?? '',));
+                      Get.to(PurchaseScreen(name:  shopitem?.itemDetails?.itemName ?? '', itemid: widget.id,img:  shopitem?.itemDetails?.itemLogo ?? '',price: shopitem?.itemDetails?.price ?? '',));
                     },
                     child: Container(
                       height: 5.5.h,

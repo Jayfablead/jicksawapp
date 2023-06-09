@@ -122,6 +122,20 @@ class authprovider with ChangeNotifier{
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> purchaseapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=checkout_puzzle';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
   Future<http.Response> viewcardapi(Map<String, dynamic> bodyData) async {
     const url = '$baseUrl/?action=get_user_cards';
     var responseJson;
@@ -138,6 +152,20 @@ class authprovider with ChangeNotifier{
   }
   Future<http.Response> transactionapi(Map<String, dynamic> bodyData) async {
     const url = '$baseUrl/?action=subscription_details';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> shoptransactionapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=user_order_details';
     var responseJson;
     final response = await http
         .post(Uri.parse(url), body: bodyData, headers: headers)

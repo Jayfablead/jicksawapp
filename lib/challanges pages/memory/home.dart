@@ -43,7 +43,7 @@ class _MemoryChallengeState extends State<MemoryChallenge> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            height: 3.h,
+            height: 6.h,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

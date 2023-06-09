@@ -46,7 +46,6 @@ class _designState extends State<design> with TickerProviderStateMixin {
   final List<String> pages = [
     '/MemoryChallenge',
     '/TriviaChallenge',
-    '/Board',
     '/MathtPage'
   ];
   final Random random = Random();

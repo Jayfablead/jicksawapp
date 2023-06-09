@@ -265,38 +265,40 @@ class _ShopmainPageState extends State<ShopmainPage> {
                                                       '',
                                                   style: appname,
                                                 ),
-                                                Column(
-                                                  children: [
-                                                    Text(
-                                                      '\$ ${shop?.allItems?[index].price ?? ''}',
-                                                      style: TextStyle(
-                                                          color: Color(
-                                                              0xff2c2c2c)),
-                                                    ),
-                                                    SizedBox(height: 0.5.h),
-                                                    Row(
-                                                      children: [
-                                                        Text(
-                                                          shop?.allItems?[index]
-                                                                  .ratings ??
-                                                              '',
-                                                          style: TextStyle(
-                                                              color: Color(
-                                                                  0xff2c2c2c)),
-                                                        ),
-                                                        SizedBox(
-                                                          width: 1.w,
-                                                        ),
-                                                        Text(
-                                                          '★',
-                                                          style: TextStyle(
+                                                Align(
+                                                  child: Column(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                                                    children: [
+                                                      Text(
+                                                        '\$ ${shop?.allItems?[index].price ?? ''}',
+                                                        style: TextStyle(
                                                             color: Color(
-                                                                0xff8f8d8d),
+                                                                0xff2c2c2c)),
+                                                      ),
+                                                      SizedBox(height: 0.5.h),
+                                                      Row(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
+                                                        children: [
+                                                          Text(
+                                                            shop?.allItems?[index]
+                                                                    .ratings ??
+                                                                '',
+                                                            style: TextStyle(
+                                                                color: Color(
+                                                                    0xff2c2c2c)),
                                                           ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
+                                                          SizedBox(
+                                                            width: 1.w,
+                                                          ),
+                                                          Text(
+                                                            '★',
+                                                            style: TextStyle(
+                                                              color: Color(
+                                                                  0xff8f8d8d),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ],
                                             ),

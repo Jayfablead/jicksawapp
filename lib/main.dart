@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
               GetPage(name: '/', page: ()=>SplashScreen()),
               GetPage(name: '/MemoryChallenge', page: ()=> MemoryChallenge()),
               GetPage(name: '/TriviaChallenge', page: ()=> TriviaChallenge()),
-              GetPage(name: '/Board', page: ()=> Board()),
+
               GetPage(name: '/MathtPage', page: ()=> MathtPage()),
             ],
             theme: ThemeData(

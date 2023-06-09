@@ -12,7 +12,8 @@ class PurchaseScreen extends StatefulWidget {
   String? name;
   String? img;
   String? price;
-   PurchaseScreen({Key? key,this.img,this.name,this.price}) : super(key: key);
+  String? itemid;
+   PurchaseScreen({Key? key,this.img,this.name,this.itemid,this.price}) : super(key: key);
 
   @override
   State<PurchaseScreen> createState() => _PurchaseScreenState();
@@ -222,7 +223,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
 
                       SizedBox(height: 35.h,),
                       InkWell(onTap:(){
-                        Get.to(CheckoutPage(imgs:widget.img,name: widget.name,price: widget.price,method: 'Stripe',type: 0,));
+                        Get.to(CheckoutPage(imgs:widget.img,name: widget.name,price: widget.price,method: 'Stripe',itemid: widget.itemid,type: 0,));
                       },
                         child: Container(
                           alignment: Alignment.center,

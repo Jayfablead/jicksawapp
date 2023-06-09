@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Modal/shoptransactionModal.dart';
 import 'package:jicksaw/Modal/transactionModal.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/loader.dart';
@@ -34,7 +35,7 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    viewtransapi();
+    widget.type == 0?shoptransapi():viewtransapi();
   }
 
   @override
@@ -75,12 +76,13 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
                           Text(
                             widget.type == 1
                                 ? 'You have Purchased Our ${trans?.thankYou?.productName} of Subscription.'
-                                : 'You have Purchased ${widget.name}.',
+                                : 'You have Purchased ${shoptransaction?.orderDetails?.itemName}.',
                             style: mainstyle,
                             textAlign: TextAlign.center,
                           ),
                           Container(
-                            height: 35.h,
+                            height: widget.type == 1
+                                ? 35.h:38.h,
                             width: MediaQuery.of(context).size.width,
                             child: Card(
                               elevation: 2,
@@ -106,7 +108,7 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
                                               fontSize: 14.sp),
                                         ),
                                         Text(
-                                          trans?.thankYou?.transactionId ?? '',
+                                          widget.type == 0?shoptransaction?.orderDetails?.orderId ?? '':trans?.thankYou?.transactionId ?? '',
                                           style: TextStyle(
                                               color: Colors.black
                                                   .withOpacity(0.80),
@@ -161,10 +163,43 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
                                       ],
                                     ),
                                     Text(
-                                      trans?.thankYou?.transactionNo ?? '',
+                                      widget.type == 0?shoptransaction?.orderDetails?.orderNo ?? '': trans?.thankYou?.transactionNo ?? '',
                                       style: TextStyle(
                                           color: Colors.black.withOpacity(0.80),
                                           fontSize: 14.sp),
+                                    ),
+                                    widget.type == 1?Container():Column(
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              'Transaction-Id :',
+                                              style: TextStyle(
+                                                  color: Colors.black
+                                                      .withOpacity(0.90),
+                                                  fontSize: 14.sp),
+                                            ),
+                                            Text(
+                                              '',
+                                              style: TextStyle(
+                                                  color: Colors.black
+                                                      .withOpacity(0.80),
+                                                  fontSize: 14.sp),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(height: 1.h,),
+                                        Text(
+                                          shoptransaction?.orderDetails?.transactionId ?? '',
+                                          style: TextStyle(
+                                              color: Colors.black.withOpacity(0.80),
+                                              fontSize: 14.sp),
+                                        ),
+                                      ],
                                     ),
                                     Row(
                                       mainAxisAlignment:
@@ -197,14 +232,14 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
                                         Text(
                                           widget.type == 1
                                               ? '${trans?.thankYou?.productName} of Subscription.'
-                                              : widget.name.toString(),
+                                              : (shoptransaction?.orderDetails?.itemName).toString(),
                                           style: TextStyle(
                                               color: Colors.black
                                                   .withOpacity(0.90),
                                               fontSize: 14.sp),
                                         ),
                                         Text(
-                                          ' \$ ${trans?.thankYou?.amount}',
+                                          widget.type == 0?"\$ ${shoptransaction?.orderDetails?.price}" : ' \$ ${trans?.thankYou?.amount}',
                                           style: TextStyle(
                                               color: Colors.black
                                                   .withOpacity(0.80),
@@ -270,7 +305,7 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
                                   color: primary),
                               padding: EdgeInsets.all(2.h),
                               child: Text(
-                                'CONTINUE SHOPPING',
+                                'CONTINUE',
                                 style: TextStyle(
                                   fontSize: 13.sp,
                                   color: Colors.white,
@@ -306,7 +341,40 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
               print(viewcard?.cardDetails?.cardId ?? '');
             });
           } else {
-            isLoading = false;
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        setState(() {
+          isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
+
+  shoptransapi() {
+    final Map<String, String> data = {};
+    data['uid'] = (usermodal?.userData?.uid).toString();
+    data['action'] = 'user_order_details';
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().shoptransactionapi(data).then((response) async {
+          shoptransaction =
+              shoptransactionModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 &&
+              shoptransaction?.status == "success") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
           }
         });
       } else {
