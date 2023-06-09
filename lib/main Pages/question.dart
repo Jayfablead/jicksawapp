@@ -97,18 +97,7 @@ class _questionState extends State<question> {
                             SizedBox(
                               width: 2.w,
                             ),
-                            Row(
-                              children: [
-                                Image.asset(
-                                  'assets/splash/reward.png',
-                                  width: 8.w,
-                                ),
-                                Text('3'),
-                              ],
-                            ),
-                            SizedBox(
-                              width: 2.w,
-                            ),
+
                           ],
                         ),
                         Container(

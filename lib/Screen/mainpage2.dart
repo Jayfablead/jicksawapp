@@ -215,18 +215,8 @@ class _mainpage2State extends State<mainpage2> {
                                               SizedBox(
                                                 width: 2.w,
                                               ),
-                                              Row(
-                                                children: [
-                                                  Image.asset(
-                                                    'assets/splash/reward.png',
-                                                    width: 8.w,
-                                                  ),
-                                                  Text('3'),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                width: 2.w,
-                                              ),
+
+
                                             ],
                                           ),
                                           Container(
@@ -296,7 +286,7 @@ SizedBox(height: 2.h,),
                                                     MainAxisAlignment.spaceEvenly,
                                                 children: [
                                                   Image.asset(
-                                                    'assets/splash/puzzle.png',
+                                                    'assets/dice.png',
                                                     height: 8.h,
                                                     width: 17.w,
                                                   ),
