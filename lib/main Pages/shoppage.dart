@@ -101,7 +101,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                               children: [
                                 IconButton(
                                     onPressed: () {
-                                      print('object');
+
                                       _scaffoldKey.currentState?.openDrawer();
                                     },
                                     icon: Icon(
@@ -162,7 +162,7 @@ class _ShopmainPageState extends State<ShopmainPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Popular',
+                                  'All Games',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 13.sp,
@@ -170,17 +170,17 @@ class _ShopmainPageState extends State<ShopmainPage> {
                                     letterSpacing: 2,
                                   ),
                                 ),
-                                TextButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      'VIEW MORE',
-                                      style: TextStyle(
-                                        color: Colors.deepOrange,
-                                        fontSize: 11.sp,
-                                        fontFamily: 'Poppins',
-                                        letterSpacing: 2,
-                                      ),
-                                    )),
+                                // TextButton(
+                                //     onPressed: () {},
+                                //     child: Text(
+                                //       'VIEW MORE',
+                                //       style: TextStyle(
+                                //         color: Colors.deepOrange,
+                                //         fontSize: 11.sp,
+                                //         fontFamily: 'Poppins',
+                                //         letterSpacing: 2,
+                                //       ),
+                                //     )),
                               ],
                             ),
                             Divider(
@@ -190,10 +190,19 @@ class _ShopmainPageState extends State<ShopmainPage> {
                               height: 10,
                             ),
                             SizedBox(
-                              height: 22.h,
-                              child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
+                              // height: 22.h,
+                              child: GridView.builder(
+                                padding: EdgeInsets.zero,
+                                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                   crossAxisCount: 2,
+                                   mainAxisSpacing: 2.h,
+                                   childAspectRatio: 0.9,
+                                   crossAxisSpacing: 10
+                                 ),
+                                shrinkWrap: true,
+                                // scrollDirection: Axis.horizontal,
                                 itemCount: shop?.allItems?.length,
+
                                 itemBuilder: (context, index) {
                                   return InkWell(
                                     onTap: () {
@@ -306,129 +315,129 @@ class _ShopmainPageState extends State<ShopmainPage> {
                             //     TextButton(onPressed: (){}, child: Text('view more',style: secondarytxt,)),
                             //   ],
                             // ),
-                            SizedBox(
-                              height: 1.h,
-                            ),
-                            Divider(
-                              color: Colors.white,
-                            ),
-                            SizedBox(
-                              height: 1.h,
-                            ),
-
-                            SizedBox(
-                              height: 40.h,
-                              child: ListView.builder(
-                                // scrollDirection: Axis.horizontal,
-                                itemCount: shop?.allItems?.length,
-                                padding: EdgeInsets.zero,
-                                itemBuilder: (context, index) {
-                                  return InkWell(
-                                    onTap: () {
-                                      Get.to(() => GameInfo(
-                                          id: shop?.allItems?[index].itemId ??
-                                              ''));
-                                    },
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(15)),
-                                      padding: EdgeInsets.all(1.h),
-                                      margin:
-                                          EdgeInsets.symmetric(vertical: 0.5.h),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Container(
-                                                height: 6.h,
-                                                width: 12.w,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20)),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(15),
-                                                  child: CachedNetworkImage(
-                                                    fit: BoxFit.cover,
-                                                    imageUrl: shop
-                                                            ?.allItems?[index]
-                                                            .itemLogo ??
-                                                        '',
-                                                    progressIndicatorBuilder:
-                                                        (context, url,
-                                                                progress) =>
-                                                            CircularProgressIndicator(),
-                                                    errorWidget:
-                                                        (context, url, error) =>
-                                                            Image.asset(
-                                                      'assets/12.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: 5.w,
-                                              ),
-                                              SizedBox(
-                                                width: 32.w,
-                                                child: Row(
-                                                  children: [
-                                                    SizedBox(
-                                                      width: 30.w,
-                                                      child: Text(
-                                                        shop?.allItems?[index]
-                                                                .itemName ??
-                                                            '',
-                                                        style: appname,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Text(
-                                                shop?.allItems?[index]
-                                                        .ratings ??
-                                                    '',
-                                                style: TextStyle(
-                                                    color: Color(0xff8f8d8d)),
-                                              ),
-                                              SizedBox(
-                                                width: 1.w,
-                                              ),
-                                              Text(
-                                                '★',
-                                                style: TextStyle(
-                                                  color: Color(0xff8f8d8d),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Text(
-                                            '\$ ${shop?.allItems?[index].price ?? ''}',
-                                            style: TextStyle(
-                                                color: Color(0xff8f8d8d)),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
+                            // SizedBox(
+                            //   height: 1.h,
+                            // ),
+                            // Divider(
+                            //   color: Colors.white,
+                            // ),
+                            // SizedBox(
+                            //   height: 1.h,
+                            // ),
+                            //
+                            // SizedBox(
+                            //   height: 40.h,
+                            //   child: ListView.builder(
+                            //     // scrollDirection: Axis.horizontal,
+                            //     itemCount: shop?.allItems?.length,
+                            //     padding: EdgeInsets.zero,
+                            //     itemBuilder: (context, index) {
+                            //       return InkWell(
+                            //         onTap: () {
+                            //           Get.to(() => GameInfo(
+                            //               id: shop?.allItems?[index].itemId ??
+                            //                   ''));
+                            //         },
+                            //         child: Container(
+                            //           decoration: BoxDecoration(
+                            //               color: Colors.white,
+                            //               borderRadius:
+                            //                   BorderRadius.circular(15)),
+                            //           padding: EdgeInsets.all(1.h),
+                            //           margin:
+                            //               EdgeInsets.symmetric(vertical: 0.5.h),
+                            //           child: Row(
+                            //             mainAxisAlignment:
+                            //                 MainAxisAlignment.spaceBetween,
+                            //             crossAxisAlignment:
+                            //                 CrossAxisAlignment.center,
+                            //             children: [
+                            //               Row(
+                            //                 children: [
+                            //                   Container(
+                            //                     height: 6.h,
+                            //                     width: 12.w,
+                            //                     decoration: BoxDecoration(
+                            //                         borderRadius:
+                            //                             BorderRadius.circular(
+                            //                                 20)),
+                            //                     child: ClipRRect(
+                            //                       borderRadius:
+                            //                           BorderRadius.circular(15),
+                            //                       child: CachedNetworkImage(
+                            //                         fit: BoxFit.cover,
+                            //                         imageUrl: shop
+                            //                                 ?.allItems?[index]
+                            //                                 .itemLogo ??
+                            //                             '',
+                            //                         progressIndicatorBuilder:
+                            //                             (context, url,
+                            //                                     progress) =>
+                            //                                 CircularProgressIndicator(),
+                            //                         errorWidget:
+                            //                             (context, url, error) =>
+                            //                                 Image.asset(
+                            //                           'assets/12.png',
+                            //                           fit: BoxFit.cover,
+                            //                         ),
+                            //                       ),
+                            //                     ),
+                            //                   ),
+                            //                   SizedBox(
+                            //                     width: 5.w,
+                            //                   ),
+                            //                   SizedBox(
+                            //                     width: 32.w,
+                            //                     child: Row(
+                            //                       children: [
+                            //                         SizedBox(
+                            //                           width: 30.w,
+                            //                           child: Text(
+                            //                             shop?.allItems?[index]
+                            //                                     .itemName ??
+                            //                                 '',
+                            //                             style: appname,
+                            //                           ),
+                            //                         ),
+                            //                       ],
+                            //                     ),
+                            //                   ),
+                            //                 ],
+                            //               ),
+                            //               Row(
+                            //                 mainAxisAlignment:
+                            //                     MainAxisAlignment.end,
+                            //                 children: [
+                            //                   Text(
+                            //                     shop?.allItems?[index]
+                            //                             .ratings ??
+                            //                         '',
+                            //                     style: TextStyle(
+                            //                         color: Color(0xff8f8d8d)),
+                            //                   ),
+                            //                   SizedBox(
+                            //                     width: 1.w,
+                            //                   ),
+                            //                   Text(
+                            //                     '★',
+                            //                     style: TextStyle(
+                            //                       color: Color(0xff8f8d8d),
+                            //                     ),
+                            //                   ),
+                            //                 ],
+                            //               ),
+                            //               Text(
+                            //                 '\$ ${shop?.allItems?[index].price ?? ''}',
+                            //                 style: TextStyle(
+                            //                     color: Color(0xff8f8d8d)),
+                            //               ),
+                            //             ],
+                            //           ),
+                            //         ),
+                            //       );
+                            //     },
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),

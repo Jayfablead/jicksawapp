@@ -332,7 +332,7 @@ update(BuildContext context, String title, String contant,
           backgroundColor: Colors.transparent,
           child: Container(
             width: 70.w,
-            height: (title == "") ? 15.5.h : 24.h,
+            height: (title == "") ? 15.5.h : 25.h,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),

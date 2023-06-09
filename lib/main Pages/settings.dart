@@ -7,6 +7,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:jicksaw/Screen/Forgot%20Password.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/loader.dart';
+import 'package:jicksaw/main%20Pages/changepwd.dart';
 import 'package:jicksaw/new%20pages/My%20Purchased%20Games.dart';
 import 'package:jicksaw/new%20pages/allsubspage.dart';
 import 'package:jicksaw/other/const%20widget.dart';
@@ -202,7 +203,7 @@ class _settingState extends State<setting> {
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      Get.to(()=> Forgotpwd());
+                                      Get.to(()=> Changepwd());
                                     },
                                     child: Row(
                                       mainAxisAlignment:

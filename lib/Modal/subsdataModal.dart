@@ -1,16 +1,19 @@
 class subsdataModal {
   String? status;
   String? message;
-  AllSubs? allSubs;
+  List<AllSubs>? allSubs;
 
   subsdataModal({this.status, this.message, this.allSubs});
 
   subsdataModal.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    allSubs = json['all_subs'] != null
-        ? new AllSubs.fromJson(json['all_subs'])
-        : null;
+    if (json['all_subs'] != null) {
+      allSubs = <AllSubs>[];
+      json['all_subs'].forEach((v) {
+        allSubs!.add(new AllSubs.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -18,7 +21,7 @@ class subsdataModal {
     data['status'] = this.status;
     data['message'] = this.message;
     if (this.allSubs != null) {
-      data['all_subs'] = this.allSubs!.toJson();
+      data['all_subs'] = this.allSubs!.map((v) => v.toJson()).toList();
     }
     return data;
   }

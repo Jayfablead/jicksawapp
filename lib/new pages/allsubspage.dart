@@ -3,8 +3,10 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Modal/subscancleModal.dart';
 import 'package:jicksaw/Modal/subsdataModal.dart';
 import 'package:jicksaw/Provider/ProfileviewModal.dart';
+import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Provider/authprovider.dart';
@@ -118,7 +120,7 @@ class _MySubscriptionsState extends State<MySubscriptions> {
                                             height: 1.h,
                                           ),
                                           Text(
-                                            '${allsubs?.allSubs?.productName} of Subscription',
+                                            '${allsubs?.allSubs?[0].productName} of Subscription',
                                             style: TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 14.sp),
@@ -143,7 +145,7 @@ class _MySubscriptionsState extends State<MySubscriptions> {
                                             fontSize: 14.sp),
                                       ),
                                       Text(
-                                        '\$ ${allsubs?.allSubs?.amount}',
+                                        '\$ ${allsubs?.allSubs?[0].amount}',
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 14.sp),
@@ -176,7 +178,7 @@ class _MySubscriptionsState extends State<MySubscriptions> {
                                           SizedBox(
                                             width: 85.w,
                                             child: Text(
-                                              '${allsubs?.allSubs?.productId}',
+                                              '${allsubs?.allSubs?[0].productId}',
                                               maxLines: 2,
                                               style: TextStyle(
                                                   color: Colors.black,
@@ -203,7 +205,7 @@ class _MySubscriptionsState extends State<MySubscriptions> {
                                             fontSize: 14.sp),
                                       ),
                                       Text(
-                                        '${allsubs?.allSubs?.transactionId}',
+                                        '${allsubs?.allSubs?[0].transactionId}',
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 14.sp),
@@ -236,7 +238,7 @@ class _MySubscriptionsState extends State<MySubscriptions> {
                                           SizedBox(
                                             width: 85.w,
                                             child: Text(
-                                              '${allsubs?.allSubs?.transactionNo}',
+                                              '${allsubs?.allSubs?[0].transactionNo}',
                                               maxLines: 2,
                                               style: TextStyle(
                                                   color: Colors.black,
@@ -263,7 +265,7 @@ class _MySubscriptionsState extends State<MySubscriptions> {
                                             fontSize: 14.sp),
                                       ),
                                       Text(
-                                        '${allsubs?.allSubs?.planDays} Days',
+                                        '${allsubs?.allSubs?[0].planDays} Days',
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 14.sp),
@@ -286,7 +288,7 @@ class _MySubscriptionsState extends State<MySubscriptions> {
                                             fontSize: 14.sp),
                                       ),
                                       Text(
-                                        '${allsubs?.allSubs?.planStart}',
+                                        '${allsubs?.allSubs?[0].planStart}',
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 14.sp),
@@ -309,7 +311,7 @@ class _MySubscriptionsState extends State<MySubscriptions> {
                                             fontSize: 14.sp),
                                       ),
                                       Text(
-                                        '${allsubs?.allSubs?.planEnd}',
+                                        '${allsubs?.allSubs?[0].planEnd}',
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 14.sp),
@@ -338,7 +340,9 @@ class _MySubscriptionsState extends State<MySubscriptions> {
                                       color: Colors.black, fontSize: 15.sp),
                                 ),
                                 TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    gameexit(context, "Subscription", "Do you really want to cancel your Subscription ? ",callback: canclesubapi);
+                                  },
                                   child: Text(
                                     'Cancel',
                                     style: TextStyle(
@@ -367,6 +371,39 @@ class _MySubscriptionsState extends State<MySubscriptions> {
           allsubs = subsdataModal.fromJson(json.decode(response.body));
 
           if (response.statusCode == 200 && allsubs?.status == "success") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            isLoading = false;
+          }
+        });
+      } else {
+        setState(() {
+          isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
+  canclesubapi(){
+    final Map<String, String> data = {};
+    data['uid'] = (usermodal?.userData?.uid).toString();
+    data['action'] = 'user_cancel_subscription';
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().subscanclapi(data).then((response) async {
+          subcancle = SubscancleModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && subcancle?.status == "success") {
+              Get.to(mainpage2());
+            Get.snackbar(
+              "Subscription Cancle",
+              "Successfully",
+              icon: Image(image: AssetImage('assets/logo.png')),
+              snackPosition: SnackPosition.TOP,
+            );
             setState(() {
               isLoading = false;
             });

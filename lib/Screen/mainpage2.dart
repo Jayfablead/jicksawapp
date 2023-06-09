@@ -105,6 +105,7 @@ class _mainpage2State extends State<mainpage2> {
                                             children: [
                                               IconButton(
                                                   onPressed: () {
+                                                    print("open");
                                                     _scaffoldKey.currentState
                                                         ?.openDrawer();
                                                   },

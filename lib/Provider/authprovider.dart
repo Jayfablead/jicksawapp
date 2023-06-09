@@ -80,6 +80,20 @@ class authprovider with ChangeNotifier{
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> subscanclapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=user_cancel_subscription';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
   Future<http.Response> addnewcardapi(Map<String, dynamic> bodyData) async {
     const url = '$baseUrl/?action=add_user_card';
     var responseJson;
@@ -171,6 +185,20 @@ class authprovider with ChangeNotifier{
   }
   Future<http.Response> forgotpassapi(Map<String, String> bodyData) async {
     const url = '$baseUrl/?action=forgot_password';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> changepass(Map<String, String> bodyData) async {
+    const url = '$baseUrl/?action=change_password';
     var responseJson;
     final response = await http
         .post(Uri.parse(url), body: bodyData, headers: headers)
