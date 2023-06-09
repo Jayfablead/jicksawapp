@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Modal/gameModal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
-import 'package:jicksaw/Questions/gameinfo.dart';
-import 'package:jicksaw/other/const%20widget.dart';
-import 'package:jicksaw/question.dart';
+
+import 'package:jicksaw/Widget/const%20widget.dart';
+import 'package:jicksaw/main%20Pages/gameinfo.dart';
+import 'package:jicksaw/main%20Pages/question.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Widget/buildErrorDialog.dart';

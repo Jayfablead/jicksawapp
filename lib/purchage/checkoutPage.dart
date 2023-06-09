@@ -8,13 +8,13 @@ import 'package:jicksaw/Modal/subsModal.dart';
 import 'package:jicksaw/Modal/viewcard.dart';
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/loader.dart';
-import 'package:jicksaw/main%20Pages/AddCardPage.dart';
-import 'package:jicksaw/new%20pages/thanks%20puzzle.dart';
+import 'package:jicksaw/purchage/AddCardPage.dart';
+import 'package:jicksaw/purchage/thanks%20puzzle.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Provider/authprovider.dart';
 import '../Widget/buildErrorDialog.dart';
-import '../other/const widget.dart';
+import '../Widget/const widget.dart';
 
 class CheckoutPage extends StatefulWidget {
   String? name;

@@ -3,11 +3,11 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jicksaw/Questions/gameinfo.dart';
-import 'package:jicksaw/main%20Pages/porfilePage.dart';
+
+import 'package:jicksaw/profile/porfilePage.dart';
 import 'package:sizer/sizer.dart';
 
-import '../Screen/login.dart';
+import '../profile/login.dart';
 
 buildErrorDialog(BuildContext context, String title, String contant,
     {VoidCallback? callback, String? buttonname}) {

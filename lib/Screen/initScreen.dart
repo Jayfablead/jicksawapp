@@ -3,15 +3,16 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
-import 'package:jicksaw/Screen/login.dart';
+import 'package:jicksaw/profile/login.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
-import 'package:jicksaw/Screen/signup.dart';
+
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/sharedpreferance.dart';
+import 'package:jicksaw/profile/signup.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
-import '../other/const widget.dart';
+import '../Widget/const widget.dart';
 
 class Initscreen extends StatefulWidget {
   const Initscreen({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jicksaw/jigsawclipper.dart';
+import 'package:jicksaw/main%20Pages/jigsawclipper.dart';
 
 class JigsawContainer extends StatelessWidget {
   @override

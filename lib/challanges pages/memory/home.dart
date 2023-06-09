@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/challanges%20pages/memory/utils/alertdialog.dart';
 import 'package:jicksaw/challanges%20pages/memory/utils/game_utils.dart';
-import 'package:jicksaw/other/const%20widget.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:sizer/sizer.dart';
 

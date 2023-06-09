@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jicksaw/main%20Pages/checkoutPage.dart';
-import 'package:jicksaw/main%20Pages/plancheckoutpage.dart';
-import 'package:jicksaw/main%20Pages/subscription_page.dart';
+import 'package:jicksaw/purchage/checkoutPage.dart';
+
+import 'package:jicksaw/subscription/subscription_page.dart';
 
 import 'package:sizer/sizer.dart';
 
-import '../other/const widget.dart';
+import '../Widget/const widget.dart';
 
 class subscribe_plan extends StatefulWidget {
   const subscribe_plan({Key? key}) : super(key: key);

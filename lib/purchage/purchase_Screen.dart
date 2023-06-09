@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jicksaw/main%20Pages/checkoutPage.dart';
-import 'package:jicksaw/main%20Pages/subscription_page.dart';
+import 'package:jicksaw/purchage/checkoutPage.dart';
+import 'package:jicksaw/subscription/subscription_page.dart';
 
 import 'package:sizer/sizer.dart';
 
-import '../other/const widget.dart';
+import '../Widget/const widget.dart';
 
 class PurchaseScreen extends StatefulWidget {
   String? name;

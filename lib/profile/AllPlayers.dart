@@ -10,10 +10,10 @@ import 'package:jicksaw/Modal/playermodal.dart';
 import 'package:jicksaw/Questions/FirstQuestion.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/loader.dart';
-import 'package:jicksaw/drawer.dart';
-import 'package:jicksaw/new%20pages/userprofilepage.dart';
-import 'package:jicksaw/other/const%20widget.dart';
-import 'package:jicksaw/question.dart';
+import 'package:jicksaw/Widget/drawer.dart';
+import 'package:jicksaw/profile/userprofilepage.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
+import 'package:jicksaw/main%20Pages/question.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Provider/authprovider.dart';

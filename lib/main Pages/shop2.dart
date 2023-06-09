@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Modal/shopinfoModal.dart';
 import 'package:jicksaw/Widget/loader.dart';
-import 'package:jicksaw/main%20Pages/purchase_Screen.dart';
+import 'package:jicksaw/purchage/purchase_Screen.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Provider/authprovider.dart';
 import '../Widget/buildErrorDialog.dart';
 import '../Widget/const.dart';
-import '../other/const widget.dart';
+import '../Widget/const widget.dart';
 import 'shoppage.dart';
 
 class GameInfo extends StatefulWidget {

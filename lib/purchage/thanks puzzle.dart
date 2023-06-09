@@ -12,7 +12,7 @@ import 'package:sizer/sizer.dart';
 import '../Provider/authprovider.dart';
 import '../Widget/buildErrorDialog.dart';
 import '../Widget/const.dart';
-import '../other/const widget.dart';
+import '../Widget/const widget.dart';
 
 class PurchaseTYPage extends StatefulWidget {
   String? name;

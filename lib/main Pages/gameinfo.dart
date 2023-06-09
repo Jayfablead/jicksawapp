@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Questions/FirstQuestion.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
-import 'package:jicksaw/other/const%20widget.dart';
-import 'package:jicksaw/drawer.dart';
-import 'package:jicksaw/new%20pages/categories%20&%20age.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
+import 'package:jicksaw/Widget/drawer.dart';
+import 'package:jicksaw/main%20Pages/categories%20&%20age.dart';
 import 'package:sizer/sizer.dart';
 
 class Tutorial extends StatefulWidget {

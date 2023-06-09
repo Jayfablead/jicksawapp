@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'dart:math';
 
-import '../../../other/const widget.dart';
+import '../../../Widget/const widget.dart';
 import '../data/word_list.dart';
 import '../models/letter_model.dart';
 import '../models/word_model.dart';

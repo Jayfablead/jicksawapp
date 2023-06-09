@@ -9,17 +9,18 @@ import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/loader.dart';
-import 'package:jicksaw/other/const%20widget.dart';
-import 'package:jicksaw/drawer.dart';
-import 'package:jicksaw/main%20Pages/edit%20profile.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
+import 'package:jicksaw/Widget/drawer.dart';
+import 'package:jicksaw/profile/edit%20profile.dart';
 
 import 'package:sizer/sizer.dart';
-class MyProfile extends StatefulWidget {
-   MyProfile({Key? key}) : super(key: key);
+class UserProfile extends StatefulWidget {
+  String? uid;
+  UserProfile({Key? key,this.uid}) : super(key: key);
   @override
-  State<MyProfile> createState() => _MyProfileState();
+  State<UserProfile> createState() => _UserProfileState();
 }
-class _MyProfileState extends State<MyProfile> {
+class _UserProfileState extends State<UserProfile> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   List img = [
@@ -29,7 +30,7 @@ class _MyProfileState extends State<MyProfile> {
     "assets/ney1.jpg",
     "assets/ney.jpg"
   ];
-  bool isLoading = true;
+  bool isLoading = false;
   bool isPlay = false;
   int lenght = 0;
   bool _isExpanded = false;
@@ -39,7 +40,10 @@ class _MyProfileState extends State<MyProfile> {
     // TODO: implement initState
     super.initState();
     print("hiii");
+    // String? dis = 'Monkey D. Luffy also known as "Straw Hat" Luffy, is a fictional character and the protagonist of the One Piece manga series.';
+    // lenght = dis!.length == 0 ? 0 : dis.length;
     viewap();
+    print(widget.uid);
   }
   @override
   Widget build(BuildContext context) {
@@ -63,17 +67,17 @@ class _MyProfileState extends State<MyProfile> {
                     children: [
                       IconButton(
                           onPressed: () {
-                            _scaffoldKey.currentState?.openDrawer();
+                           Get.back();
                           },
                           icon: Icon(
-                            Icons.menu_rounded,
+                            Icons.arrow_back_ios_new_rounded,
                             color: primary,
                           )),
                       SizedBox(
-                        width: 25.w,
+                        width: 22.w,
                       ),
                       Text(
-                        'My Profile',
+                        'User Profile',
                         style: primarytxt1,
                       ),
                     ],
@@ -95,8 +99,7 @@ class _MyProfileState extends State<MyProfile> {
                           child: CachedNetworkImage(
                             fit: BoxFit.cover,
                             imageUrl:
-                                (profileviewmodal?.profileViewPlayer?.profilePic)
-                                    .toString(),
+                          profileviewmodal?.profileViewPlayer?.profilePic ?? '',
                             progressIndicatorBuilder: (context, url, progress) =>
                                 CircularProgressIndicator(),
                             errorWidget: (context, url, error) => Image.asset(
@@ -114,14 +117,14 @@ class _MyProfileState extends State<MyProfile> {
                             Container(
                               width: 52.w,
                               child: Text(
-                                  profileviewmodal?.profileViewPlayer?.name ?? "",
+                                  profileviewmodal?.profileViewPlayer?.name ?? '',
                                   style: header),
                             ),
                             Container(
                               width: 52.w,
                               child: Text(
-                                  profileviewmodal?.profileViewPlayer?.eMail ??
-                                      "",
+
+                                  profileviewmodal?.profileViewPlayer?.eMail ?? '',
                                   style: mail),
                             ),
                           ],
@@ -132,31 +135,7 @@ class _MyProfileState extends State<MyProfile> {
                   SizedBox(
                     height: 2.h,
                   ),
-                  Center(
-                    child: InkWell(
-                      onTap: () {
-                         Get.to(() => EditProfile());
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 5.5.h,
-                        width: 40.w,
-                        decoration: BoxDecoration(
-                            color: primary,
-                            borderRadius: BorderRadius.circular(90)),
-                        child: Text(
-                          'Edit Profile',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 13.sp,
-                            fontFamily: 'Poppins',
-                            letterSpacing: 2,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 1.h),
+
                   Divider(
                     color: Color(0xff7a7a7a),
                   ),
@@ -196,11 +175,11 @@ class _MyProfileState extends State<MyProfile> {
                               maxLines: 3,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14.sp,
-                        fontFamily: 'Poppins',
-                        letterSpacing: 2,
-                      ),
+                                color: Colors.black,
+                                fontSize: 14.sp,
+                                fontFamily: 'Poppins',
+                                letterSpacing: 2,
+                              ),
                             ),
                           ),
                         ],
@@ -234,7 +213,7 @@ class _MyProfileState extends State<MyProfile> {
                       ),
                       Text(
                         profileviewmodal?.profileViewPlayer?.age == null ||
-                                profileviewmodal?.profileViewPlayer?.age == ""
+                            profileviewmodal?.profileViewPlayer?.age == ""
                             ? "N/A"
                             : profileviewmodal?.profileViewPlayer?.age ?? "",
                         maxLines: 2,
@@ -279,19 +258,17 @@ class _MyProfileState extends State<MyProfile> {
                         children: [
                           Container(
                             alignment: Alignment.center,
-                            width: profileviewmodal?.profileViewPlayer
-                                ?.about ==
-                                ''
-                                ? 36.w
-                                : 60.w,
+                            width: 60.w,
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             child: Text(
+                              // 'Monkey D. Luffy also known as "Straw Hat" Luffy, is a fictional character and the protagonist of the One Piece manga series.',
                               profileviewmodal?.profileViewPlayer?.about == null ||
-                                      profileviewmodal?.profileViewPlayer?.about ==
-                                          ""
+                                  profileviewmodal?.profileViewPlayer?.about ==
+                                      ""
                                   ? "N/A"
                                   : profileviewmodal?.profileViewPlayer?.about ??
-                                      "", maxLines: _isExpanded ? 20 : 2,
+                                  "",
+                              maxLines: _isExpanded ? 20 : 2,
                               overflow: _isExpanded
                                   ? TextOverflow.visible
                                   : TextOverflow.ellipsis,
@@ -347,7 +324,7 @@ class _MyProfileState extends State<MyProfile> {
   }
   viewap() {
     final Map<String, String> data = {};
-    data['uid'] = (usermodal?.userData?.uid).toString() ;
+    data['uid'] =widget.uid.toString() ;
     data['action'] = 'profile_view_player';
     print(data);
     checkInternet().then((internet) async {
@@ -365,13 +342,13 @@ class _MyProfileState extends State<MyProfile> {
             lenght = dis!.length == 0 ? 0 : dis.length;
             print(profileviewmodal?.profileViewPlayer?.profilePic);
             setState(() {
-               isLoading = false;
+              isLoading = false;
             });
           } else {isLoading = false;}
         });
       } else {
         setState(() {
-           isLoading = false;
+          isLoading = false;
         });
         buildErrorDialog(context, 'Error', "Internate Required");
       }

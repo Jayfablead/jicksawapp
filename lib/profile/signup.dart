@@ -6,17 +6,17 @@ import 'package:get/get.dart';
 // import 'package:get/get_core/src/get_main.dart';
 import 'package:jicksaw/Modal/UserModal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
-import 'package:jicksaw/Screen/login.dart';
+import 'package:jicksaw/profile/login.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/sharedpreferance.dart';
-import 'package:jicksaw/new%20pages/categories%20&%20age.dart';
+import 'package:jicksaw/main%20Pages/categories%20&%20age.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import 'package:http/http.dart';
 
-import '../other/const widget.dart';
+import '../Widget/const widget.dart';
 
 class signup extends StatefulWidget {
   const signup({Key? key}) : super(key: key);

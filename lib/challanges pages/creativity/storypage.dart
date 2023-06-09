@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../other/const widget.dart';
+import '../../Widget/const widget.dart';
 
 class Storypage extends StatefulWidget {
   const Storypage({Key? key}) : super(key: key);

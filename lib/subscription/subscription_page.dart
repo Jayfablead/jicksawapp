@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
-import 'package:jicksaw/other/const%20widget.dart';
-import 'package:jicksaw/main%20Pages/subscribe_plan.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
+import 'package:jicksaw/subscription/subscribe_plan.dart';
 
 import 'package:sizer/sizer.dart';
 

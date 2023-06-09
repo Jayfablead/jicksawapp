@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jicksaw/design.dart';
-import 'package:jicksaw/other/const%20widget.dart';
-import 'package:jicksaw/question.dart';
+import 'package:jicksaw/main%20Pages/design.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
+import 'package:jicksaw/main%20Pages/question.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Provider/ProfileviewModal.dart';

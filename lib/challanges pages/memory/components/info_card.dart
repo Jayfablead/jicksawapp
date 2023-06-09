@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:jicksaw/other/const%20widget.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:sizer/sizer.dart';
 
 Widget info_card(String title, String info) {

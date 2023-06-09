@@ -5,25 +5,26 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Modal/gameModal.dart';
 import 'package:jicksaw/Questions/FirstQuestion.dart';
-import 'package:jicksaw/Questions/gameinfo.dart';
+
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/challanges%20pages/Trivia.dart';
 import 'package:jicksaw/challanges%20pages/math/homepage.dart';
 import 'package:jicksaw/challanges%20pages/memory/home.dart';
 import 'package:jicksaw/challanges%20pages/slider/Board.dart';
+import 'package:jicksaw/main%20Pages/gameinfo.dart';
 import 'package:jicksaw/main.dart';
-import 'package:jicksaw/other/const%20widget.dart';
-import 'package:jicksaw/drawer.dart';
-import 'package:jicksaw/jigsawclipper.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
+import 'package:jicksaw/Widget/drawer.dart';
+import 'package:jicksaw/main%20Pages/jigsawclipper.dart';
 import 'package:jicksaw/jigsawcontainer.dart';
-import 'package:jicksaw/question.dart';
+import 'package:jicksaw/main%20Pages/question.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
-import 'Provider/ProfileviewModal.dart';
-import 'Provider/authprovider.dart';
-import 'Widget/const.dart';
+import '../Provider/ProfileviewModal.dart';
+import '../Provider/authprovider.dart';
+import '../Widget/const.dart';
 
 class design extends StatefulWidget {
   String? cat;

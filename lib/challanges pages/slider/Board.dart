@@ -5,7 +5,7 @@ import 'package:jicksaw/challanges%20pages/slider/wid/Grid.dart';
 import 'package:jicksaw/challanges%20pages/slider/wid/Menu.dart';
 import 'package:jicksaw/challanges%20pages/slider/wid/MyTitle.dart';
 import 'package:jicksaw/challanges%20pages/slider/wid/title.dart';
-import 'package:jicksaw/other/const%20widget.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:sizer/sizer.dart';
 
 class Board extends StatefulWidget {

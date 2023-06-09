@@ -6,16 +6,17 @@ import 'package:get/route_manager.dart';
 import 'package:http/http.dart';
 import 'package:jicksaw/Modal/UserModal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
-import 'package:jicksaw/Screen/Forgot%20Password.dart';
+import 'package:jicksaw/profile/Forgot%20Password.dart';
 import 'package:jicksaw/Screen/initScreen.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/sharedpreferance.dart';
-import 'package:jicksaw/other/const%20widget.dart';
-import 'package:jicksaw/jigsawclipper.dart';
-import 'package:jicksaw/Screen/signup.dart';
-import 'package:jicksaw/new%20pages/categories%20&%20age.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
+import 'package:jicksaw/main%20Pages/jigsawclipper.dart';
+
+import 'package:jicksaw/main%20Pages/categories%20&%20age.dart';
+import 'package:jicksaw/profile/signup.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 

@@ -6,7 +6,7 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../other/const widget.dart';
+import '../../Widget/const widget.dart';
 
 class DrawingBoard {
   Offset points;

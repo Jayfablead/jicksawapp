@@ -8,9 +8,9 @@ import 'package:jicksaw/Modal/CAtegoryModal.dart';
 import 'package:jicksaw/Questions/FirstQuestion.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/loader.dart';
-import 'package:jicksaw/design.dart';
-import 'package:jicksaw/other/const%20widget.dart';
-import 'package:jicksaw/question.dart';
+import 'package:jicksaw/main%20Pages/design.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
+import 'package:jicksaw/main%20Pages/question.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Provider/ProfileviewModal.dart';

@@ -3,18 +3,18 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jicksaw/Questions/gameinfo.dart';
+
 
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/main%20Pages/congratulation.dart';
 import 'package:jicksaw/main%20Pages/game%20over%20page.dart';
-import 'package:jicksaw/other/const%20widget.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:sizer/sizer.dart';
 
-import 'Modal/questionsmodal.dart';
-import 'Provider/authprovider.dart';
-import 'Widget/buildErrorDialog.dart';
-import 'Widget/const.dart';
+import '../Modal/questionsmodal.dart';
+import '../Provider/authprovider.dart';
+import '../Widget/buildErrorDialog.dart';
+import '../Widget/const.dart';
 
 class question extends StatefulWidget {
   String? catId;

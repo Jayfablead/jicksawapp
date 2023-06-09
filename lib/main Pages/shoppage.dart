@@ -4,7 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Modal/shopitemmodal.dart';
-import 'package:jicksaw/Questions/gameinfo.dart';
+
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:sizer/sizer.dart';
 
@@ -12,8 +12,8 @@ import '../Provider/ProfileviewModal.dart';
 import '../Provider/authprovider.dart';
 import '../Widget/buildErrorDialog.dart';
 import '../Widget/const.dart';
-import '../other/const widget.dart';
-import '../drawer.dart';
+import '../Widget/const widget.dart';
+import '../Widget/drawer.dart';
 import 'shop2.dart';
 
 class ShopmainPage extends StatefulWidget {

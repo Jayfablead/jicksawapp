@@ -7,8 +7,8 @@ import 'package:get/get.dart';
 import 'package:jicksaw/Modal/addcardModal.dart';
 import 'package:jicksaw/Modal/viewcard.dart';
 import 'package:jicksaw/Widget/loader.dart';
-import 'package:jicksaw/main%20Pages/checkoutPage.dart';
-import 'package:jicksaw/other/const%20widget.dart';
+import 'package:jicksaw/purchage/checkoutPage.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Provider/authprovider.dart';

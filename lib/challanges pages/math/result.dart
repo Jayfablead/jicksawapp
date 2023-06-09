@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jicksaw/other/const%20widget.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:sizer/sizer.dart';
 
 import 'const.dart';

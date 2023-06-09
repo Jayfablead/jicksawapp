@@ -14,12 +14,12 @@ import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/loader.dart';
-import 'package:jicksaw/drawer.dart';
-import 'package:jicksaw/main%20Pages/porfilePage.dart';
+import 'package:jicksaw/Widget/drawer.dart';
+import 'package:jicksaw/profile/porfilePage.dart';
 
 import 'package:sizer/sizer.dart';
 
-import '../other/const widget.dart';
+import '../Widget/const widget.dart';
 
 class EditProfile extends StatefulWidget {
   String? name;

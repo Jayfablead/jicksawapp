@@ -4,20 +4,20 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:jicksaw/Screen/Forgot%20Password.dart';
+import 'package:jicksaw/profile/Forgot%20Password.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/loader.dart';
-import 'package:jicksaw/main%20Pages/changepwd.dart';
-import 'package:jicksaw/new%20pages/My%20Purchased%20Games.dart';
-import 'package:jicksaw/new%20pages/allsubspage.dart';
-import 'package:jicksaw/other/const%20widget.dart';
+import 'package:jicksaw/profile/changepwd.dart';
+import 'package:jicksaw/purchage/My%20Purchased%20Games.dart';
+import 'package:jicksaw/subscription/allsubspage.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Provider/ProfileviewModal.dart';
 import '../Provider/authprovider.dart';
 import '../Widget/buildErrorDialog.dart';
 import '../Widget/const.dart';
-import '../drawer.dart';
+import '../Widget/drawer.dart';
 
 class setting extends StatefulWidget {
   const setting({Key? key}) : super(key: key);

@@ -13,8 +13,8 @@ import '../Provider/authprovider.dart';
 import '../Widget/buildErrorDialog.dart';
 import '../Widget/const.dart';
 import '../Widget/loader.dart';
-import '../drawer.dart';
-import '../other/const widget.dart';
+import '../Widget/drawer.dart';
+import '../Widget/const widget.dart';
 
 class MySubscriptions extends StatefulWidget {
   const MySubscriptions({super.key});
