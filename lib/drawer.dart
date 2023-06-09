@@ -16,7 +16,7 @@ import 'package:jicksaw/main%20Pages/reward_page.dart';
 import 'package:jicksaw/main%20Pages/settings.dart';
 import 'package:jicksaw/main%20Pages/shoppage.dart';
 import 'package:jicksaw/main%20Pages/subscription_page.dart';
-import 'package:jicksaw/new%20pages/myurchases.dart';
+
 
 import 'package:sizer/sizer.dart';
 

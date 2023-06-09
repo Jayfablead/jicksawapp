@@ -3,20 +3,15 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
-import 'package:jicksaw/Questions/FirstQuestion.dart';
-import 'package:jicksaw/Screen/mainpage2.dart';
+
 import 'package:jicksaw/Screen/splashscreen.dart';
-import 'package:jicksaw/Widget/const.dart';
+
 import 'package:jicksaw/challanges%20pages/Trivia.dart';
 import 'package:jicksaw/challanges%20pages/memory/home.dart';
-import 'package:jicksaw/design.dart';
+
 import 'package:jicksaw/jigsaw.dart';
-import 'package:jicksaw/main%20Pages/congratulation.dart';
-import 'package:jicksaw/new%20pages/AllPlayers.dart';
-import 'package:jicksaw/new%20pages/categories%20&%20age.dart';
-import 'package:jicksaw/new%20pages/myurchases.dart';
-import 'package:jicksaw/new%20pages/userprofilepage.dart';
-import 'package:jicksaw/question.dart';
+
+
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
