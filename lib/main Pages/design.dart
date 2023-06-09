@@ -4,14 +4,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Modal/gameModal.dart';
-import 'package:jicksaw/Questions/FirstQuestion.dart';
+
 
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/loader.dart';
-import 'package:jicksaw/challanges%20pages/Trivia.dart';
-import 'package:jicksaw/challanges%20pages/math/homepage.dart';
-import 'package:jicksaw/challanges%20pages/memory/home.dart';
-import 'package:jicksaw/challanges%20pages/slider/Board.dart';
+
 import 'package:jicksaw/main%20Pages/gameinfo.dart';
 import 'package:jicksaw/main.dart';
 import 'package:jicksaw/Widget/const%20widget.dart';

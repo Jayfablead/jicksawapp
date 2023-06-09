@@ -7,7 +7,8 @@ import 'package:jicksaw/Modal/subscancleModal.dart';
 import 'package:jicksaw/Modal/subsdataModal.dart';
 import 'package:jicksaw/Provider/ProfileviewModal.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
-import 'package:jicksaw/main%20Pages/subscription_page.dart';
+import 'package:jicksaw/subscription/subscription_page.dart';
+
 import 'package:sizer/sizer.dart';
 
 import '../Provider/authprovider.dart';
@@ -371,7 +372,7 @@ class _MySubscriptionsState extends State<MySubscriptions> {
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    gameexit(context, "Subscription",
+                                    gameexit(context, "Cancel Subscription",buttonname: 'Yes',buttonname1: 'No',
                                         "Do you really want to cancel your Subscription ? ",
                                         callback: canclesubapi);
                                   },

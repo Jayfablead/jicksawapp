@@ -1,9 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:jicksaw/drawer.dart';
+
 import 'package:sizer/sizer.dart';
 
-import '../other/const widget.dart';
+import '../Widget/const widget.dart';
+import '../Widget/drawer.dart';
+
+
 
 class MyPurchases extends StatefulWidget {
   const MyPurchases({Key? key}) : super(key: key);

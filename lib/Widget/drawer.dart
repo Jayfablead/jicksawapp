@@ -7,24 +7,22 @@ import 'package:get/get.dart';
 import 'package:http/http.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/const.dart';
-import 'package:jicksaw/other/const%20widget.dart';
-import 'package:jicksaw/main%20Pages/challenges%20page.dart';
-import 'package:jicksaw/main%20Pages/porfilePage.dart';
-import 'package:jicksaw/main%20Pages/progress.dart';
-import 'package:jicksaw/main%20Pages/rank_page.dart';
-import 'package:jicksaw/main%20Pages/reward_page.dart';
+import 'package:jicksaw/Widget/sharedpreferance.dart';
+
 import 'package:jicksaw/main%20Pages/settings.dart';
 import 'package:jicksaw/main%20Pages/shoppage.dart';
-import 'package:jicksaw/main%20Pages/subscription_page.dart';
-import 'package:jicksaw/new%20pages/myurchases.dart';
+import 'package:jicksaw/profile/porfilePage.dart';
+
 
 import 'package:sizer/sizer.dart';
 
-import 'Provider/ProfileviewModal.dart';
-import 'Provider/authprovider.dart';
-import 'Screen/login.dart';
-import 'Widget/sharedpreferance.dart';
-import 'new pages/AllPlayers.dart';
+import '../Modal/playermodal.dart';
+import '../Provider/ProfileviewModal.dart';
+import '../Provider/authprovider.dart';
+import '../profile/login.dart';
+import '../subscription/subscription_page.dart';
+import 'const widget.dart';
+
 
 class drawer1 extends StatefulWidget {
   const drawer1({Key? key}) : super(key: key);

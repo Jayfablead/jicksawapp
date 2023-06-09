@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jicksaw/Questions/FirstQuestion.dart';
+
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:jicksaw/Widget/drawer.dart';

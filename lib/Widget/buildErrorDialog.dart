@@ -455,7 +455,7 @@ gameexit(BuildContext context, String title, String contant,
         // color: Color(0xffb4776e6)
       ),
       child: Center(
-        child: Text(buttonname ?? 'No',
+        child: Text(buttonname1 ?? 'No',
             textAlign: TextAlign.center,
             style: TextStyle(
                 fontSize: 12.sp,
