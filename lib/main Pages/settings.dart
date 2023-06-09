@@ -4,8 +4,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:jicksaw/Screen/Forgot%20Password.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/loader.dart';
+import 'package:jicksaw/new%20pages/My%20Purchased%20Games.dart';
 import 'package:jicksaw/new%20pages/allsubspage.dart';
 import 'package:jicksaw/other/const%20widget.dart';
 import 'package:sizer/sizer.dart';
@@ -178,7 +180,7 @@ class _settingState extends State<setting> {
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      print('object');
+                                      Get.to(()=> Forgotpwd());
                                     },
                                     child: Row(
                                       mainAxisAlignment:
@@ -200,7 +202,7 @@ class _settingState extends State<setting> {
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      print('changepwd');
+                                      Get.to(()=> Forgotpwd());
                                     },
                                     child: Row(
                                       mainAxisAlignment:
@@ -245,14 +247,14 @@ class _settingState extends State<setting> {
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      print('changepwd');
+                                    Get.to(MyPurchasedGames());
                                     },
                                     child: Row(
                                       mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'My Purchases',
+                                          'My Purchased Games',
                                           style: TextStyle(
                                             fontSize: 13.sp,
                                             fontFamily: 'Poppins',

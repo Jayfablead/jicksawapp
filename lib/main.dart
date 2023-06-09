@@ -25,6 +25,7 @@ import 'challanges pages/slider/Board.dart';
 void main() {
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   // This widget is the root of your application.
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
             title: 'Jigsaw',
             debugShowCheckedModeBanner: false,builder: EasyLoading.init(),
             getPages: [
-              GetPage(name: '/', page: ()=>design()),
+              GetPage(name: '/', page: ()=>SplashScreen()),
               GetPage(name: '/MemoryChallenge', page: ()=> MemoryChallenge()),
               GetPage(name: '/TriviaChallenge', page: ()=> TriviaChallenge()),
               GetPage(name: '/Board', page: ()=> Board()),

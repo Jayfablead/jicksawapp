@@ -1,9 +1,10 @@
 import 'dart:convert';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Questions/gameinfo.dart';
-import 'package:jicksaw/Questions/resultsPage.dart';
+
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/main%20Pages/congratulation.dart';
 import 'package:jicksaw/main%20Pages/game%20over%20page.dart';
@@ -75,7 +76,7 @@ class _questionState extends State<question> {
                             Row(
                               children: [
                                 Image.asset(
-                                  'assets/coin.webp',
+                                  'assets/splash/collection.png',
                                   width: 8.w,
                                 ),
                                 Text('450'),
@@ -87,7 +88,7 @@ class _questionState extends State<question> {
                             Row(
                               children: [
                                 Image.asset(
-                                  'assets/diamond.png',
+                                  'assets/splash/gamepad.png',
                                   width: 8.w,
                                 ),
                                 Text('84'),
@@ -99,7 +100,7 @@ class _questionState extends State<question> {
                             Row(
                               children: [
                                 Image.asset(
-                                  'assets/heart.png',
+                                  'assets/splash/reward.png',
                                   width: 8.w,
                                 ),
                                 Text('3'),
@@ -110,20 +111,24 @@ class _questionState extends State<question> {
                             ),
                           ],
                         ),
-                        GestureDetector(
-                          onTap: () {Get.offAll(const Tutorial());},
-                          child: Container(
-                            height: 4.h,
-                            width: 4.h,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                border: Border.all(
-                                    color: Colors.black45, width: 2.0),
-                                shape: BoxShape.circle),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.black,
-                              size: 14.sp,
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 1.w),
+
+                          width: 9.w,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(90),
+                            child: CachedNetworkImage(
+                              fit: BoxFit.cover,
+                              imageUrl: (profileviewmodal
+                                  ?.profileViewPlayer?.profilePic)
+                                  .toString(),
+                              progressIndicatorBuilder:
+                                  (context, url, progress) =>
+                                  CircularProgressIndicator(),
+                              errorWidget: (context, url, error) => Image.asset(
+                                'assets/user.png',
+                                color: Colors.black,
+                              ),
                             ),
                           ),
                         ),
@@ -200,7 +205,7 @@ class _questionState extends State<question> {
                   SizedBox(height: 1.5.h,),
                   ans != 5
                       ? InkWell(
-                          onTap: () {op == '1' ?Get.to(congratulation()):Get.to(GameOver());},
+                          onTap: () {op == '1' ?Get.to(congratulation(age: widget.ageId,cat: widget.catId,)):Get.to(GameOver());},
                           child: Container(
                             alignment: Alignment.center,
                             width: 82.w,

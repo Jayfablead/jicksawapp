@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Modal/questionsmodal.dart';
 
-import 'package:jicksaw/Questions/resultsPage.dart';
+
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/other/const%20widget.dart';
@@ -134,9 +134,7 @@ Get.back();
                     ans != 5
                         ? InkWell(
                       onTap: () {
-                        Get.to(ResultsPage(
-                          firstans: op,
-                        ));
+
                       },
                       child: Container(
                         alignment: Alignment.center,

@@ -1,9 +1,16 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Modal/gameModal.dart';
+import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Questions/gameinfo.dart';
 import 'package:jicksaw/other/const%20widget.dart';
 import 'package:jicksaw/question.dart';
 import 'package:sizer/sizer.dart';
+
+import '../Widget/buildErrorDialog.dart';
+import '../Widget/const.dart';
 class GameOver extends StatefulWidget {
   GameOver({Key? key}) : super(key: key);
   @override
@@ -90,7 +97,7 @@ class _GameOverState extends State<GameOver> {
           SizedBox(height: 5.h,),
           GestureDetector(
             onTap: (){
-              Get.offAll(Tutorial());
+             endapi();
             },
             child:Container(
               alignment: Alignment.center,
@@ -109,5 +116,42 @@ class _GameOverState extends State<GameOver> {
         ],
       ),
     );
+  }
+  endapi() {
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    // data['uid'] = '45';
+
+    data['action'] = 'game_end';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().endapi(data).then((response) async {
+          gamedata = gameModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 &&
+              profileviewmodal?.status == "success") {
+            Get.offAll(Tutorial());
+            Get.snackbar(
+              "Game Ended",
+              "Successfully",
+              icon: Image(image: AssetImage('assets/logo.png')),
+              snackPosition: SnackPosition.TOP,
+            );
+            setState(() {
+              isloading = false;
+            });
+          } else {
+            isloading = false;
+          }
+        });
+      } else {
+        setState(() {
+          isloading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
   }
 }

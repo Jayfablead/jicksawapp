@@ -55,6 +55,7 @@ class _TutorialState extends State<Tutorial> {
                 SizedBox(
                   height: 1.h,
                 ),
+
                 Text(
                   'How to Play?',
                   style: TextStyle(
@@ -240,7 +241,20 @@ class _TutorialState extends State<Tutorial> {
                   ),
                 ),
                 SizedBox(
-                  height: 3.h,
+                  height: 1.5.h,
+                ),
+                Text(
+                  '★ Player Must Have Subscribed a Plan or Purchased any game to play ★',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: primary,
+                    fontSize: 12.sp,
+                    fontFamily: 'Poppins',
+                    letterSpacing: 2,
+                  ),
+                ),
+                SizedBox(
+                  height: 1.5.h,
                 ),
                 InkWell(
                   onTap: () {

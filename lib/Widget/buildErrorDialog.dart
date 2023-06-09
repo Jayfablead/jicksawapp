@@ -557,7 +557,7 @@ gameexit(BuildContext context, String title, String contant,
           backgroundColor: Colors.transparent,
           child: Container(
             width: 70.w,
-            height: (title == "") ? 15.5.h : 24.h,
+            height: (title == "") ? 15.5.h : 22.h,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
@@ -567,13 +567,13 @@ gameexit(BuildContext context, String title, String contant,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 3.h,
+                  height: 2.h,
                 ),
                 (title != "")
                     ? Column(
                         children: [
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: 3.w),
+                            padding: EdgeInsets.symmetric(horizontal: 1.w),
                             child: Text(
                               title,
                               textAlign: TextAlign.center,
@@ -590,7 +590,7 @@ gameexit(BuildContext context, String title, String contant,
                       )
                     : Container(),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  padding: EdgeInsets.symmetric(horizontal: 1.w),
                   child: Column(
                     children: [
                       SizedBox(height: 1.h),
@@ -607,12 +607,12 @@ gameexit(BuildContext context, String title, String contant,
                     ],
                   ),
                 ),
-                SizedBox(height: 2.h),
+                SizedBox(height: 1.h),
                 Divider(
                   height: 1.0,
                   color: Colors.grey,
                 ),
-                SizedBox(height: 2.h),
+                SizedBox(height: 1.h),
                 Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     okButton,Container(height: 3.5.h,width: 0.3.w,color: Colors.black54,),noButton,
@@ -780,7 +780,7 @@ alreadyadddialog(BuildContext context, String title, String contant,
                     ? Column(
                         children: [
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: 3.w),
+                            padding: EdgeInsets.symmetric(horizontal: 1.5.w),
                             child: Text(
                               title,
                               textAlign: TextAlign.center,

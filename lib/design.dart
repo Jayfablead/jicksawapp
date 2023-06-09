@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Modal/gameModal.dart';
+import 'package:jicksaw/Questions/FirstQuestion.dart';
 import 'package:jicksaw/Questions/gameinfo.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/loader.dart';
@@ -11,10 +12,12 @@ import 'package:jicksaw/challanges%20pages/Trivia.dart';
 import 'package:jicksaw/challanges%20pages/math/homepage.dart';
 import 'package:jicksaw/challanges%20pages/memory/home.dart';
 import 'package:jicksaw/challanges%20pages/slider/Board.dart';
+import 'package:jicksaw/main.dart';
 import 'package:jicksaw/other/const%20widget.dart';
 import 'package:jicksaw/drawer.dart';
 import 'package:jicksaw/jigsawclipper.dart';
 import 'package:jicksaw/jigsawcontainer.dart';
+import 'package:jicksaw/question.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
@@ -23,7 +26,11 @@ import 'Provider/authprovider.dart';
 import 'Widget/const.dart';
 
 class design extends StatefulWidget {
-  const design({Key? key}) : super(key: key);
+  String? cat;
+  String? age;
+  int cont;
+
+  design({Key? key, this.age, this.cat, required this.cont}) : super(key: key);
 
   @override
   State<design> createState() => _designState();
@@ -34,7 +41,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
   bool _showImage = false;
   AnimationController? _animationController;
   int? _value;
-
+  int count = 0;
   double marginheight = 0.0;
   double margin = 0.0;
   String? step;
@@ -57,7 +64,10 @@ class _designState extends State<design> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     setState(() {
-      // gameapi();
+      count = widget.cont;
+      count = 0;
+      print('*-*-*-*-*-*-*-*-*-* ${count}');
+      gameapi();
     });
     _animationController = AnimationController(
       duration: Duration(seconds: 3),
@@ -79,7 +89,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
   double marginValue = 140.0;
   int cnt = 0;
-  bool isloading = false;
+  bool isloading = true;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -114,6 +124,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                       Stack(
                         children: [
                           Container(
+                            margin: EdgeInsets.symmetric(horizontal: 3.w),
                             padding: EdgeInsets.symmetric(horizontal: 3.w),
                             height: MediaQuery.of(context).size.width,
                             width: MediaQuery.of(context).size.width,
@@ -142,6 +153,36 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                 ),
                                 child: Stack(
                                   children: [
+                                    gamedata?.gameData?.steps == '1' ||
+                                            gamedata?.gameData?.steps == '3' ||
+                                            gamedata?.gameData?.steps == '5' ||
+                                            gamedata?.gameData?.steps == '7' ||
+                                            gamedata?.gameData?.steps == '9' ||
+                                            gamedata?.gameData?.steps == '10' ||
+                                            gamedata?.gameData?.steps == '11' ||
+                                            gamedata?.gameData?.steps == '13' && _showImage
+                                        ? !_showImage?Text(
+                                      '★ Tap on Roll Dice Button To Continue ★',
+                                      textAlign: TextAlign.center,
+                                      style: primarytxt1,
+                                    ):Center(
+                                      child: Text(
+                                              '★ Tap on Roll Dice Button To Continue ★',
+                                              textAlign: TextAlign.center,
+                                              style: primarytxt1,
+                                            ),
+                                    )
+                                        : Container(),
+                                    (gamedata?.gameData?.steps == '0' &&
+                                            !_showImage)
+                                        ? Align(
+                                            alignment: Alignment.center,
+                                            child: Text(
+                                              '★ Tap on Roll Dice Button To Start Game ★',
+                                              textAlign: TextAlign.center,
+                                              style: primarytxt1,
+                                            ))
+                                        : Container(),
                                     Positioned(
                                       left: 18.w,
                                       top: 8.h,
@@ -221,13 +262,15 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                   height: 30.w,
                                   color: Colors.blueGrey,
                                   alignment: Alignment.center,
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 3.w, vertical: 7.w),
+                                  padding:
+                                      EdgeInsets.only(top: 1.h, right: 10.w),
                                   // decoration: BoxDecoration(
                                   //     border: Border.all(width: 3.0, color: Colors.black)),
                                   // color: Colors.blue,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Container(
                                         height: 25.0,
@@ -245,11 +288,14 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                           style: TextStyle(color: primary),
                                         ),
                                       ),
+                                      SizedBox(
+                                        height: 2.w,
+                                      ),
                                       gamedata?.gameData?.steps == '0'
                                           ? Row(
                                               children: [
                                                 SizedBox(
-                                                  width: 3.w,
+                                                  width: 14.w,
                                                 ),
                                                 Container(
                                                   height: 3.h,
@@ -338,7 +384,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                   ? Container(
                                       width: 30.w,
                                       height: 30.w,
-                                      color: Colors.orange,
+                                      color: Colors.grey,
                                       child: Column(
                                         children: [
                                           SizedBox(
@@ -425,22 +471,27 @@ class _designState extends State<design> with TickerProviderStateMixin {
                               child: ClipPath(
                                 clipper: JigsawClipper5(),
                                 child: gamedata?.gameData?.steps == '4'
-                                    ? Column(
-                                        children: [
-                                          SizedBox(
-                                            height: 3.h,
-                                          ),
-                                          Container(
-                                            height: 3.h,
-                                            width: 7.w,
-                                            decoration: BoxDecoration(
-                                                color: primary,
-                                                borderRadius:
-                                                    BorderRadius.circular(90),
-                                                border: Border.all(
-                                                    color: Colors.black)),
-                                          ),
-                                        ],
+                                    ? Container(
+                                        height: 30.w,
+                                        width: 20.w,
+                                        color: Colors.orange,
+                                        child: Column(
+                                          children: [
+                                            SizedBox(
+                                              height: 3.h,
+                                            ),
+                                            Container(
+                                              height: 3.h,
+                                              width: 7.w,
+                                              decoration: BoxDecoration(
+                                                  color: primary,
+                                                  borderRadius:
+                                                      BorderRadius.circular(90),
+                                                  border: Border.all(
+                                                      color: Colors.black)),
+                                            ),
+                                          ],
+                                        ),
                                       )
                                     : Container(
                                         height: 30.w,
@@ -448,12 +499,12 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                         color: Colors.orange,
                                       ),
                               )),
-                          //block6
+                          // block6
                           Positioned(
                               // bottom: 22.h,
                               left: 80.w,
                               // right: 270.0,
-                              top: 30.w,
+                              top: 32.w,
                               child: ClipPath(
                                 clipper: JigsawClipper6(),
                                 child: Container(
@@ -495,32 +546,43 @@ class _designState extends State<design> with TickerProviderStateMixin {
                               )),
                           // block7
                           Positioned(
-                              bottom: 0.0,
-                              left: 73.5.w,
+                              // bottom: 0.0,
+                              left: 80.w,
                               // right: 270.0,
-                              top: 53.8.w,
+                              top: 60.w,
                               child: ClipPath(
                                 clipper: JigsawClipper7(),
-                                child: Padding(
-                                  padding: EdgeInsets.all(3.h),
+                                child: Container(
+                                  height: 30.w,
+                                  width: 20.w,
+                                  color: Colors.yellow,
+                                  // padding: EdgeInsets.all(3.h),
                                   child: gamedata?.gameData?.steps == '6'
                                       ? Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
                                           children: [
-                                            Container(
-                                              height: 3.h,
-                                              width: 7.w,
-                                              decoration: BoxDecoration(
-                                                  color: primary,
-                                                  borderRadius:
-                                                      BorderRadius.circular(90),
-                                                  border: Border.all(
-                                                      color: Colors.black)),
+                                            SizedBox(
+                                              height: 8.w,
+                                            ),
+                                            Center(
+                                              child: Container(
+                                                height: 3.h,
+                                                width: 7.w,
+                                                decoration: BoxDecoration(
+                                                    color: primary,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            90),
+                                                    border: Border.all(
+                                                        color: Colors.black)),
+                                              ),
                                             ),
                                           ],
                                         )
                                       : Container(
-                                          height: 40.w,
-                                          width: 29.w,
+                                          height: 30.w,
+                                          width: 39.w,
                                           color: Colors.yellow,
                                         ),
                                 ),
@@ -582,14 +644,14 @@ class _designState extends State<design> with TickerProviderStateMixin {
                           // block9
                           Positioned(
                             bottom: 0.0,
-                            left: 49.w,
+                            left: 50.5.w,
                             // right: 270.0,
                             top: 80.w,
                             child: ClipPath(
                                 clipper: JigsawClipper9(),
                                 child: Container(
                                   height: 100,
-                                  width: 21.w,
+                                  width: 17.w,
                                   color: Colors.cyan,
                                   padding: EdgeInsets.all(2.5.w),
                                   child: gamedata?.gameData?.steps == '8'
@@ -618,8 +680,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                           //block10
                           Positioned(
                             bottom: 0.0,
-                            left: 29.w,
-                            right: 45.w,
+                            left: 29.7.w,
+                            // right: 45.w,
                             top: 80.w,
                             child: ClipPath(
                               clipper: JigsawClipper10(),
@@ -628,7 +690,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                     EdgeInsets.only(top: 1.5.h, right: 1.3.w),
                                 alignment: Alignment.center,
                                 height: 100,
-                                width: 80,
+                                width: 26.w,
                                 color: Colors.deepPurpleAccent,
                                 // decoration: BoxDecoration(
                                 //   border: Border.all(color: Colors.black),
@@ -675,7 +737,6 @@ class _designState extends State<design> with TickerProviderStateMixin {
                             child: ClipPath(
                               clipper: JigsawClipper11(),
                               child: Container(
-
                                 height: 100,
                                 width: 80,
                                 color: Color(0xff4f9e41),
@@ -703,7 +764,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                         children: [
                                           Text(
                                             "Double",
-                                            style: TextStyle(color: Colors.black),
+                                            style:
+                                                TextStyle(color: Colors.black),
                                           ),
                                           gamedata?.gameData?.steps == '10'
                                               ? Column(
@@ -734,13 +796,13 @@ class _designState extends State<design> with TickerProviderStateMixin {
                           Positioned(
                             left: 0.0,
                             // right: 270.0,
-                            top: 55.w,
+                            top: 55.1.w,
                             child: ClipPath(
                               clipper: JigsawClipper12(),
                               child: Container(
                                 height: 100,
                                 width: 83,
-                                color: Colors.pink,
+                                color: Colors.tealAccent,
                                 padding: EdgeInsets.only(
                                     top: 4.h,
                                     right: 2.w,
@@ -764,6 +826,9 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                           Text(
                                             "Choice",
                                             style: TextStyle(color: primary),
+                                          ),
+                                          SizedBox(
+                                            height: 1.h,
                                           ),
                                           gamedata?.gameData?.steps == '11'
                                               ? Column(
@@ -806,7 +871,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                 child: gamedata?.gameData?.steps == '12'
                                     ? Column(
                                         children: [
-                                          SizedBox(height: 1.5.h),
+                                          SizedBox(height: 3.5.h),
                                           Container(
                                             height: 3.h,
                                             width: 7.w,
@@ -833,13 +898,13 @@ class _designState extends State<design> with TickerProviderStateMixin {
                               child: Container(
                                 height: 80,
                                 width: 83,
-                                color: Colors.lightGreen,
+                                color: Colors.black,
                                 padding: EdgeInsets.only(
-                                    top: 1.7.h,
-                                    right: 10.w,
+                                    top: 2.h,
+                                    right: 3.w,
                                     left: gamedata?.gameData?.steps == '13'
-                                        ? 3.5.w
-                                        : 0),
+                                        ? 1.5.w
+                                        : 1.5.w),
                                 alignment: Alignment.center,
                                 child: SizedBox(
                                     width: 24.w,
@@ -927,13 +992,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                         height: 2.h,
                       ),
                       (_value == null)
-                          ? Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                '★ Tap on Roll Dice Button To Start Game ★',
-                                textAlign: TextAlign.center,
-                                style: primarytxt1,
-                              ))
+                          ? Container()
                           : Align(
                               alignment: Alignment.center,
                               child: Text(
@@ -965,10 +1024,14 @@ class _designState extends State<design> with TickerProviderStateMixin {
           if (response.statusCode == 200 && gamedata?.status == "success") {
             print(
                 "-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=- run: ${gamedata?.gameData?.steps}");
+            print('*-*-*-*-*-*-*-*-*-* ${count}');
+
             gamedata?.gameData?.steps == '1'
-                ? gameexit(context, 'You will get a Question',
-                    'Give Correct Answer and get a Jigsaw Piece',
-                    callback: goquestions)
+                ? Timer(Duration(seconds: 5), () {
+                    gameexit(context, 'You will get a Question',
+                        'Give Correct Answer and get a Jigsaw Piece',
+                        callback: goquestions);
+                  })
                 : gamedata?.gameData?.steps == '3'
                     ? gameexit(context, 'You will get a Question',
                         'Give Correct Answer and get a Jigsaw Piece',
@@ -1064,7 +1127,10 @@ class _designState extends State<design> with TickerProviderStateMixin {
   }
 
   void goquestions() async {
-    await Get.to(TriviaChallenge());
+    await Get.to(question(
+      ageId: widget.age,
+      catId: widget.cat,
+    ));
   }
 
   void gochallange() {

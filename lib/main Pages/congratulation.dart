@@ -12,7 +12,9 @@ import '../Provider/authprovider.dart';
 import '../Widget/buildErrorDialog.dart';
 import '../Widget/const.dart';
 class congratulation extends StatefulWidget {
-   congratulation({Key? key}) : super(key: key);
+  String? cat;
+  String? age;
+   congratulation({Key? key,this.age,this.cat}) : super(key: key);
   @override
   State<congratulation> createState() => _congratulationState();
 }
@@ -95,7 +97,11 @@ class _congratulationState extends State<congratulation> {
 
           GestureDetector(
             onTap: (){
-              start();
+              Get.to(design(
+                cat: widget.cat,
+                age: widget.age,
+                cont: 34,
+              ));
             },
             child:Container(
               alignment: Alignment.center,
@@ -115,42 +121,5 @@ class _congratulationState extends State<congratulation> {
       ),
     );
   }
-  start() {
-    final Map<String, String> data = {};
 
-    data['uid'] = usermodal?.userData?.uid ?? "";
-    data['action'] = 'game_start';
-
-    checkInternet().then((internet) async {
-      if (internet) {
-        authprovider().startgameapi(data).then((response) async {
-          profileviewmodal =
-              ProfileviewModal.fromJson(json.decode(response.body));
-
-          if (response.statusCode == 200 &&
-              profileviewmodal?.status == "success") {
-            Get.to(() => design());
-            Get.snackbar(
-              "Game Started",
-              "Successfully",
-              icon: Image(image: AssetImage('assets/logo.png')),
-              snackPosition: SnackPosition.TOP,
-
-            );
-            print("Started");
-            setState(() {
-              isloading = false;
-            });
-          } else {
-            isloading = false;
-          }
-        });
-      } else {
-        setState(() {
-          isloading = false;
-        });
-        buildErrorDialog(context, 'Error', "Internate Required");
-      }
-    });
-  }
 }

@@ -187,13 +187,27 @@ class _mainpage2State extends State<mainpage2> {
                                               Row(
                                                 children: [
                                                   Image.asset(
-                                                    'assets/coin.webp',
-                                                    width: 8.w,
+                                                    'assets/splash/collection.png',
+                                                    width: 7.w,
                                                   ),
                                                   SizedBox(
+                                                    width: 2.w,
+                                                  ),
+                                                  Text('10'),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                width: 2.w,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Image.asset(
+                                                    'assets/splash/gamepad.png',
+                                                    width: 7.5.w,
+                                                  ),SizedBox(
                                                     width: 1.w,
                                                   ),
-                                                  Text('450'),
+                                                  Text('5'),
                                                 ],
                                               ),
                                               SizedBox(
@@ -202,19 +216,7 @@ class _mainpage2State extends State<mainpage2> {
                                               Row(
                                                 children: [
                                                   Image.asset(
-                                                    'assets/diamond.png',
-                                                    width: 8.w,
-                                                  ),
-                                                  Text('84'),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                width: 2.w,
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Image.asset(
-                                                    'assets/heart.png',
+                                                    'assets/splash/reward.png',
                                                     width: 8.w,
                                                   ),
                                                   Text('3'),
@@ -292,7 +294,7 @@ SizedBox(height: 2.h,),
                                                     MainAxisAlignment.spaceEvenly,
                                                 children: [
                                                   Image.asset(
-                                                    'assets/1.jpg',
+                                                    'assets/splash/puzzle.png',
                                                     height: 8.h,
                                                     width: 17.w,
                                                   ),
@@ -308,10 +310,10 @@ SizedBox(height: 2.h,),
                                                         Row(
                                                           mainAxisAlignment:
                                                               MainAxisAlignment
-                                                                  .spaceEvenly,
+                                                                  .spaceBetween,
                                                           children: [
                                                             Text(
-                                                              'Beginner',
+                                                              'Play',
                                                               style: TextStyle(
                                                                 color: Colors.black,
                                                                 fontSize: 15.sp,
@@ -323,7 +325,7 @@ SizedBox(height: 2.h,),
                                                               ),
                                                             ),
                                                             Text(
-                                                              'Level 1',
+                                                              'Roll the Dice',
                                                               style: TextStyle(
                                                                 color: primary,
                                                                 fontSize: 15.sp,
@@ -337,7 +339,7 @@ SizedBox(height: 2.h,),
                                                           ],
                                                         ),
                                                         Text(
-                                                          'Learners Gain a Deeper Understanding',
+                                                          'Play and Do Task Given to win a Jigsaw Piece',
                                                           style: TextStyle(
                                                             color: Colors.black,
                                                             fontSize: 12.sp,
@@ -367,10 +369,11 @@ SizedBox(height: 2.h,),
                                                                 30),
                                                       ),
                                                       child: Text(
-                                                        'View',
+                                                        'PLAY',
                                                         style: TextStyle(
                                                             color: Colors.white,
                                                             fontFamily: 'Poppins',
+                                                            letterSpacing: 1,
                                                             fontSize: 14.sp),
                                                       ),
                                                     ),
@@ -384,70 +387,70 @@ SizedBox(height: 2.h,),
                                     ),
                                   ),
 
-                                  Container(
-                                    padding:
-                                        EdgeInsets.symmetric(vertical: 1.h,horizontal: 5.w),
-                                    alignment: Alignment.topCenter,
-                                    height: 9.h,
-                                    width: 100.w,
-                                    color: Colors.white,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Container(
-                                          padding: EdgeInsets.symmetric(
-                                              horizontal: 1.w),
-                                          width: 25.w,
-                                          height: 5.h,
-                                          decoration: BoxDecoration(
-                                              color: primary1,
-                                              borderRadius:
-                                                  BorderRadius.circular(20)),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            children: [
-                                              Container(
-                                                height: 4.h,
-                                                width: 4.h,
-                                                decoration: BoxDecoration(
-                                                    color: Colors.white
-                                                        .withOpacity(0.3),
-                                                    shape: BoxShape.circle),
-                                                child: Icon(
-                                                  Icons.home,
-                                                  color: Colors.black,
-                                                  size: 14.sp,
-                                                ),
-                                              ),
-                                              Text('Home')
-                                            ],
-                                          ),
-                                        ),
-                                        Icon(
-                                          Icons.search,
-                                          color: Colors.black,
-                                          size: 20.sp,
-                                        ),
-                                        Icon(
-                                          Icons.center_focus_weak_rounded,
-                                          color: Colors.black,
-                                          size: 20.sp,
-                                        ),
-                                        Icon(
-                                          Icons.plumbing_outlined,
-                                          color: Colors.black,
-                                          size: 20.sp,
-                                        ),
-                                        Icon(
-                                          Icons.align_vertical_center_sharp,
-                                          color: Colors.black,
-                                          size: 20.sp,
-                                        ),
-                                      ],
-                                    ),
-                                  )
+                                  // Container(
+                                  //   padding:
+                                  //       EdgeInsets.symmetric(vertical: 1.h,horizontal: 5.w),
+                                  //   alignment: Alignment.topCenter,
+                                  //   height: 9.h,
+                                  //   width: 100.w,
+                                  //   color: Colors.white,
+                                  //   child: Row(
+                                  //     mainAxisAlignment:
+                                  //         MainAxisAlignment.spaceAround,
+                                  //     children: [
+                                  //       Container(
+                                  //         padding: EdgeInsets.symmetric(
+                                  //             horizontal: 1.w),
+                                  //         width: 25.w,
+                                  //         height: 5.h,
+                                  //         decoration: BoxDecoration(
+                                  //             color: primary1,
+                                  //             borderRadius:
+                                  //                 BorderRadius.circular(20)),
+                                  //         child: Row(
+                                  //           mainAxisAlignment:
+                                  //               MainAxisAlignment.spaceAround,
+                                  //           children: [
+                                  //             Container(
+                                  //               height: 4.h,
+                                  //               width: 4.h,
+                                  //               decoration: BoxDecoration(
+                                  //                   color: Colors.white
+                                  //                       .withOpacity(0.3),
+                                  //                   shape: BoxShape.circle),
+                                  //               child: Icon(
+                                  //                 Icons.home,
+                                  //                 color: Colors.black,
+                                  //                 size: 14.sp,
+                                  //               ),
+                                  //             ),
+                                  //             Text('Home')
+                                  //           ],
+                                  //         ),
+                                  //       ),
+                                  //       Icon(
+                                  //         Icons.search,
+                                  //         color: Colors.black,
+                                  //         size: 20.sp,
+                                  //       ),
+                                  //       Icon(
+                                  //         Icons.center_focus_weak_rounded,
+                                  //         color: Colors.black,
+                                  //         size: 20.sp,
+                                  //       ),
+                                  //       Icon(
+                                  //         Icons.plumbing_outlined,
+                                  //         color: Colors.black,
+                                  //         size: 20.sp,
+                                  //       ),
+                                  //       Icon(
+                                  //         Icons.align_vertical_center_sharp,
+                                  //         color: Colors.black,
+                                  //         size: 20.sp,
+                                  //       ),
+                                  //     ],
+                                  //   ),
+                                  // )
                                 ],
                               ),
                             ],

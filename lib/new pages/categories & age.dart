@@ -8,10 +8,12 @@ import 'package:jicksaw/Modal/CAtegoryModal.dart';
 import 'package:jicksaw/Questions/FirstQuestion.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/loader.dart';
+import 'package:jicksaw/design.dart';
 import 'package:jicksaw/other/const%20widget.dart';
 import 'package:jicksaw/question.dart';
 import 'package:sizer/sizer.dart';
 
+import '../Provider/ProfileviewModal.dart';
 import '../Provider/authprovider.dart';
 import '../Widget/buildErrorDialog.dart';
 import '../Widget/const.dart';
@@ -267,18 +269,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
                                 ? Container()
                                 : GestureDetector(
                                     onTap: () {
-                                      Get.to(question(
-                                        catId: selectedcate,
-                                        ageId: selectedagei == 1
-                                            ? '18'
-                                            : selectedagei == 2
-                                                ? '23'
-                                                : selectedagei == 3
-                                                    ? '28'
-                                                    : selectedagei == 4
-                                                        ? '35'
-                                                        : '36',
-                                      ));
+                                     start();
                                     },
                                     child: Container(
                                       alignment: Alignment.center,
@@ -321,10 +312,60 @@ class _CategoriesPageState extends State<CategoriesPage> {
           category = CatModal.fromJson(json.decode(response.body));
 
           if (response.statusCode == 200 && category?.status == "success") {
+
             setState(() {
               isloading = false;
             });
           } else {}
+        });
+      } else {
+        setState(() {
+          isloading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
+  start() {
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['action'] = 'game_start';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().startgameapi(data).then((response) async {
+          profileviewmodal =
+              ProfileviewModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 &&
+              profileviewmodal?.status == "success") {
+            Get.to(design(cont: 0,
+              cat: selectedcate,
+              age: selectedagei == 1
+                  ? '18'
+                  : selectedagei == 2
+                  ? '23'
+                  : selectedagei == 3
+                  ? '28'
+                  : selectedagei == 4
+                  ? '35'
+                  : '36',
+            ));
+            Get.snackbar(
+              "Game Started",
+              "Successfully",
+              icon: Image(image: AssetImage('assets/logo.png')),
+              snackPosition: SnackPosition.TOP,
+
+            );
+            print("Started");
+            setState(() {
+              isloading = false;
+            });
+          } else {
+            isloading = false;
+          }
         });
       } else {
         setState(() {
