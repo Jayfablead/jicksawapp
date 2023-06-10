@@ -66,6 +66,20 @@ class authprovider with ChangeNotifier{
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> shoppursapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=user_all_order_details';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
   Future<http.Response> subsapi(Map<String, dynamic> bodyData) async {
     const url = '$baseUrl/?action=user_all_subscription_details';
     var responseJson;
@@ -255,6 +269,20 @@ class authprovider with ChangeNotifier{
   }
   Future<http.Response> getcate(Map<String, String> bodyData) async {
     const url = '$baseUrl/?action=get_all_cat_and_age';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> winchal(Map<String, String> bodyData) async {
+    const url = '$baseUrl/?action=winning_challenges';
     var responseJson;
     final response = await http
         .post(Uri.parse(url), body: bodyData, headers: headers)

@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Modal/challenegeModal.dart';
 import 'package:jicksaw/Modal/gameModal.dart';
-
 
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/loader.dart';
@@ -26,9 +26,8 @@ import '../Widget/const.dart';
 class design extends StatefulWidget {
   String? cat;
   String? age;
-  int cont;
 
-  design({Key? key, this.age, this.cat, required this.cont}) : super(key: key);
+  design({Key? key, this.age, this.cat}) : super(key: key);
 
   @override
   State<design> createState() => _designState();
@@ -43,11 +42,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
   double marginheight = 0.0;
   double margin = 0.0;
   String? step;
-  final List<String> pages = [
-    '/MemoryChallenge',
-    '/TriviaChallenge',
-    '/MathtPage'
-  ];
+  final List<String> pages = ['/MemoryChallenge', '/MathtPage'];
   final Random random = Random();
 
   // List navigation = [
@@ -61,7 +56,6 @@ class _designState extends State<design> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     setState(() {
-      count = widget.cont;
       count = 0;
       print('*-*-*-*-*-*-*-*-*-* ${count}');
       gameapi();
@@ -157,18 +151,13 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                             gamedata?.gameData?.steps == '9' ||
                                             gamedata?.gameData?.steps == '10' ||
                                             gamedata?.gameData?.steps == '11' ||
-                                            gamedata?.gameData?.steps == '13' && _showImage
-                                        ? !_showImage?Text(
-                                      '★ Tap on Roll Dice Button To Continue ★',
-                                      textAlign: TextAlign.center,
-                                      style: primarytxt1,
-                                    ):Center(
-                                      child: Text(
-                                              '★ Tap on Roll Dice Button To Continue ★',
-                                              textAlign: TextAlign.center,
-                                              style: primarytxt1,
-                                            ),
-                                    )
+                                            gamedata?.gameData?.steps == '13' &&
+                                                _showImage
+                                        ? Text(
+                                            '★ Tap on Jigsaw Piece for More Info ★',
+                                            textAlign: TextAlign.center,
+                                            style: primarytxt1,
+                                          )
                                         : Container(),
                                     (gamedata?.gameData?.steps == '0' &&
                                             !_showImage)
@@ -320,53 +309,65 @@ class _designState extends State<design> with TickerProviderStateMixin {
                               // bottom: 160.0,
                               child: ClipPath(
                                 clipper: JigsawClipper2(),
-                                child: Container(
-                                  width: 35.w,
-                                  height: 30.w,
-                                  color: Colors.black,
-                                  padding: EdgeInsets.only(
-                                      top: 1.5.h, left: 1.5.w, right: 13.w),
-                                  alignment: Alignment.center,
-                                  // height: 100,
+                                child: InkWell(
+                                  onTap: () {
+                                    gamedata?.gameData?.steps == '1'
+                                        ? update(
+                                            context,
+                                            'You will get a Question',
+                                            'Give Correct Answer and get a Jigsaw Piece',
+                                            callback: goquestions)
+                                        : null;
+                                  },
+                                  child: Container(
+                                    width: 35.w,
+                                    height: 30.w,
+                                    color: Colors.black,
+                                    padding: EdgeInsets.only(
+                                        top: 1.5.h, left: 1.5.w, right: 13.w),
+                                    alignment: Alignment.center,
+                                    // height: 100,
 
-                                  // color: Colors.yellow,
-                                  // decoration: BoxDecoration(
-                                  //   border: Border.all(color: Colors.black),
-                                  //   // color: Colors.green,
-                                  //   // shape: BoxShape.rectangle,
-                                  // ),
-                                  child: Center(
-                                      child: Column(
-                                    children: [
-                                      Text(
-                                        "Questions",
-                                        maxLines: 4,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(color: primary),
-                                      ),
-                                      gamedata?.gameData?.steps == '1'
-                                          ? Column(
-                                              children: [
-                                                SizedBox(
-                                                  height: 1.5.h,
-                                                ),
-                                                Container(
-                                                  height: 3.h,
-                                                  width: 7.w,
-                                                  decoration: BoxDecoration(
-                                                      color: primary,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              90),
-                                                      border: Border.all(
-                                                          color: Colors.black)),
-                                                ),
-                                              ],
-                                            )
-                                          : Container()
-                                    ],
-                                  )),
+                                    // color: Colors.yellow,
+                                    // decoration: BoxDecoration(
+                                    //   border: Border.all(color: Colors.black),
+                                    //   // color: Colors.green,
+                                    //   // shape: BoxShape.rectangle,
+                                    // ),
+                                    child: Center(
+                                        child: Column(
+                                      children: [
+                                        Text(
+                                          "Questions",
+                                          maxLines: 4,
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(color: primary),
+                                        ),
+                                        gamedata?.gameData?.steps == '1'
+                                            ? Column(
+                                                children: [
+                                                  SizedBox(
+                                                    height: 1.5.h,
+                                                  ),
+                                                  Container(
+                                                    height: 3.h,
+                                                    width: 7.w,
+                                                    decoration: BoxDecoration(
+                                                        color: primary,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(90),
+                                                        border: Border.all(
+                                                            color:
+                                                                Colors.black)),
+                                                  ),
+                                                ],
+                                              )
+                                            : Container()
+                                      ],
+                                    )),
+                                  ),
                                 ),
                               )),
                           //block3
@@ -413,48 +414,59 @@ class _designState extends State<design> with TickerProviderStateMixin {
                             right: 0.0,
                             child: ClipPath(
                               clipper: JigsawClipper4(),
-                              child: Container(
-                                padding: EdgeInsets.only(
-                                    top: 1.5.h, left: 5.w, right: 1.w),
-                                alignment: Alignment.center,
-                                height: 30.w,
-                                width: 80,
-                                color: Colors.brown,
-                                // decoration: BoxDecoration(
-                                //   border: Border.all(color: Colors.black),
-                                //   // color: Colors.green,
-                                //   // shape: BoxShape.rectangle,
-                                // ),
-                                child: Center(
-                                    child: Column(
-                                  children: [
-                                    Text(
-                                      "Challenges",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(color: primary),
-                                    ),
-                                    gamedata?.gameData?.steps == '3'
-                                        ? Column(
-                                            children: [
-                                              SizedBox(
-                                                height: 1.5.h,
-                                              ),
-                                              Container(
-                                                height: 3.h,
-                                                width: 7.w,
-                                                decoration: BoxDecoration(
-                                                    color: primary,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            90),
-                                                    border: Border.all(
-                                                        color: Colors.black)),
-                                              ),
-                                            ],
-                                          )
-                                        : Container()
-                                  ],
-                                )),
+                              child: InkWell(
+                                onTap: () {
+                                  gamedata?.gameData?.steps == '3'
+                                      ? update(
+                                          context,
+                                          'You will get a Random Challenge',
+                                          'Give Correct Answer and get a Jigsaw Piece',
+                                          callback: gochallange)
+                                      : null;
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.only(
+                                      top: 1.5.h, left: 5.w, right: 1.w),
+                                  alignment: Alignment.center,
+                                  height: 30.w,
+                                  width: 80,
+                                  color: Colors.brown,
+                                  // decoration: BoxDecoration(
+                                  //   border: Border.all(color: Colors.black),
+                                  //   // color: Colors.green,
+                                  //   // shape: BoxShape.rectangle,
+                                  // ),
+                                  child: Center(
+                                      child: Column(
+                                    children: [
+                                      Text(
+                                        "Challenges",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(color: primary),
+                                      ),
+                                      gamedata?.gameData?.steps == '3'
+                                          ? Column(
+                                              children: [
+                                                SizedBox(
+                                                  height: 1.5.h,
+                                                ),
+                                                Container(
+                                                  height: 3.h,
+                                                  width: 7.w,
+                                                  decoration: BoxDecoration(
+                                                      color: primary,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              90),
+                                                      border: Border.all(
+                                                          color: Colors.black)),
+                                                ),
+                                              ],
+                                            )
+                                          : Container()
+                                    ],
+                                  )),
+                                ),
                               ),
                             ),
                           ),
@@ -504,41 +516,52 @@ class _designState extends State<design> with TickerProviderStateMixin {
                               top: 32.w,
                               child: ClipPath(
                                 clipper: JigsawClipper6(),
-                                child: Container(
-                                  height: 40.w,
-                                  width: 20.w,
-                                  color: Color(0xff255d2f),
-                                  padding:
-                                      EdgeInsets.only(left: 5.w, right: 1.w),
-                                  child: Center(
-                                      child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "Bonus",
-                                        style: TextStyle(color: primary),
-                                      ),
-                                      gamedata?.gameData?.steps == '5'
-                                          ? Column(
-                                              children: [
-                                                Container(
-                                                  height: 3.h,
-                                                  width: 7.w,
-                                                  decoration: BoxDecoration(
-                                                      color: primary,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              90),
-                                                      border: Border.all(
-                                                          color: Colors.black)),
-                                                ),
-                                              ],
-                                            )
-                                          : Container()
-                                    ],
-                                  )),
+                                child: InkWell(
+                                  onTap: () {
+                                    gamedata?.gameData?.steps == '5'
+                                        ? update(context, 'Bonus Point',
+                                            'You Have Won a Piece and a Exra turn',
+                                            callback: challwin)
+                                        : null;
+                                  },
+                                  child: Container(
+                                    height: 40.w,
+                                    width: 20.w,
+                                    color: Color(0xff255d2f),
+                                    padding:
+                                        EdgeInsets.only(left: 5.w, right: 1.w),
+                                    child: Center(
+                                        child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          "Bonus",
+                                          style: TextStyle(color: primary),
+                                        ),
+                                        gamedata?.gameData?.steps == '5'
+                                            ? Column(
+                                                children: [
+                                                  Container(
+                                                    height: 3.h,
+                                                    width: 7.w,
+                                                    decoration: BoxDecoration(
+                                                        color: primary,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(90),
+                                                        border: Border.all(
+                                                            color:
+                                                                Colors.black)),
+                                                  ),
+                                                ],
+                                              )
+                                            : Container()
+                                      ],
+                                    )),
+                                  ),
                                 ),
                               )),
                           // block7
@@ -592,46 +615,55 @@ class _designState extends State<design> with TickerProviderStateMixin {
                             top: 80.w,
                             child: ClipPath(
                               clipper: JigsawClipper8(),
-                              child: Container(
-                                color: Colors.red,
-                                padding: EdgeInsets.only(
-                                    top: 1.5.h, left: 2.w, right: 1.3.w),
-                                alignment: Alignment.center,
-                                height: 100,
-                                width: 80,
-                                // decoration: BoxDecoration(
-                                //   border: Border.all(color: Colors.black),
-                                //   // color: Colors.green,
-                                //   // shape: BoxShape.rectangle,
-                                // ),
-                                child: Center(
-                                    child: Column(
-                                  children: [
-                                    Text(
-                                      "Penalty",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-                                    gamedata?.gameData?.steps == '7'
-                                        ? Column(
-                                            children: [
-                                              SizedBox(height: 1.5.h),
-                                              Container(
-                                                height: 3.h,
-                                                width: 7.w,
-                                                decoration: BoxDecoration(
-                                                    color: primary,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            90),
-                                                    border: Border.all(
-                                                        color: Colors.black)),
-                                              ),
-                                            ],
-                                          )
-                                        : Container()
-                                  ],
-                                )),
+                              child: InkWell(
+                                onTap: () {
+                                  gamedata?.gameData?.steps == '7'
+                                      ? update(context, 'Penalty',
+                                          'You Have put Back last Piece You Win',
+                                          callback: challwin)
+                                      : null;
+                                },
+                                child: Container(
+                                  color: Colors.red,
+                                  padding: EdgeInsets.only(
+                                      top: 1.5.h, left: 2.w, right: 1.3.w),
+                                  alignment: Alignment.center,
+                                  height: 100,
+                                  width: 80,
+                                  // decoration: BoxDecoration(
+                                  //   border: Border.all(color: Colors.black),
+                                  //   // color: Colors.green,
+                                  //   // shape: BoxShape.rectangle,
+                                  // ),
+                                  child: Center(
+                                      child: Column(
+                                    children: [
+                                      Text(
+                                        "Penalty",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(color: Colors.black),
+                                      ),
+                                      gamedata?.gameData?.steps == '7'
+                                          ? Column(
+                                              children: [
+                                                SizedBox(height: 1.5.h),
+                                                Container(
+                                                  height: 3.h,
+                                                  width: 7.w,
+                                                  decoration: BoxDecoration(
+                                                      color: primary,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              90),
+                                                      border: Border.all(
+                                                          color: Colors.black)),
+                                                ),
+                                              ],
+                                            )
+                                          : Container()
+                                    ],
+                                  )),
+                                ),
                               ),
                             ),
                           ),
@@ -682,46 +714,51 @@ class _designState extends State<design> with TickerProviderStateMixin {
                             top: 80.w,
                             child: ClipPath(
                               clipper: JigsawClipper10(),
-                              child: Container(
-                                padding:
-                                    EdgeInsets.only(top: 1.5.h, right: 1.3.w),
-                                alignment: Alignment.center,
-                                height: 100,
-                                width: 26.w,
-                                color: Colors.deepPurpleAccent,
-                                // decoration: BoxDecoration(
-                                //   border: Border.all(color: Colors.black),
-                                //   // color: Colors.green,
-                                //   // shape: BoxShape.rectangle,
-                                // ),
-                                child: Center(
-                                    child: Column(
-                                  children: [
-                                    Text(
-                                      "Warp",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(color: primary),
-                                    ),
-                                    gamedata?.gameData?.steps == '9'
-                                        ? Column(
-                                            children: [
-                                              SizedBox(height: 1.5.h),
-                                              Container(
-                                                height: 3.h,
-                                                width: 7.w,
-                                                decoration: BoxDecoration(
-                                                    color: primary,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            90),
-                                                    border: Border.all(
-                                                        color: Colors.black)),
-                                              ),
-                                            ],
-                                          )
-                                        : Container()
-                                  ],
-                                )),
+                              child: InkWell(onTap: (){
+                                gamedata?.gameData?.steps == '9'
+                                    ?update(context, 'Warp', 'Your Piece Will Move Forward or BackWards TO Any Random number',callback: warp):null;
+                              },
+                                child: Container(
+                                  padding:
+                                      EdgeInsets.only(top: 1.5.h, right: 1.3.w),
+                                  alignment: Alignment.center,
+                                  height: 100,
+                                  width: 26.w,
+                                  color: Colors.deepPurpleAccent,
+                                  // decoration: BoxDecoration(
+                                  //   border: Border.all(color: Colors.black),
+                                  //   // color: Colors.green,
+                                  //   // shape: BoxShape.rectangle,
+                                  // ),
+                                  child: Center(
+                                      child: Column(
+                                    children: [
+                                      Text(
+                                        "Warp",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(color: primary),
+                                      ),
+                                      gamedata?.gameData?.steps == '9'
+                                          ? Column(
+                                              children: [
+                                                SizedBox(height: 1.5.h),
+                                                Container(
+                                                  height: 3.h,
+                                                  width: 7.w,
+                                                  decoration: BoxDecoration(
+                                                      color: primary,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              90),
+                                                      border: Border.all(
+                                                          color: Colors.black)),
+                                                ),
+                                              ],
+                                            )
+                                          : Container()
+                                    ],
+                                  )),
+                                ),
                               ),
                             ),
                           ),
@@ -1023,17 +1060,6 @@ class _designState extends State<design> with TickerProviderStateMixin {
                 "-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=- run: ${gamedata?.gameData?.steps}");
             print('*-*-*-*-*-*-*-*-*-* ${count}');
 
-            gamedata?.gameData?.steps == '1'
-                ? Timer(Duration(seconds: 5), () {
-                    gameexit(context, 'You will get a Question',
-                        'Give Correct Answer and get a Jigsaw Piece',
-                        callback: goquestions);
-                  })
-                : gamedata?.gameData?.steps == '3'
-                    ? gameexit(context, 'You will get a Question',
-                        'Give Correct Answer and get a Jigsaw Piece',
-                        callback: gochallange)
-                    : Container();
             setState(() {
               step = gamedata?.gameData?.steps;
               isloading = false;
@@ -1132,6 +1158,81 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
   void gochallange() {
     int index = random.nextInt(pages.length);
-    Get.toNamed(pages[index]);
+    Get.toNamed(pages[index], arguments: {
+      'catid': widget.cat,
+      'age': widget.age,
+      'type': 'chellenge'
+    });
+  }
+
+  challwin() {
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['action'] = 'winning_challenges';
+    data['chellenge_type'] = gamedata?.gameData?.steps == '5'
+        ? 'bonus'
+        : gamedata?.gameData?.steps == '9'
+            ? 'warp'
+            : 'penalty';
+    data['ans'] = '1';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().winchal(data).then((response) async {
+          chalns = challModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && chalns?.status == "success") {
+            Get.back();
+            setState(() {
+              isloading = false;
+            });
+          } else {
+            setState(() {
+              isloading = false;
+            });
+          }
+        });
+      } else {
+        setState(() {
+          isloading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
+
+  warp() {
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['action'] = 'winning_challenges';
+    data['chellenge_type'] = 'warp';
+    data['ans'] = '1';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().winchal(data).then((response) async {
+          chalns = challModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && chalns?.status == "success") {
+            Get.back();
+            gameapi();
+            setState(() {
+              isloading = false;
+            });
+          } else {
+            setState(() {
+              isloading = false;
+            });
+          }
+        });
+      } else {
+        setState(() {
+          isloading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
   }
 }

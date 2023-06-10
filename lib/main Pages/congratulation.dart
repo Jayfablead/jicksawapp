@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Modal/challenegeModal.dart';
 import 'package:jicksaw/main%20Pages/design.dart';
 import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:jicksaw/main%20Pages/question.dart';
@@ -14,11 +15,18 @@ import '../Widget/const.dart';
 class congratulation extends StatefulWidget {
   String? cat;
   String? age;
-   congratulation({Key? key,this.age,this.cat}) : super(key: key);
+  String? type;
+   congratulation({Key? key,this.age,this.cat,this.type}) : super(key: key);
   @override
   State<congratulation> createState() => _congratulationState();
 }
 class _congratulationState extends State<congratulation> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print('${widget.age},${widget.type},${widget.cat}');
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,11 +105,7 @@ class _congratulationState extends State<congratulation> {
 
           GestureDetector(
             onTap: (){
-              Get.to(design(
-                cat: widget.cat,
-                age: widget.age,
-                cont: 34,
-              ));
+              challwin();
             },
             child:Container(
               alignment: Alignment.center,
@@ -121,5 +125,38 @@ class _congratulationState extends State<congratulation> {
       ),
     );
   }
+  challwin() {
+    final Map<String, String> data = {};
 
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['action'] = 'winning_challenges';
+    data['chellenge_type'] = widget.type.toString();
+    data['ans'] = '1';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().winchal(data).then((response) async {
+          chalns = challModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && chalns?.status == "success") {
+            Get.off(design(
+              cat: widget.cat,
+              age: widget.age,
+
+            ));
+            setState(() {
+              isloading = false;
+            });
+          } else { setState(() {
+            isloading = false;
+          });}
+        });
+      } else {
+        setState(() {
+          isloading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
 }

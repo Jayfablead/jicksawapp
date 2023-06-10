@@ -342,7 +342,7 @@ update(BuildContext context, String title, String contant,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 3.h,
+                  height: 2.h,
                 ),
                 (title != "")
                     ? Column(
@@ -382,15 +382,15 @@ update(BuildContext context, String title, String contant,
                     ],
                   ),
                 ),
-                SizedBox(height: 2.h),
+                SizedBox(height: 1.h),
                 Divider(
                   height: 1.0,
                   color: Colors.grey,
                 ),
-                SizedBox(height: 2.h),
+                SizedBox(height: 1.h),
                 okButton,
                 SizedBox(
-                  height: 2.h,
+                  height: 1.h,
                 ),
               ],
             ),

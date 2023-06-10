@@ -70,14 +70,14 @@ class _ChangepwdState extends State<Changepwd> {
                     SizedBox(
                       height: 3.h,
                     ),
-                    // Center(
-                    //   child:  Container(
-                    //     height: 25.h,
-                    //     width: 100.w,
-                    //
-                    //     child: Lottie.asset('assets/main.json'),
-                    //   ),
-                    // ),
+                    Center(
+                      child:  Container(
+                        height: 25.h,
+                        width: 100.w,
+
+                        child: Lottie.asset('assets/main.json'),
+                      ),
+                    ),
                     SizedBox(
                       height: 2.h,
                     ),
@@ -92,7 +92,7 @@ class _ChangepwdState extends State<Changepwd> {
                             fontFamily: 'Poppins',),
                         )),
                     SizedBox(
-                      height: 7.h,
+                      height: 5.h,
                     ),
                     Container(
                       padding: EdgeInsets.all(5.w),

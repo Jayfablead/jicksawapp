@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Modal/allpurchasedModal.dart';
 import 'package:jicksaw/Modal/shopitemmodal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/main%20Pages/shop2.dart';
@@ -28,7 +29,7 @@ class _MyPurchasedGamesState extends State<MyPurchasedGames> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    viewap();
+
     shopitems();
   }
 
@@ -74,15 +75,11 @@ class _MyPurchasedGamesState extends State<MyPurchasedGames> {
                               height: 85.h,
                               child: ListView.builder(
                                 // scrollDirection: Axis.horizontal,
-                                itemCount: shop?.allItems?.length,
+                                itemCount: allpurs ?.allOrders?.length,
                                 padding: EdgeInsets.zero,
                                 itemBuilder: (context, index) {
                                   return InkWell(
-                                    onTap: () {
-                                      Get.to(() => GameInfo(
-                                          id: shop?.allItems?[index].itemId ??
-                                              ''));
-                                    },
+                                    onTap: () {},
                                     child: Container(
                                       decoration: BoxDecoration(
                                           color: Colors.white,
@@ -111,10 +108,7 @@ class _MyPurchasedGamesState extends State<MyPurchasedGames> {
                                                       BorderRadius.circular(15),
                                                   child: CachedNetworkImage(
                                                     fit: BoxFit.cover,
-                                                    imageUrl: shop
-                                                            ?.allItems?[index]
-                                                            .itemLogo ??
-                                                        '',
+                                                    imageUrl: allpurs ?.allOrders?[index].itemLogo ??  '',
                                                     progressIndicatorBuilder:
                                                         (context, url,
                                                                 progress) =>
@@ -138,9 +132,7 @@ class _MyPurchasedGamesState extends State<MyPurchasedGames> {
                                                     SizedBox(
                                                       width: 30.w,
                                                       child: Text(
-                                                        shop?.allItems?[index]
-                                                                .itemName ??
-                                                            '',
+                                                        allpurs ?.allOrders?[index].itemName ??  '',
                                                         style: appname,
                                                       ),
                                                     ),
@@ -154,9 +146,7 @@ class _MyPurchasedGamesState extends State<MyPurchasedGames> {
                                                 MainAxisAlignment.end,
                                             children: [
                                               Text(
-                                                shop?.allItems?[index]
-                                                        .ratings ??
-                                                    '',
+                                                allpurs ?.allOrders?[index].ratings ??  '',
                                                 style: TextStyle(
                                                     color: Color(0xff8f8d8d)),
                                               ),
@@ -172,7 +162,7 @@ class _MyPurchasedGamesState extends State<MyPurchasedGames> {
                                             ],
                                           ),
                                           Text(
-                                            '\$ ${shop?.allItems?[index].price ?? ''}',
+                                            '\$ ${allpurs ?.allOrders?[index].price ??  ''}',
                                             style: TextStyle(
                                                 color: Color(0xff8f8d8d)),
                                           ),
@@ -194,50 +184,26 @@ class _MyPurchasedGamesState extends State<MyPurchasedGames> {
     );
   }
 
-  viewap() {
-    final Map<String, String> data = {};
-
-    data['uid'] = usermodal?.userData?.uid ?? "";
-    data['action'] = 'profile_view_player';
-
-    checkInternet().then((internet) async {
-      if (internet) {
-        authprovider().profileviewapi(data).then((response) async {
-          profileviewmodal =
-              ProfileviewModal.fromJson(json.decode(response.body));
-
-          if (response.statusCode == 200 &&
-              profileviewmodal?.status == "success") {
-            setState(() {
-              isLoading = false;
-            });
-          } else {}
-        });
-      } else {
-        setState(() {
-          isLoading = false;
-        });
-        buildErrorDialog(context, 'Error', "Internate Required");
-      }
-    });
-  }
-
   shopitems() {
     final Map<String, String> data = {};
 
-    // data['uid'] = usermodal?.userData?.uid ?? "";
-    data['action'] = 'all_items';
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['action'] = 'user_all_order_details';
 
     checkInternet().then((internet) async {
       if (internet) {
-        authprovider().shopapi(data).then((response) async {
-          shop = shopitemModal.fromJson(json.decode(response.body));
+        authprovider().shoppursapi(data).then((response) async {
+          allpurs = allpurchasedModal.fromJson(json.decode(response.body));
 
-          if (response.statusCode == 200 && shop?.status == "success") {
+          if (response.statusCode == 200 && allpurs?.status == "success") {
             setState(() {
               isLoading = false;
             });
-          } else {}
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
         });
       } else {
         setState(() {

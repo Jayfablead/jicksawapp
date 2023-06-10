@@ -30,7 +30,9 @@ class TriviaChallenge extends StatefulWidget {
 int ans = 5;
 String? op;
 bool isloading = true;
-
+String cat = Get.arguments['catid'];
+String age = Get.arguments['age'];
+String type = Get.arguments['type'];
 class _TriviaChallengeState extends State<TriviaChallenge> {
   @override
   void initState() {

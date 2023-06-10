@@ -11,6 +11,7 @@ import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/main%20Pages/design.dart';
 import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:jicksaw/main%20Pages/question.dart';
+import 'package:jicksaw/subscription/subscription_page.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Provider/ProfileviewModal.dart';
@@ -81,15 +82,22 @@ class _CategoriesPageState extends State<CategoriesPage> {
       isLoading: isloading,
       scaffold: Scaffold(
         backgroundColor: bgcolor,
-
         body: SingleChildScrollView(
           child: isloading
               ? Container()
               : Center(
                   child: Stack(
                     children: [
-                      Container(height: 100.h,child: Image.asset('assets/wall2.webp',fit: BoxFit.fitHeight,)),
-                      Container(height: 100.h,color: Colors.black.withOpacity(0.40),),
+                      Container(
+                          height: 100.h,
+                          child: Image.asset(
+                            'assets/wall2.webp',
+                            fit: BoxFit.fitHeight,
+                          )),
+                      Container(
+                        height: 100.h,
+                        color: Colors.black.withOpacity(0.40),
+                      ),
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 3.w),
                         child: Column(
@@ -103,7 +111,8 @@ class _CategoriesPageState extends State<CategoriesPage> {
                                 Text(
                                   'Select Your Favourite Category ',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 15.sp, color: Colors.white),
+                                  style: TextStyle(
+                                      fontSize: 15.sp, color: Colors.white),
                                 ),
                                 Icon(
                                   Icons.category_outlined,
@@ -128,23 +137,26 @@ class _CategoriesPageState extends State<CategoriesPage> {
                                       setState(() {
                                         selectedValuei = index + 1;
                                         selectedValuei2 = index;
-                                        selectedcate =
-                                            category?.allCategories?[index].id ??
-                                                '';
+                                        selectedcate = category
+                                                ?.allCategories?[index].id ??
+                                            '';
                                       });
 
-                                      print(
-                                          'Category: ' + selectedValuei.toString());
+                                      print('Category: ' +
+                                          selectedValuei.toString());
                                     },
                                     child: Container(
-                                      
                                       padding: EdgeInsets.all(4.w),
                                       decoration: BoxDecoration(
-                                        color: Colors.white,
-                                          borderRadius: BorderRadius.circular(20),
-                                          border: Border.all(width:2 ,
-                                              color:
-                                                  selectedi ? primary : Colors.black.withOpacity(0.8))),
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          border: Border.all(
+                                              width: 2,
+                                              color: selectedi
+                                                  ? primary
+                                                  : Colors.black
+                                                      .withOpacity(0.8))),
                                       margin: EdgeInsets.all(2.w),
                                       child: Column(
                                         children: [
@@ -170,7 +182,10 @@ class _CategoriesPageState extends State<CategoriesPage> {
                                                       .catagoryName ??
                                                   '',
                                               style: TextStyle(
-                                                  color: selectedi ?primary: Colors.black, fontSize: 14.sp)),
+                                                  color: selectedi
+                                                      ? primary
+                                                      : Colors.black,
+                                                  fontSize: 14.sp)),
                                         ],
                                       ),
                                     ),
@@ -178,107 +193,114 @@ class _CategoriesPageState extends State<CategoriesPage> {
                                 },
                               ),
                             ),
-                          Column(
-                                    children: [
-                                      SizedBox(height: 6.h),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Text(
-                                            'Select Your Age Group ',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                fontSize: 15.sp, color: Colors.white),
-                                          ),
-                                          Icon(
-                                            Icons.person_outline_outlined,
-                                            color: Colors.white,
-                                          )
-                                        ],
-                                      ),
-                                      SizedBox(height: 2.h),
-                                      SizedBox(
-                                        height: 23.h,
-                                        child: GridView.builder(
-                                          scrollDirection: Axis.horizontal,
-                                          itemCount: ageimgs.length,
-                                          gridDelegate:
-                                              SliverGridDelegateWithFixedCrossAxisCount(
-                                                  crossAxisCount: 1,
-                                                  childAspectRatio: 1 / 0.9),
-                                          itemBuilder: (context, index) {
-                                            selecteda = index == selectedagei2;
-                                            return InkWell(
-                                              onTap: () {
-                                                setState(() {
-                                                  selectedagei = index + 1;
-                                                  selectedagei2 = index;
-                                                });
+                            Column(
+                              children: [
+                                SizedBox(height: 6.h),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Text(
+                                      'Select Your Age Group ',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontSize: 15.sp, color: Colors.white),
+                                    ),
+                                    Icon(
+                                      Icons.person_outline_outlined,
+                                      color: Colors.white,
+                                    )
+                                  ],
+                                ),
+                                SizedBox(height: 2.h),
+                                SizedBox(
+                                  height: 23.h,
+                                  child: GridView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: ageimgs.length,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                            crossAxisCount: 1,
+                                            childAspectRatio: 1 / 0.9),
+                                    itemBuilder: (context, index) {
+                                      selecteda = index == selectedagei2;
+                                      return InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            selectedagei = index + 1;
+                                            selectedagei2 = index;
+                                          });
 
-                                                print('AgeGroup: ' +
-                                                    selectedagei.toString());
-                                              },
-                                              child: Container(
-                                                padding: EdgeInsets.all(2.w),
+                                          print('AgeGroup: ' +
+                                              selectedagei.toString());
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.all(2.w),
+                                          decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                              border: Border.all(
+                                                  width: 2,
+                                                  color: selecteda
+                                                      ? primary
+                                                      : Colors.black
+                                                          .withOpacity(0.8))),
+                                          margin: EdgeInsets.all(2.w),
+                                          child: Column(
+                                            children: [
+                                              Container(
+                                                height: 12.h,
+                                                width: 26.w,
                                                 decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius: BorderRadius.circular(20),
-                                                    border: Border.all(width:2 ,
-                                                        color:
-                                                        selecteda ? primary : Colors.black.withOpacity(0.8))),
-                                                margin: EdgeInsets.all(2.w),
-                                                child: Column(
-                                                  children: [
-                                                    Container(
-                                                      height: 12.h,
-                                                      width: 26.w,
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius.circular(
-                                                                100),
-                                                      ),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius.circular(
-                                                                100),
-                                                        child: Image.asset(
-                                                          ageimgs[index].toString(),
-                                                          fit: BoxFit.contain,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    SizedBox(height: 2.h),
-                                                    Text(
-                                                      ages[index].toString(),
-                                                      style: TextStyle(
-                                                          color: selecteda?primary:Colors.black,
-                                                          fontSize: 14.sp),
-                                                    ),
-                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          100),
+                                                ),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          100),
+                                                  child: Image.asset(
+                                                    ageimgs[index].toString(),
+                                                    fit: BoxFit.contain,
+                                                  ),
                                                 ),
                                               ),
-                                            );
-                                          },
+                                              SizedBox(height: 2.h),
+                                              Text(
+                                                ages[index].toString(),
+                                                style: TextStyle(
+                                                    color: selecteda
+                                                        ? primary
+                                                        : Colors.black,
+                                                    fontSize: 14.sp),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      );
+                                    },
                                   ),
+                                ),
+                              ],
+                            ),
                             SizedBox(height: 10.h),
                             selectedValuei == 0 || selectedagei == 0
                                 ? Container()
                                 : GestureDetector(
                                     onTap: () {
-                                     start();
+                                      start();
                                     },
                                     child: Container(
                                       alignment: Alignment.center,
                                       height: 6.5.h,
                                       width: 70.w,
                                       decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(900),
+                                          borderRadius:
+                                              BorderRadius.circular(900),
                                           color: primary),
-                                      child: Text("DONE",
+                                      child: Text("START",
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontFamily: 'Poppins',
@@ -312,7 +334,6 @@ class _CategoriesPageState extends State<CategoriesPage> {
           category = CatModal.fromJson(json.decode(response.body));
 
           if (response.statusCode == 200 && category?.status == "success") {
-
             setState(() {
               isloading = false;
             });
@@ -326,6 +347,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
       }
     });
   }
+
   start() {
     final Map<String, String> data = {};
 
@@ -340,31 +362,38 @@ class _CategoriesPageState extends State<CategoriesPage> {
 
           if (response.statusCode == 200 &&
               profileviewmodal?.status == "success") {
-            Get.to(design(cont: 0,
+            Get.to(design(
+
               cat: selectedcate,
               age: selectedagei == 1
                   ? '18'
                   : selectedagei == 2
-                  ? '23'
-                  : selectedagei == 3
-                  ? '28'
-                  : selectedagei == 4
-                  ? '35'
-                  : '36',
+                      ? '23'
+                      : selectedagei == 3
+                          ? '28'
+                          : selectedagei == 4
+                              ? '35'
+                              : '36',
             ));
             Get.snackbar(
               "Game Started",
               "Successfully",
               icon: Image(image: AssetImage('assets/logo.png')),
               snackPosition: SnackPosition.TOP,
-
             );
             print("Started");
             setState(() {
               isloading = false;
             });
           } else {
-            isloading = false;
+            update(context, 'Subscribtion error',
+                'You Don\'t Have Any Subscription a plan to play game',
+                buttonname: 'Subscribe', callback: () {
+              Get.to(subscription());
+            });
+            setState(() {
+              isloading = false;
+            });
           }
         });
       } else {

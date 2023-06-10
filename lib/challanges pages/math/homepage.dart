@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/challanges%20pages/math/result.dart';
+import 'package:jicksaw/main%20Pages/congratulation.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../Widget/const widget.dart';
@@ -19,6 +20,9 @@ class MathtPage extends StatefulWidget {
 class _MathtPageState extends State<MathtPage> {
   int numberA = 0;
   int numberB = 0;
+  String cat = Get.arguments['catid'];
+  String age = Get.arguments['age'];
+  String type = Get.arguments['type'];
   List<String> numberPad = [
     '7',
     '8',
@@ -69,7 +73,7 @@ class _MathtPageState extends State<MathtPage> {
                 builder: (context) {
                   return Result(
                       message: 'Correct!',
-                      onTap: gotoNextQuestion,
+                      onTap: (){Get.off(congratulation(age: age,cat: cat,type: type,));},
                       icon: Icons.arrow_forward);
                 })
             : showDialog(
@@ -85,7 +89,7 @@ class _MathtPageState extends State<MathtPage> {
   var randomNumber = Random();
 
   void goBackToQuestion() {
-    Navigator.of(context).pop();
+    Get.back();
   }
 
   void stayback() {
@@ -106,7 +110,9 @@ class _MathtPageState extends State<MathtPage> {
     // TODO: implement initState
 
     super.initState();
-
+    print(cat);
+    print(age);
+    print(type);
     numberA = randomNumber.nextInt(100);
     numberB = randomNumber.nextInt(100);
   }
@@ -123,7 +129,7 @@ class _MathtPageState extends State<MathtPage> {
         child: Column(
           children: [
             SizedBox(
-              height: 3.h,
+              height: 6.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

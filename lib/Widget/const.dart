@@ -4,6 +4,7 @@ import 'package:connectivity/connectivity.dart';
 import 'package:jicksaw/Modal/CAtegoryModal.dart';
 import 'package:jicksaw/Modal/UserModal.dart';
 import 'package:jicksaw/Modal/addcardModal.dart';
+import 'package:jicksaw/Modal/allpurchasedModal.dart';
 import 'package:jicksaw/Modal/changepwModal.dart';
 import 'package:jicksaw/Modal/editmodal.dart';
 import 'package:jicksaw/Modal/gameModal.dart';
@@ -19,6 +20,8 @@ import 'package:jicksaw/Modal/subsdataModal.dart';
 import 'package:jicksaw/Modal/transactionModal.dart';
 import 'package:jicksaw/Modal/viewcard.dart';
 import 'package:jicksaw/Provider/ProfileviewModal.dart';
+
+import '../Modal/challenegeModal.dart';
 
 Future<bool> checkInternet() async {
   var connectivityResult = await (Connectivity().checkConnectivity());
@@ -50,3 +53,5 @@ SubscancleModal? subcancle;
 changepwModal? changepw;
 shoppayModal? payshop;
 shoptransactionModal? shoptransaction;
+allpurchasedModal? allpurs;
+challModal? chalns;

@@ -1,15 +1,20 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/challanges%20pages/memory/utils/alertdialog.dart';
 import 'package:jicksaw/challanges%20pages/memory/utils/game_utils.dart';
 import 'package:jicksaw/Widget/const%20widget.dart';
+import 'package:jicksaw/main%20Pages/congratulation.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
 import 'package:sizer/sizer.dart';
 
 import 'components/info_card.dart';
 
 class MemoryChallenge extends StatefulWidget {
-  const MemoryChallenge({Key? key}) : super(key: key);
+
+  String? catid;
+  MemoryChallenge({Key? key,this.catid}) : super(key: key);
 
   @override
   _MemoryChallengeState createState() => _MemoryChallengeState();
@@ -20,15 +25,19 @@ class _MemoryChallengeState extends State<MemoryChallenge> {
   TextStyle whiteText = TextStyle(color: Colors.white);
   bool hideTest = false;
   Game _game = Game();
-
   //game stats
   int tries = 0;
   int score = 0;
-
+  String cat = Get.arguments['catid'];
+  String age = Get.arguments['age'];
+  String type = Get.arguments['type'];
   @override
   void initState() {
     super.initState();
     _game.initGame();
+    print(cat);
+    print(age);
+    print(type);
   }
 
   @override
@@ -70,7 +79,7 @@ class _MemoryChallengeState extends State<MemoryChallenge> {
           Column(
             children: [
               SizedBox(
-                  height: 70.h,
+                  height: 65.h,
                   width: MediaQuery.of(context).size.width,
                   child: GridView.builder(
                       itemCount: _game.gameImg!.length,
@@ -142,29 +151,41 @@ class _MemoryChallengeState extends State<MemoryChallenge> {
                 height: 1.h,
               ),
               score == 1200
-                  ? ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Next',
-                        style: TextStyle(
-                            color: bgcolor,
-                            fontSize: 13.sp,
-                          fontFamily: 'Poppins',
-                            letterSpacing: 2,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: primary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12), // <-- Radius
-                        ),
-                      ),
-                    )
-                  : Container(),
+                  ? InkWell(
+                onTap: () {next();},
+                child: Container(
+                  alignment: Alignment.center,
+                  width: 82.w,
+                  margin: EdgeInsets.only(top: 0.5.h),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(90),
+                      color: primary),
+                  padding: EdgeInsets.all(1.5.h),
+                  child: Text(
+                    'Next',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Poppins',
+                        fontSize: 14.sp),
+                  ),
+                ),
+              ):
+              Container(),
             ],
           ),
         ],
       ),
     );
+  }
+
+
+  void next()async{
+   await Get.off(congratulation(age:age,cat:cat, type: type,));
+
+  }
+  void fail()async{
+   await Timer(Duration(seconds: 5), () {
+
+    });
   }
 }

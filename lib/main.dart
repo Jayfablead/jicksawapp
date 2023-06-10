@@ -17,35 +17,35 @@ import 'package:sizer/sizer.dart';
 
 import 'challanges pages/math/homepage.dart';
 import 'challanges pages/slider/Board.dart';
+
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return Sizer(builder: (context, orientation, deviceType) {
       return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => authprovider()),
         ],
         child: GetMaterialApp(
-            title: 'Jigsaw',
-            debugShowCheckedModeBanner: false,builder: EasyLoading.init(),
-            getPages: [
-              GetPage(name: '/', page: ()=>SplashScreen()),
-              GetPage(name: '/MemoryChallenge', page: ()=> MemoryChallenge()),
-              GetPage(name: '/TriviaChallenge', page: ()=> TriviaChallenge()),
-
-              GetPage(name: '/MathtPage', page: ()=> MathtPage()),
-            ],
-            theme: ThemeData(
-              primarySwatch: Colors.orange,
-            ),
-           ),
+          title: 'Jigsaw',
+          debugShowCheckedModeBanner: false,
+          builder: EasyLoading.init(),
+          getPages: [
+            GetPage(name: '/', page: () => SplashScreen()),
+            GetPage(name: '/MemoryChallenge', page: () => MemoryChallenge()),
+            GetPage(name: '/MathtPage', page: () => MathtPage()),
+          ],
+          theme: ThemeData(
+            primarySwatch: Colors.orange,
+          ),
+        ),
       );
     });
   }
