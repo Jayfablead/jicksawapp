@@ -194,7 +194,7 @@ class _questionState extends State<question> {
                   SizedBox(height: 1.5.h,),
                   ans != 5
                       ? InkWell(
-                          onTap: () {op == '1' ?Get.off(congratulation(age: widget.ageId,cat: widget.catId, type: 'question',)):Get.to(GameOver());},
+                          onTap: () {op == '1' ?Get.off(congratulation(age: widget.ageId,cat: widget.catId, type: 'question',)):Get.offAll(GameOver());},
                           child: Container(
                             alignment: Alignment.center,
                             width: 82.w,

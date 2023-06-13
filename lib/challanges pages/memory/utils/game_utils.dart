@@ -16,27 +16,14 @@ class Game {
     Colors.blue,
     Colors.blue,
   ];
-  final String hiddenCardpath = "assets/memory/question.png";
-  List<String> cards_list = [
-    "assets/memory/fox.png",
-    "assets/memory/horse.png",
-    "assets/memory/monkey.png",
-    "assets/memory/fox.png",
-    "assets/memory/zoo.png",
-    "assets/memory/horse.png",
-    "assets/memory/rabbit.png",
-    "assets/memory/monkey.png",
-    "assets/memory/panda.png",
-    "assets/memory/rabbit.png",
-    "assets/memory/panda.png",
-    "assets/memory/zoo.png",
-  ];
+  String path = "https://e7.pngegg.com/pngimages/856/378/png-clipart-computer-icons-question-mark-orange-question-mark-text-logo-thumbnail.png";
+
   final int cardCount = 12;
   List<Map<int, String>> matchCheck = [];
 
   //methods
   void initGame() {
     gameColors = List.generate(cardCount, (index) => hiddenCard);
-    gameImg = List.generate(cardCount, (index) => hiddenCardpath);
+    gameImg = List.generate(cardCount, (index) => path);
   }
 }
