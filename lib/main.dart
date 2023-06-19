@@ -9,6 +9,7 @@ import 'package:jicksaw/Screen/splashscreen.dart';
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/challanges%20pages/Trivia.dart';
 import 'package:jicksaw/challanges%20pages/memory/home.dart';
+import 'package:jicksaw/main%20Pages/categotirs%20page.dart';
 
 import 'package:jicksaw/main%20Pages/congratulation.dart';
 
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           builder: EasyLoading.init(),
           getPages: [
-            GetPage(name: '/', page: () => SplashScreen()),
+            GetPage(name: '/', page: () => Categ()),
             GetPage(name: '/MemoryChallenge', page: () => MemoryChallenge()),
             GetPage(name: '/MathtPage', page: () => MathtPage()),
           ],
