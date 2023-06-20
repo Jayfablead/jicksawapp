@@ -13,7 +13,8 @@ class PurchaseScreen extends StatefulWidget {
   String? img;
   String? price;
   String? itemid;
-   PurchaseScreen({Key? key,this.img,this.name,this.itemid,this.price}) : super(key: key);
+  String? points;
+   PurchaseScreen({Key? key,this.img,this.name,this.itemid,this.price,this.points}) : super(key: key);
 
   @override
   State<PurchaseScreen> createState() => _PurchaseScreenState();
@@ -116,112 +117,216 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                 SizedBox(
                   height: 2.h,
                 ),
-                Padding(
+                Container(height: 60.h,
                   padding: EdgeInsets.symmetric(horizontal: 2.h),
-                  child: Column(
+                  child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        height: 20.h,
-                        width: 100.w,
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                                color: _selectedValue == 1
-                                    ? primary
-                                    : Colors.grey,
-                                width: 2.sp),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 2.h),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                      Column(
+                        children: [
+                          Container(
+                            height: 20.h,
+                            width: 100.w,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: _selectedValue == 1
+                                        ? primary
+                                        : Colors.grey,
+                                    width: 2.sp),
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 2.h),
+                              child: Column(
                                 children: [
-                                  Text(
-                                    "Stripe",
-                                    style: TextStyle(
-                                      color: Colors.grey, fontSize: 11.sp,
-                                      fontFamily: 'Poppins',
-                                    ),
-                                  ),
-                                  Radio(
-                                    value: 1,
-                                    groupValue: _selectedValue,
-                                    activeColor: primary,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        _selectedValue = value!;
-                                      });
-                                    },
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "\$ ${widget.price}",
-                                    style: TextStyle(
-                                      fontSize: 15.sp,
-                                      fontWeight: FontWeight.w100,
-                                      fontFamily: 'Poppins',
-                                    ),
-                                  ),
-
-                                ],
-                              ),
-                              SizedBox(
-                                height: 1.h,
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    height: 4.h,
-                                    width: 38.w,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Color(0xffeefbf5)),
-                                    child: Text(
-                                      "One Time Use Only",
-                                      style:
-                                      TextStyle(color: Color(0xffa0e1c1),
-
-                                        fontFamily: 'Poppins',
+                                  Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Stripe",
+                                        style: TextStyle(
+                                          color: Colors.grey, fontSize: 11.sp,
+                                          fontFamily: 'Poppins',
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    height: 4.h,
-
-                                    // decoration: BoxDecoration(
-                                    //     borderRadius: BorderRadius.circular(20),
-                                    //     color: Color(0xffeefbf5)
-                                    // ),
-                                    child: Text(
-                                      "then \$02.99 per use. discard anytime",
-                                      style: TextStyle(
-                                        color: Colors.grey, fontSize: 12.sp,
-                                        fontFamily: 'Poppins',
+                                      Radio(
+                                        value: 1,
+                                        groupValue: _selectedValue,
+                                        activeColor: primary,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            _selectedValue = value!;
+                                          });
+                                        },
                                       ),
-                                    ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "\$ ${widget.price}",
+                                        style: TextStyle(
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.w100,
+                                          fontFamily: 'Poppins',
+                                        ),
+                                      ),
+
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 1.h,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height: 4.h,
+                                        width: 38.w,
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(20),
+                                            color: Color(0xffeefbf5)),
+                                        child: Text(
+                                          "One Time Use Only",
+                                          style:
+                                          TextStyle(color: Color(0xffa0e1c1),
+
+                                            fontFamily: 'Poppins',
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height: 4.h,
+
+                                        // decoration: BoxDecoration(
+                                        //     borderRadius: BorderRadius.circular(20),
+                                        //     color: Color(0xffeefbf5)
+                                        // ),
+                                        child: Text(
+                                          "then \$02.99 per use. discard anytime",
+                                          style: TextStyle(
+                                            color: Colors.grey, fontSize: 12.sp,
+                                            fontFamily: 'Poppins',
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
-                            ],
+                            ),
                           ),
-                        ),
+                          SizedBox(height: 4.h,),
+                          Container(
+                            height: 20.h,
+                            width: 100.w,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: _selectedValue == 2
+                                        ? primary
+                                        : Colors.grey,
+                                    width: 2.sp),
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 2.h),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Points",
+                                        style: TextStyle(
+                                          color: Colors.grey, fontSize: 11.sp,
+                                          fontFamily: 'Poppins',
+                                        ),
+                                      ),
+                                      Radio(
+                                        value: 2,
+                                        groupValue: _selectedValue,
+                                        activeColor: primary,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            _selectedValue = value!;
+                                          });
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "${widget.points} Points",
+                                        style: TextStyle(
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.w100,
+                                          fontFamily: 'Poppins',
+                                        ),
+                                      ),
+
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 1.h,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height: 4.h,
+                                        width: 38.w,
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(20),
+                                            color: Color(0xffeefbf5)),
+                                        child: Text(
+                                          "One Time Use Only",
+                                          style:
+                                          TextStyle(color: Color(0xffa0e1c1),
+
+                                            fontFamily: 'Poppins',
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height: 4.h,
+
+                                        // decoration: BoxDecoration(
+                                        //     borderRadius: BorderRadius.circular(20),
+                                        //     color: Color(0xffeefbf5)
+                                        // ),
+                                        child: Text(
+                                          "then 799 per use",
+                                          style: TextStyle(
+                                            color: Colors.grey, fontSize: 12.sp,
+                                            fontFamily: 'Poppins',
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
 
 
-                      SizedBox(height: 35.h,),
+                      // SizedBox(height: 35.h,),
                       InkWell(onTap:(){
                         Get.to(CheckoutPage(imgs:widget.img,name: widget.name,price: widget.price,method: 'Stripe',itemid: widget.itemid,type: 0,));
                       },
@@ -243,7 +348,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),

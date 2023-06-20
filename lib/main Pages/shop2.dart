@@ -107,7 +107,7 @@ class _GameInfoState extends State<GameInfo> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(PurchaseScreen(name:  shopitem?.itemDetails?.itemName ?? '', itemid: widget.id,img:  shopitem?.itemDetails?.itemLogo ?? '',price: shopitem?.itemDetails?.price ?? '',));
+                      Get.to(PurchaseScreen(points: "999",name:  shopitem?.itemDetails?.itemName ?? '', itemid: widget.id,img:  shopitem?.itemDetails?.itemLogo ?? '',price: shopitem?.itemDetails?.price ?? '',));
                     },
                     child: Container(
                       height: 5.5.h,
@@ -119,7 +119,7 @@ class _GameInfoState extends State<GameInfo> {
                           color: primary),
                       // padding: EdgeInsets.all(2.h),
                       child: Text(
-                        'Purchase (\$ ${ shopitem?.itemDetails?.price ?? ''})',
+                        'Purchase (\$ ${ shopitem?.itemDetails?.price ?? ''} / 999 Points)',
                         style: TextStyle(
                           fontSize: 12.sp,
                           color: Colors.white,
