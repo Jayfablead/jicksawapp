@@ -6,11 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Shop/shop%20CatePage.dart';
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/sharedpreferance.dart';
 
 import 'package:jicksaw/main%20Pages/settings.dart';
-import 'package:jicksaw/main%20Pages/shoppage.dart';
+import 'package:jicksaw/Shop/Gmaesshop.dart';
 import 'package:jicksaw/profile/porfilePage.dart';
 
 
@@ -212,7 +213,7 @@ class _drawer1State extends State<drawer1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(() => ShopmainPage());
+                      Get.to(() => ShopCategory());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),

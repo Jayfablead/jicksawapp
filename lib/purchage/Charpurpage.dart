@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
+
+import '../Widget/const widget.dart';
 
 class CharPurchased extends StatefulWidget {
   String? pic;
@@ -61,6 +65,30 @@ class _CharPurchasedState extends State<CharPurchased> {
                       fontSize: 18.sp,
                       fontFamily: 'Poppins'),
                 ),
+                InkWell(
+                  onTap: () {
+                    Get.to(
+                      mainpage2(),
+                    );
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: 85.w,
+                    margin: EdgeInsets.only(top: 2.h),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(90),
+                        color: primary),
+                    padding: EdgeInsets.all(2.h),
+                    child: Text(
+                      'CONTINUE',
+                      style: TextStyle(
+                        fontSize: 13.sp,
+                        color: Colors.white,
+                        fontFamily: 'Poppins',
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),

@@ -6,7 +6,7 @@ import 'package:jicksaw/Modal/shoptransactionModal.dart';
 import 'package:jicksaw/Modal/transactionModal.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/loader.dart';
-import 'package:jicksaw/main%20Pages/shoppage.dart';
+import 'package:jicksaw/Shop/Gmaesshop.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 

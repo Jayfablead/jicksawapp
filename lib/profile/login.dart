@@ -20,6 +20,8 @@ import 'package:jicksaw/profile/signup.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
+import '../Screen/startpage.dart';
+
 class login extends StatefulWidget {
   const login({Key? key}) : super(key: key);
 
@@ -296,7 +298,7 @@ class _loginState extends State<login> {
               });
               await SaveDataLocal.saveLogInData(usermodal!);
 
-              Get.offAll(() => const mainpage2());
+              Get.offAll(() =>  Startpage());
             } else {
               buildErrorDialog(
                   context, "Login Error", 'Please Use Valid Credentials');

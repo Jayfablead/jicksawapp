@@ -6,13 +6,14 @@ import 'package:jicksaw/Provider/authprovider.dart';
 
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Screen/splashscreen.dart';
+import 'package:jicksaw/Screen/startpage.dart';
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/challanges%20pages/Trivia.dart';
 import 'package:jicksaw/challanges%20pages/memory/home.dart';
 import 'package:jicksaw/main%20Pages/categotirs%20page.dart';
 
 import 'package:jicksaw/main%20Pages/congratulation.dart';
-import 'package:jicksaw/main%20Pages/shoppage.dart';
+import 'package:jicksaw/Shop/Gmaesshop.dart';
 
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           builder: EasyLoading.init(),
           getPages: [
-            GetPage(name: '/', page: () => ShopmainPage()),
+            GetPage(name: '/', page: () => SplashScreen()),
             GetPage(name: '/MemoryChallenge', page: () => MemoryChallenge()),
             GetPage(name: '/MathtPage', page: () => MathtPage()),
           ],

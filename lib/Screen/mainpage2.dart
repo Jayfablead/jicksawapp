@@ -8,6 +8,8 @@ import 'package:get/get.dart';
 
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/loader.dart';
+import 'package:jicksaw/main%20Pages/categories%20&%20age.dart';
+import 'package:jicksaw/main%20Pages/categotirs%20page.dart';
 import 'package:jicksaw/main%20Pages/design.dart';
 import 'package:jicksaw/Widget/drawer.dart';
 import 'package:jicksaw/main%20Pages/gameinfo.dart';
@@ -185,7 +187,20 @@ class _mainpage2State extends State<mainpage2> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Row(
-                                            children: [
+                                            children: [Row(
+                                              children: [
+                                                Image.asset(
+                                                  'assets/splash/coin.webp',
+                                                  width: 7.w,
+                                                ),
+                                                SizedBox(
+                                                  width: 2.w,
+                                                ),
+                                                Text('900'),
+                                              ],
+                                            ),SizedBox(
+                                              width: 2.w,
+                                            ),
                                               Row(
                                                 children: [
                                                   Image.asset(
@@ -206,7 +221,8 @@ class _mainpage2State extends State<mainpage2> {
                                                   Image.asset(
                                                     'assets/splash/gamepad.png',
                                                     width: 7.5.w,
-                                                  ),SizedBox(
+                                                  ),
+                                                  SizedBox(
                                                     width: 1.w,
                                                   ),
                                                   Text('5'),
@@ -215,25 +231,27 @@ class _mainpage2State extends State<mainpage2> {
                                               SizedBox(
                                                 width: 2.w,
                                               ),
-
-
                                             ],
                                           ),
                                           Container(
-                                            margin: EdgeInsets.symmetric(horizontal: 1.w),
-
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 1.w),
                                             width: 9.w,
                                             child: ClipRRect(
-                                              borderRadius: BorderRadius.circular(90),
+                                              borderRadius:
+                                                  BorderRadius.circular(90),
                                               child: CachedNetworkImage(
                                                 fit: BoxFit.cover,
                                                 imageUrl: (profileviewmodal
-                                                    ?.profileViewPlayer?.profilePic)
+                                                        ?.profileViewPlayer
+                                                        ?.profilePic)
                                                     .toString(),
-                                                progressIndicatorBuilder:
-                                                    (context, url, progress) =>
+                                                progressIndicatorBuilder: (context,
+                                                        url, progress) =>
                                                     CircularProgressIndicator(),
-                                                errorWidget: (context, url, error) => Image.asset(
+                                                errorWidget:
+                                                    (context, url, error) =>
+                                                        Image.asset(
                                                   'assets/user.png',
                                                   color: Colors.black,
                                                 ),
@@ -263,11 +281,15 @@ class _mainpage2State extends State<mainpage2> {
                                     ),
                                     child: Stack(
                                       children: [
-                                        Positioned(top: 8.h,child: Image.asset('assets/moun.png')),
+                                        Positioned(
+                                            top: 8.h,
+                                            child:
+                                                Image.asset('assets/moun.png')),
                                         Column(
-
                                           children: [
-                                            Container(margin: EdgeInsets.symmetric(vertical: 1.h),
+                                            Container(
+                                              margin: EdgeInsets.symmetric(
+                                                  vertical: 1.h),
                                               height: 0.5.h,
                                               width: 8.w,
                                               alignment: Alignment.center,
@@ -278,12 +300,16 @@ class _mainpage2State extends State<mainpage2> {
                                                     BorderRadius.circular(10),
                                               ),
                                             ),
-SizedBox(height: 2.h,),
+                                            SizedBox(
+                                              height: 2.h,
+                                            ),
                                             Container(
-                                              margin: EdgeInsets.only(bottom: 4.h),
+                                              margin:
+                                                  EdgeInsets.only(bottom: 4.h),
                                               child: Row(
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment.spaceEvenly,
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
                                                 children: [
                                                   Image.asset(
                                                     'assets/dice.png',
@@ -292,8 +318,9 @@ SizedBox(height: 2.h,),
                                                   ),
                                                   Container(
                                                     width: 50.w,
-                                                    padding: EdgeInsets.symmetric(
-                                                        horizontal: 2.w),
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 2.w),
                                                     child: Column(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
@@ -307,7 +334,8 @@ SizedBox(height: 2.h,),
                                                             Text(
                                                               'Play',
                                                               style: TextStyle(
-                                                                color: Colors.black,
+                                                                color: Colors
+                                                                    .black,
                                                                 fontSize: 15.sp,
                                                                 fontWeight:
                                                                     FontWeight
@@ -336,8 +364,10 @@ SizedBox(height: 2.h,),
                                                             color: Colors.black,
                                                             fontSize: 12.sp,
                                                             fontWeight:
-                                                                FontWeight.normal,
-                                                            fontFamily: 'Poppins',
+                                                                FontWeight
+                                                                    .normal,
+                                                            fontFamily:
+                                                                'Poppins',
                                                           ),
                                                         ),
                                                       ],
@@ -347,24 +377,26 @@ SizedBox(height: 2.h,),
                                                   InkWell(
                                                     onTap: () {
                                                       Get.to(
-                                                        Tutorial(),
+                                                      CategoriesPage(),
                                                       );
                                                     },
                                                     child: Container(
-                                                      alignment: Alignment.center,
+                                                      alignment:
+                                                          Alignment.center,
                                                       height: 5.h,
                                                       width: 22.w,
                                                       decoration: BoxDecoration(
                                                         color: primary,
                                                         borderRadius:
-                                                            BorderRadius.circular(
-                                                                30),
+                                                            BorderRadius
+                                                                .circular(30),
                                                       ),
                                                       child: Text(
                                                         'PLAY',
                                                         style: TextStyle(
                                                             color: Colors.white,
-                                                            fontFamily: 'Poppins',
+                                                            fontFamily:
+                                                                'Poppins',
                                                             letterSpacing: 1,
                                                             fontSize: 14.sp),
                                                       ),
@@ -492,7 +524,7 @@ SizedBox(height: 2.h,),
 
   viewap() {
     final Map<String, String> data = {};
-    data['uid'] = (usermodal?.userData?.uid).toString() ;
+    data['uid'] = (usermodal?.userData?.uid).toString();
     data['action'] = 'profile_view_player';
     print(data);
     checkInternet().then((internet) async {

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 // import 'package:get/get_core/src/get_main.dart';
 import 'package:jicksaw/Modal/UserModal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
+import 'package:jicksaw/Screen/startpage.dart';
 import 'package:jicksaw/profile/login.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
@@ -440,7 +441,7 @@ class _signupState extends State<signup> {
               });
               await SaveDataLocal.saveLogInData(usermodal!);
 
-              Get.offAll(() => const mainpage2());
+              Get.offAll(() => Startpage());
             } else {
               buildErrorDialog(
                   context, "Login Error", (usermodal?.message).toString());

@@ -1,4 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:sizer/sizer.dart';
 
 class Categ extends StatefulWidget {
@@ -19,26 +22,37 @@ class game {
 }
 
 List<game> popular = [
-  game("assets/math.png", "Math", Colors.deepPurple.withOpacity(0.5), 'You will Get Questions based on Maths',
+  game(
+      "https://www.origastock.com/images/3d-characters/download/11.png",
+      "Math",
+      Colors.deepPurple.withOpacity(0.5),
+      'You will Get Questions based on Maths',
       Colors.deepPurple),
-  game("assets/memory.png", "Memory", Colors.tealAccent.withOpacity(0.5), 'You will Get Questions based on Memory',
+  game(
+      "https://www.origastock.com/images/3d-characters/download/45.png",
+      "Memory",
+      Colors.tealAccent.withOpacity(0.5),
+      'You will Get Questions based on Memory',
       Colors.tealAccent),
-  game("assets/trivia.png", "Trivia", Colors.deepOrangeAccent.withOpacity(0.5),
-      'You will Get Random Questions ', Colors.deepOrangeAccent),
+  game(
+      "https://www.origastock.com/images/3d-characters/download/55.png",
+      "Trivia",
+      Colors.deepOrangeAccent.withOpacity(0.5),
+      'You will Get Random Questions ',
+      Colors.deepOrangeAccent),
 ];
 
 class _CategState extends State<Categ> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appbar1(title1: '', press:(){Get.back();}, icn: Icon(Icons.arrow_back_ios_new_rounded), act: (){}, icn1: Icon(null)),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 5.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: 9.h,
-            ),
+
             Text(
               'Categories',
               style: TextStyle(
@@ -50,7 +64,8 @@ class _CategState extends State<Categ> {
             Container(
               height: 80.h,
               padding: EdgeInsets.symmetric(horizontal: 3.w),
-              child: ListView.builder(padding: EdgeInsets.zero,
+              child: ListView.builder(
+                  padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
                     return Stack(
                       children: [
@@ -65,13 +80,36 @@ class _CategState extends State<Categ> {
                             borderRadius: BorderRadius.circular(30),
                           ),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Image.asset(
-                                popular[index].image.toString(),
-                                height: 18.h,
+                              Container(
+                                height: 15.h,
+                                width: 30.w,
+                                decoration: BoxDecoration(
+
+                                    borderRadius: BorderRadius.circular(15)),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: CachedNetworkImage(
+                                    fit: BoxFit.cover,
+                                    imageUrl: popular[index].image.toString(),
+                                    progressIndicatorBuilder:
+                                        (context, url, progress) => Center(
+                                            child: CircularProgressIndicator()),
+                                    errorWidget: (context, url, error) =>
+                                        Image.asset(
+                                      'assets/12.png',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
                               ),
-                              SizedBox(width: 40.w,
-                                child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,crossAxisAlignment: CrossAxisAlignment.start,
+                              SizedBox(
+                                width: 40.w,
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       popular[index].name.toString(),
@@ -89,7 +127,6 @@ class _CategState extends State<Categ> {
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
-
                                   ],
                                 ),
                               ),
@@ -98,7 +135,7 @@ class _CategState extends State<Categ> {
                         ),
                         Positioned(
                           top: 16.h,
-                          left: 71 .w,
+                          left: 71.w,
                           child: InkWell(
                             onTap: () {
                               print('Hello');
@@ -111,7 +148,8 @@ class _CategState extends State<Categ> {
                                   borderRadius: BorderRadius.circular(80)),
                               child: Icon(
                                 Icons.play_arrow_rounded,
-                                color: Colors.white,size: 25.sp,
+                                color: Colors.white,
+                                size: 25.sp,
                               ),
                             ),
                           ),

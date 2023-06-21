@@ -5,6 +5,7 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
 import 'package:jicksaw/Screen/initScreen.dart';
+import 'package:jicksaw/Screen/startpage.dart';
 import 'package:jicksaw/profile/login.dart';
 import 'package:jicksaw/Screen/mainpage2.dart';
 import 'package:jicksaw/Widget/const.dart';
@@ -32,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
       const Duration(seconds: 5),
           () => (usermodal == null)
           ?Get.offAll(Initscreen())
-          :Get.offAll(mainpage2()) ,
+          :Get.offAll(Startpage()) ,
     );
   }
   getdata()async{

@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:jicksaw/Modal/allpurchasedModal.dart';
 import 'package:jicksaw/Modal/shopitemmodal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
-import 'package:jicksaw/main%20Pages/shop2.dart';
+
 import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:sizer/sizer.dart';
 
