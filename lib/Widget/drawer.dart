@@ -321,7 +321,7 @@ class _drawer1State extends State<drawer1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(() => AllPlayerspage());
+                      Get.to(() => Allplayerspage());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
