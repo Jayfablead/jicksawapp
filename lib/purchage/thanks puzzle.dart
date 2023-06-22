@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Modal/shoptransactionModal.dart';
 import 'package:jicksaw/Modal/transactionModal.dart';
-import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Screen/Homepage.dart';
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/Shop/Gmaesshop.dart';
 import 'package:lottie/lottie.dart';

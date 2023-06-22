@@ -7,7 +7,7 @@ import 'package:get/route_manager.dart';
 import 'package:jicksaw/Screen/initScreen.dart';
 import 'package:jicksaw/Screen/startpage.dart';
 import 'package:jicksaw/profile/login.dart';
-import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Screen/Homepage.dart';
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/sharedpreferance.dart';
 

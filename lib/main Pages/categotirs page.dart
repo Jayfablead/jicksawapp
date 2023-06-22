@@ -25,19 +25,19 @@ List<game> popular = [
   game(
       "https://www.origastock.com/images/3d-characters/download/11.png",
       "Math",
-      Colors.deepPurple.withOpacity(0.5),
+      Colors.deepPurple.withOpacity(0.1),
       'You will Get Questions based on Maths',
       Colors.deepPurple),
   game(
       "https://www.origastock.com/images/3d-characters/download/45.png",
       "Memory",
-      Colors.tealAccent.withOpacity(0.5),
+      Colors.tealAccent.withOpacity(0.2),
       'You will Get Questions based on Memory',
       Colors.tealAccent),
   game(
       "https://www.origastock.com/images/3d-characters/download/55.png",
       "Trivia",
-      Colors.deepOrangeAccent.withOpacity(0.5),
+      Colors.deepOrangeAccent.withOpacity(0.2),
       'You will Get Random Questions ',
       Colors.deepOrangeAccent),
 ];
@@ -62,7 +62,7 @@ class _CategState extends State<Categ> {
               ),
             ),
             Container(
-              height: 80.h,
+              height: 70.h,
               padding: EdgeInsets.symmetric(horizontal: 3.w),
               child: ListView.builder(
                   padding: EdgeInsets.zero,
@@ -158,7 +158,34 @@ class _CategState extends State<Categ> {
                     );
                   },
                   itemCount: popular.length),
-            )
+            ),SizedBox(
+              height: 2.h,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.settings,
+                    color: Colors.black.withOpacity(0.7),
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.home_rounded,
+                    size: 27.sp,
+                    color: primary,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.person,
+                      color: Colors.black.withOpacity(0.7)),
+                ),
+              ],
+            ),
           ],
         ),
       ),

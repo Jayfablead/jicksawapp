@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Screen/Homepage.dart';
 import 'package:sizer/sizer.dart';
 const Color bgcolor = Colors.white;
 

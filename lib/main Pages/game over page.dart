@@ -21,100 +21,72 @@ class _GameOverState extends State<GameOver> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(height: 2.h),
-          GestureDetector(
-            onTap: (){
+      body: Center(
+        child: Column(
+          children: [
+            SizedBox(height: 10.h),
 
-            },
-            child: Padding(
-              padding:  EdgeInsets.only(left:85.w,top: 3.h),
-              child: Container(
-                height: 4.h,
-                width: 4.h,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: primary,width: 2.0),
-                    shape: BoxShape.circle
-                ),
-                child: Icon(Icons.close,color: primary,size: 14.sp,),
-              ),
+            Image.network(
+              'https://cdn-icons-png.flaticon.com/512/6729/6729593.png',
+              height: 30.h,
+              width: 62.w,
+              fit: BoxFit.contain,
+
             ),
-          ),
-          SizedBox(height: 6.h,),
-          Center(
-            child: Text("GameOver!",style: TextStyle(
-                fontFamily: "Poppins",
-                fontSize: 24.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.black
-            ),),
-          ),
-          SizedBox(height: 2.h,),
-          Center(
-            child: Text("Lost a Turn",style: TextStyle(
-                fontFamily: "Poppins",
-                fontSize: 14.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.deepPurpleAccent
-            ),),
-          ),
-          SizedBox(height: 10.h,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-             Column(
+            SizedBox(height: 15.h),
+            SizedBox(height: 20.h,
+              child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image.asset("assets/sry.png",height: 35.w,width: 90.w,),
+                  Text(
+                    'Game Over !',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25.sp,
+                        fontFamily: 'Poppins'),
+                  ),
+                  Text(
+                    'You\'ve Losted a Jigsaw Piece.' ,textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14.sp,color: Colors.black.withOpacity(0.6),
+                        fontFamily: 'Poppins'),
+                  ),
+                  Text(
+                    'Try your luck again!',textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14.sp,color: Colors.black.withOpacity(0.6),
+                        fontFamily: 'Poppins'),
+                  ),
 
                 ],
               ),
-
-            ],
-          ),
-          SizedBox(height: 2.h,),
-          Text("You\'ve Losted a Jigsaw Piece",
-            style: TextStyle(
-                fontFamily: "Poppins",
-                fontSize: 18.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.black
-            ),
-          ),
-          SizedBox(height: 1.h,),
-          Text("Try again And Earn again.",
-            style: TextStyle(
-                fontFamily: "Poppins",
-                fontSize: 12.sp,
-                letterSpacing: 1,
-                fontWeight: FontWeight.normal,
-                color: Colors.black
-            ),
-          ),
-          SizedBox(height: 7.h,),
-
-          SizedBox(height: 5.h,),
-          GestureDetector(
-            onTap: (){
-             endapi();
-            },
-            child:Container(
-              alignment: Alignment.center,
-              height: 7.h,
-              width: 50.w,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.0),
-                border: Border.all(color: primary,width: 2.0),
+            ), SizedBox(height: 0.h,),
+            InkWell(
+              onTap: () {
+                endapi();
+              },
+              child: Container(
+                alignment: Alignment.center,
+                width: 85.w,
+                margin: EdgeInsets.only(top: 2.h),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(90),
+                    color: primary
+                ),
+                padding: EdgeInsets.all(2.h),
+                child: Text(
+                  'Try Again',
+                  style: TextStyle(
+                    fontSize: 15.sp,fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontFamily: 'Poppins',
+                  ),
+                ),
               ),
-              child:  Text("Try Again",style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14.sp,fontFamily: "Poppins",color: primary
-              ),),
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -4,9 +4,10 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
 
-import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Screen/Homepage.dart';
 import 'package:jicksaw/Screen/splashscreen.dart';
 import 'package:jicksaw/Screen/startpage.dart';
+import 'package:jicksaw/Shop/gameinfoshop.dart';
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/challanges%20pages/Trivia.dart';
 import 'package:jicksaw/challanges%20pages/memory/home.dart';
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           builder: EasyLoading.init(),
           getPages: [
-            GetPage(name: '/', page: () => SplashScreen()),
+            GetPage(name: '/', page: () => Gameshopinfo(id: '1')),
             GetPage(name: '/MemoryChallenge', page: () => MemoryChallenge()),
             GetPage(name: '/MathtPage', page: () => MathtPage()),
           ],

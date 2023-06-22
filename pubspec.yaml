@@ -40,6 +40,7 @@ dependencies:
   flutter_easyloading: ^3.0.5
   flutter_credit_card_container: ^0.0.3
   cupertino_icons: ^1.0.2
+  dotted_line: 
 
 dev_dependencies:
   flutter_test:

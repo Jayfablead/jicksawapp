@@ -38,12 +38,21 @@ class game {
 }
 
 List<game> popular = [
-  game("assets/math.png", "Math", Colors.orange.shade900,
-      'You will Get Questions based on Maths', Color(0xffffdcbe)),
-  game("assets/memory.png", "Memory", Colors.yellow,
-      'You will Get Questions based on Memory', Color(0xfffbfac4)),
-  game("assets/trivia.png", "Trivia", Colors.teal.shade800,
-      'You will Get Random Questions ', Color(0xffccf8f5)),
+  game(price: '0.99',
+      "assets/math.png", "", Colors.orange.shade900, '5', Color(0xffffdcbe)),
+  game(price: '0.99',"assets/memory.png", "Memory", Color(0xff172e58), '4', Color(0xfffbfac4)),
+  game(price: '0.99',"assets/trivia.png", "Trivia", Colors.teal.shade800, '4',
+      Color(0xffccf8f5)),
+  game(price: '0.99',
+      "assets/math.png", "Math", Colors.orange.shade900, '5', Color(0xffffdcbe)),
+  game(price: '0.99',"assets/memory.png", "Memory", Color(0xff172e58), '4', Color(0xfffbfac4)),
+  game(price: '0.99',"assets/trivia.png", "Trivia", Colors.teal.shade800, '4',
+      Color(0xffccf8f5)),
+  game(price: '0.99',
+      "assets/math.png", "Math", Colors.orange.shade900, '5', Color(0xffffdcbe)),
+  game(price: '0.99',"assets/memory.png", "Memory", Color(0xff172e58), '4', Color(0xfffbfac4)),
+  game(price: '0.99',"assets/trivia.png", "Trivia", Colors.teal.shade800, '4',
+      Color(0xffccf8f5)),
 ];
 
 bool isLoading = true;
@@ -80,7 +89,7 @@ class _AllShopGamesState extends State<AllShopGames> {
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 1.5.h,
+                          height: 3.h,
                         ),
                         GridView.builder(
                           padding: EdgeInsets.zero,
@@ -93,17 +102,19 @@ class _AllShopGamesState extends State<AllShopGames> {
                           ),
                           shrinkWrap: true,
                           // scrollDirection: Axis.horizontal,
-                          itemCount: shop?.allItems?.length,
+                          itemCount: popular.length,
 
                           itemBuilder: (context, index) {
                             return InkWell(
                               onTap: () {
-                                Get.to(() => GameInfo(
-                                      id: shop?.allItems?[index].itemId ?? '',
-                                    ));
+                                // Get.to(() => GameInfo(
+                                //       id: shop?.allItems?[index].itemId ?? '',
+                                //     ));
                               },
                               child: Container(
-                                decoration: BoxDecoration(border: Border.all(color: popular[index].clr),
+                                decoration: BoxDecoration(
+                                    border:
+                                        Border.all(color: popular[index].clr),
                                     color: popular[index].btnclr,
                                     borderRadius: BorderRadius.circular(20)),
                                 padding: EdgeInsets.symmetric(
@@ -124,8 +135,7 @@ class _AllShopGamesState extends State<AllShopGames> {
                                         child: CachedNetworkImage(
                                           fit: BoxFit.cover,
                                           imageUrl:
-                                              shop?.allItems?[index].itemLogo ??
-                                                  '',
+                                            'https://cdn.shopify.com/s/files/1/0284/9705/1693/collections/puzzles_1200x1200.png?v=1585755588',
                                           progressIndicatorBuilder:
                                               (context, url, progress) =>
                                                   CircularProgressIndicator(),
@@ -145,11 +155,11 @@ class _AllShopGamesState extends State<AllShopGames> {
                                       child: Column(
                                         children: [
                                           Text(
-                                            shop?.allItems?[index].itemName ??
-                                                '',
-                                            style:TextStyle(
+                                            "Jigsaw ${index+1}",
+                                            style: TextStyle(
                                               color: popular[index].clr,
-                                              fontSize: 15.sp,fontWeight: FontWeight.w600,
+                                              fontSize: 15.sp,
+                                              fontWeight: FontWeight.w600,
                                               fontFamily: 'Poppins',
                                               letterSpacing: 1.5,
                                             ),
@@ -162,7 +172,7 @@ class _AllShopGamesState extends State<AllShopGames> {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Text(
-                                                  '\$ ${shop?.allItems?[index].price ?? ''}',
+                                                  '\$ ${popular[index].price.toString()}',
                                                   style: TextStyle(
                                                       color: Color(0xff2c2c2c)),
                                                 ),
@@ -174,9 +184,9 @@ class _AllShopGamesState extends State<AllShopGames> {
                                                       CrossAxisAlignment.center,
                                                   children: [
                                                     Text(
-                                                      shop?.allItems?[index]
-                                                              .ratings ??
-                                                          '',
+                                                      popular[index]
+                                                          .star
+                                                          .toString(),
                                                       style: TextStyle(
                                                           color: Color(
                                                               0xff2c2c2c)),

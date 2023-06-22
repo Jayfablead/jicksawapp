@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:jicksaw/profile/Forgot%20Password.dart';
-import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Screen/Homepage.dart';
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/profile/changepwd.dart';
 import 'package:jicksaw/purchage/My%20Purchased%20Games.dart';

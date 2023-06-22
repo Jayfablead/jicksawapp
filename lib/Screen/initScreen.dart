@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
 import 'package:jicksaw/profile/login.dart';
-import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Screen/Homepage.dart';
 
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/sharedpreferance.dart';

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Shop/Charactershop.dart';
 import 'package:jicksaw/Shop/Gmaesshop.dart';
+import 'package:jicksaw/Shop/Pointsshop.dart';
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/purchage/My%20Purchased%20Games.dart';
 import 'package:sizer/sizer.dart';
@@ -159,6 +160,9 @@ class _ShopCategoryState extends State<ShopCategory> {
                                   width: 40.w,
                                   decoration: BoxDecoration(
                                       color: Color(0xffE1F8DC),
+                                      border: Border.all(
+                                        color: Colors.green.shade700,
+                                      ),
                                       borderRadius: BorderRadius.circular(20)),
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 4.w, vertical: 1.h),
@@ -244,6 +248,9 @@ class _ShopCategoryState extends State<ShopCategory> {
                                   width: 40.w,
                                   decoration: BoxDecoration(
                                       color: Color(0xffffdcbe),
+                                      border: Border.all(
+                                        color: Colors.orange.shade900,
+                                      ),
                                       borderRadius: BorderRadius.circular(20)),
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 4.w, vertical: 1.h),
@@ -326,17 +333,21 @@ class _ShopCategoryState extends State<ShopCategory> {
                           SizedBox(
                             height: 4.0.h,
                           ),
-                          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               InkWell(
                                 onTap: () {
-                                  // Get.to(() => AllShopGames());
+                                  Get.to(() => PointsShop());
                                 },
                                 child: Container(
                                   height: 23.h,
                                   width: 40.w,
                                   decoration: BoxDecoration(
                                       color: Color(0xffd4e0ff),
+                                      border: Border.all(
+                                        color: Colors.deepPurple,
+                                      ),
                                       borderRadius: BorderRadius.circular(20)),
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 4.w, vertical: 1.h),
@@ -422,6 +433,9 @@ class _ShopCategoryState extends State<ShopCategory> {
                                   height: 23.h,
                                   width: 40.w,
                                   decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: Colors.black,
+                                      ),
                                       color: Color(0xffe3e3e3),
                                       borderRadius: BorderRadius.circular(20)),
                                   padding: EdgeInsets.symmetric(

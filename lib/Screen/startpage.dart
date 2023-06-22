@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Screen/Homepage.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
@@ -23,15 +23,17 @@ class _StartpageState extends State<Startpage> {
         children: [
           SizedBox(height: 10.h),
           Image.network(
-          'https://cdn3d.iconscout.com/3d/premium/thumb/lion-6129372-5011616.png',
+            'https://cdn3d.iconscout.com/3d/premium/thumb/lion-6129372-5011616.png',
             height: 35.h,
             width: 75.w,
             fit: BoxFit.contain,
           ),
-          SizedBox(height: 50.h,
+          SizedBox(
+            height: 50.h,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 3.w),
-              child: Column( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
                     'Let\'s Start !',
@@ -41,20 +43,26 @@ class _StartpageState extends State<Startpage> {
                         fontFamily: 'Poppins'),
                   ),
                   Text(
-                    'Jigsaw App is Combined platform for Physical Jigsaw Board and Mobile app',textAlign: TextAlign.center,
+                    'Jigsaw App is Combined platform for Physical Jigsaw Board and Mobile app',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 16.sp,color: Colors.black.withOpacity(0.7),
+                        fontSize: 14.sp,
+                        color: Colors.black.withOpacity(0.6),
                         fontFamily: 'Poppins'),
                   ),
                   Text(
-                    'Where you can learn things and complete jigsaw board',textAlign: TextAlign.center,
+                    'Where you can learn things and complete jigsaw board',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 16.sp,color: Colors.black.withOpacity(0.7),
+                        fontSize: 14.sp,
+                        color: Colors.black.withOpacity(0.6),
                         fontFamily: 'Poppins'),
                   ),
-                  SizedBox(height: 0.h,),
+                  SizedBox(
+                    height: 0.h,
+                  ),
                   InkWell(
                     onTap: () {
                       Get.to(
@@ -72,7 +80,8 @@ class _StartpageState extends State<Startpage> {
                       child: Text(
                         'START',
                         style: TextStyle(
-                          fontSize: 15.sp,fontWeight: FontWeight.bold,
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.bold,
                           color: Colors.white,
                           fontFamily: 'Poppins',
                         ),

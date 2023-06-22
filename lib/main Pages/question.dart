@@ -188,6 +188,9 @@ class _questionState extends State<question> {
                         ),
                       );
                     },
+                  ),ans != 5
+                      ?SizedBox():SizedBox(
+                    height:12.h,
                   ),
                   Image.asset('assets/mon.png',
                       height: 23.h, width: 100.w, fit: BoxFit.cover),

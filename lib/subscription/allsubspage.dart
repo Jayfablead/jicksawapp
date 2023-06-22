@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:jicksaw/Modal/subscancleModal.dart';
 import 'package:jicksaw/Modal/subsdataModal.dart';
 import 'package:jicksaw/Provider/ProfileviewModal.dart';
-import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Screen/Homepage.dart';
 import 'package:jicksaw/subscription/subscription_page.dart';
 
 import 'package:sizer/sizer.dart';

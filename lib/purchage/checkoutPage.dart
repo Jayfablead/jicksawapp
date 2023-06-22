@@ -10,6 +10,7 @@ import 'package:jicksaw/Modal/viewcard.dart';
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/purchage/AddCardPage.dart';
+import 'package:jicksaw/purchage/new%20thankyoupage.dart';
 import 'package:jicksaw/purchage/thanks%20puzzle.dart';
 import 'package:sizer/sizer.dart';
 
@@ -369,7 +370,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
               print(viewcard?.cardDetails?.cardId ?? '');
             });
           } else {
-            isLoading = false;
+            setState(() {
+              isLoading = false;
+
+              print(viewcard?.cardDetails?.cardId ?? '');
+            });
           }
         });
       } else {
@@ -454,7 +459,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
           print(payshop?.status);
           if (response.statusCode == 200 && payshop?.status == "success") {
             Get.to(
-              PurchaseTYPage(
+              ThanksPage1(
                 price: widget.price,
                 name: widget.name,
                 method: widget.method,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Screen/Homepage.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
@@ -41,8 +41,10 @@ class _CharPurchasedState extends State<CharPurchased> {
                   )),
             ],
           ),
-          SizedBox(height: 40.h,
-            child: Column( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          SizedBox(
+            height: 40.h,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
                   'Congratulations !',
@@ -52,17 +54,21 @@ class _CharPurchasedState extends State<CharPurchased> {
                       fontFamily: 'Poppins'),
                 ),
                 Text(
-                  'Thanks For Purchasing This Character',textAlign: TextAlign.center,
+                  'Thanks For Purchasing This Character',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 18.sp,
+                      fontSize: 14.sp,
+                      color: Colors.black.withOpacity(0.6),
                       fontFamily: 'Poppins'),
                 ),
                 Text(
-                  'Now You Have Access to this Premium Character',textAlign: TextAlign.center,
+                  'Now You Have Access to this Premium Character',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 18.sp,
+                      fontSize: 14.sp,
+                      color: Colors.black.withOpacity(0.6),
                       fontFamily: 'Poppins'),
                 ),
                 InkWell(

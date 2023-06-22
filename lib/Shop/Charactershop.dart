@@ -29,7 +29,7 @@ final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 class game {
   String? image;
   String? name;
-  Color? clr;
+  Color clr;
   String? star;
   String? price;
   Color? btnclr;
@@ -37,16 +37,69 @@ class game {
   game(this.image, this.name, this.clr, this.star, this.btnclr, {this.price});
 }
 
-List<game> popular = [
-  game("assets/math.png", "Math", Colors.deepPurple.withOpacity(0.5),
-      'You will Get Questions based on Maths', Color(0xffffdcbe)),
-  game("assets/memory.png", "Memory", Colors.tealAccent.withOpacity(0.5),
-      'You will Get Questions based on Memory', Color(0xfffbfac4)),
-  game("assets/trivia.png", "Trivia", Colors.deepOrangeAccent.withOpacity(0.5),
-      'You will Get Random Questions ', Color(0xffccf8f5)),
-];
+
 List<game> charcters = [
   game(
+      "https://cdn3d.iconscout.com/3d/premium/thumb/bear-6129368-5011612.png",
+      "Bear",
+      Colors.green.shade900,
+      'Character',
+      Color(0xffE1F8DC),
+      price: '0.99'),
+  game(
+      "https://cdn3d.iconscout.com/3d/premium/thumb/lion-6129372-5011616.png",
+      "Lion",
+      Colors.deepPurple,
+      'Character',
+      Color(0xffd4e0ff),
+      price: '2.99'),
+  game(
+      "https://cdn3d.iconscout.com/3d/premium/thumb/fox-7503935-6136921.png",
+      "Fox",
+      Colors.orange.shade900,
+      'Character',
+      Color(0xffffdcbe),
+      price: '1.99'),game(
+      "https://cdn3d.iconscout.com/3d/premium/thumb/bear-6129368-5011612.png",
+      "Bear",
+      Colors.green.shade900,
+      'Character',
+      Color(0xffE1F8DC),
+      price: '0.99'),
+  game(
+      "https://cdn3d.iconscout.com/3d/premium/thumb/lion-6129372-5011616.png",
+      "Lion",
+      Colors.deepPurple,
+      'Character',
+      Color(0xffd4e0ff),
+      price: '2.99'),
+  game(
+      "https://cdn3d.iconscout.com/3d/premium/thumb/fox-7503935-6136921.png",
+      "Fox",
+      Colors.orange.shade900,
+      'Character',
+      Color(0xffffdcbe),
+      price: '1.99'),game(
+      "https://cdn3d.iconscout.com/3d/premium/thumb/bear-6129368-5011612.png",
+      "Bear",
+      Colors.green.shade900,
+      'Character',
+      Color(0xffE1F8DC),
+      price: '0.99'),
+  game(
+      "https://cdn3d.iconscout.com/3d/premium/thumb/lion-6129372-5011616.png",
+      "Lion",
+      Colors.deepPurple,
+      'Character',
+      Color(0xffd4e0ff),
+      price: '2.99'),
+  game(
+      "https://cdn3d.iconscout.com/3d/premium/thumb/fox-7503935-6136921.png",
+      "Fox",
+      Colors.orange.shade900,
+      'Character',
+      Color(0xffffdcbe),
+      price: '1.99'),game(
       "https://cdn3d.iconscout.com/3d/premium/thumb/bear-6129368-5011612.png",
       "Bear",
       Colors.green.shade900,
@@ -98,7 +151,7 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
                     children: [
 
                       SizedBox(
-                        height: 1.5.h,
+                        height: 3.h,
                       ),
 
 
@@ -125,6 +178,7 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
                             child: Container(
                               decoration: BoxDecoration(
                                   color: charcters[index].btnclr,
+                                  border: Border.all(color: charcters[index].clr,),
                                   borderRadius: BorderRadius.circular(20)),
                               padding: EdgeInsets.symmetric(
                                   horizontal: 4.w, vertical: 1.h),

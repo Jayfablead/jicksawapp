@@ -5,13 +5,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
-import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Screen/Homepage.dart';
+
 import 'package:jicksaw/Shop/shop%20CatePage.dart';
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/sharedpreferance.dart';
 
 import 'package:jicksaw/main%20Pages/settings.dart';
 import 'package:jicksaw/Shop/Gmaesshop.dart';
+import 'package:jicksaw/profile/AllPlayers.dart';
 import 'package:jicksaw/profile/porfilePage.dart';
 
 
@@ -56,7 +58,7 @@ class _drawer1State extends State<drawer1> {
                   'Loading... ',
                   style: TextStyle(
 
-                    fontFamily: 'Poppins',
+                      fontFamily: 'Poppins',
                       fontSize: 15.sp),
                 ),
                 SizedBox(height: 3.h),
@@ -95,11 +97,11 @@ class _drawer1State extends State<drawer1> {
                           child: CachedNetworkImage(
                             fit: BoxFit.cover,
                             imageUrl: (profileviewmodal
-                                    ?.profileViewPlayer?.profilePic)
+                                ?.profileViewPlayer?.profilePic)
                                 .toString(),
                             progressIndicatorBuilder:
                                 (context, url, progress) =>
-                                    CircularProgressIndicator(),
+                                CircularProgressIndicator(),
                             errorWidget: (context, url, error) => Image.asset(
                               'assets/user.png',
                               color: Colors.black,
@@ -122,12 +124,12 @@ class _drawer1State extends State<drawer1> {
                             height: 0.5.h,
                           ),
                           Text(
-                           profileviewmodal?.profileViewPlayer?.name ?? '',
+                            profileviewmodal?.profileViewPlayer?.name ?? '',
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 12.sp,
                                 letterSpacing: 0.5,
-                              fontFamily: 'Poppins',
+                                fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w600),
                           ),
                           SizedBox(
@@ -139,7 +141,7 @@ class _drawer1State extends State<drawer1> {
                                 maxLines: 2,
                                 style: TextStyle(
                                     color: primary,
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     fontSize: 11.sp,
                                     letterSpacing: 1,
                                     fontWeight: FontWeight.w600)),
@@ -177,7 +179,7 @@ class _drawer1State extends State<drawer1> {
                             width: 64.w,
                             child: Row(
                               mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -192,7 +194,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins',
+                                          fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -230,7 +232,7 @@ class _drawer1State extends State<drawer1> {
                             width: 64.w,
                             child: Row(
                               mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -245,7 +247,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins',
+                                          fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -283,7 +285,7 @@ class _drawer1State extends State<drawer1> {
                             width: 64.w,
                             child: Row(
                               mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -298,7 +300,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins',
+                                          fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -319,7 +321,7 @@ class _drawer1State extends State<drawer1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(() => AllPlayers());
+                      Get.to(() => AllPlayerspage());
                       // Navigator.of(context).push(
                       //   MaterialPageRoute(
                       //     builder: (context) => mainpage2(),
@@ -390,7 +392,7 @@ class _drawer1State extends State<drawer1> {
                             width: 64.w,
                             child: Row(
                               mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -405,7 +407,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins',
+                                          fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -443,7 +445,7 @@ class _drawer1State extends State<drawer1> {
                             width: 64.w,
                             child: Row(
                               mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -458,7 +460,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins',
+                                          fontFamily: 'Poppins',
                                           color: Colors.black,
                                         )),
                                   ],
@@ -493,7 +495,7 @@ class _drawer1State extends State<drawer1> {
                             width: 65.w,
                             child: Row(
                               mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
@@ -508,7 +510,7 @@ class _drawer1State extends State<drawer1> {
                                         style: TextStyle(
                                           fontSize: 12.sp,
                                           fontWeight: FontWeight.w500,
-                                        fontFamily: 'Poppins',
+                                          fontFamily: 'Poppins',
                                           color: Colors.red,
                                         )),
                                   ],
@@ -532,7 +534,7 @@ class _drawer1State extends State<drawer1> {
   TextStyle textStyle = TextStyle(
       color: Colors.black,
       fontSize: 12.sp,
-    fontFamily: 'Poppins',
+      fontFamily: 'Poppins',
       fontWeight: FontWeight.w600);
 
   viewap() {
@@ -540,7 +542,7 @@ class _drawer1State extends State<drawer1> {
 
     data['uid'] = usermodal?.userData?.uid ?? "";
     data['action'] = 'profile_view_player';
-print(data);
+    print(data);
     checkInternet().then((internet) async {
       if (internet) {
         authprovider().profileviewapi(data).then((response) async {

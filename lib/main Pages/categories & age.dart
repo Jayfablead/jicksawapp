@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Modal/CAtegoryModal.dart';
 
-import 'package:jicksaw/Screen/mainpage2.dart';
+import 'package:jicksaw/Screen/Homepage.dart';
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/main%20Pages/design.dart';
 import 'package:jicksaw/Widget/const%20widget.dart';

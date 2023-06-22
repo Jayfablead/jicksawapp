@@ -67,9 +67,7 @@ class _mainpage2State extends State<mainpage2> {
       isLoading: isloading,
       scaffold: Scaffold(
         key: _scaffoldKey,
-        backgroundColor: Colors.white
-        // bgcolor
-        ,
+        backgroundColor: Colors.white,
         drawer: drawer1(),
         body: WillPopScope(
           onWillPop: dialog,
@@ -87,8 +85,8 @@ class _mainpage2State extends State<mainpage2> {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage(
-                                  'assets/wall2.webp',
-                                ),
+                                  'assets/wallmain.jpeg',
+                                ),colorFilter: ColorFilter.mode(Colors.black38, BlendMode.luminosity),
                                 fit: BoxFit.cover),
                           ),
                           child: Column(
@@ -377,7 +375,7 @@ class _mainpage2State extends State<mainpage2> {
                                                   InkWell(
                                                     onTap: () {
                                                       Get.to(
-                                                      CategoriesPage(),
+                                                   CategoriesPage()
                                                       );
                                                     },
                                                     child: Container(
@@ -394,7 +392,7 @@ class _mainpage2State extends State<mainpage2> {
                                                       child: Text(
                                                         'PLAY',
                                                         style: TextStyle(
-                                                            color: Colors.white,
+                                                            color: Colors.white,fontWeight: FontWeight.bold,
                                                             fontFamily:
                                                                 'Poppins',
                                                             letterSpacing: 1,
@@ -410,71 +408,6 @@ class _mainpage2State extends State<mainpage2> {
                                       ],
                                     ),
                                   ),
-
-                                  // Container(
-                                  //   padding:
-                                  //       EdgeInsets.symmetric(vertical: 1.h,horizontal: 5.w),
-                                  //   alignment: Alignment.topCenter,
-                                  //   height: 9.h,
-                                  //   width: 100.w,
-                                  //   color: Colors.white,
-                                  //   child: Row(
-                                  //     mainAxisAlignment:
-                                  //         MainAxisAlignment.spaceAround,
-                                  //     children: [
-                                  //       Container(
-                                  //         padding: EdgeInsets.symmetric(
-                                  //             horizontal: 1.w),
-                                  //         width: 25.w,
-                                  //         height: 5.h,
-                                  //         decoration: BoxDecoration(
-                                  //             color: primary1,
-                                  //             borderRadius:
-                                  //                 BorderRadius.circular(20)),
-                                  //         child: Row(
-                                  //           mainAxisAlignment:
-                                  //               MainAxisAlignment.spaceAround,
-                                  //           children: [
-                                  //             Container(
-                                  //               height: 4.h,
-                                  //               width: 4.h,
-                                  //               decoration: BoxDecoration(
-                                  //                   color: Colors.white
-                                  //                       .withOpacity(0.3),
-                                  //                   shape: BoxShape.circle),
-                                  //               child: Icon(
-                                  //                 Icons.home,
-                                  //                 color: Colors.black,
-                                  //                 size: 14.sp,
-                                  //               ),
-                                  //             ),
-                                  //             Text('Home')
-                                  //           ],
-                                  //         ),
-                                  //       ),
-                                  //       Icon(
-                                  //         Icons.search,
-                                  //         color: Colors.black,
-                                  //         size: 20.sp,
-                                  //       ),
-                                  //       Icon(
-                                  //         Icons.center_focus_weak_rounded,
-                                  //         color: Colors.black,
-                                  //         size: 20.sp,
-                                  //       ),
-                                  //       Icon(
-                                  //         Icons.plumbing_outlined,
-                                  //         color: Colors.black,
-                                  //         size: 20.sp,
-                                  //       ),
-                                  //       Icon(
-                                  //         Icons.align_vertical_center_sharp,
-                                  //         color: Colors.black,
-                                  //         size: 20.sp,
-                                  //       ),
-                                  //     ],
-                                  //   ),
-                                  // )
                                 ],
                               ),
                             ],

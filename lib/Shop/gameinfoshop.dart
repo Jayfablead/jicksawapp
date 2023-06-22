@@ -14,20 +14,20 @@ import '../Widget/const.dart';
 import '../Widget/const widget.dart';
 import '../Shop/Gmaesshop.dart';
 
-class GameInfo extends StatefulWidget {
+class Gameshopinfo extends StatefulWidget {
   String? id;
 
-  GameInfo({Key? key, required this.id})
+  Gameshopinfo({Key? key, required this.id})
       : super(key: key);
 
   @override
-  State<GameInfo> createState() => _GameInfoState();
+  State<Gameshopinfo> createState() => _GameshopinfoState();
 }
 
 bool isLoading = true;
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-class _GameInfoState extends State<GameInfo> {
+class _GameshopinfoState extends State<Gameshopinfo> {
   @override
   void initState() {
     // TODO: implement initState
@@ -44,6 +44,7 @@ class _GameInfoState extends State<GameInfo> {
         }, icn: Icon(Icons.arrow_back_ios), act: () {
           
         }, icn1: Icon(null)),
+
 
         body: isLoading?Container():SingleChildScrollView(
           child: Padding(
@@ -103,7 +104,7 @@ SizedBox(height: 2.h,),
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to(PurchaseScreen(points: "999",name:  shopitem?.itemDetails?.itemName ?? '', itemid: widget.id,img:  shopitem?.itemDetails?.itemLogo ?? '',price: shopitem?.itemDetails?.price ?? '',));
+                    Get.to(PurchaseScreen(points: "999",name:  shopitem?.itemDetails?.itemName ?? '', itemid: "1",img:  shopitem?.itemDetails?.itemLogo ?? '',price: shopitem?.itemDetails?.price ?? '',));
                   },
                   child: Container(
                     height: 5.5.h,
@@ -138,9 +139,7 @@ SizedBox(height: 2.h,),
                 SizedBox(
                   height: 0.5.h,
                 ),
-                Divider(
-                  color: Colors.black,
-                ),
+
                 SizedBox(
                   height: 0.5.h,
                 ),
@@ -151,9 +150,7 @@ SizedBox(height: 2.h,),
                 SizedBox(
                   height: 2.h,
                 ),
-                Divider(
-                  color: Colors.black,
-                ),
+
                 SizedBox(
                   height: 1.h,
                 ),
@@ -209,7 +206,7 @@ SizedBox(height: 2.h,),
 
     // data['uid'] = usermodal?.userData?.uid ?? "";
     data['action'] = 'item_details';
-    data['item_id'] = widget.id.toString();
+    data['item_id'] = '1';
 
 
     checkInternet().then((internet) async {
