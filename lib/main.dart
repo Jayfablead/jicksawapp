@@ -15,6 +15,8 @@ import 'package:jicksaw/main%20Pages/categotirs%20page.dart';
 
 import 'package:jicksaw/main%20Pages/congratulation.dart';
 import 'package:jicksaw/Shop/Gmaesshop.dart';
+import 'package:jicksaw/profile/LeaderBoard.dart';
+import 'package:jicksaw/purchage/new%20thankyoupage.dart';
 
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           builder: EasyLoading.init(),
           getPages: [
-            GetPage(name: '/', page: () => Gameshopinfo(id: '1')),
+            GetPage(name: '/', page: () => LeaderBoard()),
             GetPage(name: '/MemoryChallenge', page: () => MemoryChallenge()),
             GetPage(name: '/MathtPage', page: () => MathtPage()),
           ],
