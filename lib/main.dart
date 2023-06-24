@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           builder: EasyLoading.init(),
           getPages: [
-            GetPage(name: '/', page: () => AddCardPage(type: 1)),
+            GetPage(name: '/', page: () =>SplashScreen()),
             GetPage(name: '/MemoryChallenge', page: () => MemoryChallenge()),
             GetPage(name: '/MathtPage', page: () => MathtPage()),
           ],
