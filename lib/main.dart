@@ -15,14 +15,13 @@ import 'package:jicksaw/main%20Pages/categotirs%20page.dart';
 
 import 'package:jicksaw/main%20Pages/congratulation.dart';
 import 'package:jicksaw/Shop/Gmaesshop.dart';
-import 'package:jicksaw/profile/LeaderBoard.dart';
-import 'package:jicksaw/purchage/new%20thankyoupage.dart';
 
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 import 'challanges pages/math/homepage.dart';
 import 'challanges pages/slider/Board.dart';
+import 'purchage/AddCardPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,7 +43,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           builder: EasyLoading.init(),
           getPages: [
-            GetPage(name: '/', page: () => LeaderBoard()),
+            GetPage(name: '/', page: () => AddCardPage(type: 1)),
             GetPage(name: '/MemoryChallenge', page: () => MemoryChallenge()),
             GetPage(name: '/MathtPage', page: () => MathtPage()),
           ],

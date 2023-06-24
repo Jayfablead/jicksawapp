@@ -11,6 +11,29 @@ class LeaderBoard extends StatefulWidget {
   State<LeaderBoard> createState() => _LeaderBoardState();
 }
 
+List clrs = [
+  Color(0xffE1F8DC),
+  Color(0xffd4e0ff),
+  Color(0xffffdcbe),
+  Color(0xffE1F8DC),
+  Color(0xffd4e0ff),
+  Color(0xffffdcbe),
+  Color(0xffE1F8DC),
+  Color(0xffd4e0ff),
+  Color(0xffffdcbe),
+];
+List bgclrs = [
+  Colors.green.shade900,
+  Colors.deepPurple,
+  Colors.orange.shade900,
+  Colors.green.shade900,
+  Colors.deepPurple,
+  Colors.orange.shade900,
+  Colors.green.shade900,
+  Colors.deepPurple,
+  Colors.orange.shade900,
+];
+
 class _LeaderBoardState extends State<LeaderBoard> {
   @override
   Widget build(BuildContext context) {
@@ -91,7 +114,8 @@ class _LeaderBoardState extends State<LeaderBoard> {
                                         alignment: Alignment.center,
                                         child: Text(
                                           "2",
-                                          style: TextStyle(  fontFamily: 'Poppins',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
                                               fontWeight: FontWeight.bold,
                                               color: Colors.white,
                                               fontSize: 10.sp),
@@ -114,7 +138,7 @@ class _LeaderBoardState extends State<LeaderBoard> {
                             decoration: BoxDecoration(
                                 color: Colors.transparent,
                                 shape: BoxShape.circle),
-                            height: 19.h,
+                            height: 18.h,
                             width: 16.h,
                           ),
                           Container(
@@ -157,7 +181,8 @@ class _LeaderBoardState extends State<LeaderBoard> {
                                     alignment: Alignment.center,
                                     child: Text(
                                       "1",
-                                      style: TextStyle(  fontFamily: 'Poppins',
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
                                           fontWeight: FontWeight.bold,
                                           color: Colors.white,
                                           fontSize: 14.sp),
@@ -228,7 +253,8 @@ class _LeaderBoardState extends State<LeaderBoard> {
                                         alignment: Alignment.center,
                                         child: Text(
                                           "3",
-                                          style: TextStyle(  fontFamily: 'Poppins',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
                                               fontWeight: FontWeight.bold,
                                               color: Colors.white,
                                               fontSize: 10.sp),
@@ -248,441 +274,143 @@ class _LeaderBoardState extends State<LeaderBoard> {
                     ],
                   ),
                 ),
-                // SizedBox(
-                //   height: 2.h,
-                // ),
-                // Padding(
-                //   padding: const EdgeInsets.symmetric(horizontal: 10),
-                //   child: Container(
-                //     color: Colors.black12,
-                //     child: Column(
-                //       children: [
-                //         Row(
-                //           children: [
-                //             SizedBox(
-                //               width: 7,
-                //             ),
-                //             Text(
-                //               "4",
-                //               style: TextStyle(  fontFamily: 'Poppins',fontSize: 20),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Container(
-                //               margin: EdgeInsets.only(top: 8, bottom: 8),
-                //               height: 5.h,
-                //               width: 10.w,
-                //               decoration: BoxDecoration(
-                //                 color: Colors.blue,
-                //                 borderRadius: BorderRadius.circular(100),
-                //               ),
-                //               child: Center(
-                //                   child: Text(
-                //                 "B",
-                //                 style: TextStyle(  fontFamily: 'Poppins',
-                //                     fontSize: 25,
-                //                     fontWeight: FontWeight.bold,
-                //                     color: Colors.white),
-                //               )),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Text("Bhavna Mepani",
-                //                 style: TextStyle(  fontFamily: 'Poppins',fontSize: 15)),
-                //             SizedBox(
-                //               width: 150,
-                //             ),
-                //             Text("91", style: TextStyle(  fontFamily: 'Poppins',fontSize: 20)),
-                //           ],
-                //         ),
-                //         Padding(
-                //           padding: const EdgeInsets.only(left: 10, right: 10),
-                //           child: Divider(
-                //             color: Colors.black12,
-                //             thickness: 1,
-                //           ),
-                //         ),
-                //         Row(
-                //           children: [
-                //             SizedBox(
-                //               width: 7,
-                //             ),
-                //             Text(
-                //               "5",
-                //               style: TextStyle(  fontFamily: 'Poppins',fontSize: 20),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Container(
-                //               margin: EdgeInsets.only(top: 8, bottom: 8),
-                //               height: 5.h,
-                //               width: 10.w,
-                //               decoration: BoxDecoration(
-                //                 color: Colors.blue,
-                //                 borderRadius: BorderRadius.circular(100),
-                //               ),
-                //               child: Center(
-                //                   child: Text(
-                //                 "W",
-                //                 style: TextStyle(  fontFamily: 'Poppins',
-                //                     fontSize: 25,
-                //                     fontWeight: FontWeight.bold,
-                //                     color: Colors.white),
-                //               )),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Text("wrteam   dev",
-                //                 style: TextStyle(  fontFamily: 'Poppins',fontSize: 15)),
-                //             SizedBox(
-                //               width: 150,
-                //             ),
-                //             Text("91", style: TextStyle(  fontFamily: 'Poppins',fontSize: 20)),
-                //           ],
-                //         ),
-                //         Padding(
-                //           padding: const EdgeInsets.only(left: 10, right: 10),
-                //           child: Divider(
-                //             color: Colors.black12,
-                //             thickness: 1,
-                //           ),
-                //         ),
-                //         Row(
-                //           children: [
-                //             SizedBox(
-                //               width: 7,
-                //             ),
-                //             Text(
-                //               "4",
-                //               style: TextStyle(  fontFamily: 'Poppins',fontSize: 20),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Container(
-                //               margin: EdgeInsets.only(top: 8, bottom: 8),
-                //               height: 5.h,
-                //               width: 10.w,
-                //               decoration: BoxDecoration(
-                //                 color: Colors.blue,
-                //                 borderRadius: BorderRadius.circular(100),
-                //               ),
-                //               child: Center(
-                //                   child: Text(
-                //                 "B",
-                //                 style: TextStyle(  fontFamily: 'Poppins',
-                //                     fontSize: 25,
-                //                     fontWeight: FontWeight.bold,
-                //                     color: Colors.white),
-                //               )),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Text("Bhavna Mepani",
-                //                 style: TextStyle(  fontFamily: 'Poppins',fontSize: 15)),
-                //             SizedBox(
-                //               width: 150,
-                //             ),
-                //             Text("91", style: TextStyle(  fontFamily: 'Poppins',fontSize: 20)),
-                //           ],
-                //         ),
-                //         Padding(
-                //           padding: const EdgeInsets.only(left: 10, right: 10),
-                //           child: Divider(
-                //             color: Colors.black12,
-                //             thickness: 1,
-                //           ),
-                //         ),
-                //         Row(
-                //           children: [
-                //             SizedBox(
-                //               width: 7,
-                //             ),
-                //             Text(
-                //               "4",
-                //               style: TextStyle(  fontFamily: 'Poppins',fontSize: 20),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Container(
-                //               margin: EdgeInsets.only(top: 8, bottom: 8),
-                //               height: 5.h,
-                //               width: 10.w,
-                //               decoration: BoxDecoration(
-                //                 color: Colors.blue,
-                //                 borderRadius: BorderRadius.circular(100),
-                //               ),
-                //               child: Center(
-                //                   child: Text(
-                //                 "B",
-                //                 style: TextStyle(  fontFamily: 'Poppins',
-                //                     fontSize: 25,
-                //                     fontWeight: FontWeight.bold,
-                //                     color: Colors.white),
-                //               )),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Text("Bhavna Mepani",
-                //                 style: TextStyle(  fontFamily: 'Poppins',fontSize: 15)),
-                //             SizedBox(
-                //               width: 150,
-                //             ),
-                //             Text("91", style: TextStyle(  fontFamily: 'Poppins',fontSize: 20)),
-                //           ],
-                //         ),
-                //         Padding(
-                //           padding: const EdgeInsets.only(left: 10, right: 10),
-                //           child: Divider(
-                //             color: Colors.black12,
-                //             thickness: 1,
-                //           ),
-                //         ),
-                //         Row(
-                //           children: [
-                //             SizedBox(
-                //               width: 7,
-                //             ),
-                //             Text(
-                //               "4",
-                //               style: TextStyle(  fontFamily: 'Poppins',fontSize: 20),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Container(
-                //               margin: EdgeInsets.only(top: 8, bottom: 8),
-                //               height: 5.h,
-                //               width: 10.w,
-                //               decoration: BoxDecoration(
-                //                 color: Colors.blue,
-                //                 borderRadius: BorderRadius.circular(100),
-                //               ),
-                //               child: Center(
-                //                   child: Text(
-                //                 "B",
-                //                 style: TextStyle(  fontFamily: 'Poppins',
-                //                     fontSize: 25,
-                //                     fontWeight: FontWeight.bold,
-                //                     color: Colors.white),
-                //               )),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Text("Bhavna Mepani",
-                //                 style: TextStyle(  fontFamily: 'Poppins',fontSize: 15)),
-                //             SizedBox(
-                //               width: 150,
-                //             ),
-                //             Text("91", style: TextStyle(  fontFamily: 'Poppins',fontSize: 20)),
-                //           ],
-                //         ),
-                //         Padding(
-                //           padding: const EdgeInsets.only(left: 10, right: 10),
-                //           child: Divider(
-                //             color: Colors.black12,
-                //             thickness: 1,
-                //           ),
-                //         ),
-                //         Row(
-                //           children: [
-                //             SizedBox(
-                //               width: 7,
-                //             ),
-                //             Text(
-                //               "4",
-                //               style: TextStyle(  fontFamily: 'Poppins',fontSize: 20),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Container(
-                //               margin: EdgeInsets.only(top: 8, bottom: 8),
-                //               height: 5.h,
-                //               width: 10.w,
-                //               decoration: BoxDecoration(
-                //                 color: Colors.blue,
-                //                 borderRadius: BorderRadius.circular(100),
-                //               ),
-                //               child: Center(
-                //                   child: Text(
-                //                 "B",
-                //                 style: TextStyle(  fontFamily: 'Poppins',
-                //                     fontSize: 25,
-                //                     fontWeight: FontWeight.bold,
-                //                     color: Colors.white),
-                //               )),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Text("Bhavna Mepani",
-                //                 style: TextStyle(  fontFamily: 'Poppins',fontSize: 15)),
-                //             SizedBox(
-                //               width: 150,
-                //             ),
-                //             Text("91", style: TextStyle(  fontFamily: 'Poppins',fontSize: 20)),
-                //           ],
-                //         ),
-                //         Padding(
-                //           padding: const EdgeInsets.only(left: 10, right: 10),
-                //           child: Divider(
-                //             color: Colors.black12,
-                //             thickness: 1,
-                //           ),
-                //         ),
-                //         Row(
-                //           children: [
-                //             SizedBox(
-                //               width: 7,
-                //             ),
-                //             Text(
-                //               "4",
-                //               style: TextStyle(  fontFamily: 'Poppins',fontSize: 20),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Container(
-                //               margin: EdgeInsets.only(top: 8, bottom: 8),
-                //               height: 5.h,
-                //               width: 10.w,
-                //               decoration: BoxDecoration(
-                //                 color: Colors.blue,
-                //                 borderRadius: BorderRadius.circular(100),
-                //               ),
-                //               child: Center(
-                //                   child: Text(
-                //                 "B",
-                //                 style: TextStyle(  fontFamily: 'Poppins',
-                //                     fontSize: 25,
-                //                     fontWeight: FontWeight.bold,
-                //                     color: Colors.white),
-                //               )),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Text("Bhavna Mepani",
-                //                 style: TextStyle(  fontFamily: 'Poppins',fontSize: 15)),
-                //             SizedBox(
-                //               width: 150,
-                //             ),
-                //             Text("91", style: TextStyle(  fontFamily: 'Poppins',fontSize: 20)),
-                //           ],
-                //         ),
-                //         Padding(
-                //           padding: const EdgeInsets.only(left: 10, right: 10),
-                //           child: Divider(
-                //             color: Colors.black12,
-                //             thickness: 1,
-                //           ),
-                //         ),
-                //         Row(
-                //           children: [
-                //             SizedBox(
-                //               width: 7,
-                //             ),
-                //             Text(
-                //               "4",
-                //               style: TextStyle(  fontFamily: 'Poppins',fontSize: 20),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Container(
-                //               margin: EdgeInsets.only(top: 8, bottom: 8),
-                //               height: 5.h,
-                //               width: 10.w,
-                //               decoration: BoxDecoration(
-                //                 color: Colors.blue,
-                //                 borderRadius: BorderRadius.circular(100),
-                //               ),
-                //               child: Center(
-                //                   child: Text(
-                //                 "B",
-                //                 style: TextStyle(  fontFamily: 'Poppins',
-                //                     fontSize: 25,
-                //                     fontWeight: FontWeight.bold,
-                //                     color: Colors.white),
-                //               )),
-                //             ),
-                //             SizedBox(
-                //               width: 23,
-                //             ),
-                //             Text("Bhavna Mepani",
-                //                 style: TextStyle(  fontFamily: 'Poppins',fontSize: 15)),
-                //             SizedBox(
-                //               width: 150,
-                //             ),
-                //             Text("91", style: TextStyle(  fontFamily: 'Poppins',fontSize: 20)),
-                //           ],
-                //         ),
-                //         Padding(
-                //           padding: const EdgeInsets.only(left: 10, right: 10),
-                //           child: Divider(
-                //             color: Colors.black12,
-                //             thickness: 1,
-                //           ),
-                //         ),
-                //       ],
-                //     ),
-                //   ),
-                // ),
+                Container(
+                    height: 70.h,
+                    padding: EdgeInsets.symmetric(horizontal: 1.5.w),
+                    child: ListView.builder(
+                      padding: EdgeInsets.zero,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          alignment: Alignment.center,
+                          margin: EdgeInsets.symmetric(vertical: 0.5.h),
+                          decoration: BoxDecoration(
+                              color: clrs[index],
+                              border: Border.all(color: bgclrs[index]),
+                              borderRadius: BorderRadius.circular(10)),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 3.w, vertical: 0.8.h),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "${index + 1}",
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 15.sp),
+                                      ),
+                                      SizedBox(
+                                        width: 5.w,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            margin: EdgeInsets.only(top: 1.h),
+                                            height: 5.h,
+                                            width: 11.w,
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                              color: bgclrs[index],
+                                              borderRadius:
+                                                  BorderRadius.circular(100),
+                                            ),
+                                            child: Center(
+                                                child: Text(
+                                              "S",
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 20.sp,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Colors.white),
+                                            )),
+                                          ),
+                                          SizedBox(
+                                            width: 3.w,
+                                          ),
+                                          Text("Son Goku",
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 15)),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  Text("91",
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins', fontSize: 20)),
+                                ],
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                      itemCount: clrs.length,
+                    )),
               ],
             ),
           ),
           Positioned(
-            top: 720,
-            left: 11,
+            top: 79.h,
             child: Container(
-              width: 390,
+              height: 8.h,
+              width: 100.w,
+              alignment: Alignment.topCenter,
+              padding: EdgeInsets.symmetric(horizontal: 5.w),
               color: Colors.white,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    width: 7,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "4",
+                        style:
+                            TextStyle(fontFamily: 'Poppins', fontSize: 15.sp),
+                      ),
+                      SizedBox(
+                        width: 5.w,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 1.h),
+                        height: 5.h,
+                        width: 11.w,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: Colors.redAccent.shade400,
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        child: Center(
+                            child: Text(
+                          "J",
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        )),
+                      ),
+                      SizedBox(
+                        width: 3.w,
+                      ),
+                      Text("Jay Sardhara",
+                          style:
+                              TextStyle(fontFamily: 'Poppins', fontSize: 15)),
+                    ],
                   ),
-                  Text(
-                    "4",
-                    style: TextStyle(  fontFamily: 'Poppins',fontSize: 20),
-                  ),
-                  SizedBox(
-                    width: 23,
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 8, bottom: 8),
-                    height: 5.h,
-                    width: 10.w,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                    child: Center(
-                        child: Text(
-                      "B",
-                      style: TextStyle(  fontFamily: 'Poppins',
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    )),
-                  ),
-                  SizedBox(
-                    width: 23,
-                  ),
-                  Text("Bhavna Mepani", style: TextStyle(  fontFamily: 'Poppins',fontSize: 15)),
-                  SizedBox(
-                    width: 150,
-                  ),
-                  Text("91", style: TextStyle(  fontFamily: 'Poppins',fontSize: 20)),
+                  Text("105",
+                      style: TextStyle(fontFamily: 'Poppins', fontSize: 20)),
                 ],
               ),
             ),

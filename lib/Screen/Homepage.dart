@@ -375,7 +375,7 @@ class _mainpage2State extends State<mainpage2> {
                                                   InkWell(
                                                     onTap: () {
                                                       Get.to(
-                                                   CategoriesPage()
+                                                 Tutorial()
                                                       );
                                                     },
                                                     child: Container(
