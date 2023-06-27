@@ -1,10 +1,9 @@
-
-
 import 'package:connectivity/connectivity.dart';
 import 'package:jicksaw/Modal/CAtegoryModal.dart';
 import 'package:jicksaw/Modal/UserModal.dart';
 import 'package:jicksaw/Modal/addcardModal.dart';
 import 'package:jicksaw/Modal/allpurchasedModal.dart';
+import 'package:jicksaw/Modal/categryModal.dart';
 import 'package:jicksaw/Modal/changepwModal.dart';
 import 'package:jicksaw/Modal/editmodal.dart';
 import 'package:jicksaw/Modal/gameModal.dart';
@@ -15,6 +14,7 @@ import 'package:jicksaw/Modal/shopinfoModal.dart';
 import 'package:jicksaw/Modal/shopitemmodal.dart';
 import 'package:jicksaw/Modal/shoppurModal.dart';
 import 'package:jicksaw/Modal/shoptransactionModal.dart';
+import 'package:jicksaw/Modal/startModal.dart';
 import 'package:jicksaw/Modal/subsModal.dart';
 import 'package:jicksaw/Modal/subscancleModal.dart';
 import 'package:jicksaw/Modal/subsdataModal.dart';
@@ -33,7 +33,6 @@ Future<bool> checkInternet() async {
   }
   return false;
 }
-
 
 const String baseUrl = 'https://jigsaw.fableadtechnolabs.com/api/ajax.php';
 UserModal? usermodal;
@@ -57,3 +56,5 @@ shoptransactionModal? shoptransaction;
 allpurchasedModal? allpurs;
 challModal? chalns;
 memoryModal? memory;
+startModal? start;
+categModal? categories;

@@ -5,6 +5,7 @@ import 'package:jicksaw/Screen/Homepage.dart';
 import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:jicksaw/Widget/drawer.dart';
 import 'package:jicksaw/main%20Pages/categories%20&%20age.dart';
+import 'package:jicksaw/main%20Pages/categotirs%20page.dart';
 import 'package:sizer/sizer.dart';
 
 class Tutorial extends StatefulWidget {
@@ -258,7 +259,7 @@ class _TutorialState extends State<Tutorial> {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to(() => CategoriesPage());
+                    Get.to(() => Categ());
                   },
                   child: Container(
                     alignment: Alignment.center,

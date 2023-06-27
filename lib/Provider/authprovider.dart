@@ -10,6 +10,8 @@ class authprovider with ChangeNotifier{
   Map<String, String> headers = {
     'Authorization': 'hXuRUGsEGuhGf6KG',
   };
+
+
   Future<http.Response> loginapi(Map<String, String> bodyData) async {
     const url = '$baseUrl/?action=login_player';
     var responseJson;
@@ -24,6 +26,12 @@ class authprovider with ChangeNotifier{
     responseJson = responses(response);
     return responseJson;
   }
+
+
+
+
+
+
   Future<http.Response> signupapi(Map<String, dynamic> bodyData) async {
     const url = '$baseUrl/?action=signup_player';
     var responseJson;
@@ -353,6 +361,34 @@ class authprovider with ChangeNotifier{
   }
   Future<http.Response> stepsapi(Map<String, String> bodyData) async {
     const url = '$baseUrl/?action=follow_steps';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> Startappappi(Map<String, String> bodyData) async {
+    const url = '$baseUrl/?action=start_img';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> CategApi(Map<String, String> bodyData) async {
+    const url = '$baseUrl/?action=get_all_cat_and_age';
     var responseJson;
     final response = await http
         .post(Uri.parse(url), body: bodyData, headers: headers)
