@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Modal/gamesModal.dart';
 import 'package:jicksaw/Modal/shopitemmodal.dart';
 import 'package:jicksaw/Shop/gameinfoshop.dart';
 
@@ -16,6 +17,7 @@ import '../Widget/buildErrorDialog.dart';
 import '../Widget/const.dart';
 import '../Widget/const widget.dart';
 import '../Widget/drawer.dart';
+import '../Widget/hexcolor.dart';
 
 class AllShopGames extends StatefulWidget {
   const AllShopGames({Key? key}) : super(key: key);
@@ -38,20 +40,68 @@ class game {
 }
 
 List<game> popular = [
-  game(price: '0.99',
-      "assets/math.png", "", Colors.orange.shade900, '5', Color(0xffffdcbe)),
-  game(price: '0.99',"assets/memory.png", "Memory", Color(0xff172e58), '4', Color(0xfffbfac4)),
-  game(price: '0.99',"assets/trivia.png", "Trivia", Colors.teal.shade800, '4',
+  game(
+      price: '0.99',
+      "assets/math.png",
+      "",
+      Colors.orange.shade900,
+      '5',
+      Color(0xffffdcbe)),
+  game(
+      price: '0.99',
+      "assets/memory.png",
+      "Memory",
+      Color(0xff172e58),
+      '4',
+      Color(0xfffbfac4)),
+  game(
+      price: '0.99',
+      "assets/trivia.png",
+      "Trivia",
+      Colors.teal.shade800,
+      '4',
       Color(0xffccf8f5)),
-  game(price: '0.99',
-      "assets/math.png", "Math", Colors.orange.shade900, '5', Color(0xffffdcbe)),
-  game(price: '0.99',"assets/memory.png", "Memory", Color(0xff172e58), '4', Color(0xfffbfac4)),
-  game(price: '0.99',"assets/trivia.png", "Trivia", Colors.teal.shade800, '4',
+  game(
+      price: '0.99',
+      "assets/math.png",
+      "Math",
+      Colors.orange.shade900,
+      '5',
+      Color(0xffffdcbe)),
+  game(
+      price: '0.99',
+      "assets/memory.png",
+      "Memory",
+      Color(0xff172e58),
+      '4',
+      Color(0xfffbfac4)),
+  game(
+      price: '0.99',
+      "assets/trivia.png",
+      "Trivia",
+      Colors.teal.shade800,
+      '4',
       Color(0xffccf8f5)),
-  game(price: '0.99',
-      "assets/math.png", "Math", Colors.orange.shade900, '5', Color(0xffffdcbe)),
-  game(price: '0.99',"assets/memory.png", "Memory", Color(0xff172e58), '4', Color(0xfffbfac4)),
-  game(price: '0.99',"assets/trivia.png", "Trivia", Colors.teal.shade800, '4',
+  game(
+      price: '0.99',
+      "assets/math.png",
+      "Math",
+      Colors.orange.shade900,
+      '5',
+      Color(0xffffdcbe)),
+  game(
+      price: '0.99',
+      "assets/memory.png",
+      "Memory",
+      Color(0xff172e58),
+      '4',
+      Color(0xfffbfac4)),
+  game(
+      price: '0.99',
+      "assets/trivia.png",
+      "Trivia",
+      Colors.teal.shade800,
+      '4',
       Color(0xffccf8f5)),
 ];
 
@@ -102,7 +152,7 @@ class _AllShopGamesState extends State<AllShopGames> {
                           ),
                           shrinkWrap: true,
                           // scrollDirection: Axis.horizontal,
-                          itemCount: popular.length,
+                          itemCount: games?.games?.length,
 
                           itemBuilder: (context, index) {
                             return InkWell(
@@ -114,8 +164,8 @@ class _AllShopGamesState extends State<AllShopGames> {
                               child: Container(
                                 decoration: BoxDecoration(
                                     border:
-                                        Border.all(color: popular[index].clr),
-                                    color: popular[index].btnclr,
+                                        Border.all(color: HexColor.fromHex(games?.games?[index].bgColorBorder ?? ''),),
+                                    color: HexColor.fromHex(games?.games?[index].bgColor ?? ''),
                                     borderRadius: BorderRadius.circular(20)),
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 4.w, vertical: 1.h),
@@ -135,7 +185,7 @@ class _AllShopGamesState extends State<AllShopGames> {
                                         child: CachedNetworkImage(
                                           fit: BoxFit.cover,
                                           imageUrl:
-                                            'https://cdn.shopify.com/s/files/1/0284/9705/1693/collections/puzzles_1200x1200.png?v=1585755588',
+                                              games?.games?[index].prodcutImg ?? '',
                                           progressIndicatorBuilder:
                                               (context, url, progress) =>
                                                   CircularProgressIndicator(),
@@ -155,9 +205,9 @@ class _AllShopGamesState extends State<AllShopGames> {
                                       child: Column(
                                         children: [
                                           Text(
-                                            "Jigsaw ${index+1}",
+                                            (games?.games?[index].productName).toString(),
                                             style: TextStyle(
-                                              color: popular[index].clr,
+                                              color: HexColor.fromHex(games?.games?[index].bgColorBorder ?? ''),
                                               fontSize: 15.sp,
                                               fontWeight: FontWeight.w600,
                                               fontFamily: 'Poppins',
@@ -172,7 +222,7 @@ class _AllShopGamesState extends State<AllShopGames> {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Text(
-                                                  '\$ ${popular[index].price.toString()}',
+                                                  '\$ ${games?.games?[index].productPrice.toString()}',
                                                   style: TextStyle(
                                                       color: Color(0xff2c2c2c)),
                                                 ),
@@ -184,9 +234,7 @@ class _AllShopGamesState extends State<AllShopGames> {
                                                       CrossAxisAlignment.center,
                                                   children: [
                                                     Text(
-                                                      popular[index]
-                                                          .star
-                                                          .toString(),
+                                                (games?.games?[index].productRating).toString(),
                                                       style: TextStyle(
                                                           color: Color(
                                                               0xff2c2c2c)),
@@ -256,18 +304,22 @@ class _AllShopGamesState extends State<AllShopGames> {
     final Map<String, String> data = {};
 
     // data['uid'] = usermodal?.userData?.uid ?? "";
-    data['action'] = 'all_items';
+    data['action'] = 'all_game_page';
 
     checkInternet().then((internet) async {
       if (internet) {
         authprovider().shopapi(data).then((response) async {
-          shop = shopitemModal.fromJson(json.decode(response.body));
+          games = allgamesshopModal.fromJson(json.decode(response.body));
 
           if (response.statusCode == 200 && shop?.status == "success") {
             setState(() {
               isLoading = false;
             });
-          } else {}
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
         });
       } else {
         setState(() {

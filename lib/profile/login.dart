@@ -90,11 +90,12 @@ class _loginState extends State<login> {
                     child: Text(
                   "Jigsaw Puzzle",
                   style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 17.sp,
-                      letterSpacing: 2,
-                     fontFamily: 'Poppins',),
+                    color: Colors.black,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 17.sp,
+                    letterSpacing: 2,
+                    fontFamily: 'Poppins',
+                  ),
                 )),
                 SizedBox(
                   height: 5.h,
@@ -112,9 +113,12 @@ class _loginState extends State<login> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
-                              border: Border.all(color: secondary,),
+                              border: Border.all(
+                                color: secondary,
+                              ),
                               borderRadius: BorderRadius.circular(20)),
                           height: 7.5.h,
                           alignment: Alignment.center,
@@ -133,28 +137,32 @@ class _loginState extends State<login> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(contentPadding: EdgeInsets.only(top:1.5.h),
+                            decoration: InputDecoration(
+                                contentPadding: EdgeInsets.only(top: 1.5.h),
                                 enabledBorder: const UnderlineInputBorder(
                                     borderSide: BorderSide(
                                   color: Colors.transparent,
                                 )),
                                 focusedBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 errorBorder: const UnderlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.transparent),),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                ),
                                 suffixIcon: const Icon(
                                   Icons.person,
                                   color: Colors.black,
                                 ),
                                 hintText: "E-mail",
                                 errorStyle: TextStyle(
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 1,
                                     fontSize: 11.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 13.sp)),
                           ),
@@ -162,15 +170,16 @@ class _loginState extends State<login> {
                         SizedBox(
                           height: 2.h,
                         ),
-                        Container(padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
                           decoration: BoxDecoration(
-                             border: Border.all(color: secondary),
+                              border: Border.all(color: secondary),
                               borderRadius: BorderRadius.circular(15)),
                           height: 7.5.h,
                           alignment: Alignment.center,
                           child: TextFormField(
                             controller: _pasa,
-                            style:TextStyle(
+                            style: TextStyle(
                               color: Colors.black,
                               fontSize: 13.sp,
                               fontFamily: 'Poppins',
@@ -183,13 +192,19 @@ class _loginState extends State<login> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(contentPadding: EdgeInsets.only(top:1.5.h),errorBorder: const UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.transparent),),
+                            decoration: InputDecoration(
+                                contentPadding: EdgeInsets.only(top: 1.5.h),
+                                errorBorder: const UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                ),
                                 enabledBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 focusedBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 suffixIcon: const Icon(
                                   Icons.lock,
@@ -197,12 +212,12 @@ class _loginState extends State<login> {
                                 ),
                                 hintText: "Password",
                                 errorStyle: TextStyle(
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 1,
                                     fontSize: 11.sp),
                                 hintStyle: TextStyle(
                                     color: Colors.black87,
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 13.sp)),
                           ),
@@ -220,7 +235,7 @@ class _loginState extends State<login> {
                                 "Forgot Password?",
                                 style: TextStyle(
                                     color: primary,
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 12.sp),
                               )),
@@ -242,7 +257,7 @@ class _loginState extends State<login> {
                             child: Text("Login",
                                 style: TextStyle(
                                     color: Colors.white,
-                                  fontFamily: 'Poppins',
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 2,
                                     fontSize: 14.sp)),
                           ),
@@ -261,14 +276,19 @@ class _loginState extends State<login> {
                     // Text("Don't have an account ? ",style:TextStyle(color: Colors.grey.shade100,fontSize: 9.sp,fontFamily: 'Poppins',fontWeight: FontWeight.w400) ,),
                     TextButton(
                       onPressed: () {
-                        Get.to(signup());
+                        Get.to(
+                          signup(),
+                        );
                       },
-                      child: Text("New Member ?",
-                          style: TextStyle(
-                              color: primary,
-                              fontSize: 12.sp,
-                            fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w400)),
+                      child: Text(
+                        "New Member ?",
+                        style: TextStyle(
+                          color: primary,
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
                     )
                   ],
                 )
@@ -298,7 +318,7 @@ class _loginState extends State<login> {
               });
               await SaveDataLocal.saveLogInData(usermodal!);
 
-              Get.offAll(() =>  Startpage());
+              Get.offAll(() => Startpage());
             } else {
               buildErrorDialog(
                   context, "Login Error", 'Please Use Valid Credentials');

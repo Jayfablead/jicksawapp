@@ -3,8 +3,10 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Modal/characterModal.dart';
 import 'package:jicksaw/Modal/shopitemmodal.dart';
 import 'package:jicksaw/Shop/gameinfoshop.dart';
+import 'package:jicksaw/Widget/hexcolor.dart';
 
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/purchage/Charpurpage.dart';
@@ -129,7 +131,8 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
     // TODO: implement initState
     super.initState();
     // viewap();
-    // shopitems();
+     shopitems();
+
   }
 
   @override
@@ -166,19 +169,19 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
                         ),
                         shrinkWrap: true,
                         // scrollDirection: Axis.horizontal,
-                        itemCount: charcters.length,
+                        itemCount: chars?.characters?.length,
 
                         itemBuilder: (context, index) {
                           return InkWell(
                             onTap: () {
-                              Get.to(CharPurchased(
-                                pic: charcters[index].image,
-                              ));
+                              // Get.to(CharPurchased(
+                              //   pic: charcters[index].image,
+                              // ));
                             },
                             child: Container(
                               decoration: BoxDecoration(
-                                  color: charcters[index].btnclr,
-                                  border: Border.all(color: charcters[index].clr,),
+                                  color:HexColor.fromHex(chars?.characters?[index].bgColor ?? ''),
+                                  border: Border.all(color: HexColor.fromHex(chars?.characters?[index].bgColorBorder ?? ''),),
                                   borderRadius: BorderRadius.circular(20)),
                               padding: EdgeInsets.symmetric(
                                   horizontal: 4.w, vertical: 1.h),
@@ -198,7 +201,7 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
                                       child: CachedNetworkImage(
                                         fit: BoxFit.cover,
                                         imageUrl:
-                                            charcters[index].image.toString(),
+                                        (chars?.characters?[index].prodcutImg).toString(),
                                         progressIndicatorBuilder:
                                             (context, url, progress) =>
                                                 CircularProgressIndicator(),
@@ -218,9 +221,9 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
                                     child: Column(
                                       children: [
                                         Text(
-                                          charcters[index].name.toString(),
+                                          (chars?.characters?[index].productName).toString(),
                                           style: TextStyle(
-                                            color: charcters[index].clr,
+                                            color: HexColor.fromHex(chars?.characters?[index].bgColorBorder ?? ''),
                                             fontSize: 15.sp,fontWeight: FontWeight.w600,
                                             fontFamily: 'Poppins',
                                             letterSpacing: 1.5,
@@ -234,15 +237,13 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
                                                 MainAxisAlignment.center,
                                             children: [
                                               Text(
-                                                '\$ ${charcters[index].price ?? ''}',
+                                                '\$ ${(chars?.characters?[index].productPrice).toString()}',
                                                 style: TextStyle(fontSize: 13.sp,
                                                     color: Color(0xff2c2c2c)),
                                               ),
                                               SizedBox(height: 0.5.h),
                                               Text(
-                                                charcters[index]
-                                                    .star
-                                                    .toString(),
+                                                (chars?.characters?[index].productRating).toString(),
                                                 style: TextStyle(fontWeight: FontWeight.w600,fontSize: 13.sp,
                                                     color: Color(0xff2c2c2c)),
                                               ),
@@ -266,57 +267,34 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
     );
   }
 
-// viewap() {
-//   final Map<String, String> data = {};
-//
-//   data['uid'] = usermodal?.userData?.uid ?? "";
-//   data['action'] = 'profile_view_player';
-//
-//   checkInternet().then((internet) async {
-//     if (internet) {
-//       authprovider().profileviewapi(data).then((response) async {
-//         profileviewmodal =
-//             ProfileviewModal.fromJson(json.decode(response.body));
-//
-//         if (response.statusCode == 200 &&
-//             profileviewmodal?.status == "success") {
-//           setState(() {
-//             isLoading = false;
-//           });
-//         } else {}
-//       });
-//     } else {
-//       setState(() {
-//         isLoading = false;
-//       });
-//       buildErrorDialog(context, 'Error', "Internate Required");
-//     }
-//   });
-// }
-//
-// shopitems() {
-//   final Map<String, String> data = {};
-//
-//   // data['uid'] = usermodal?.userData?.uid ?? "";
-//   data['action'] = 'all_items';
-//
-//   checkInternet().then((internet) async {
-//     if (internet) {
-//       authprovider().shopapi(data).then((response) async {
-//         shop = shopitemModal.fromJson(json.decode(response.body));
-//
-//         if (response.statusCode == 200 && shop?.status == "success") {
-//           setState(() {
-//             isLoading = false;
-//           });
-//         } else {}
-//       });
-//     } else {
-//       setState(() {
-//         isLoading = false;
-//       });
-//       buildErrorDialog(context, 'Error', "Internate Required");
-//     }
-//   });
-// }
+  shopitems() {
+    final Map<String, String> data = {};
+
+    // data['uid'] = usermodal?.userData?.uid ?? "";
+    data['action'] = 'all_characters_page';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().charapi(data).then((response) async {
+          chars = allcharactershopModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && shop?.status == "success") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        setState(() {
+          isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
+
 }
