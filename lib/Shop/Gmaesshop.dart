@@ -132,142 +132,166 @@ class _AllShopGamesState extends State<AllShopGames> {
         key: _scaffoldKey,
         body: isLoading
             ? Container()
-            : SingleChildScrollView(
-                child: Container(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 4.w),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 3.h,
-                        ),
-                        GridView.builder(
-                          padding: EdgeInsets.zero,
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            mainAxisSpacing: 2.h,
-                            crossAxisSpacing: 2.w,
-                            childAspectRatio: 0.9,
-                          ),
-                          shrinkWrap: true,
-                          // scrollDirection: Axis.horizontal,
-                          itemCount: games?.games?.length,
+            : games?.games?.length == 0 || games?.games?.length == null
+                ? Container(
+                    height: 75.h,
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    child: Text(
+                      'No Games Available',
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 17.sp,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  )
+                : SingleChildScrollView(
+                    child: Container(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 4.w),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 3.h,
+                            ),
+                            GridView.builder(
+                              padding: EdgeInsets.zero,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                mainAxisSpacing: 2.h,
+                                crossAxisSpacing: 2.w,
+                                childAspectRatio: 0.85,
+                              ),
+                              shrinkWrap: true,
+                              // scrollDirection: Axis.horizontal,
+                              itemCount: games?.games?.length,
 
-                          itemBuilder: (context, index) {
-                            return InkWell(
-                              onTap: () {
-                                // Get.to(() => GameInfo(
-                                //       id: shop?.allItems?[index].itemId ?? '',
-                                //     ));
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    border:
-                                        Border.all(color: HexColor.fromHex(games?.games?[index].bgColorBorder ?? ''),),
-                                    color: HexColor.fromHex(games?.games?[index].bgColor ?? ''),
-                                    borderRadius: BorderRadius.circular(20)),
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 4.w, vertical: 1.h),
-                                margin: EdgeInsets.symmetric(horizontal: 1.w),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      height: 10.h,
-                                      width: 20.w,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20)),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(15),
-                                        child: CachedNetworkImage(
-                                          fit: BoxFit.cover,
-                                          imageUrl:
-                                              games?.games?[index].prodcutImg ?? '',
-                                          progressIndicatorBuilder:
-                                              (context, url, progress) =>
-                                                  CircularProgressIndicator(),
-                                          errorWidget: (context, url, error) =>
-                                              Image.asset(
-                                            'assets/12.png',
-                                            fit: BoxFit.cover,
-                                          ),
+                              itemBuilder: (context, index) {
+                                return InkWell(
+                                  onTap: () {
+                                    Get.to(() => Gameshopinfo(
+                                          id: games?.games?[index].productId ,
+                                        ));
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: HexColor.fromHex(games
+                                                  ?.games?[index]
+                                                  .bgColorBorder ??
+                                              ''),
                                         ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 1.h,
-                                    ),
-                                    Align(
-                                      alignment: Alignment.center,
-                                      child: Column(
-                                        children: [
-                                          Text(
-                                            (games?.games?[index].productName).toString(),
-                                            style: TextStyle(
-                                              color: HexColor.fromHex(games?.games?[index].bgColorBorder ?? ''),
-                                              fontSize: 15.sp,
-                                              fontWeight: FontWeight.w600,
-                                              fontFamily: 'Poppins',
-                                              letterSpacing: 1.5,
+                                        color: HexColor.fromHex(
+                                            games?.games?[index].bgColor ?? ''),
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 4.w, vertical: 1.h),
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 1.w),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 10.h,
+                                          width: 20.w,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                            child: CachedNetworkImage(
+                                              fit: BoxFit.cover,
+                                              imageUrl: games?.games?[index]
+                                                      .prodcutImg ??
+                                                  '',
+                                              progressIndicatorBuilder: (context,
+                                                      url, progress) =>
+                                                  CircularProgressIndicator(),
+                                              errorWidget:
+                                                  (context, url, error) =>
+                                                      Image.asset(
+                                                'assets/12.png',
+                                                fit: BoxFit.cover,
+                                              ),
                                             ),
                                           ),
-                                          Align(
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  '\$ ${games?.games?[index].productPrice.toString()}',
-                                                  style: TextStyle(
-                                                      color: Color(0xff2c2c2c)),
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Align(
+                                          alignment: Alignment.center,
+                                          child: Column(
+                                            children: [
+                                              Text(
+                                                (games?.games?[index]
+                                                        .productName)
+                                                    .toString(),
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  color: HexColor.fromHex(games
+                                                          ?.games?[index]
+                                                          .bgColorBorder ??
+                                                      ''),
+                                                  fontSize: 15.sp,
+                                                  fontWeight: FontWeight.w600,
+                                                  letterSpacing: 1.5,
                                                 ),
-                                                SizedBox(height: 0.5.h),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
+                                              ),
+                                              Align(
+                                                child: Column(
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.center,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
                                                   children: [
                                                     Text(
-                                                (games?.games?[index].productRating).toString(),
+                                                      '\$ ${games?.games?[index].productPrice.toString()} / ${games?.games?[index].productPoints.toString()} points',
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
                                                       style: TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 13.sp,
                                                           color: Color(
                                                               0xff2c2c2c)),
                                                     ),
-                                                    SizedBox(
-                                                      width: 1.w,
-                                                    ),
                                                     Text(
-                                                      '★',
+                                                      (games?.games?[index]
+                                                              .productDesc)
+                                                          .toString(),
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
                                                       style: TextStyle(
-                                                        color:
-                                                            Color(0xff8f8d8d),
-                                                      ),
+                                                          fontFamily: 'Poppins',
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontSize: 13.sp,
+                                                          color: Color(
+                                                              0xff2c2c2c)),
                                                     ),
                                                   ],
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              ),
       ),
     );
   }

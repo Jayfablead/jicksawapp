@@ -50,7 +50,7 @@ class _AddCardPageState extends State<AddCardPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // cardviewapi();
+     cardviewapi();
   }
 
   @override
@@ -527,38 +527,38 @@ class _AddCardPageState extends State<AddCardPage> {
           });
   }
 
-  // cardviewapi() {
-  //   final Map<String, String> data = {};
-  //   data['uid'] = (usermodal?.userData?.uid).toString();
-  //   data['action'] = 'get_user_cards';
-  //   print(data);
-  //   checkInternet().then((internet) async {
-  //     if (internet) {
-  //       authprovider().viewcardapi(data).then((response) async {
-  //         viewcard = viewcardModal.fromJson(json.decode(response.body));
-  //
-  //         if (response.statusCode == 200 && viewcard?.status == "success") {
-  //           setState(() {
-  //             isLoading = false;
-  //             _name.text = viewcard?.cardDetails?.cardName ?? '';
-  //             _num.text = viewcard?.cardDetails?.cardNumber ?? '';
-  //             _ed.text = viewcard?.cardDetails?.cardExpM ?? '';
-  //             _ey.text = viewcard?.cardDetails?.cardExpY ?? '';
-  //             _cvv.text = viewcard?.cardDetails?.cardCvv ?? '';
-  //             print(viewcard?.cardDetails?.cardId ?? '');
-  //           });
-  //         } else {
-  //           setState(() {
-  //             isLoading = false;
-  //           });
-  //         }
-  //       });
-  //     } else {
-  //       setState(() {
-  //         isLoading = false;
-  //       });
-  //       buildErrorDialog(context, 'Error', "Internate Required");
-  //     }
-  //   });
-  // }
+  cardviewapi() {
+    final Map<String, String> data = {};
+    data['uid'] = (usermodal?.userData?.uid).toString();
+    data['action'] = 'get_user_cards';
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().viewcardapi(data).then((response) async {
+          viewcard = viewcardModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && viewcard?.status == "success") {
+            setState(() {
+              isLoading = false;
+              _name.text = viewcard?.cardDetails?.cardName ?? '';
+              _num.text = viewcard?.cardDetails?.cardNumber ?? '';
+              _ed.text = viewcard?.cardDetails?.cardExpM ?? '';
+              _ey.text = viewcard?.cardDetails?.cardExpY ?? '';
+              _cvv.text = viewcard?.cardDetails?.cardCvv ?? '';
+              print(viewcard?.cardDetails?.cardId ?? '');
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        setState(() {
+          isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
 }

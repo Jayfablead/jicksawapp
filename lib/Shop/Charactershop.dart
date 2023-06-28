@@ -39,88 +39,42 @@ class game {
   game(this.image, this.name, this.clr, this.star, this.btnclr, {this.price});
 }
 
-
 List<game> charcters = [
-  game(
-      "https://cdn3d.iconscout.com/3d/premium/thumb/bear-6129368-5011612.png",
-      "Bear",
-      Colors.green.shade900,
-      'Character',
-      Color(0xffE1F8DC),
+  game("https://cdn3d.iconscout.com/3d/premium/thumb/bear-6129368-5011612.png",
+      "Bear", Colors.green.shade900, 'Character', Color(0xffE1F8DC),
       price: '0.99'),
-  game(
-      "https://cdn3d.iconscout.com/3d/premium/thumb/lion-6129372-5011616.png",
-      "Lion",
-      Colors.deepPurple,
-      'Character',
-      Color(0xffd4e0ff),
+  game("https://cdn3d.iconscout.com/3d/premium/thumb/lion-6129372-5011616.png",
+      "Lion", Colors.deepPurple, 'Character', Color(0xffd4e0ff),
       price: '2.99'),
-  game(
-      "https://cdn3d.iconscout.com/3d/premium/thumb/fox-7503935-6136921.png",
-      "Fox",
-      Colors.orange.shade900,
-      'Character',
-      Color(0xffffdcbe),
-      price: '1.99'),game(
-      "https://cdn3d.iconscout.com/3d/premium/thumb/bear-6129368-5011612.png",
-      "Bear",
-      Colors.green.shade900,
-      'Character',
-      Color(0xffE1F8DC),
+  game("https://cdn3d.iconscout.com/3d/premium/thumb/fox-7503935-6136921.png",
+      "Fox", Colors.orange.shade900, 'Character', Color(0xffffdcbe),
+      price: '1.99'),
+  game("https://cdn3d.iconscout.com/3d/premium/thumb/bear-6129368-5011612.png",
+      "Bear", Colors.green.shade900, 'Character', Color(0xffE1F8DC),
       price: '0.99'),
-  game(
-      "https://cdn3d.iconscout.com/3d/premium/thumb/lion-6129372-5011616.png",
-      "Lion",
-      Colors.deepPurple,
-      'Character',
-      Color(0xffd4e0ff),
+  game("https://cdn3d.iconscout.com/3d/premium/thumb/lion-6129372-5011616.png",
+      "Lion", Colors.deepPurple, 'Character', Color(0xffd4e0ff),
       price: '2.99'),
-  game(
-      "https://cdn3d.iconscout.com/3d/premium/thumb/fox-7503935-6136921.png",
-      "Fox",
-      Colors.orange.shade900,
-      'Character',
-      Color(0xffffdcbe),
-      price: '1.99'),game(
-      "https://cdn3d.iconscout.com/3d/premium/thumb/bear-6129368-5011612.png",
-      "Bear",
-      Colors.green.shade900,
-      'Character',
-      Color(0xffE1F8DC),
+  game("https://cdn3d.iconscout.com/3d/premium/thumb/fox-7503935-6136921.png",
+      "Fox", Colors.orange.shade900, 'Character', Color(0xffffdcbe),
+      price: '1.99'),
+  game("https://cdn3d.iconscout.com/3d/premium/thumb/bear-6129368-5011612.png",
+      "Bear", Colors.green.shade900, 'Character', Color(0xffE1F8DC),
       price: '0.99'),
-  game(
-      "https://cdn3d.iconscout.com/3d/premium/thumb/lion-6129372-5011616.png",
-      "Lion",
-      Colors.deepPurple,
-      'Character',
-      Color(0xffd4e0ff),
+  game("https://cdn3d.iconscout.com/3d/premium/thumb/lion-6129372-5011616.png",
+      "Lion", Colors.deepPurple, 'Character', Color(0xffd4e0ff),
       price: '2.99'),
-  game(
-      "https://cdn3d.iconscout.com/3d/premium/thumb/fox-7503935-6136921.png",
-      "Fox",
-      Colors.orange.shade900,
-      'Character',
-      Color(0xffffdcbe),
-      price: '1.99'),game(
-      "https://cdn3d.iconscout.com/3d/premium/thumb/bear-6129368-5011612.png",
-      "Bear",
-      Colors.green.shade900,
-      'Character',
-      Color(0xffE1F8DC),
+  game("https://cdn3d.iconscout.com/3d/premium/thumb/fox-7503935-6136921.png",
+      "Fox", Colors.orange.shade900, 'Character', Color(0xffffdcbe),
+      price: '1.99'),
+  game("https://cdn3d.iconscout.com/3d/premium/thumb/bear-6129368-5011612.png",
+      "Bear", Colors.green.shade900, 'Character', Color(0xffE1F8DC),
       price: '0.99'),
-  game(
-      "https://cdn3d.iconscout.com/3d/premium/thumb/lion-6129372-5011616.png",
-      "Lion",
-      Colors.deepPurple,
-      'Character',
-      Color(0xffd4e0ff),
+  game("https://cdn3d.iconscout.com/3d/premium/thumb/lion-6129372-5011616.png",
+      "Lion", Colors.deepPurple, 'Character', Color(0xffd4e0ff),
       price: '2.99'),
-  game(
-      "https://cdn3d.iconscout.com/3d/premium/thumb/fox-7503935-6136921.png",
-      "Fox",
-      Colors.orange.shade900,
-      'Character',
-      Color(0xffffdcbe),
+  game("https://cdn3d.iconscout.com/3d/premium/thumb/fox-7503935-6136921.png",
+      "Fox", Colors.orange.shade900, 'Character', Color(0xffffdcbe),
       price: '1.99'),
 ];
 bool isLoading = true;
@@ -131,121 +85,173 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
     // TODO: implement initState
     super.initState();
     // viewap();
-     shopitems();
-
+    shopitems();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( appBar: appbar1(
-        title1: 'All Characters',
-        press: () {
-          Get.back();
-        },
-        icn: Icon(Icons.arrow_back_ios_new_rounded),
-        act: () {},
-        icn1: Icon(null)),
-      key: _scaffoldKey,
-      body:  SingleChildScrollView(
-              child: Container(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 4.w),
-                  child: Column(
-                    children: [
+    return commanScreen(
+      isLoading: isLoading,
+      scaffold: Scaffold(
+        appBar: appbar1(
+            title1: 'All Characters',
+            press: () {
+              Get.back();
+            },
+            icn: Icon(Icons.arrow_back_ios_new_rounded),
+            act: () {},
+            icn1: Icon(null)),
+        key: _scaffoldKey,
+        body: isLoading
+            ? Container()
+            : chars?.characters?.length == 0 ||
+                    chars?.characters?.length == null
+                ? Container(
+                    height: 75.h,
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    child: Text(
+                      'No Characters Available',
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 17.sp,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  )
+                : SingleChildScrollView(
+                    child: Container(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 4.w),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 3.h,
+                            ),
+                            GridView.builder(
+                              padding: EdgeInsets.zero,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                mainAxisSpacing: 2.h,
+                                crossAxisSpacing: 2.w,
+                                childAspectRatio: 0.85,
+                              ),
+                              shrinkWrap: true,
+                              // scrollDirection: Axis.horizontal,
+                              itemCount: chars?.characters?.length,
 
-                      SizedBox(
-                        height: 3.h,
-                      ),
-
-
-                      GridView.builder(
-                        padding: EdgeInsets.zero,
-                        gridDelegate:
-                            SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 2.h,
-                          crossAxisSpacing: 2.w,
-                          childAspectRatio: 0.9,
-                        ),
-                        shrinkWrap: true,
-                        // scrollDirection: Axis.horizontal,
-                        itemCount: chars?.characters?.length,
-
-                        itemBuilder: (context, index) {
-                          return InkWell(
-                            onTap: () {
-                              // Get.to(CharPurchased(
-                              //   pic: charcters[index].image,
-                              // ));
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color:HexColor.fromHex(chars?.characters?[index].bgColor ?? ''),
-                                  border: Border.all(color: HexColor.fromHex(chars?.characters?[index].bgColorBorder ?? ''),),
-                                  borderRadius: BorderRadius.circular(20)),
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 4.w, vertical: 1.h),
-                              margin: EdgeInsets.symmetric(horizontal: 1.w),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 10.h,
-                                    width: 20.w,
+                              itemBuilder: (context, index) {
+                                return InkWell(
+                                  onTap: () {
+                                    // Get.to(CharPurchased(
+                                    //   pic: charcters[index].image,
+                                    // ));
+                                  },
+                                  child: Container(
                                     decoration: BoxDecoration(
+                                        color: HexColor.fromHex(
+                                            chars?.characters?[index].bgColor ??
+                                                ''),
+                                        border: Border.all(
+                                          color: HexColor.fromHex(chars
+                                                  ?.characters?[index]
+                                                  .bgColorBorder ??
+                                              ''),
+                                        ),
                                         borderRadius:
                                             BorderRadius.circular(20)),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(15),
-                                      child: CachedNetworkImage(
-                                        fit: BoxFit.cover,
-                                        imageUrl:
-                                        (chars?.characters?[index].prodcutImg).toString(),
-                                        progressIndicatorBuilder:
-                                            (context, url, progress) =>
-                                                CircularProgressIndicator(),
-                                        errorWidget: (context, url, error) =>
-                                            Image.asset(
-                                          'assets/12.png',
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
-                                  Align(
-                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 4.w, vertical: 1.h),
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 1.w),
                                     child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
-                                        Text(
-                                          (chars?.characters?[index].productName).toString(),
-                                          style: TextStyle(
-                                            color: HexColor.fromHex(chars?.characters?[index].bgColorBorder ?? ''),
-                                            fontSize: 15.sp,fontWeight: FontWeight.w600,
-                                            fontFamily: 'Poppins',
-                                            letterSpacing: 1.5,
+                                        Container(
+                                          height: 10.h,
+                                          width: 20.w,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                            child: CachedNetworkImage(
+                                              fit: BoxFit.cover,
+                                              imageUrl: (chars
+                                                      ?.characters?[index]
+                                                      .prodcutImg)
+                                                  .toString(),
+                                              progressIndicatorBuilder: (context,
+                                                      url, progress) =>
+                                                  CircularProgressIndicator(),
+                                              errorWidget:
+                                                  (context, url, error) =>
+                                                      Image.asset(
+                                                'assets/12.png',
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
                                           ),
                                         ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
                                         Align(
+                                          alignment: Alignment.center,
                                           child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
                                             children: [
                                               Text(
-                                                '\$ ${(chars?.characters?[index].productPrice).toString()}',
-                                                style: TextStyle(fontSize: 13.sp,
-                                                    color: Color(0xff2c2c2c)),
+                                                (chars?.characters?[index]
+                                                        .productName)
+                                                    .toString(),
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  color: HexColor.fromHex(chars
+                                                          ?.characters?[index]
+                                                          .bgColorBorder ??
+                                                      ''),
+                                                  fontSize: 15.sp,
+                                                  fontWeight: FontWeight.w600,
+                                                  letterSpacing: 1.5,
+                                                ),
                                               ),
-                                              SizedBox(height: 0.5.h),
-                                              Text(
-                                                (chars?.characters?[index].productRating).toString(),
-                                                style: TextStyle(fontWeight: FontWeight.w600,fontSize: 13.sp,
-                                                    color: Color(0xff2c2c2c)),
+                                              Align(
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      '\$ ${(chars?.characters?[index].productPrice).toString()} / ${(chars?.characters?[index].productPoints).toString()} points',
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 13.sp,
+                                                          color: Color(
+                                                              0xff2c2c2c)),
+                                                    ),
+                                                    Text(
+                                                      (chars?.characters?[index]
+                                                              .productDesc)
+                                                          .toString(),
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontSize: 13.sp,
+                                                          color: Color(
+                                                              0xff2c2c2c)),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                             ],
                                           ),
@@ -253,17 +259,15 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
                                       ],
                                     ),
                                   ),
-                                ],
-                              ),
+                                );
+                              },
                             ),
-                          );
-                        },
+                          ],
+                        ),
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-            ),
+      ),
     );
   }
 
@@ -278,7 +282,7 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
         authprovider().charapi(data).then((response) async {
           chars = allcharactershopModal.fromJson(json.decode(response.body));
 
-          if (response.statusCode == 200 && shop?.status == "success") {
+          if (response.statusCode == 200 && chars?.status == "success") {
             setState(() {
               isLoading = false;
             });
@@ -296,5 +300,4 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
       }
     });
   }
-
 }

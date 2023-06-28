@@ -29,7 +29,7 @@ class Characters {
   String? productName;
   String? productPrice;
   String? productPoints;
-  String? productRating;
+  String? productDesc;
   String? prodcutImg;
   String? bgColor;
   String? bgColorBorder;
@@ -39,7 +39,7 @@ class Characters {
         this.productName,
         this.productPrice,
         this.productPoints,
-        this.productRating,
+        this.productDesc,
         this.prodcutImg,
         this.bgColor,
         this.bgColorBorder});
@@ -49,7 +49,7 @@ class Characters {
     productName = json['product_name'];
     productPrice = json['product_price'];
     productPoints = json['product_points'];
-    productRating = json['product_rating'];
+    productDesc = json['product_desc'];
     prodcutImg = json['prodcut_img'];
     bgColor = json['bg_color'];
     bgColorBorder = json['bg_color_border'];
@@ -61,7 +61,7 @@ class Characters {
     data['product_name'] = this.productName;
     data['product_price'] = this.productPrice;
     data['product_points'] = this.productPoints;
-    data['product_rating'] = this.productRating;
+    data['product_desc'] = this.productDesc;
     data['prodcut_img'] = this.prodcutImg;
     data['bg_color'] = this.bgColor;
     data['bg_color_border'] = this.bgColorBorder;

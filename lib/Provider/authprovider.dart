@@ -88,6 +88,20 @@ class authprovider with ChangeNotifier{
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> pointsapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=all_points_page';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
   Future<http.Response> getimgapi(Map<String, dynamic> bodyData) async {
     const url = '$baseUrl/?action=image_chellenge';
     var responseJson;
@@ -228,8 +242,8 @@ class authprovider with ChangeNotifier{
     responseJson = responses(response);
     return responseJson;
   }
-  Future<http.Response> shopinfoapi(Map<String, dynamic> bodyData) async {
-    const url = '$baseUrl/?action=item_details';
+  Future<http.Response> gameinfoapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=single_game_page';
     var responseJson;
     final response = await http
         .post(Uri.parse(url), body: bodyData, headers: headers)

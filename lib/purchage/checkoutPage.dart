@@ -193,7 +193,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                   ),
                                   TextButton(
                                     onPressed: () {
-                                      Get.off(AddCardPage(
+                                      Get.to(AddCardPage(
                                         type: widget.type,
                                         price: widget.price,
                                         name: widget.name,
