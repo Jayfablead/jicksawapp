@@ -137,9 +137,9 @@ class _AllplayerspageState extends State<Allplayerspage> {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        Get.to(CharPurchased(
-                          pic: charcters[index].image,
-                        ));
+                        // Get.to(CharPurchased(
+                        //   pic: charcters[index].image,
+                        // ));
                       },
                       child: Container(
                         decoration: BoxDecoration(

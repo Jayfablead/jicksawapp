@@ -71,7 +71,8 @@ class _GameshopinfoState extends State<Gameshopinfo> {
                               borderRadius: BorderRadius.circular(20),
                               child: CachedNetworkImage(
                                 fit: BoxFit.cover,
-                                imageUrl: gameinfo?.gameDetails?.prodcutImg ?? '',
+                                imageUrl:
+                                    gameinfo?.gameDetails?.prodcutImg ?? '',
                                 progressIndicatorBuilder:
                                     (context, url, progress) =>
                                         CircularProgressIndicator(),
@@ -95,11 +96,11 @@ class _GameshopinfoState extends State<Gameshopinfo> {
                                   style: primarytxtbig,
                                 ),
                                 Text(
-                                  gameinfo?.gameDetails?.productRating ?? '',
+                                  gameinfo?.gameDetails?.productBrand ?? '',
                                   style: secondarytxt,
                                 ),
                                 Text(
-                                  "${ gameinfo?.gameDetails?.productRating ?? ''} ★ ",
+                                  "${gameinfo?.gameDetails?.productRating ?? ''} ★ ",
                                   style: secondarytxtwhite1,
                                 ),
                               ],
@@ -110,11 +111,12 @@ class _GameshopinfoState extends State<Gameshopinfo> {
                       InkWell(
                         onTap: () {
                           Get.to(PurchaseScreen(
-                            points:  gameinfo?.gameDetails?.productPoints ?? '',
-                            name:  gameinfo?.gameDetails?.productName ?? '',
-                            itemid:  gameinfo?.gameDetails?.productId ?? '',
-                            img:  gameinfo?.gameDetails?.prodcutImg ?? '',
+                            points: gameinfo?.gameDetails?.productPoints ?? '',
+                            name: gameinfo?.gameDetails?.productName ?? '',
+                            itemid: gameinfo?.gameDetails?.productId ?? '',
+                            img: gameinfo?.gameDetails?.prodcutImg ?? '',
                             price: gameinfo?.gameDetails?.productPrice ?? '',
+                            type: 0,
                           ));
                         },
                         child: Container(
@@ -127,7 +129,7 @@ class _GameshopinfoState extends State<Gameshopinfo> {
                               color: primary),
                           // padding: EdgeInsets.all(2.h),
                           child: Text(
-                            'Purchase (\$ ${ gameinfo?.gameDetails?.productPrice ?? ''} / ${ gameinfo?.gameDetails?.productPoints ?? ''} Points)',
+                            'Purchase (\$ ${gameinfo?.gameDetails?.productPrice ?? ''} / ${gameinfo?.gameDetails?.productPoints ?? ''} Points)',
                             style: TextStyle(
                               fontSize: 12.sp,
                               color: Colors.white,
@@ -169,39 +171,58 @@ class _GameshopinfoState extends State<Gameshopinfo> {
                             'Screenshots :',
                             style: secondarytxtwhite,
                           )),
-                      SizedBox(
-                        height: 30.h,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: 2.w, vertical: 2.h),
-                              height: 22.h,
-                              width: 70.w,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(15),
-                                child: CachedNetworkImage(
-                                  fit: BoxFit.cover,
-                                  imageUrl:  gameinfo?.gameDetails?.productMultiImg?[index] ??
-                                      '',
-                                  progressIndicatorBuilder:
-                                      (context, url, progress) => Center(
-                                          child: CircularProgressIndicator()),
-                                  errorWidget: (context, url, error) =>
-                                      Image.asset(
-                                    'assets/12.png',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
+                      gameinfo?.gameDetails?.productMultiImg?.length == 0 ||
+                              gameinfo?.gameDetails?.productMultiImg ==
+                                  null
+                          ? Container(
+                              alignment: Alignment.center,
+                              height: 30.h,
+                              width: double.infinity,
+                              child: Text(
+                                'No Images Available',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15.sp),
                               ),
-                            );
-                          },
-                          itemCount:  gameinfo?.gameDetails?.productMultiImg?.length,
-                        ),
-                      ),
+                            )
+                          : SizedBox(
+                              height: 30.h,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    margin: EdgeInsets.symmetric(
+                                        horizontal: 2.w, vertical: 2.h),
+                                    height: 22.h,
+                                    width: 70.w,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(15),
+                                      child: CachedNetworkImage(
+                                        fit: BoxFit.cover,
+                                        imageUrl: gameinfo?.gameDetails
+                                                ?.productMultiImg?[index] ??
+                                            '',
+                                        progressIndicatorBuilder:
+                                            (context, url, progress) => Center(
+                                                child:
+                                                    CircularProgressIndicator()),
+                                        errorWidget: (context, url, error) =>
+                                            Image.asset(
+                                          'assets/12.png',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                itemCount: gameinfo
+                                    ?.gameDetails?.productMultiImg?.length,
+                              ),
+                            ),
                       SizedBox(
                         height: 2.h,
                       )

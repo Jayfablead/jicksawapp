@@ -38,11 +38,26 @@ class OrderDetails {
   String? address;
   String? about;
   String? profilePic;
-  String? brand;
-  String? itemLogo;
-  String? ratings;
-  String? description;
-  String? screenshots;
+  String? characterImg;
+  String? name;
+  String? eMail;
+  String? role;
+  String? password;
+  String? forgotPassKey;
+  String? stripeCustId;
+  String? productId;
+  String? prodcutCatagoryId;
+  String? productBrand;
+  String? productName;
+  String? productDesc;
+  String? prodcutImg;
+  String? productPrice;
+  String? productPoints;
+  String? bgColor;
+  String? bgColorBorder;
+  String? productShortVideo;
+  String? productMultiImg;
+  String? productRating;
 
   OrderDetails(
       {this.orderId,
@@ -61,11 +76,26 @@ class OrderDetails {
         this.address,
         this.about,
         this.profilePic,
-        this.brand,
-        this.itemLogo,
-        this.ratings,
-        this.description,
-        this.screenshots});
+        this.characterImg,
+        this.name,
+        this.eMail,
+        this.role,
+        this.password,
+        this.forgotPassKey,
+        this.stripeCustId,
+        this.productId,
+        this.prodcutCatagoryId,
+        this.productBrand,
+        this.productName,
+        this.productDesc,
+        this.prodcutImg,
+        this.productPrice,
+        this.productPoints,
+        this.bgColor,
+        this.bgColorBorder,
+        this.productShortVideo,
+        this.productMultiImg,
+        this.productRating});
 
   OrderDetails.fromJson(Map<String, dynamic> json) {
     orderId = json['order_id'];
@@ -84,11 +114,26 @@ class OrderDetails {
     address = json['address'];
     about = json['about'];
     profilePic = json['profile_pic'];
-    brand = json['brand'];
-    itemLogo = json['item_logo'];
-    ratings = json['ratings'];
-    description = json['description'];
-    screenshots = json['screenshots'];
+    characterImg = json['character_img'];
+    name = json['name'];
+    eMail = json['e_mail'];
+    role = json['role'];
+    password = json['password'];
+    forgotPassKey = json['forgot_pass_key'];
+    stripeCustId = json['stripe_cust_id'];
+    productId = json['product_id'];
+    prodcutCatagoryId = json['prodcut_catagory_id'];
+    productBrand = json['product_brand'];
+    productName = json['product_name'];
+    productDesc = json['product_desc'];
+    prodcutImg = json['prodcut_img'];
+    productPrice = json['product_price'];
+    productPoints = json['product_points'];
+    bgColor = json['bg_color'];
+    bgColorBorder = json['bg_color_border'];
+    productShortVideo = json['product_short_video'];
+    productMultiImg = json['product_multi_img'];
+    productRating = json['product_rating'];
   }
 
   Map<String, dynamic> toJson() {
@@ -109,11 +154,26 @@ class OrderDetails {
     data['address'] = this.address;
     data['about'] = this.about;
     data['profile_pic'] = this.profilePic;
-    data['brand'] = this.brand;
-    data['item_logo'] = this.itemLogo;
-    data['ratings'] = this.ratings;
-    data['description'] = this.description;
-    data['screenshots'] = this.screenshots;
+    data['character_img'] = this.characterImg;
+    data['name'] = this.name;
+    data['e_mail'] = this.eMail;
+    data['role'] = this.role;
+    data['password'] = this.password;
+    data['forgot_pass_key'] = this.forgotPassKey;
+    data['stripe_cust_id'] = this.stripeCustId;
+    data['product_id'] = this.productId;
+    data['prodcut_catagory_id'] = this.prodcutCatagoryId;
+    data['product_brand'] = this.productBrand;
+    data['product_name'] = this.productName;
+    data['product_desc'] = this.productDesc;
+    data['prodcut_img'] = this.prodcutImg;
+    data['product_price'] = this.productPrice;
+    data['product_points'] = this.productPoints;
+    data['bg_color'] = this.bgColor;
+    data['bg_color_border'] = this.bgColorBorder;
+    data['product_short_video'] = this.productShortVideo;
+    data['product_multi_img'] = this.productMultiImg;
+    data['product_rating'] = this.productRating;
     return data;
   }
 }

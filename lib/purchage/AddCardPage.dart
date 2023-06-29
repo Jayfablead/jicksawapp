@@ -274,7 +274,7 @@ class _AddCardPageState extends State<AddCardPage> {
                                           BorderSide(color: Colors.transparent),
                                     ),
                                     suffixIcon: Icon(
-                                      Icons.code,
+                                      Icons.privacy_tip_outlined,
                                       color: Colors.black,
                                     ),
                                     hintText: "CVV",

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:jicksaw/Modal/pointshopModal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Widget/loader.dart';
+import 'package:jicksaw/purchage/checkoutPage.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Widget/buildErrorDialog.dart';
@@ -123,7 +124,16 @@ class _PointsShopState extends State<PointsShop> {
 
                           itemBuilder: (context, index) {
                             return InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Get.to(CheckoutPage(
+                                  imgs: points?.points?[index].prodcutImg ,
+                                  name: points?.points?[index].productName ,
+                                  price:points?.points?[index].productPrice ,
+                                  method:'Stripe',
+                                  itemid:points?.points?[index].productId ,
+                                  type: 3,
+                                ));
+                              },
                               child: Container(
                                 decoration: BoxDecoration(
                                     color: charcters[index].btnclr,

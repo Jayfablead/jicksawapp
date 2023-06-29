@@ -14,7 +14,11 @@ class PurchaseScreen extends StatefulWidget {
   String? price;
   String? itemid;
   String? points;
-   PurchaseScreen({Key? key,this.img,this.name,this.itemid,this.price,this.points}) : super(key: key);
+  int? type;
+
+  PurchaseScreen(
+      {Key? key, this.img, this.name, this.itemid, this.price, this.points,required this.type})
+      : super(key: key);
 
   @override
   State<PurchaseScreen> createState() => _PurchaseScreenState();
@@ -22,6 +26,7 @@ class PurchaseScreen extends StatefulWidget {
 
 class _PurchaseScreenState extends State<PurchaseScreen> {
   int _selectedValue = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +34,6 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
         Positioned(
           top: 0.h,
           child: Container(
-
             child: Stack(
               children: [
                 ClipRRect(
@@ -37,41 +41,50 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
                         Colors.black.withOpacity(0.5), BlendMode.darken),
-                    child: Image.asset('assets/wall.jpeg'
-                    ),
+                    child: Image.asset('assets/wall.jpeg'),
                   ),
                 ),
-                Positioned(top: 18.h,left: 5.w,child: SizedBox(width: 90.w,
-                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
+                Positioned(
+                    top: 18.h,
+                    left: 5.w,
+                    child: SizedBox(
+                      width: 90.w,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Purchasing ${widget.name} ',style: TextStyle(color: Colors.white,fontSize: 15.sp),),
-
-                        ],
-                      ),
-                      Container(
-                        height: 5.h,
-                        width: 11.w,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10)),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: CachedNetworkImage(
-                            fit: BoxFit.cover,
-                            imageUrl: widget.img.toString(),
-                            progressIndicatorBuilder: (context, url, progress) =>
-                                CircularProgressIndicator(),
-                            errorWidget: (context, url, error) => Image.asset(
-                              'assets/12.png',
-                              fit: BoxFit.cover,
+                          Row(
+                            children: [
+                              Text(
+                                'Purchasing ${widget.name} ',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 15.sp),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            height: 5.h,
+                            width: 11.w,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10)),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: CachedNetworkImage(
+                                fit: BoxFit.cover,
+                                imageUrl: widget.img.toString(),
+                                progressIndicatorBuilder:
+                                    (context, url, progress) =>
+                                        CircularProgressIndicator(),
+                                errorWidget: (context, url, error) =>
+                                    Image.asset(
+                                  'assets/12.png',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
-                ))
+                    ))
               ],
             ),
           ),
@@ -97,14 +110,14 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                       Text(
                         "Choose Your Payment Method",
                         style: TextStyle(
-                          fontSize: 14.sp, fontWeight: FontWeight.bold,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.bold,
                           fontFamily: 'Poppins',
                         ),
                       ),
                       GestureDetector(
                         onTap: () {
-                         Get.back();
-
+                          Get.back();
                         },
                         child: Icon(
                           Icons.cancel,
@@ -117,9 +130,11 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                 SizedBox(
                   height: 2.h,
                 ),
-                Container(height: 60.h,
+                Container(
+                  height: 60.h,
                   padding: EdgeInsets.symmetric(horizontal: 2.h),
-                  child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
                         children: [
@@ -139,12 +154,13 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                                 children: [
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
                                         "Stripe",
                                         style: TextStyle(
-                                          color: Colors.grey, fontSize: 11.sp,
+                                          color: Colors.grey,
+                                          fontSize: 11.sp,
                                           fontFamily: 'Poppins',
                                         ),
                                       ),
@@ -162,7 +178,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                                   ),
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
                                         "\$ ${widget.price}",
@@ -172,7 +188,6 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                                           fontFamily: 'Poppins',
                                         ),
                                       ),
-
                                     ],
                                   ),
                                   SizedBox(
@@ -185,13 +200,13 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                                         height: 4.h,
                                         width: 38.w,
                                         decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(20),
+                                            borderRadius:
+                                                BorderRadius.circular(20),
                                             color: Color(0xffeefbf5)),
                                         child: Text(
                                           "One Time Use Only",
-                                          style:
-                                          TextStyle(color: Color(0xffa0e1c1),
-
+                                          style: TextStyle(
+                                            color: Color(0xffa0e1c1),
                                             fontFamily: 'Poppins',
                                           ),
                                         ),
@@ -211,7 +226,8 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                                         child: Text(
                                           "then \$02.99 per use. discard anytime",
                                           style: TextStyle(
-                                            color: Colors.grey, fontSize: 12.sp,
+                                            color: Colors.grey,
+                                            fontSize: 12.sp,
                                             fontFamily: 'Poppins',
                                           ),
                                         ),
@@ -222,7 +238,9 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 4.h,),
+                          SizedBox(
+                            height: 4.h,
+                          ),
                           Container(
                             height: 20.h,
                             width: 100.w,
@@ -239,12 +257,13 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                                 children: [
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
                                         "Points",
                                         style: TextStyle(
-                                          color: Colors.grey, fontSize: 11.sp,
+                                          color: Colors.grey,
+                                          fontSize: 11.sp,
                                           fontFamily: 'Poppins',
                                         ),
                                       ),
@@ -262,7 +281,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                                   ),
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
                                         "${widget.points} Points",
@@ -272,7 +291,6 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                                           fontFamily: 'Poppins',
                                         ),
                                       ),
-
                                     ],
                                   ),
                                   SizedBox(
@@ -285,13 +303,13 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                                         height: 4.h,
                                         width: 38.w,
                                         decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(20),
+                                            borderRadius:
+                                                BorderRadius.circular(20),
                                             color: Color(0xffeefbf5)),
                                         child: Text(
                                           "One Time Use Only",
-                                          style:
-                                          TextStyle(color: Color(0xffa0e1c1),
-
+                                          style: TextStyle(
+                                            color: Color(0xffa0e1c1),
                                             fontFamily: 'Poppins',
                                           ),
                                         ),
@@ -311,7 +329,8 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                                         child: Text(
                                           "then 799 per use",
                                           style: TextStyle(
-                                            color: Colors.grey, fontSize: 12.sp,
+                                            color: Colors.grey,
+                                            fontSize: 12.sp,
                                             fontFamily: 'Poppins',
                                           ),
                                         ),
@@ -325,22 +344,30 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                         ],
                       ),
 
-
                       // SizedBox(height: 35.h,),
-                      InkWell(onTap:(){
-                        Get.to(CheckoutPage(imgs:widget.img,name: widget.name,price: widget.price,method: 'Stripe',itemid: widget.itemid,type: 0,));
-                      },
+                      InkWell(
+                        onTap: () {
+                          Get.to(CheckoutPage(
+                            imgs: widget.img,
+                            name: widget.name,
+                            price: widget.price,
+                            method: 'Stripe',
+                            itemid: widget.itemid,
+                            type: widget.type,
+                          ));
+                        },
                         child: Container(
                           alignment: Alignment.center,
                           height: 6.h,
                           width: 80.w,
-
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
-                              color: primary
-                          ),
-                          child: Text("Continue to Checkout",
-                            style: TextStyle(color: Colors.white, fontSize: 12.sp,
+                              color: primary),
+                          child: Text(
+                            "Continue to Checkout",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12.sp,
                               fontFamily: 'Poppins',
                             ),
                           ),
@@ -353,8 +380,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
             ),
           ),
         ),
-      ]
-      ),
+      ]),
     );
   }
 }

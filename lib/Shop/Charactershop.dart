@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Modal/characterModal.dart';
 import 'package:jicksaw/Modal/shopitemmodal.dart';
+import 'package:jicksaw/Shop/characterinfoshop.dart';
 import 'package:jicksaw/Shop/gameinfoshop.dart';
 import 'package:jicksaw/Widget/hexcolor.dart';
 
@@ -143,9 +144,9 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
                               itemBuilder: (context, index) {
                                 return InkWell(
                                   onTap: () {
-                                    // Get.to(CharPurchased(
-                                    //   pic: charcters[index].image,
-                                    // ));
+                                    Get.to(() => Characterinfo(
+                                      id: chars?.characters?[index].productId ,
+                                    ));
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(

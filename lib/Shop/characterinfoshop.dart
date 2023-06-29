@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Modal/characterinfoModal.dart';
 import 'package:jicksaw/Modal/gameinfoModal.dart';
 import 'package:jicksaw/Modal/shopinfoModal.dart';
 import 'package:jicksaw/Widget/loader.dart';
@@ -71,7 +72,7 @@ class _CharacterinfoState extends State<Characterinfo> {
                         borderRadius: BorderRadius.circular(20),
                         child: CachedNetworkImage(
                           fit: BoxFit.cover,
-                          imageUrl: gameinfo?.gameDetails?.prodcutImg ?? '',
+                          imageUrl: characterinfo?.gameDetails?.prodcutImg ?? '',
                           progressIndicatorBuilder:
                               (context, url, progress) =>
                               CircularProgressIndicator(),
@@ -91,15 +92,15 @@ class _CharacterinfoState extends State<Characterinfo> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            gameinfo?.gameDetails?.productName ?? '',
+                            characterinfo?.gameDetails?.productName ?? '',
                             style: primarytxtbig,
                           ),
                           Text(
-                            gameinfo?.gameDetails?.productRating ?? '',
+                            characterinfo?.gameDetails?.productBrand ?? '',
                             style: secondarytxt,
                           ),
                           Text(
-                            "${ gameinfo?.gameDetails?.productRating ?? ''} ★ ",
+                            "${ characterinfo?.gameDetails?.productRating ?? ''} ★ ",
                             style: secondarytxtwhite1,
                           ),
                         ],
@@ -109,12 +110,12 @@ class _CharacterinfoState extends State<Characterinfo> {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to(PurchaseScreen(
-                      points:  gameinfo?.gameDetails?.productPoints ?? '',
-                      name:  gameinfo?.gameDetails?.productName ?? '',
-                      itemid:  gameinfo?.gameDetails?.productId ?? '',
-                      img:  gameinfo?.gameDetails?.prodcutImg ?? '',
-                      price: gameinfo?.gameDetails?.productPrice ?? '',
+                    Get.to(PurchaseScreen(type: 1,
+                      points: characterinfo?.gameDetails?.productPoints ?? '',
+                      name:  characterinfo?.gameDetails?.productName ?? '',
+                      itemid:  characterinfo?.gameDetails?.productId ?? '',
+                      img:  characterinfo?.gameDetails?.prodcutImg ?? '',
+                      price:characterinfo?.gameDetails?.productPrice ?? '',
                     ));
                   },
                   child: Container(
@@ -127,7 +128,7 @@ class _CharacterinfoState extends State<Characterinfo> {
                         color: primary),
                     // padding: EdgeInsets.all(2.h),
                     child: Text(
-                      'Purchase (\$ ${ gameinfo?.gameDetails?.productPrice ?? ''} / ${ gameinfo?.gameDetails?.productPoints ?? ''} Points)',
+                      'Purchase (\$ ${ characterinfo?.gameDetails?.productPrice ?? ''} / ${ characterinfo?.gameDetails?.productPoints ?? ''} Points)',
                       style: TextStyle(
                         fontSize: 12.sp,
                         color: Colors.white,
@@ -154,7 +155,7 @@ class _CharacterinfoState extends State<Characterinfo> {
                   height: 0.5.h,
                 ),
                 Text(
-                  gameinfo?.gameDetails?.productDesc ?? '',
+                  characterinfo?.gameDetails?.productDesc ?? '',
                   style: secondarytxtwhite1,
                 ),
                 SizedBox(
@@ -169,7 +170,22 @@ class _CharacterinfoState extends State<Characterinfo> {
                       'Screenshots :',
                       style: secondarytxtwhite,
                     )),
-                SizedBox(
+                characterinfo?.gameDetails?.productMultiImg?.length == 0 ||
+                    characterinfo?.gameDetails?.productMultiImg ==
+                        null
+                    ? Container(
+                  alignment: Alignment.center,
+                  height: 30.h,
+                  width: double.infinity,
+                  child: Text(
+                    'No Images Available',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15.sp),
+                  ),
+                )
+                    :  SizedBox(
                   height: 30.h,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
@@ -185,7 +201,7 @@ class _CharacterinfoState extends State<Characterinfo> {
                           borderRadius: BorderRadius.circular(15),
                           child: CachedNetworkImage(
                             fit: BoxFit.cover,
-                            imageUrl:  gameinfo?.gameDetails?.productMultiImg?[index] ??
+                            imageUrl:  characterinfo?.gameDetails?.productMultiImg?[index] ??
                                 '',
                             progressIndicatorBuilder:
                                 (context, url, progress) => Center(
@@ -199,7 +215,7 @@ class _CharacterinfoState extends State<Characterinfo> {
                         ),
                       );
                     },
-                    itemCount:  gameinfo?.gameDetails?.productMultiImg?.length,
+                    itemCount:  characterinfo?.gameDetails?.productMultiImg?.length,
                   ),
                 ),
                 SizedBox(
@@ -217,15 +233,15 @@ class _CharacterinfoState extends State<Characterinfo> {
     final Map<String, String> data = {};
 
     // data['uid'] = usermodal?.userData?.uid ?? "";
-    data['action'] = 'single_game_page';
+    data['action'] = 'single_characters_page';
     data['product_id'] = widget.id.toString();
 
     checkInternet().then((internet) async {
       if (internet) {
-        authprovider().gameinfoapi(data).then((response) async {
-          gameinfo = gameinfoModal.fromJson(json.decode(response.body));
+        authprovider().characterinfoapi(data).then((response) async {
+          characterinfo = characterinfoModal.fromJson(json.decode(response.body));
 
-          if (response.statusCode == 200 && gameinfo?.status == "success") {
+          if (response.statusCode == 200 && characterinfo?.status == "success") {
             setState(() {
               isLoading = false;
             });

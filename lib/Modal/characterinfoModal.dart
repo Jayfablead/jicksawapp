@@ -1,10 +1,28 @@
-class gameinfoModal {
+// {
+// "status": "success",
+// "game_details": {
+// "product_id": "17",
+// "product_name": "Lion",
+// "product_desc": "this is lion ",
+// "product_price": "40",
+// "product_points": "4000",
+// "product_multi_img": [
+// "http://jigsaw.fableadtechnolabs.com/assets/shop_images/download (2).jfif",
+// "http://jigsaw.fableadtechnolabs.com/assets/shop_images/download (1).jfif"
+// ],
+// "product_rating": null,
+// "prodcut_img": "http://jigsaw.fableadtechnolabs.com/assets/shop_images/2.png",
+// "bg_color": "#fbbdff",
+// "bg_color_border": "#8800ad"
+// }
+// }
+class characterinfoModal {
   String? status;
   GameDetails? gameDetails;
 
-  gameinfoModal({this.status, this.gameDetails});
+  characterinfoModal({this.status, this.gameDetails});
 
-  gameinfoModal.fromJson(Map<String, dynamic> json) {
+  characterinfoModal.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     gameDetails = json['game_details'] != null
         ? new GameDetails.fromJson(json['game_details'])
@@ -77,3 +95,4 @@ class GameDetails {
     return data;
   }
 }
+
