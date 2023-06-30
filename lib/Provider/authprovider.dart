@@ -74,6 +74,48 @@ class authprovider with ChangeNotifier{
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> purgamesapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=user_purchased_games';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> purcharcsapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=user_purchased_character';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> purpoitsapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=user_purchased_points';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
   Future<http.Response> charapi(Map<String, dynamic> bodyData) async {
     const url = '$baseUrl/?action=all_characters_page';
     var responseJson;

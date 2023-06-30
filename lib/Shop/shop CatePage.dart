@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Purchased/purchasedCategories.dart';
 import 'package:jicksaw/Shop/Charactershop.dart';
 import 'package:jicksaw/Shop/Gmaesshop.dart';
 import 'package:jicksaw/Shop/Pointsshop.dart';
@@ -427,7 +428,7 @@ class _ShopCategoryState extends State<ShopCategory> {
                               ),
                               InkWell(
                                 onTap: () {
-                                  Get.to(() => MyPurchasedGames());
+                                  Get.to(() => PurchasedCategory());
                                 },
                                 child: Container(
                                   height: 23.h,

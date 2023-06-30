@@ -4,6 +4,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:jicksaw/Purchased/allpurchasedCharacters.dart';
+import 'package:jicksaw/Purchased/allpurchasedGames.dart';
+import 'package:jicksaw/Purchased/allpurchasedPoints.dart';
 import 'package:jicksaw/profile/Forgot%20Password.dart';
 import 'package:jicksaw/Screen/Homepage.dart';
 import 'package:jicksaw/Widget/loader.dart';
@@ -248,7 +251,7 @@ class _settingState extends State<setting> {
                                   ),
                                   InkWell(
                                     onTap: () {
-                                    Get.to(MyPurchasedGames());
+                                    Get.to(AllPurchasedGames());
                                     },
                                     child: Row(
                                       mainAxisAlignment:
@@ -256,6 +259,48 @@ class _settingState extends State<setting> {
                                       children: [
                                         Text(
                                           'My Purchased Games',
+                                          style: TextStyle(
+                                            fontSize: 13.sp,
+                                            fontFamily: 'Poppins',
+                                          ),
+                                        ),
+                                        Icon(Icons.arrow_forward_ios)
+                                      ],
+                                    ),
+                                  ), SizedBox(
+                                    height: 2.h,
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                    Get.to(AllPurchasedCharacters());
+                                    },
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'My Purchased Characters',
+                                          style: TextStyle(
+                                            fontSize: 13.sp,
+                                            fontFamily: 'Poppins',
+                                          ),
+                                        ),
+                                        Icon(Icons.arrow_forward_ios)
+                                      ],
+                                    ),
+                                  ), SizedBox(
+                                    height: 2.h,
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                    Get.to(AllPurchasedPoints());
+                                    },
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'My Purchased Points',
                                           style: TextStyle(
                                             fontSize: 13.sp,
                                             fontFamily: 'Poppins',
