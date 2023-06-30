@@ -31,29 +31,30 @@ class _SplashScreenState extends State<SplashScreen> {
     getdata();
     Timer(
       const Duration(seconds: 5),
-          () => (usermodal == null)
-          ?Get.offAll(Initscreen())
-          :Get.offAll(Startpage()) ,
+      () => (usermodal == null)
+          ? Get.offAll(Initscreen())
+          : Get.offAll(Startpage()),
     );
   }
-  getdata()async{
-    usermodal =  await SaveDataLocal.getDataFromLocal();
+
+  getdata() async {
+    usermodal = await SaveDataLocal.getDataFromLocal();
   }
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [SizedBox(
-            height: 3.h,
-          ),
+          children: [
+            SizedBox(
+              height: 3.h,
+            ),
             Container(
               height: 60.h,
               width: 85.w,
-
               child: Lottie.asset('assets/splash/cube.json'),
             ),
             SizedBox(
@@ -63,10 +64,14 @@ class _SplashScreenState extends State<SplashScreen> {
               children: [
                 Container(
                   height: 20.h,
-                  width:100.w,
+                  width: 100.w,
                   child: Lottie.asset('assets/splash/circle.json'),
                 ),
-                Text('Please Wait ...',style: TextStyle(color: primary,fontSize: 13.sp,fontFamily: 'Poppins'),)
+                Text(
+                  'Please Wait ...',
+                  style: TextStyle(
+                      color: primary, fontSize: 13.sp, fontFamily: 'Poppins'),
+                )
               ],
             ),
           ],
