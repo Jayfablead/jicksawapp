@@ -51,7 +51,7 @@ gameModal? gamedata;
 editModal? edit;
 shopitemModal? shop;
 shopinfoModal? shopitem;
-AllplayersModal? players;
+AllplayersApiModal? players;
 addcardModal? addcard;
 viewcardModal? viewcard;
 subscribeModal? subs;

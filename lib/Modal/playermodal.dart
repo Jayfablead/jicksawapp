@@ -1,10 +1,10 @@
-class AllplayersModal {
+class AllplayersApiModal {
   String? status;
   List<AllPlayers>? allPlayers;
 
-  AllplayersModal({this.status, this.allPlayers});
+  AllplayersApiModal({this.status, this.allPlayers});
 
-  AllplayersModal.fromJson(Map<String, dynamic> json) {
+  AllplayersApiModal.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     if (json['all_players'] != null) {
       allPlayers = <AllPlayers>[];
@@ -31,6 +31,7 @@ class AllPlayers {
   String? role;
   String? password;
   String? forgotPassKey;
+  Null? stripeCustId;
   String? createdAt;
   String? id;
   String? phone;
@@ -38,6 +39,10 @@ class AllPlayers {
   String? address;
   String? about;
   String? profilePic;
+  String? gamePoints;
+  String? bgColor;
+  String? bgBorderColor;
+  String? characterImg;
 
   AllPlayers(
       {this.uid,
@@ -46,13 +51,18 @@ class AllPlayers {
         this.role,
         this.password,
         this.forgotPassKey,
+        this.stripeCustId,
         this.createdAt,
         this.id,
         this.phone,
         this.age,
         this.address,
         this.about,
-        this.profilePic});
+        this.profilePic,
+        this.gamePoints,
+        this.bgColor,
+        this.bgBorderColor,
+        this.characterImg});
 
   AllPlayers.fromJson(Map<String, dynamic> json) {
     uid = json['uid'];
@@ -61,6 +71,7 @@ class AllPlayers {
     role = json['role'];
     password = json['password'];
     forgotPassKey = json['forgot_pass_key'];
+    stripeCustId = json['stripe_cust_id'];
     createdAt = json['created_at'];
     id = json['id'];
     phone = json['phone'];
@@ -68,6 +79,10 @@ class AllPlayers {
     address = json['address'];
     about = json['about'];
     profilePic = json['profile_pic'];
+    gamePoints = json['game_points'];
+    bgColor = json['bg_color'];
+    bgBorderColor = json['bg_border_color'];
+    characterImg = json['character_img'];
   }
 
   Map<String, dynamic> toJson() {
@@ -78,6 +93,7 @@ class AllPlayers {
     data['role'] = this.role;
     data['password'] = this.password;
     data['forgot_pass_key'] = this.forgotPassKey;
+    data['stripe_cust_id'] = this.stripeCustId;
     data['created_at'] = this.createdAt;
     data['id'] = this.id;
     data['phone'] = this.phone;
@@ -85,6 +101,10 @@ class AllPlayers {
     data['address'] = this.address;
     data['about'] = this.about;
     data['profile_pic'] = this.profilePic;
+    data['game_points'] = this.gamePoints;
+    data['bg_color'] = this.bgColor;
+    data['bg_border_color'] = this.bgBorderColor;
+    data['character_img'] = this.characterImg;
     return data;
   }
 }

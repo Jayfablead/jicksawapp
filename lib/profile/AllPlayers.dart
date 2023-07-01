@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Modal/playermodal.dart';
 import 'package:jicksaw/Modal/shopitemmodal.dart';
 import 'package:jicksaw/Shop/gameinfoshop.dart';
 
@@ -98,7 +99,6 @@ class _AllplayerspageState extends State<Allplayerspage> {
     // TODO: implement initState
     super.initState();
     // viewap();
-    // shopitems();
   }
 
   @override
@@ -128,7 +128,7 @@ class _AllplayerspageState extends State<Allplayerspage> {
                     crossAxisCount: 2,
                     mainAxisSpacing: 2.h,
                     crossAxisSpacing: 2.w,
-                    childAspectRatio: 0.78,
+                    childAspectRatio: 0.6,
                   ),
                   shrinkWrap: true,
                   // scrollDirection: Axis.horizontal,
@@ -201,14 +201,33 @@ class _AllplayerspageState extends State<Allplayerspage> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Points ${index + 10}',
+                                          'Email dsnndfndsjfnkdjsfkjsdbfjkdsbfjdksbfjkdsbf',maxLines: 2,
                                           style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontWeight:
+                                              FontWeight.w600,
                                               fontSize: 13.sp,
                                               color: Color(0xff2c2c2c)),
                                         ),
-                                        SizedBox(
-                                          height: 0.h,
+                                        Text(
+                                          'Points ${index + 10}',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontWeight:
+                                              FontWeight.w500,
+                                              fontSize: 13.sp,
+                                              color: Color(0xff2c2c2c)),
                                         ),
+                                        Text(
+                                          'About ${index + 10}', overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontWeight:
+                                              FontWeight.w500,
+                                              fontSize: 13.sp,
+                                              color: Color(0xff2c2c2c)),
+                                        ),
+
                                         InkWell(
                                           onTap: () {},
                                           child: Container(
@@ -279,29 +298,33 @@ class _AllplayerspageState extends State<Allplayerspage> {
 //   });
 // }
 //
-// shopitems() {
-//   final Map<String, String> data = {};
-//
-//   // data['uid'] = usermodal?.userData?.uid ?? "";
-//   data['action'] = 'all_items';
-//
-//   checkInternet().then((internet) async {
-//     if (internet) {
-//       authprovider().shopapi(data).then((response) async {
-//         shop = shopitemModal.fromJson(json.decode(response.body));
-//
-//         if (response.statusCode == 200 && shop?.status == "success") {
-//           setState(() {
-//             isLoading = false;
-//           });
-//         } else {}
-//       });
-//     } else {
-//       setState(() {
-//         isLoading = false;
-//       });
-//       buildErrorDialog(context, 'Error', "Internate Required");
-//     }
-//   });
-// }
+  shopitems() {
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['action'] = 'all_players';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().getplayers(data).then((response) async {
+          players = AllplayersApiModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && players?.status == "success") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        setState(() {
+          isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
 }
