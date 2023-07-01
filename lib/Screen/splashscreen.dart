@@ -32,8 +32,12 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
       const Duration(seconds: 5),
       () => (usermodal == null)
-          ? Get.offAll(Initscreen())
-          : Get.offAll(Startpage()),
+          ? Get.offAll(
+              Initscreen(),
+            )
+          : Get.offAll(
+              Startpage(),
+            ),
     );
   }
 
