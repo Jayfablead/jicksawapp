@@ -32,6 +32,7 @@ class _signupState extends State<signup> {
   TextEditingController _pasa = TextEditingController();
   TextEditingController _phone = TextEditingController();
   TextEditingController _conf = TextEditingController();
+  TextEditingController _age = TextEditingController();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -211,6 +212,57 @@ class _signupState extends State<signup> {
                                   color: Colors.black,
                                 ),
                                 hintText: "Email",
+                                errorStyle: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 1,
+                                    fontSize: 13.sp),
+                                hintStyle: TextStyle(
+                                    color: Colors.black87,
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 2,
+                                    fontSize: 13.sp)),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                          decoration: BoxDecoration(
+                              border: Border.all(color: secondary,),
+                              borderRadius: BorderRadius.circular(20)),
+                          height: 7.5.h,
+                          alignment: Alignment.center,
+                          child: TextFormField(
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: 'Poppins',
+                                letterSpacing: 2,
+                                fontSize: 13.sp),
+                            controller: _age,
+                            keyboardType: TextInputType.numberWithOptions(),
+                            validator: (value) {
+
+                              if (value!.isEmpty) {
+                                return "Please enter the Age";
+                              }
+
+                            },
+                            decoration: InputDecoration(
+                                contentPadding: EdgeInsets.only(top: 1.5.h),
+                                errorBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.transparent),),
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.transparent),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.transparent),
+                                ),
+                                suffixIcon: Icon(
+                                  Icons.person_outline_outlined,
+                                  color: Colors.black,
+                                ),
+                                hintText: "Age",
                                 errorStyle: TextStyle(
                                     fontFamily: 'Poppins',
                                     letterSpacing: 1,
@@ -466,6 +518,7 @@ class _signupState extends State<signup> {
       data['confirm_password'] = _conf.text.trim().toString();
       data['username'] = _user.text.trim().toString();
       data['phone'] = _phone.text.trim().toString();
+      data['age'] = _age.text.trim().toString();
       data['action'] = 'signup_player';
       print(data);
       checkInternet().then((internet) async {

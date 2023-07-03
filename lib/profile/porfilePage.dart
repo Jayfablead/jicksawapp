@@ -318,7 +318,7 @@ class _MyProfileState extends State<MyProfile> {
                                     style: appname,
                                   ),
                                 ),
-                                lenght <= 32
+                                lenght <= 47
                                     ? Container()
                                     : Container(
                                         padding: EdgeInsets.only(

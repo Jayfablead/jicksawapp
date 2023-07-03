@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Modal/randomQuestionApiModal.dart';
 
 
 import 'package:jicksaw/Widget/loader.dart';
@@ -45,12 +46,14 @@ class _questionState extends State<question> {
       scaffold: Scaffold(
         body: isloading
             ? Container()
-            : questions?.getQuestionRandom?.quetionsOptions?.length == null || questions?.getQuestionRandom?.quetionsOptions?.length == 0|| questions?.getQuestionRandom?.quetionsOptions?.length == null ?Container(height: 75.h,alignment: Alignment.center,child: Text('No Questions Available For You',style: TextStyle(
+            : randomque?.getQuestionRandom?.quetionsOptions?.length == null || randomque?.getQuestionRandom?.quetionsOptions?.length == 0|| randomque?.getQuestionRandom?.quetionsOptions?.length == null ?Center(
+              child: Text('No Questions Available For You',style: TextStyle(
           color: Colors.black,
           fontSize: 14.sp,
           fontFamily: 'Poppins',
           letterSpacing: 2,
-        ),),):Column(
+        ),),
+            ):Column(
                 children: [
                   SizedBox(
                     height: 7.h,
@@ -140,7 +143,7 @@ class _questionState extends State<question> {
                     child: Column(
                       children: [
                         Text(
-                    questions?.getQuestionRandom?.questionTitle ?? '',
+                    randomque?.getQuestionRandom?.questionTitle ?? '',
                           style: TextStyle(
                               fontSize: 13.sp,
                               color: primary,
@@ -150,17 +153,20 @@ class _questionState extends State<question> {
                       ],
                     ),
                   ),
+                  Image.asset('assets/mon.png',
+                      height: 22.8.h, width: 100.w, fit: BoxFit.cover),
+
                   ListView.builder(
                     padding: EdgeInsets.symmetric(horizontal: 3.w),
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: questions?.getQuestionRandom?.quetionsOptions?.length,
+                    itemCount: randomque?.getQuestionRandom?.quetionsOptions?.length,
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
                           setState(() {
                             ans = index;
-                            op = questions?.getQuestionRandom?.quetionsOptions?[index].isChecked;
+                            op = randomque?.getQuestionRandom?.quetionsOptions?[index].isChecked;
                           });
                         },
                         child: Container(
@@ -178,7 +184,7 @@ class _questionState extends State<question> {
                                   color: primary),
                           padding: EdgeInsets.all(1.5.h),
                           child: Text(
-                            questions?.getQuestionRandom?.quetionsOptions?[index].optionText ?? '',
+                            randomque?.getQuestionRandom?.quetionsOptions?[index].optionText ?? '',
                             style: TextStyle(
                               fontSize: 13.sp,
                               color: ans == index ? primary : Colors.white,
@@ -192,8 +198,7 @@ class _questionState extends State<question> {
                       ?SizedBox():SizedBox(
                     height:12.h,
                   ),
-                  Image.asset('assets/mon.png',
-                      height: 23.h, width: 100.w, fit: BoxFit.cover),
+
                   SizedBox(height: 1.5.h,),
                   ans != 5
                       ? InkWell(
@@ -229,33 +234,33 @@ class _questionState extends State<question> {
   ques() {
     final Map<String, String> data = {};
 
-    // data['uid'] = usermodal?.userData?.uid ?? "";
-    data['action'] = 'get_que_from_cata_age';
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['action'] = 'random_que';
     data['catagory_id'] = widget.catId.toString();
-    data['age'] = widget.ageId.toString();
+
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  ${data}");
-    print(questions?.getQuestionRandom?.quetionsOptions?.length);
+    print(randomque?.getQuestionRandom?.quetionsOptions?.length);
     checkInternet().then((internet) async {
       if (internet) {
         authprovider().getques(data).then((response) async {
-          questions = QuestionsModal.fromJson(json.decode(response.body));
+          randomque = randomQuestionApiModal.fromJson(json.decode(response.body));
 
-          if (response.statusCode == 200 && questions?.status == "success") {
-            print(questions?.getQuestionRandom?.quetionsOptions?.length);
+          if (response.statusCode == 200 && randomque?.status == "success") {
+            print(randomque?.getQuestionRandom?.quetionsOptions?.length);
             setState(() {
               isloading = false;
             });
           } else {
             setState(() {
               isloading = false;
-              print(questions?.getQuestionRandom?.quetionsOptions?.length);
+              print(randomque?.getQuestionRandom?.quetionsOptions?.length);
             });
           }
         });
       } else {
         setState(() {
           isloading = false;
-          print(questions?.getQuestionRandom?.quetionsOptions?.length);
+          print(randomque?.getQuestionRandom?.quetionsOptions?.length);
         });
         buildErrorDialog(context, 'Error', "Internate Required");
       }

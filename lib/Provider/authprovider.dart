@@ -360,7 +360,7 @@ class authprovider with ChangeNotifier{
     return responseJson;
   }
   Future<http.Response> getques(Map<String, String> bodyData) async {
-    const url = '$baseUrl/?action=get_que_from_cata_age';
+    const url = '$baseUrl/?action=random_que';
     var responseJson;
     final response = await http
         .post(Uri.parse(url), body: bodyData, headers: headers)

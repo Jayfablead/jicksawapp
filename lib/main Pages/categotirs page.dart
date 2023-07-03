@@ -7,6 +7,7 @@ import 'package:jicksaw/Modal/categryModal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:jicksaw/Widget/loader.dart';
+import 'package:jicksaw/main%20Pages/question.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Widget/buildErrorDialog.dart';
@@ -184,6 +185,7 @@ class _CategState extends State<Categ> {
                                   child: InkWell(
                                     onTap: () {
                                       print(categories?.allCategories?[index].catagoryName);
+                                      Get.to(question(catId: categories?.allCategories?[index].id ,));
                                     },
                                     child: Container(
                                       height: 6.h,
