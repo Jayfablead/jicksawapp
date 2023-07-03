@@ -31,7 +31,7 @@ class AllPlayers {
   String? role;
   String? password;
   String? forgotPassKey;
-  Null? stripeCustId;
+  String? stripeCustId;
   String? createdAt;
   String? id;
   String? phone;

@@ -365,15 +365,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
             Get.to(design(
 
               cat: selectedcate,
-              age: selectedagei == 1
-                  ? '18'
-                  : selectedagei == 2
-                      ? '23'
-                      : selectedagei == 3
-                          ? '28'
-                          : selectedagei == 4
-                              ? '35'
-                              : '36',
+
             ));
             Get.snackbar(
               "Game Started",

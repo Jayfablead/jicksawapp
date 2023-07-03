@@ -49,6 +49,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
     cardviewapi();
     print(widget.type);
      print(widget.itemid) ;
@@ -178,9 +179,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             borderRadius: BorderRadius.circular(10)),
                         child: Padding(
                           padding: EdgeInsets.all(3.w),
-                          child: Column(
+                          child: viewcard?.cardDetails == null || viewcard?.cardDetails == {} ?TextButton(onPressed: (){Get.to(AddCardPage(type: 2));}, child: Text('Add Your Card',style: TextStyle(fontSize: 15.sp,fontFamily: 'Poppins'),)):Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -258,7 +260,12 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               SizedBox(
                                 height: 2.h,
                               ),
-                              widget.type == 2?Text('Subscription plan'):Row(
+                              widget.type == 2?Row(
+                                children: [
+                                  Text('${widget.method} Subscription plan',style:
+                                  TextStyle( fontSize: 15.sp),),
+                                ],
+                              ):Row(
                                       children: [
                                         Container(
                                           height: 5.h,
@@ -314,7 +321,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     ),
                     InkWell(
                       onTap: () {
-                      widget.type == 2?Subsapi(): paymentapi();
+                     viewcard?.cardDetails == null || viewcard?.cardDetails == {}?buildErrorDialog(context, 'Card Error', 'Please Add Your Card To Continue'): widget.type == 2?Subsapi(): paymentapi();
                       },
                       child: Container(
                         alignment: Alignment.center,

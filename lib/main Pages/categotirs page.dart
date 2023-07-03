@@ -10,8 +10,11 @@ import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/main%20Pages/question.dart';
 import 'package:sizer/sizer.dart';
 
+import '../Provider/ProfileviewModal.dart';
 import '../Widget/buildErrorDialog.dart';
 import '../Widget/const.dart';
+import '../subscription/subscription_page.dart';
+import 'design.dart';
 
 class Categ extends StatefulWidget {
   const Categ({super.key});
@@ -21,6 +24,7 @@ class Categ extends StatefulWidget {
 }
 
 bool isLoading = true;
+String? cate;
 
 class game {
   String? image;
@@ -38,7 +42,8 @@ List<game> popular = [
       "Math",
       Colors.deepPurple.withOpacity(0.1),
       'You will Get Questions based on Maths',
-      Colors.deepPurple), game(
+      Colors.deepPurple),
+  game(
       "https://www.origastock.com/images/3d-characters/download/11.png",
       "Math",
       Colors.deepPurple.withOpacity(0.1),
@@ -109,7 +114,10 @@ class _CategState extends State<Categ> {
                                     vertical: 3.h,
                                   ),
                                   decoration: BoxDecoration(
-                                    color:Color(int.parse(categories?.allCategories?[index].catagoryBg ?? '')),
+                                    color: Color(int.parse(categories
+                                            ?.allCategories?[index]
+                                            .catagoryBg ??
+                                        '')),
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                   child: Row(
@@ -128,8 +136,8 @@ class _CategState extends State<Categ> {
                                           child: CachedNetworkImage(
                                             fit: BoxFit.cover,
                                             imageUrl: (categories
-                                                ?.allCategories?[index]
-                                                .catagoryIcon)
+                                                    ?.allCategories?[index]
+                                                    .catagoryIcon)
                                                 .toString(),
                                             progressIndicatorBuilder: (context,
                                                     url, progress) =>
@@ -184,14 +192,21 @@ class _CategState extends State<Categ> {
                                   left: 71.w,
                                   child: InkWell(
                                     onTap: () {
-                                      print(categories?.allCategories?[index].catagoryName);
-                                      Get.to(question(catId: categories?.allCategories?[index].id ,));
+                                      setState(() {
+                                        cate = categories
+                                            ?.allCategories?[index].id;
+                                      });
+                                      print("Id :  $cate");
+                                      start();
                                     },
                                     child: Container(
                                       height: 6.h,
                                       width: 13.w,
                                       decoration: BoxDecoration(
-                                          color: Color(int.parse(categories?.allCategories?[index].catagoryButtonColor ?? '')),
+                                          color: Color(int.parse(categories
+                                                  ?.allCategories?[index]
+                                                  .catagoryButtonColor ??
+                                              '')),
                                           borderRadius:
                                               BorderRadius.circular(80)),
                                       child: Icon(
@@ -265,6 +280,53 @@ class _CategState extends State<Categ> {
       } else {
         setState(() {
           isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
+
+  start() {
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['action'] = 'game_start';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().startgameapi(data).then((response) async {
+          profileviewmodal =
+              ProfileviewModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 &&
+              profileviewmodal?.status == "success") {
+            Get.to(design(
+              cat: cate,
+            ));
+            Get.snackbar(
+              "Game Started",
+              "Successfully",
+              icon: Image(image: AssetImage('assets/logo.png')),
+              snackPosition: SnackPosition.TOP,
+            );
+            print("Started");
+            setState(() {
+              isloading = false;
+            });
+          } else {
+            update(context, 'Subscribtion error',
+                'You Don\'t Have Any Subscription a plan to play game',
+                buttonname: 'Subscribe', callback: () {
+              Get.to(subscription());
+            });
+            setState(() {
+              isloading = false;
+            });
+          }
+        });
+      } else {
+        setState(() {
+          isloading = false;
         });
         buildErrorDialog(context, 'Error', "Internate Required");
       }
