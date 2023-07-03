@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:jicksaw/Modal/playermodal.dart';
 import 'package:jicksaw/Modal/shopitemmodal.dart';
 import 'package:jicksaw/Shop/gameinfoshop.dart';
+import 'package:jicksaw/Widget/hexcolor.dart';
 
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/purchage/Charpurpage.dart';
@@ -99,173 +100,205 @@ class _AllplayerspageState extends State<Allplayerspage> {
     // TODO: implement initState
     super.initState();
     // viewap();
+    shopitems();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appbar1(
-          title1: 'All Players',
-          press: () {
-            Get.back();
-          },
-          icn: Icon(Icons.arrow_back_ios_new_rounded),
-          act: () {},
-          icn1: Icon(null)),
-      key: _scaffoldKey,
-      body: SingleChildScrollView(
-        child: Container(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 4.w),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 3.h,
-                ),
-                GridView.builder(
-                  padding: EdgeInsets.zero,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 2.h,
-                    crossAxisSpacing: 2.w,
-                    childAspectRatio: 0.6,
-                  ),
-                  shrinkWrap: true,
-                  // scrollDirection: Axis.horizontal,
-                  itemCount: charcters.length,
+    return commanScreen(
+      isLoading: isLoading,
+      scaffold: Scaffold(
+        appBar: appbar1(
+            title1: 'All Players',
+            press: () {
+              Get.back();
+            },
+            icn: Icon(Icons.arrow_back_ios_new_rounded),
+            act: () {},
+            icn1: Icon(null)),
+        key: _scaffoldKey,
+        body: isLoading
+            ? Container()
+            : SingleChildScrollView(
+                child: Container(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 4.w),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 3.h,
+                        ),
+                        SizedBox(height: 85.h,
+                          child: GridView.builder(
+                            padding: EdgeInsets.zero,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 1.h,
+                              crossAxisSpacing: 0.w,
+                              childAspectRatio: 0.55,
+                            ),
+                            shrinkWrap: true,
+                            // scrollDirection: Axis.horizontal,
+                            itemCount: players?.allPlayers?.length,
 
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        // Get.to(CharPurchased(
-                        //   pic: charcters[index].image,
-                        // ));
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: charcters[index].btnclr,
-                            border: Border.all(
-                              color: charcters[index].clr,
-                            ),
-                            borderRadius: BorderRadius.circular(20)),
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 4.w, vertical: 1.h),
-                        margin: EdgeInsets.symmetric(horizontal: 1.w),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              height: 10.h,
-                              width: 22.w,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(90)),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(90),
-                                child: CachedNetworkImage(
-                                  fit: BoxFit.cover,
-                                  imageUrl: charcters[index].image.toString(),
-                                  progressIndicatorBuilder:
-                                      (context, url, progress) =>
-                                          CircularProgressIndicator(),
-                                  errorWidget: (context, url, error) =>
-                                      Image.asset(
-                                    'assets/12.png',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 1.h,
-                            ),
-                            Align(
-                              alignment: Alignment.center,
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'Player ${index + 1}',
-                                    style: TextStyle(
-                                      color: charcters[index].clr,
-                                      fontSize: 15.sp,
-                                      fontWeight: FontWeight.w600,
-                                      fontFamily: 'Poppins',
-                                      letterSpacing: 1.5,
-                                    ),
-                                  ),
-                                  Align(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Email dsnndfndsjfnkdjsfkjsdbfjkdsbfjdksbfjkdsbf',maxLines: 2,
-                                          style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontWeight:
-                                              FontWeight.w600,
-                                              fontSize: 13.sp,
-                                              color: Color(0xff2c2c2c)),
-                                        ),
-                                        Text(
-                                          'Points ${index + 10}',
-                                          style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontWeight:
-                                              FontWeight.w500,
-                                              fontSize: 13.sp,
-                                              color: Color(0xff2c2c2c)),
-                                        ),
-                                        Text(
-                                          'About ${index + 10}', overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontWeight:
-                                              FontWeight.w500,
-                                              fontSize: 13.sp,
-                                              color: Color(0xff2c2c2c)),
-                                        ),
-
-                                        InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            alignment: Alignment.center,
-                                            width: 27.w,
-                                            margin: EdgeInsets.only(top: 1.h),
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(90),
-                                                color: primary),
-                                            padding: EdgeInsets.all(0.5.h),
-                                            child: Text(
-                                              'View',
-                                              style: TextStyle(
-                                                fontSize: 15.sp,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white,
-                                                fontFamily: 'Poppins',
-                                              ),
+                            itemBuilder: (context, index) {
+                              return InkWell(
+                                onTap: () {
+                                  // Get.to(CharPurchased(
+                                  //   pic: charcters[index].image,
+                                  // ));
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: HexColor.fromHex(
+                                          players?.allPlayers?[index].bgColor ??
+                                              ''),
+                                      border: Border.all(
+                                        color: HexColor.fromHex(players
+                                                ?.allPlayers?[index]
+                                                .bgBorderColor ??
+                                            ''),
+                                      ),
+                                      borderRadius: BorderRadius.circular(20)),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 4.w, vertical: 1.h),
+                                  margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        height: 10.h,
+                                        width: 22.w,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(90)),
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.circular(90),
+                                          child: CachedNetworkImage(
+                                            fit: BoxFit.cover,
+                                            imageUrl:
+                                    players?.allPlayers?[index].profilePic ??'',
+                                            progressIndicatorBuilder:
+                                                (context, url, progress) =>
+                                                    CircularProgressIndicator(),
+                                            errorWidget: (context, url, error) =>
+                                                Image.asset(
+                                              'assets/12.png',
+                                              fit: BoxFit.cover,
                                             ),
                                           ),
-                                        )
-                                      ],
-                                    ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 1.h,
+                                      ),
+                                      Align(
+                                        alignment: Alignment.center,
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              players?.allPlayers?[index].name ??
+                                                  '',
+                                              style: TextStyle(
+                                                color: HexColor.fromHex(players
+                                                        ?.allPlayers?[index]
+                                                        .bgBorderColor ??
+                                                    ''),
+                                                fontSize: 15.sp,
+                                                fontWeight: FontWeight.w600,
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 1.5,
+                                              ),
+                                            ),
+                                            Align(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    players?.allPlayers?[index]
+                                                            .eMail ??
+                                                        '',
+                                                    maxLines: 2,
+                                                    style: TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        fontSize: 13.sp,
+                                                        color: Color(0xff2c2c2c)),
+                                                  ),
+                                                  Text(
+                                                    players?.allPlayers?[index]
+                                                            .gamePoints ??
+                                                        '',
+                                                    style: TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize: 13.sp,
+                                                        color: Color(0xff2c2c2c)),
+                                                  ),
+                                                  Text(
+                                                    players?.allPlayers?[index]
+                                                            .about ??
+                                                        '',
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize: 13.sp,
+                                                        color: Color(0xff2c2c2c)),
+                                                  ),
+                                                  InkWell(
+                                                    onTap: () {},
+                                                    child: Container(
+                                                      alignment: Alignment.center,
+                                                      width: 27.w,
+                                                      margin: EdgeInsets.only(
+                                                          top: 1.h),
+                                                      decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(90),
+                                                          color: primary),
+                                                      padding:
+                                                          EdgeInsets.all(0.5.h),
+                                                      child: Text(
+                                                        'View',
+                                                        style: TextStyle(
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.white,
+                                                          fontFamily: 'Poppins',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
-                            ),
-                          ],
+                                ),
+                              );
+                            },
+                          ),
                         ),
-                      ),
-                    );
-                  },
+                      ],
+                    ),
+                  ),
                 ),
-              ],
-            ),
-          ),
-        ),
+              ),
       ),
     );
   }
@@ -303,7 +336,7 @@ class _AllplayerspageState extends State<Allplayerspage> {
 
     data['uid'] = usermodal?.userData?.uid ?? "";
     data['action'] = 'all_players';
-
+print(data);
     checkInternet().then((internet) async {
       if (internet) {
         authprovider().getplayers(data).then((response) async {

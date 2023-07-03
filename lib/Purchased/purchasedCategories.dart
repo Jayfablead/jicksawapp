@@ -187,7 +187,7 @@ class _PurchasedCategoryState extends State<PurchasedCategory> {
                                     child: CachedNetworkImage(
                                       fit: BoxFit.cover,
                                       imageUrl:
-                                      'https://cdn.icon-icons.com/icons2/2136/PNG/512/google_games_icon_131690.png',
+                                      'https://cdn-icons-png.flaticon.com/512/5704/5704439.png',
                                       progressIndicatorBuilder:
                                           (context, url, progress) =>
                                           CircularProgressIndicator(),
@@ -275,7 +275,7 @@ class _PurchasedCategoryState extends State<PurchasedCategory> {
                                     child: CachedNetworkImage(
                                       fit: BoxFit.cover,
                                       imageUrl:
-                                      'https://purepng.com/public/uploads/thumbnail//purepng.com-jerry-tom-and-jerrytom-and-jerrytomjerryanimated-seriesin-1940characters-1701528659592qeggy.png',
+                                      'https://cdn-icons-png.flaticon.com/512/4593/4593378.png',
                                       progressIndicatorBuilder:
                                           (context, url, progress) =>
                                           CircularProgressIndicator(),
@@ -372,7 +372,7 @@ class _PurchasedCategoryState extends State<PurchasedCategory> {
                                     child: CachedNetworkImage(
                                       fit: BoxFit.cover,
                                       imageUrl:
-                                      'https://icon-library.com/images/score-icon-png/score-icon-png-18.jpg',
+                                      'https://www.predatorcues.com/media/wysiwyg/Email/rewards-icon-v2.png',
                                       progressIndicatorBuilder:
                                           (context, url, progress) =>
                                           CircularProgressIndicator(),
