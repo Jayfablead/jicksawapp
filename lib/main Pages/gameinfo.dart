@@ -259,7 +259,7 @@ class _TutorialState extends State<Tutorial> {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to(() => Categ());
+                    Get.to(() => CategoriesPage());
                   },
                   child: Container(
                     alignment: Alignment.center,

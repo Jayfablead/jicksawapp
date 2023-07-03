@@ -272,7 +272,7 @@ class _subscribe_planState extends State<subscribe_plan> {
                       ),
                       SizedBox(height: 3.h,),
                       InkWell(onTap: (){
-                        Get.to(CheckoutPage(method:_selectedValue==1?'Monthly':'Yearly' ,price: _selectedValue==1?'17.99':'65.99',sub:_selectedValue==1?'Month':'Year',type: 1, ));
+                        Get.to(CheckoutPage(method:_selectedValue==1?'Monthly':'Yearly' ,price: _selectedValue==1?'17.99':'65.99',sub:_selectedValue==1?'Month':'Year',type: 2, ));
                       },
                         child: Container(
                           alignment: Alignment.center,

@@ -50,7 +50,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
     // TODO: implement initState
     super.initState();
     cardviewapi();
-    print('object');
+    print(widget.type);
      print(widget.itemid) ;
   }
 
@@ -258,7 +258,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               SizedBox(
                                 height: 2.h,
                               ),
-                              Row(
+                              widget.type == 2?Text('Subscription plan'):Row(
                                       children: [
                                         Container(
                                           height: 5.h,
@@ -298,7 +298,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               SizedBox(
                                 height: 2.h,
                               ),
-                              Text(
+                             widget.type == 2?Text(
+                               'You Are Subscribing our  ${widget.method} Subscription Plan.',
+                               style:
+                               TextStyle(color: primary, fontSize: 15.sp),
+                             ): Text(
                                 'You Are Paying Using ${widget.method} For This Order.',
                                 style:
                                     TextStyle(color: primary, fontSize: 15.sp),
@@ -310,7 +314,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     ),
                     InkWell(
                       onTap: () {
-                       paymentapi();
+                      widget.type == 2?Subsapi(): paymentapi();
                       },
                       child: Container(
                         alignment: Alignment.center,
@@ -373,57 +377,57 @@ class _CheckoutPageState extends State<CheckoutPage> {
     });
   }
 
-  // Subsapi() {
-  //   final Map<String, String> data = {};
-  //   data['uid'] = (usermodal?.userData?.uid).toString();
-  //   data['card_number'] = viewcard?.cardDetails?.cardNumber ?? '';
-  //   data['expiry_month'] = viewcard?.cardDetails?.cardExpM ?? '';
-  //   data['expiry_year'] = viewcard?.cardDetails?.cardExpY ?? '';
-  //   data['cvv'] = viewcard?.cardDetails?.cardCvv ?? '';
-  //   data['name'] = viewcard?.cardDetails?.cardName ?? '';
-  //   data['price'] = widget.price.toString();
-  //   data['action'] = 'user_subscribe';
-  //   print(data);
-  //   EasyLoading.show(status: 'Processing Payment ...');
-  //   checkInternet().then((internet) async {
-  //     if (internet) {
-  //       authprovider().subscribeapi(data).then((response) async {
-  //         subs = subscribeModal.fromJson(json.decode(response.body));
-  //         print(response.statusCode);
-  //         print(subs?.status);
-  //         if (response.statusCode == 200 && subs?.status == "success") {
-  //           Get.to(
-  //             PurchaseTYPage(
-  //               price: widget.price,
-  //               name: widget.name,
-  //               method: widget.method,
-  //               type: widget.type,
-  //             ),
-  //           );
-  //           EasyLoading.showSuccess('Payment Paid Successfully!');
-  //           Get.snackbar(
-  //             "Subscription",
-  //             "Purchased Successfully",
-  //             icon: Image(image: AssetImage('assets/doe.png')),
-  //           );
-  //           setState(() {
-  //             isLoading = false;
-  //
-  //             print(viewcard?.cardDetails?.cardId ?? '');
-  //           });
-  //         } else {
-  //           EasyLoading.showError('Please Use Valid Card Information');
-  //           isLoading = false;
-  //         }
-  //       });
-  //     } else {
-  //       setState(() {
-  //         isLoading = false;
-  //       });
-  //       buildErrorDialog(context, 'Error', "Internate Required");
-  //     }
-  //   });
-  // }
+  Subsapi() {
+    final Map<String, String> data = {};
+    data['uid'] = (usermodal?.userData?.uid).toString();
+    data['card_number'] = viewcard?.cardDetails?.cardNumber ?? '';
+    data['expiry_month'] = viewcard?.cardDetails?.cardExpM ?? '';
+    data['expiry_year'] = viewcard?.cardDetails?.cardExpY ?? '';
+    data['cvv'] = viewcard?.cardDetails?.cardCvv ?? '';
+    data['name'] = viewcard?.cardDetails?.cardName ?? '';
+    data['price'] = widget.price.toString();
+    data['action'] = 'user_subscribe';
+    print(data);
+    EasyLoading.show(status: 'Processing Payment ...');
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().subscribeapi(data).then((response) async {
+          subs = subscribeModal.fromJson(json.decode(response.body));
+          print(response.statusCode);
+          print(subs?.status);
+          if (response.statusCode == 200 && subs?.status == "success") {
+            Get.to(
+              PurchaseTYPage(
+                price: widget.price,
+                name: widget.name,
+                method: widget.method,
+                type: widget.type,
+              ),
+            );
+            EasyLoading.showSuccess('Payment Paid Successfully!');
+            Get.snackbar(
+              "Subscription",
+              "Purchased Successfully",
+              icon: Image(image: AssetImage('assets/doe.png')),
+            );
+            setState(() {
+              isLoading = false;
+
+              print(viewcard?.cardDetails?.cardId ?? '');
+            });
+          } else {
+            EasyLoading.showError('Please Use Valid Card Information');
+            isLoading = false;
+          }
+        });
+      } else {
+        setState(() {
+          isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
 
   paymentapi() {
     final Map<String, String> data = {};
