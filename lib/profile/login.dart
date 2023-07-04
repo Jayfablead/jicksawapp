@@ -28,13 +28,19 @@ class login extends StatefulWidget {
   @override
   State<login> createState() => _loginState();
 }
-
+bool secure = false;
+bool visible = false;
 class _loginState extends State<login> {
   TextEditingController _user = TextEditingController();
   TextEditingController _pasa = TextEditingController();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    visible = true;
+  }
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(
@@ -114,13 +120,13 @@ class _loginState extends State<login> {
                     child: Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                          padding: EdgeInsets.symmetric(horizontal: 2.5.w,vertical: 1.h),
                           decoration: BoxDecoration(
                               border: Border.all(
                                 color: secondary,
                               ),
                               borderRadius: BorderRadius.circular(20)),
-                          height: 7.5.h,
+
                           alignment: Alignment.center,
                           child: TextFormField(
                             style: TextStyle(
@@ -138,7 +144,6 @@ class _loginState extends State<login> {
                               return null;
                             },
                             decoration: InputDecoration(
-                                contentPadding: EdgeInsets.only(top: 1.5.h),
                                 enabledBorder: const UnderlineInputBorder(
                                     borderSide: BorderSide(
                                   color: Colors.transparent,
@@ -171,13 +176,13 @@ class _loginState extends State<login> {
                           height: 2.h,
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                          padding: EdgeInsets.symmetric(horizontal: 2.5.w,vertical: 1.h),
                           decoration: BoxDecoration(
                               border: Border.all(color: secondary),
                               borderRadius: BorderRadius.circular(15)),
-                          height: 7.5.h,
+
                           alignment: Alignment.center,
-                          child: TextFormField(
+                          child: TextFormField(obscureText: visible,
                             controller: _pasa,
                             style: TextStyle(
                               color: Colors.black,
@@ -193,7 +198,7 @@ class _loginState extends State<login> {
                               return null;
                             },
                             decoration: InputDecoration(
-                                contentPadding: EdgeInsets.only(top: 1.5.h),
+
                                 errorBorder: const UnderlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Colors.transparent),
@@ -206,10 +211,27 @@ class _loginState extends State<login> {
                                   borderSide:
                                       BorderSide(color: Colors.transparent),
                                 ),
-                                suffixIcon: const Icon(
-                                  Icons.lock,
-                                  color: Colors.black,
+                                suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      visible = !visible;
+                                      print(visible);
+                                      print('Ouch');
+                                    });
+                                  },
+                                  icon: visible
+                                      ? Icon(
+                                    Icons.visibility,
+                                    size: 15.sp,
+                                    color: Colors.black,
+                                  )
+                                      : Icon(
+                                    Icons.visibility_off,
+                                    size: 15.sp,
+                                    color: Colors.black,
+                                  ),
                                 ),
+
                                 hintText: "Password",
                                 errorStyle: TextStyle(
                                     fontFamily: 'Poppins',

@@ -111,15 +111,16 @@ class _signupState extends State<signup> {
                     child: Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                              padding: EdgeInsets.symmetric(horizontal: 2.5.w,vertical: 1.h),
                           decoration: BoxDecoration(
-                              border: Border.all(color: secondary,),
+                              border: Border.all(
+                                color: secondary,
+                              ),
                               borderRadius: BorderRadius.circular(20)),
-                          height: 7.5.h,
+                     
                           alignment: Alignment.center,
                           child: TextFormField(
                             style: TextStyle(
-
                                 color: Colors.black,
                                 fontFamily: 'Poppins',
                                 letterSpacing: 2,
@@ -133,13 +134,18 @@ class _signupState extends State<signup> {
                               return null;
                             },
                             decoration: InputDecoration(
-                                contentPadding: EdgeInsets.only(top: 1.5.h),errorBorder: const UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.transparent),),
+                               
+                                errorBorder: const UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                ),
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.person,
@@ -161,11 +167,13 @@ class _signupState extends State<signup> {
                           height: 2.h,
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                              padding: EdgeInsets.symmetric(horizontal: 2.5.w,vertical: 1.h),
                           decoration: BoxDecoration(
-                              border: Border.all(color: secondary,),
+                              border: Border.all(
+                                color: secondary,
+                              ),
                               borderRadius: BorderRadius.circular(20)),
-                          height: 7.5.h,
+                     
                           alignment: Alignment.center,
                           child: TextFormField(
                             style: TextStyle(
@@ -198,14 +206,18 @@ class _signupState extends State<signup> {
                               }
                             },
                             decoration: InputDecoration(
-                                contentPadding: EdgeInsets.only(top: 1.5.h),
+                               
                                 errorBorder: const UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.transparent),),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                ),
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.email_outlined,
@@ -227,11 +239,13 @@ class _signupState extends State<signup> {
                           height: 2.h,
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                              padding: EdgeInsets.symmetric(horizontal: 2.5.w,vertical: 1.h),
                           decoration: BoxDecoration(
-                              border: Border.all(color: secondary,),
+                              border: Border.all(
+                                color: secondary,
+                              ),
                               borderRadius: BorderRadius.circular(20)),
-                          height: 7.5.h,
+                     
                           alignment: Alignment.center,
                           child: TextFormField(
                             style: TextStyle(
@@ -242,21 +256,23 @@ class _signupState extends State<signup> {
                             controller: _age,
                             keyboardType: TextInputType.numberWithOptions(),
                             validator: (value) {
-
                               if (value!.isEmpty) {
                                 return "Please enter the Age";
                               }
-
                             },
                             decoration: InputDecoration(
-                                contentPadding: EdgeInsets.only(top: 1.5.h),
+                               
                                 errorBorder: const UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.transparent),),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                ),
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.person_outline_outlined,
@@ -278,11 +294,13 @@ class _signupState extends State<signup> {
                           height: 2.h,
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                          padding: EdgeInsets.symmetric(horizontal: 2.5.w,vertical: 1.h),
                           decoration: BoxDecoration(
-                              border: Border.all(color: secondary,),
+                              border: Border.all(
+                                color: secondary,
+                              ),
                               borderRadius: BorderRadius.circular(20)),
-                          height: 7.5.h,
+                         
                           alignment: Alignment.center,
                           child: TextFormField(
                             style: TextStyle(
@@ -300,13 +318,19 @@ class _signupState extends State<signup> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(contentPadding: EdgeInsets.only(top: 1.5.h),errorBorder: const UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.transparent),),
+                            decoration: InputDecoration(
+                                
+                                errorBorder: const UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                ),
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 suffixIcon: Icon(
                                   Icons.phone,
@@ -328,13 +352,16 @@ class _signupState extends State<signup> {
                           height: 2.h,
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                          padding: EdgeInsets.symmetric(horizontal: 2.5.w,vertical: 1.h),
                           decoration: BoxDecoration(
-                              border: Border.all(color: secondary,),
+                              border: Border.all(
+                                color: secondary,
+                              ),
                               borderRadius: BorderRadius.circular(20)),
-                          height: 7.5.h,
+
                           alignment: Alignment.center,
                           child: TextFormField(
+                            obscureText: visible,
                             style: TextStyle(
                                 color: Colors.black,
                                 fontFamily: 'Poppins',
@@ -348,17 +375,39 @@ class _signupState extends State<signup> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(contentPadding: EdgeInsets.only(top: 1.5.h),errorBorder: const UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.transparent),),
+                            decoration: InputDecoration(
+
+                                errorBorder: const UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                ),
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
-                                suffixIcon: Icon(
-                                  Icons.lock,
-                                  color: Colors.black,
+                                suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      visible = !visible;
+                                      print(visible);
+                                      print('Ouch');
+                                    });
+                                  },
+                                  icon: visible
+                                      ? Icon(
+                                          Icons.visibility,
+                                          size: 15.sp,
+                                          color: Colors.black,
+                                        )
+                                      : Icon(
+                                          Icons.visibility_off,
+                                          size: 15.sp,
+                                          color: Colors.black,
+                                        ),
                                 ),
                                 hintText: "Password",
                                 errorStyle: TextStyle(
@@ -376,13 +425,16 @@ class _signupState extends State<signup> {
                           height: 2.h,
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 2.5.w),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 2.5.w, vertical: 1.h),
                           decoration: BoxDecoration(
-                              border: Border.all(color: secondary,),
+                              border: Border.all(
+                                color: secondary,
+                              ),
                               borderRadius: BorderRadius.circular(20)),
-                          height: 7.5.h,
                           alignment: Alignment.center,
                           child: TextFormField(
+                            obscureText: visible,
                             style: TextStyle(
                                 color: Colors.black,
                                 fontFamily: 'Poppins',
@@ -396,17 +448,39 @@ class _signupState extends State<signup> {
                               }
                               return null;
                             },
-                            decoration: InputDecoration(contentPadding: EdgeInsets.only(top: 1.5.h),errorBorder: const UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.transparent),),
+                            decoration: InputDecoration(
+
+                                errorBorder: const UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                ),
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                 ),
-                                suffixIcon: Icon(
-                                  Icons.lock,
-                                  color: Colors.black,
+                                suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      visible = !visible;
+                                      print(visible);
+                                      print('Ouch');
+                                    });
+                                  },
+                                  icon: visible
+                                      ? Icon(
+                                          Icons.visibility,
+                                          size: 15.sp,
+                                          color: Colors.black,
+                                        )
+                                      : Icon(
+                                          Icons.visibility_off,
+                                          size: 15.sp,
+                                          color: Colors.black,
+                                        ),
                                 ),
                                 hintText: " Confirm password",
                                 errorStyle: TextStyle(
@@ -465,8 +539,9 @@ class _signupState extends State<signup> {
                     )
                   ],
                 ),
-                SizedBox(height:
-                  2.h,)
+                SizedBox(
+                  height: 2.h,
+                )
               ],
             ),
           ),
