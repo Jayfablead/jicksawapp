@@ -204,7 +204,13 @@ class _MyProfileState extends State<MyProfile> {
                                 SizedBox(
                                   width: 40.w,
                                   child: Text(
-                                    '100',
+                                    profileviewmodal?.profileViewPlayer?.gamePoints ==
+                                        '' ||
+                                        profileviewmodal
+                                            ?.profileViewPlayer?.gamePoints ==
+                                            null
+                                        ? "0"
+                                        : (profileviewmodal?.profileViewPlayer?.gamePoints).toString(),
                                     maxLines: 3,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
@@ -252,7 +258,13 @@ class _MyProfileState extends State<MyProfile> {
                                 SizedBox(
                                   width: 40.w,
                                   child: Text(
-                                    '1',
+                                    profileviewmodal?.profileViewPlayer?.rank ==
+                                                '' ||
+                                            profileviewmodal
+                                                    ?.profileViewPlayer?.rank ==
+                                                null
+                                        ? "0"
+                                        : (profileviewmodal?.profileViewPlayer?.rank).toString(),
                                     maxLines: 3,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(

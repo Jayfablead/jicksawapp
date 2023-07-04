@@ -150,12 +150,12 @@ class _UserProfileState extends State<UserProfile> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Icon(
-                            Icons.games_outlined,
+                            Icons.control_point_duplicate_sharp,
                             color: Colors.black,
                           ),
                           SizedBox(width: 2.w),
                           Text(
-                            "Last match : ",
+                            "Points : ",
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -171,7 +171,13 @@ class _UserProfileState extends State<UserProfile> {
                           SizedBox(
                             width: 40.w,
                             child: Text(
-                              '60 / 100',
+                              profileviewmodal?.profileViewPlayer?.gamePoints ==
+                                  '' ||
+                                  profileviewmodal
+                                      ?.profileViewPlayer?.gamePoints ==
+                                      null
+                                  ? "0"
+                                  : (profileviewmodal?.profileViewPlayer?.gamePoints).toString(),
                               maxLines: 3,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -187,7 +193,60 @@ class _UserProfileState extends State<UserProfile> {
                       SizedBox(
                         height: 3.h,
                       ),
-
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: 1.h,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.radar,
+                            color: Colors.black,
+                          ),
+                          SizedBox(width: 2.w),
+                          Text(
+                            "Rank : ",
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                color: Colors.black,
+                                letterSpacing: 2,
+                                fontFamily: "Poppins",
+                                fontWeight: FontWeight.w500,
+                                fontSize: 13.sp),
+                          ),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          SizedBox(
+                            width: 40.w,
+                            child: Text(
+                              profileviewmodal?.profileViewPlayer?.rank ==
+                                  '' ||
+                                  profileviewmodal
+                                      ?.profileViewPlayer?.rank ==
+                                      null
+                                  ? "0"
+                                  : (profileviewmodal?.profileViewPlayer?.rank).toString(),
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14.sp,
+                                fontFamily: 'Poppins',
+                                letterSpacing: 2,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 3.h,
+                      ),
                     ],
                   ),
                   Row(

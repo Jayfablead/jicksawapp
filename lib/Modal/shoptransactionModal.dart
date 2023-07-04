@@ -38,6 +38,9 @@ class OrderDetails {
   String? address;
   String? about;
   String? profilePic;
+  String? gamePoints;
+  String? bgColor;
+  String? bgBorderColor;
   String? characterImg;
   String? name;
   String? eMail;
@@ -53,7 +56,6 @@ class OrderDetails {
   String? prodcutImg;
   String? productPrice;
   String? productPoints;
-  String? bgColor;
   String? bgColorBorder;
   String? productShortVideo;
   String? productMultiImg;
@@ -76,6 +78,9 @@ class OrderDetails {
         this.address,
         this.about,
         this.profilePic,
+        this.gamePoints,
+        this.bgColor,
+        this.bgBorderColor,
         this.characterImg,
         this.name,
         this.eMail,
@@ -91,7 +96,6 @@ class OrderDetails {
         this.prodcutImg,
         this.productPrice,
         this.productPoints,
-        this.bgColor,
         this.bgColorBorder,
         this.productShortVideo,
         this.productMultiImg,
@@ -114,6 +118,9 @@ class OrderDetails {
     address = json['address'];
     about = json['about'];
     profilePic = json['profile_pic'];
+    gamePoints = json['game_points'];
+    bgColor = json['bg_color'];
+    bgBorderColor = json['bg_border_color'];
     characterImg = json['character_img'];
     name = json['name'];
     eMail = json['e_mail'];
@@ -129,7 +136,6 @@ class OrderDetails {
     prodcutImg = json['prodcut_img'];
     productPrice = json['product_price'];
     productPoints = json['product_points'];
-    bgColor = json['bg_color'];
     bgColorBorder = json['bg_color_border'];
     productShortVideo = json['product_short_video'];
     productMultiImg = json['product_multi_img'];
@@ -154,6 +160,9 @@ class OrderDetails {
     data['address'] = this.address;
     data['about'] = this.about;
     data['profile_pic'] = this.profilePic;
+    data['game_points'] = this.gamePoints;
+    data['bg_color'] = this.bgColor;
+    data['bg_border_color'] = this.bgBorderColor;
     data['character_img'] = this.characterImg;
     data['name'] = this.name;
     data['e_mail'] = this.eMail;
@@ -169,7 +178,6 @@ class OrderDetails {
     data['prodcut_img'] = this.prodcutImg;
     data['product_price'] = this.productPrice;
     data['product_points'] = this.productPoints;
-    data['bg_color'] = this.bgColor;
     data['bg_color_border'] = this.bgColorBorder;
     data['product_short_video'] = this.productShortVideo;
     data['product_multi_img'] = this.productMultiImg;

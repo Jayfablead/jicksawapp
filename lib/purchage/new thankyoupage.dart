@@ -36,371 +36,499 @@ class _ThanksPage1State extends State<ThanksPage1> {
   void initState() {
     // TODO: implement initState
     super.initState();
- widget.type == 2?Subsdoneapi():shoptransapi() ;
+    widget.type == 2 ? Subsdoneapi() : shoptransapi();
   }
 
   @override
   Widget build(BuildContext context) {
-    return commanScreen(isLoading: isLoading,
+    return commanScreen(
+      isLoading: isLoading,
       scaffold: Scaffold(
         backgroundColor: Color(0xff607084),
-        body: isLoading?Container():Center(
-          child: Stack(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 3.w),
-                    child: Container(
-                      height: 75.h,
-                      width: 90.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.white,
-                      ),
-                      child: Column(crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: 3.h,
-                          ),
-                          Text(
-                            "Thank you!",
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20.sp),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "Your Transaction was Successful",
-                            style: TextStyle(
-                                fontSize: 14.5.sp,
-                                color: Colors.black38,
-                                fontWeight: FontWeight.w600,
-                                fontFamily: 'Poppins'),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          DottedLine(
-                            dashLength: 10,
-                            dashGapLength: 5,
-                            lineThickness: 1,
-                            dashColor: Colors.black38,
-                          ),
-                          Container(
-                            height: 60.h,
-                            padding: EdgeInsets.all(3.w),
+        body: isLoading
+            ? Container()
+            : Center(
+                child: Stack(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 3.w),
+                          child: Container(
+                            height: 75.h,
+                            width: 90.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.white,
+                            ),
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(width: 50.w,
-                                      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                SizedBox(
+                                  height: 3.h,
+                                ),
+                                Text(
+                                  "Thank you!",
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.sp),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  "Your Transaction was Successful",
+                                  style: TextStyle(
+                                      fontSize: 14.5.sp,
+                                      color: Colors.black38,
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: 'Poppins'),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                DottedLine(
+                                  dashLength: 10,
+                                  dashGapLength: 5,
+                                  lineThickness: 1,
+                                  dashColor: Colors.black38,
+                                ),
+                                Container(
+                                  height: 60.h,
+                                  padding: EdgeInsets.all(3.w),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
-                                          Text(
-                                            widget.type == 2?subsdone?.thankYou?.userDetail?.name ?? '': shoptransaction?.orderDetails?.name ?? '',
-                                            style: TextStyle(  fontFamily: 'Poppins',
-                                                color: Colors.black.withOpacity(0.90),
-                                                fontSize: 14.sp),
+                                          SizedBox(
+                                            width: 50.w,
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  widget.type == 2
+                                                      ? subsdone
+                                                              ?.thankYou
+                                                              ?.userDetail
+                                                              ?.name ??
+                                                          ''
+                                                      : shoptransaction
+                                                              ?.orderDetails
+                                                              ?.name ??
+                                                          '',
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      color: Colors.black
+                                                          .withOpacity(0.90),
+                                                      fontSize: 14.sp),
+                                                ),
+                                                Text(
+                                                  widget.type == 2
+                                                      ? subsdone
+                                                              ?.thankYou
+                                                              ?.userDetail
+                                                              ?.eMail ??
+                                                          ''
+                                                      : shoptransaction
+                                                              ?.orderDetails
+                                                              ?.eMail ??
+                                                          '',
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      color: Colors.black
+                                                          .withOpacity(0.90),
+                                                      fontSize: 14.sp),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                          Text(
-                                            widget.type == 2?subsdone?.thankYou?.userDetail?.eMail ?? '': shoptransaction?.orderDetails?.eMail ?? '',
-                                            style: TextStyle(  fontFamily: 'Poppins',
-                                                color: Colors.black.withOpacity(0.90),
-                                                fontSize: 14.sp),
+                                          Container(
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 1.w),
+                                            width: 14.w,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(90),
+                                              child: CachedNetworkImage(
+                                                fit: BoxFit.cover,
+                                                imageUrl: widget.type == 2
+                                                    ? subsdone
+                                                            ?.thankYou
+                                                            ?.userDetail
+                                                            ?.profilePic ??
+                                                        ''
+                                                    : shoptransaction
+                                                            ?.orderDetails
+                                                            ?.profilePic ??
+                                                        '',
+                                                progressIndicatorBuilder: (context,
+                                                        url, progress) =>
+                                                    CircularProgressIndicator(),
+                                                errorWidget:
+                                                    (context, url, error) =>
+                                                        Image.asset(
+                                                  'assets/user.png',
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.symmetric(
-                                          horizontal: 1.w),
-                                      width: 14.w,
-                                      child: ClipRRect(
-                                        borderRadius:
-                                        BorderRadius.circular(90),
-                                        child: CachedNetworkImage(
-                                          fit: BoxFit.cover,
-                                          imageUrl: widget.type == 2?subsdone?.thankYou?.userDetail?.profilePic ?? '':shoptransaction?.orderDetails?.profilePic ?? '',
-                                          progressIndicatorBuilder: (context,
-                                              url, progress) =>
-                                              CircularProgressIndicator(),
-                                          errorWidget:
-                                              (context, url, error) =>
-                                              Image.asset(
-                                                'assets/user.png',
-                                                color: Colors.black,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Center(child: SizedBox(width: 70.w,child: Divider(color: Colors.black54,))),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'Order-No : ',
-                                      style: TextStyle(  fontFamily: 'Poppins',
-                                          color: Colors.black.withOpacity(0.90),
-                                          fontSize: 14.sp),
-                                    ),
-                                    Text(
-                                      widget.type == 2?subsdone?.thankYou?.transactionId ?? '': shoptransaction?.orderDetails?.orderId ?? '',
-                                      // widget.type == 0?shoptransaction?.orderDetails?.orderId ?? '':trans?.thankYou?.transactionId ?? '',
-                                      style: TextStyle(  fontFamily: 'Poppins',
-                                          color: Colors.black.withOpacity(0.80),
-                                          fontSize: 14.sp),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'Order Type : ',
-                                      style: TextStyle(  fontFamily: 'Poppins',
-                                          color: Colors.black.withOpacity(0.90),
-                                          fontSize: 14.sp),
-                                    ),
-                                    Text(
-                                    widget.type == 2 ?'Subscription': widget.type == 1
-                                          ? 'Character'
-                                          : 'In-App Purchases',
-                                      style: TextStyle(  fontFamily: 'Poppins',
-                                          color: Colors.black.withOpacity(0.80),
-                                          fontSize: 14.sp),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'Order-Id :',
-                                      style: TextStyle(  fontFamily: 'Poppins',
-                                          color: Colors.black.withOpacity(0.90),
-                                          fontSize: 14.sp),
-                                    ),
-                                    Text(
-                                      '',
-                                      style: TextStyle(  fontFamily: 'Poppins',
-                                          color: Colors.black.withOpacity(0.80),
-                                          fontSize: 14.sp),
-                                    ),
-                                  ],
-                                ),
-                                Text(
-                                  widget.type == 2?subsdone?.thankYou?.transactionNo ?? '':  shoptransaction?.orderDetails?.orderNo ?? '',
-                                  // widget.type == 0?shoptransaction?.orderDetails?.orderNo ?? '': trans?.thankYou?.transactionNo ?? '',
-                                  style: TextStyle(  fontFamily: 'Poppins',
-                                      color: Colors.black.withOpacity(0.80),
-                                      fontSize: 14.sp),
-                                ),
-                                widget.type == 1
-                                    ? Container()
-                                    : Column(
+                                      Center(
+                                          child: SizedBox(
+                                              width: 70.w,
+                                              child: Divider(
+                                                color: Colors.black54,
+                                              ))),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                'Transaction-Id :',
-                                                style: TextStyle(  fontFamily: 'Poppins',
-                                                    color: Colors.black
-                                                        .withOpacity(0.90),
-                                                    fontSize: 14.sp),
-                                              ),
-                                              Text(
-                                                '',
-                                                style: TextStyle(  fontFamily: 'Poppins',
-                                                    color: Colors.black
-                                                        .withOpacity(0.80),
-                                                    fontSize: 14.sp),
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 1.h,
+                                          Text(
+                                            'Order-No : ',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black
+                                                    .withOpacity(0.90),
+                                                fontSize: 14.sp),
                                           ),
                                           Text(
-                                            widget.type == 2?subsdone?.thankYou?.productId ?? '':  shoptransaction?.orderDetails?.transactionId ?? '',
-                                            // shoptransaction?.orderDetails?.transactionId ?? '',
-                                            style: TextStyle(  fontFamily: 'Poppins',
+                                            widget.type == 2
+                                                ? subsdone?.thankYou
+                                                        ?.transactionId ??
+                                                    ''
+                                                : shoptransaction?.orderDetails
+                                                        ?.orderId ??
+                                                    '',
+                                            // widget.type == 0?shoptransaction?.orderDetails?.orderId ?? '':trans?.thankYou?.transactionId ?? '',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
                                                 color: Colors.black
                                                     .withOpacity(0.80),
                                                 fontSize: 14.sp),
                                           ),
                                         ],
                                       ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'Order Details :',
-                                      style: TextStyle(  fontFamily: 'Poppins',
-                                          color: Colors.black.withOpacity(0.90),
-                                          fontSize: 14.sp),
-                                    ),
-                                    Text(
-                                      '',
-                                      style: TextStyle(  fontFamily: 'Poppins',
-                                          color: Colors.black.withOpacity(0.80),
-                                          fontSize: 14.sp),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      widget.type == 2?subsdone?.thankYou?.productName ?? '':  shoptransaction?.orderDetails?.productName ?? '',
-                                      // widget.type == 1
-                                      //     ? '${trans?.thankYou?.productName} of Subscription.'
-                                      //     : (shoptransaction?.orderDetails?.itemName).toString(),
-                                      style: TextStyle(  fontFamily: 'Poppins',
-                                          color: Colors.black.withOpacity(0.90),
-                                          fontSize: 14.sp),
-                                    ),
-                                    Text(
-                                      '\$ ${widget.type == 2?subsdone?.thankYou?.amount ?? '': shoptransaction?.orderDetails?.productPrice ?? ''}',
-                                      // widget.type == 0?"\$ ${shoptransaction?.orderDetails?.price}" : ' \$ ${trans?.thankYou?.amount}',
-                                      style: TextStyle(  fontFamily: 'Poppins',
-                                          color: Colors.black.withOpacity(0.80),
-                                          fontSize: 14.sp),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      widget.type == 2?'Subscription Date : ':'Purchased Date :',
-                                      // widget.type == 1
-                                      //     ? '${trans?.thankYou?.productName} of Subscription.'
-                                      //     : (shoptransaction?.orderDetails?.itemName).toString(),
-                                      style: TextStyle(  fontFamily: 'Poppins',
-                                          color: Colors.black.withOpacity(0.90),
-                                          fontSize: 14.sp),
-                                    ),
-                                    Text(
-                                      widget.type == 2?subsdone?.thankYou?.planStart ?? '': shoptransaction?.orderDetails?.paymentDate ?? '',
-                                      // widget.type == 0?"\$ ${shoptransaction?.orderDetails?.price}" : ' \$ ${trans?.thankYou?.amount}',
-                                      style: TextStyle(  fontFamily: 'Poppins',
-                                          color: Colors.black.withOpacity(0.80),
-                                          fontSize: 14.sp),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'Payment Type : ',
-                                      style: TextStyle(  fontFamily: 'Poppins',
-                                          color: Colors.black.withOpacity(0.90),
-                                          fontSize: 14.sp),
-                                    ),
-                                    Text(
-                                      'Stripe',
-                                      style: TextStyle(  fontFamily: 'Poppins',
-                                          color: Colors.black.withOpacity(0.80),
-                                          fontSize: 14.sp),
-                                    ),
-                                  ],
-                                ),Align(alignment: Alignment.center,
-                                  child: InkWell(
-                                    onTap: () {
-                                      Get.to(
-                                        widget.type == 1?CharPurchased():mainpage2(),
-                                      );
-                                    },
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      width: 60.w,
-                                      margin: EdgeInsets.only(top: 1.5.h),
-                                      decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(90),
-                                          color: primary),
-                                      padding: EdgeInsets.all(1.5.h),
-                                      child: Text(
-                                        'CONTINUE',
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            'Order Type : ',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black
+                                                    .withOpacity(0.90),
+                                                fontSize: 14.sp),
+                                          ),
+                                          Text(
+                                            widget.type == 2
+                                                ? 'Subscription'
+                                                : widget.type == 1
+                                                    ? 'Character'
+                                                    : 'In-App Purchases',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black
+                                                    .withOpacity(0.80),
+                                                fontSize: 14.sp),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            'Order-Id :',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black
+                                                    .withOpacity(0.90),
+                                                fontSize: 14.sp),
+                                          ),
+                                          Text(
+                                            '',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black
+                                                    .withOpacity(0.80),
+                                                fontSize: 14.sp),
+                                          ),
+                                        ],
+                                      ),
+                                      Text(
+                                        widget.type == 2
+                                            ? subsdone
+                                                    ?.thankYou?.transactionNo ??
+                                                ''
+                                            : shoptransaction
+                                                    ?.orderDetails?.orderNo ??
+                                                '',
+                                        // widget.type == 0?shoptransaction?.orderDetails?.orderNo ?? '': trans?.thankYou?.transactionNo ?? '',
                                         style: TextStyle(
-                                          fontSize: 13.sp,
-                                          color: Colors.white,
-                                          fontFamily: 'Poppins',
+                                            fontFamily: 'Poppins',
+                                            color:
+                                                Colors.black.withOpacity(0.80),
+                                            fontSize: 14.sp),
+                                      ),
+                                      widget.type == 1
+                                          ? Container()
+                                          : Column(
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      'Transaction-Id :',
+                                                      style: TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black
+                                                              .withOpacity(
+                                                                  0.90),
+                                                          fontSize: 14.sp),
+                                                    ),
+                                                    Text(
+                                                      '',
+                                                      style: TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black
+                                                              .withOpacity(
+                                                                  0.80),
+                                                          fontSize: 14.sp),
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: 1.h,
+                                                ),
+                                                Text(
+                                                  widget.type == 2
+                                                      ? subsdone?.thankYou
+                                                              ?.productId ??
+                                                          ''
+                                                      : shoptransaction
+                                                              ?.orderDetails
+                                                              ?.transactionId ??
+                                                          '',
+                                                  // shoptransaction?.orderDetails?.transactionId ?? '',
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      color: Colors.black
+                                                          .withOpacity(0.80),
+                                                      fontSize: 14.sp),
+                                                ),
+                                              ],
+                                            ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            'Order Details :',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black
+                                                    .withOpacity(0.90),
+                                                fontSize: 14.sp),
+                                          ),
+                                          Text(
+                                            '',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black
+                                                    .withOpacity(0.80),
+                                                fontSize: 14.sp),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            widget.type == 2
+                                                ? subsdone?.thankYou
+                                                        ?.productName ??
+                                                    ''
+                                                : shoptransaction?.orderDetails
+                                                        ?.productName ??
+                                                    '',
+                                            // widget.type == 1
+                                            //     ? '${trans?.thankYou?.productName} of Subscription.'
+                                            //     : (shoptransaction?.orderDetails?.itemName).toString(),
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black
+                                                    .withOpacity(0.90),
+                                                fontSize: 14.sp),
+                                          ),
+                                          Text(
+                                            '\$ ${widget.type == 2 ? subsdone?.thankYou?.amount ?? '' : shoptransaction?.orderDetails?.productPrice ?? ''}',
+                                            // widget.type == 0?"\$ ${shoptransaction?.orderDetails?.price}" : ' \$ ${trans?.thankYou?.amount}',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black
+                                                    .withOpacity(0.80),
+                                                fontSize: 14.sp),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            widget.type == 2
+                                                ? 'Subscription Date : '
+                                                : 'Purchased Date :',
+                                            // widget.type == 1
+                                            //     ? '${trans?.thankYou?.productName} of Subscription.'
+                                            //     : (shoptransaction?.orderDetails?.itemName).toString(),
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black
+                                                    .withOpacity(0.90),
+                                                fontSize: 14.sp),
+                                          ),
+                                          Text(
+                                            widget.type == 2
+                                                ? subsdone
+                                                        ?.thankYou?.planStart ??
+                                                    ''
+                                                : shoptransaction?.orderDetails
+                                                        ?.paymentDate ??
+                                                    '',
+                                            // widget.type == 0?"\$ ${shoptransaction?.orderDetails?.price}" : ' \$ ${trans?.thankYou?.amount}',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black
+                                                    .withOpacity(0.80),
+                                                fontSize: 14.sp),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            'Payment Type : ',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black
+                                                    .withOpacity(0.90),
+                                                fontSize: 14.sp),
+                                          ),
+                                          Text(
+                                            'Stripe',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black
+                                                    .withOpacity(0.80),
+                                                fontSize: 14.sp),
+                                          ),
+                                        ],
+                                      ),
+                                      Align(
+                                        alignment: Alignment.center,
+                                        child: InkWell(
+                                          onTap: () {
+                                            Get.to(
+                                              widget.type == 1
+                                                  ? CharPurchased()
+                                                  : mainpage2(),
+                                            );
+                                          },
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            width: 60.w,
+                                            margin: EdgeInsets.only(top: 1.5.h),
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(90),
+                                                color: primary),
+                                            padding: EdgeInsets.all(1.5.h),
+                                            child: Text(
+                                              'CONTINUE',
+                                              style: TextStyle(
+                                                fontSize: 13.sp,
+                                                color: Colors.white,
+                                                fontFamily: 'Poppins',
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
+                                    ],
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                        ],
+                        ),
+                      ],
+                    ),
+                    Positioned(
+                      left: 38.w,
+                      bottom: 83.5.h,
+                      child: Container(
+                        height: 9.h,
+                        width: 20.w,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.white,
+                            width: 5,
+                          ),
+                          borderRadius: BorderRadius.circular(100.0),
+                          color: Colors.green,
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child: Icon(
+                            Icons.check_rounded,
+                            size: 50,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Positioned(
-                left: 38.w,
-                bottom:83.5.h,
-                child: Container(
-                  height: 9.h,
-                  width: 20.w,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.white,
-                      width: 5,
-                    ),
-                    borderRadius: BorderRadius.circular(100.0),
-                    color: Colors.green,
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Icon(
-                      Icons.check_rounded,
-                      size: 50,
-                      color: Colors.white,
-                    ),
-                  ),
+                  ],
                 ),
               ),
-            ],
-          ),
-        ),
       ),
     );
-    ;
   }
 
   shoptransapi() {
@@ -433,6 +561,7 @@ class _ThanksPage1State extends State<ThanksPage1> {
       }
     });
   }
+
   Subsdoneapi() {
     final Map<String, String> data = {};
     data['uid'] = (usermodal?.userData?.uid).toString();

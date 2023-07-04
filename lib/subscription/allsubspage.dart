@@ -14,6 +14,7 @@ import 'package:sizer/sizer.dart';
 import '../Provider/authprovider.dart';
 import '../Widget/buildErrorDialog.dart';
 import '../Widget/const.dart';
+import '../Widget/hexcolor.dart';
 import '../Widget/loader.dart';
 import '../Widget/drawer.dart';
 import '../Widget/const widget.dart';
@@ -52,275 +53,73 @@ class _MySubscriptionsState extends State<MySubscriptions> {
               icn1: Icon(null)),
           body: isLoading
               ? Container()
-              : Stack(
-                  children: [
-                    Container(
-                        height: 100.h,
-                        child: Image.asset(
-                          'assets/wall2.webp',
-                          fit: BoxFit.fitHeight,
-                        )),
-                    Container(
-                      height: 100.h,
-                      color: Colors.black.withOpacity(0.40),
+              : Container(color: Colors.white,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 2.w),
+                  child: Column(children: [
+                    SizedBox(
+                      height: 14.h,
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 2.w),
-                      child: Column(children: [
-                        SizedBox(
-                          height: 14.h,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 2.w),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Subscription Details',
-                                style:
-                                    TextStyle(color: primary, fontSize: 15.sp),
-                              ),
-                            ],
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Subscription Details',
+                            style:
+                                TextStyle(color: primary, fontSize: 15.sp),
                           ),
-                        ),
-                        SizedBox(
-                          height: 1.h,
-                        ),
-                        Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)),
-                          elevation: 0,
-                          color: Colors.white,
-                          child: SizedBox(
-                            height: 60.h,
-                            width: 100.w,
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 2.h, vertical: 2.h),
-                              child: allsubs?.allSubs?.length == null ||
-                                      allsubs?.allSubs?.length == 0
-                                  ? Center(child: Text('No Subscription available',style: TextStyle(
-                                  color: Colors.black, fontSize: 15.sp),))
-                                  : Column(
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Card(
+                      shape: RoundedRectangleBorder(side: BorderSide(color: primary),
+                          borderRadius: BorderRadius.circular(20)),
+                      elevation: 0,
+                      color: HexColor.fromHex('#eaeeff'),
+                      child: SizedBox(
+                        height:allsubs?.allSubs?.length == null ||
+                            allsubs?.allSubs?.length == 0
+                            ?10.h: 60.h,
+                        width: 100.w,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 2.h, vertical: 2.h),
+                          child: allsubs?.allSubs?.length == null ||
+                                  allsubs?.allSubs?.length == 0
+                              ? Center(child: Text('No Subscription available',style: TextStyle(
+                              color: Colors.black, fontSize: 15.sp),))
+                              : Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
-                                        Row(
+                                        Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Plan Name :',
-                                                  style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 14.sp),
-                                                ),
-                                                SizedBox(
-                                                  height: 1.h,
-                                                ),
-                                                Text(
-                                                  '${allsubs?.allSubs?[0].productName} of Subscription',
-                                                  style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 14.sp),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        Divider(
-                                          color: Colors.black45,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
                                             Text(
-                                              'Amount :',
+                                              'Plan Name :',
                                               style: TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 14.sp),
                                             ),
-                                            Text(
-                                              '\$ ${allsubs?.allSubs?[0].amount}',
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 14.sp),
-                                            ),
-                                          ],
-                                        ),
-                                        Divider(
-                                          color: Colors.black45,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Product - Id :',
-                                                  style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 14.sp),
-                                                ),
-                                                SizedBox(
-                                                  height: 1.h,
-                                                ),
-                                                SizedBox(
-                                                  width: 85.w,
-                                                  child: Text(
-                                                    '${allsubs?.allSubs?[0].productId}',
-                                                    maxLines: 2,
-                                                    style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontSize: 14.sp),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        Divider(
-                                          color: Colors.black45,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              'Transaction No : ',
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 14.sp),
+                                            SizedBox(
+                                              height: 1.h,
                                             ),
                                             Text(
-                                              '${allsubs?.allSubs?[0].transactionId}',
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 14.sp),
-                                            ),
-                                          ],
-                                        ),
-                                        Divider(
-                                          color: Colors.black45,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Transaction Id :',
-                                                  style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 14.sp),
-                                                ),
-                                                SizedBox(
-                                                  height: 1.h,
-                                                ),
-                                                SizedBox(
-                                                  width: 85.w,
-                                                  child: Text(
-                                                    '${allsubs?.allSubs?[0].transactionNo}',
-                                                    maxLines: 2,
-                                                    style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontSize: 14.sp),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        Divider(
-                                          color: Colors.black45,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              'Active Plan Days :',
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 14.sp),
-                                            ),
-                                            Text(
-                                              '${allsubs?.allSubs?[0].planDays} Days',
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 14.sp),
-                                            ),
-                                          ],
-                                        ),
-                                        Divider(
-                                          color: Colors.black45,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              'Plan Start Date :',
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 14.sp),
-                                            ),
-                                            Text(
-                                              '${allsubs?.allSubs?[0].planStart}',
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 14.sp),
-                                            ),
-                                          ],
-                                        ),
-                                        Divider(
-                                          color: Colors.black45,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              'Plan End Date :',
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 14.sp),
-                                            ),
-                                            Text(
-                                              '${allsubs?.allSubs?[0].planEnd}',
+                                              '${allsubs?.allSubs?[0].productName} of Subscription',
                                               style: TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 14.sp),
@@ -329,67 +128,259 @@ class _MySubscriptionsState extends State<MySubscriptions> {
                                         ),
                                       ],
                                     ),
-                            ),
-                          ),
+                                    Divider(
+                                      color:primary,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Amount :',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14.sp),
+                                        ),
+                                        Text(
+                                          '\$ ${allsubs?.allSubs?[0].amount}',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14.sp),
+                                        ),
+                                      ],
+                                    ),
+                                    Divider(
+                                      color:primary,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Product - Id :',
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 14.sp),
+                                            ),
+                                            SizedBox(
+                                              height: 1.h,
+                                            ),
+                                            SizedBox(
+                                              width: 85.w,
+                                              child: Text(
+                                                '${allsubs?.allSubs?[0].productId}',
+                                                maxLines: 2,
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 14.sp),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Divider(
+                                      color:primary,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Transaction No : ',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14.sp),
+                                        ),
+                                        Text(
+                                          '${allsubs?.allSubs?[0].transactionId}',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14.sp),
+                                        ),
+                                      ],
+                                    ),
+                                    Divider(
+                                      color:primary,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Transaction Id :',
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 14.sp),
+                                            ),
+                                            SizedBox(
+                                              height: 1.h,
+                                            ),
+                                            SizedBox(
+                                              width: 85.w,
+                                              child: Text(
+                                                '${allsubs?.allSubs?[0].transactionNo}',
+                                                maxLines: 2,
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 14.sp),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Divider(
+                                      color:primary,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Active Plan Days :',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14.sp),
+                                        ),
+                                        Text(
+                                          '${allsubs?.allSubs?[0].planDays} Days',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14.sp),
+                                        ),
+                                      ],
+                                    ),
+                                    Divider(
+                                      color:primary,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Plan Start Date :',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14.sp),
+                                        ),
+                                        Text(
+                                          '${allsubs?.allSubs?[0].planStart}',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14.sp),
+                                        ),
+                                      ],
+                                    ),
+                                    Divider(
+                                      color:primary,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Plan End Date :',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14.sp),
+                                        ),
+                                        Text(
+                                          '${allsubs?.allSubs?[0].planEnd}',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14.sp),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                         ),
-                        SizedBox(
-                          height: 1.h,
-                        ),
-                        Card(
-                          color: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 2.w),
-                            child: allsubs?.allSubs?.length == null ||
-                                allsubs?.allSubs?.length == 0
-                                ?Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Subscribe Now',
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 15.sp),
-                                ),
-                                TextButton(
-                                  onPressed: () {
-                                  Get.off(subscription());
-                                  },
-                                  child: Text(
-                                    'Subscribe',
-                                    style: TextStyle(
-                                        color: primary, fontSize: 15.sp),
-                                  ),
-                                ),
-                              ],
-                            ):Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Cancel Subscription',
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 15.sp),
-                                ),
-                                TextButton(
-                                  onPressed: () {
-                                    gameexit(context, "Cancel Subscription",buttonname: 'Yes',buttonname1: 'No',
-                                        "Do you really want to cancel your Subscription ? ",
-                                        callback: canclesubapi);
-                                  },
-                                  child: Text(
-                                    'Cancel',
-                                    style: TextStyle(
-                                        color: primary, fontSize: 15.sp),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ]),
+                      ),
                     ),
-                  ],
-                )),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Card(
+                      color:HexColor.fromHex('#fff3e8'),
+                      shape: RoundedRectangleBorder(side: BorderSide(color: primary),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 2.w),
+                        child: allsubs?.allSubs?.length == null ||
+                            allsubs?.allSubs?.length == 0
+                            ?Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Subscribe Now',
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15.sp),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                              Get.off(subscription());
+                              },
+                              child: Text(
+                                'Subscribe',
+                                style: TextStyle(
+                                    color: primary, fontSize: 15.sp),
+                              ),
+                            ),
+                          ],
+                        ):Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Cancel Subscription',
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15.sp),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                gameexit(context, "Cancel Subscription",buttonname: 'Yes',buttonname1: 'No',
+                                    "Do you really want to cancel your Subscription ? ",
+                                    callback: canclesubapi);
+                              },
+                              child: Text(
+                                'Cancel',
+                                style: TextStyle(
+                                    color: primary, fontSize: 15.sp),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ]),
+                ),
+              )),
     );
   }
 

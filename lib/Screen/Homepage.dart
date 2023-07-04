@@ -119,58 +119,6 @@ class _mainpage2State extends State<mainpage2> {
                                         ],
                                       ),
                                     ),
-                                    // Container(
-                                    //   margin: EdgeInsets.only(top: 1.5.h),
-                                    //   padding:
-                                    //       EdgeInsets.symmetric(horizontal: 3.w),
-                                    //   child: Row(
-                                    //     crossAxisAlignment:
-                                    //         CrossAxisAlignment.center,
-                                    //     mainAxisAlignment:
-                                    //         MainAxisAlignment.spaceBetween,
-                                    //     children: [
-                                    //       Text(
-                                    //         "Hii " +
-                                    //             (usermodal?.userData?.name)
-                                    //                 .toString() +
-                                    //             " !!",
-                                    //         style: TextStyle(
-                                    //           color: Colors.black,
-                                    //           fontSize: 17.sp,
-                                    //           fontWeight: FontWeight.normal,
-                                    //           fontFamily: 'Poppins',
-                                    //         ),
-                                    //       ),
-                                    //       Container(
-                                    //         margin: EdgeInsets.symmetric(
-                                    //             horizontal: 1.w),
-                                    //         height: 6.h,
-                                    //         width: 13.w,
-                                    //         child: ClipRRect(
-                                    //           borderRadius:
-                                    //               BorderRadius.circular(90),
-                                    //           child: CachedNetworkImage(
-                                    //             fit: BoxFit.cover,
-                                    //             imageUrl: (profileviewmodal
-                                    //                     ?.profileViewPlayer
-                                    //                     ?.profilePic)
-                                    //                 .toString(),
-                                    //             progressIndicatorBuilder: (context,
-                                    //                     url, progress) =>
-                                    //                 CircularProgressIndicator(),
-                                    //             errorWidget:
-                                    //                 (context, url, error) =>
-                                    //                     Image.asset(
-                                    //               'assets/user.png',
-                                    //               color: Colors.black,
-                                    //             ),
-                                    //           ),
-                                    //         ),
-                                    //       ),
-                                    //     ],
-                                    //   ),
-                                    // ),
-
                                     Container(
                                       padding:
                                           EdgeInsets.symmetric(horizontal: 3.w),
@@ -194,7 +142,7 @@ class _mainpage2State extends State<mainpage2> {
                                                 SizedBox(
                                                   width: 2.w,
                                                 ),
-                                                Text('900'),
+                                                Text(profileviewmodal?.profileViewPlayer?.gamePoints ?? ''),
                                               ],
                                             ),SizedBox(
                                               width: 2.w,
@@ -202,7 +150,7 @@ class _mainpage2State extends State<mainpage2> {
                                               Row(
                                                 children: [
                                                   Image.asset(
-                                                    'assets/splash/collection.png',
+                                                    'assets/splash/coll.png',
                                                     width: 7.w,
                                                   ),
                                                   SizedBox(

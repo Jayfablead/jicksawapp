@@ -9,6 +9,7 @@ import 'package:jicksaw/Shop/gameinfoshop.dart';
 import 'package:jicksaw/Widget/hexcolor.dart';
 
 import 'package:jicksaw/Widget/loader.dart';
+import 'package:jicksaw/profile/userprofilepage.dart';
 import 'package:jicksaw/purchage/Charpurpage.dart';
 import 'package:sizer/sizer.dart';
 
@@ -125,10 +126,64 @@ class _AllplayerspageState extends State<Allplayerspage> {
                     padding: EdgeInsets.symmetric(horizontal: 4.w),
                     child: Column(
                       children: [
-                        SizedBox(
-                          height: 3.h,
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 2.5.w,vertical: 0.5.h),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: primary,
+                              ),
+                              borderRadius: BorderRadius.circular(20)),
+
+                          alignment: Alignment.center,
+                          child: TextFormField(
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 13.sp,
+                              fontFamily: 'Poppins',
+                              letterSpacing: 2,
+                            ),
+                            // controller: _user,
+                            keyboardType: TextInputType.text,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Please enter the email";
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                enabledBorder: const UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                    )),
+                                focusedBorder: const UnderlineInputBorder(
+                                  borderSide:
+                                  BorderSide(color: Colors.transparent),
+                                ),
+                                errorBorder: const UnderlineInputBorder(
+                                  borderSide:
+                                  BorderSide(color: Colors.transparent),
+                                ),
+                                suffixIcon: const Icon(
+                                  Icons.search,
+                                  color: Colors.black,
+                                ),
+                                hintText: "Search Player",
+                                errorStyle: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 1,
+                                    fontSize: 11.sp),
+                                hintStyle: TextStyle(
+                                    color: Colors.black.withOpacity(0.7),
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 2,
+                                    fontSize: 13.sp)),
+                          ),
                         ),
-                        SizedBox(height: 85.h,
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        SizedBox(
+                          height: 80.h,
                           child: GridView.builder(
                             padding: EdgeInsets.zero,
                             gridDelegate:
@@ -151,21 +206,17 @@ class _AllplayerspageState extends State<Allplayerspage> {
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
-                                      color: HexColor.fromHex(
-                                          players?.allPlayers?[index].bgColor ??
-                                              ''),
+                                      color: HexColor.fromHex("#FFE8DB"),
                                       border: Border.all(
-                                        color: HexColor.fromHex(players
-                                                ?.allPlayers?[index]
-                                                .bgBorderColor ??
-                                            ''),
+                                        color: HexColor.fromHex('#007780'),
                                       ),
                                       borderRadius: BorderRadius.circular(20)),
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 4.w, vertical: 1.h),
                                   margin: EdgeInsets.symmetric(horizontal: 1.w),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Container(
@@ -175,16 +226,20 @@ class _AllplayerspageState extends State<Allplayerspage> {
                                             borderRadius:
                                                 BorderRadius.circular(90)),
                                         child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(90),
+                                          borderRadius:
+                                              BorderRadius.circular(90),
                                           child: CachedNetworkImage(
                                             fit: BoxFit.cover,
-                                            imageUrl:
-                                    players?.allPlayers?[index].profilePic ??'',
+                                            imageUrl: players
+                                                    ?.allPlayers?[index]
+                                                    .profilePic ??
+                                                '',
                                             progressIndicatorBuilder:
                                                 (context, url, progress) =>
                                                     CircularProgressIndicator(),
-                                            errorWidget: (context, url, error) =>
-                                                Image.asset(
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    Image.asset(
                                               'assets/12.png',
                                               fit: BoxFit.cover,
                                             ),
@@ -199,13 +254,12 @@ class _AllplayerspageState extends State<Allplayerspage> {
                                         child: Column(
                                           children: [
                                             Text(
-                                              players?.allPlayers?[index].name ??
+                                              players?.allPlayers?[index]
+                                                      .name ??
                                                   '',
                                               style: TextStyle(
-                                                color: HexColor.fromHex(players
-                                                        ?.allPlayers?[index]
-                                                        .bgBorderColor ??
-                                                    ''),
+                                                color:
+                                                    HexColor.fromHex('#007780'),
                                                 fontSize: 15.sp,
                                                 fontWeight: FontWeight.w600,
                                                 fontFamily: 'Poppins',
@@ -229,23 +283,34 @@ class _AllplayerspageState extends State<Allplayerspage> {
                                                         fontWeight:
                                                             FontWeight.w600,
                                                         fontSize: 13.sp,
-                                                        color: Color(0xff2c2c2c)),
+                                                        color:
+                                                            Color(0xff2c2c2c)),
                                                   ),
                                                   Text(
-                                                    players?.allPlayers?[index]
-                                                            .gamePoints ??
-                                                        '',
+                                                    "${players?.allPlayers?[index].gamePoints ?? ''} Points",
                                                     style: TextStyle(
                                                         fontFamily: 'Poppins',
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         fontSize: 13.sp,
-                                                        color: Color(0xff2c2c2c)),
+                                                        color:
+                                                            Color(0xff2c2c2c)),
                                                   ),
                                                   Text(
                                                     players?.allPlayers?[index]
-                                                            .about ??
-                                                        '',
+                                                                    .about ==
+                                                                '' ||
+                                                            players
+                                                                    ?.allPlayers?[
+                                                                        index]
+                                                                    .about ==
+                                                                null
+                                                        ? 'N/A'
+                                                        : players
+                                                                ?.allPlayers?[
+                                                                    index]
+                                                                .about ??
+                                                            '',
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     style: TextStyle(
@@ -253,12 +318,14 @@ class _AllplayerspageState extends State<Allplayerspage> {
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         fontSize: 13.sp,
-                                                        color: Color(0xff2c2c2c)),
+                                                        color:
+                                                            Color(0xff2c2c2c)),
                                                   ),
                                                   InkWell(
-                                                    onTap: () {},
+                                                    onTap: () {Get.to(UserProfile(uid:players?.allPlayers?[index].uid));},
                                                     child: Container(
-                                                      alignment: Alignment.center,
+                                                      alignment:
+                                                          Alignment.center,
                                                       width: 27.w,
                                                       margin: EdgeInsets.only(
                                                           top: 1.h),
@@ -336,7 +403,7 @@ class _AllplayerspageState extends State<Allplayerspage> {
 
     data['uid'] = usermodal?.userData?.uid ?? "";
     data['action'] = 'all_players';
-print(data);
+    print(data);
     checkInternet().then((internet) async {
       if (internet) {
         authprovider().getplayers(data).then((response) async {
