@@ -43,6 +43,8 @@ TextEditingController _ey = TextEditingController();
 TextEditingController _cvv = TextEditingController();
 bool isLoading = false;
 String? name;
+List month = [01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12];
+String? selmonth;
 GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
 class _AddCardPageState extends State<AddCardPage> {
@@ -50,7 +52,7 @@ class _AddCardPageState extends State<AddCardPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-     cardviewapi();
+    cardviewapi();
   }
 
   @override
@@ -427,7 +429,10 @@ class _AddCardPageState extends State<AddCardPage> {
                             GestureDetector(
                               onTap: () {
                                 print("clicked on Add Card");
-                                addcardapi();
+                                int.parse(_ed.text) <= 12
+                                    ? addcardapi()
+                                    : buildErrorDialog(context, 'Month Error',
+                                        'Please Use Valid Month');
                               },
                               child: Container(
                                 alignment: Alignment.center,
@@ -511,9 +516,10 @@ class _AddCardPageState extends State<AddCardPage> {
                   setState(() {
                     isLoading = false;
                   });
-                } else {  setState(() {
-                  isLoading = false;
-                });
+                } else {
+                  setState(() {
+                    isLoading = false;
+                  });
 
                   alreadyadddialog(context, 'Error', addcard?.message ?? '');
                 }

@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'dart:math' as math;
+import 'dart:io' show Platform;
 final radius = math.min(12.0,12.0);
 class JigsawClipper1 extends CustomClipper<Path> {
   @override
@@ -401,11 +402,11 @@ class JigsawClipper10 extends CustomClipper<Path> {
 class JigsawClipper11 extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    double height = 32.w;
+    double height = Platform.isAndroid?28.w:32.w;
     double width = 43.w;
     final path = Path();
     final center = Offset(width*0.244, height*0.13);
-    final center1 = Offset(width*0.75, height*0.488);
+    final center1 = Offset(width*0.75, Platform.isAndroid?height*0.558:height*0.488);
     // final radius = math.min(width*0.1, height*0.1);
     final startAngle =  -math.pi * 3 / 2 + math.pi/4; // 45 degrees in radians
     final sweepAngle = math.pi * 3 / 2; // 270 degrees in radians
@@ -437,10 +438,10 @@ class JigsawClipper11 extends CustomClipper<Path> {
 class JigsawClipper12 extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    double height = 29.w;
+    double height = Platform.isAndroid?27.3.w:  29.w;
     double width = 39.w;
     final path = Path();
-    final center = Offset(width*0.268, height*0.796);
+    final center = Offset(Platform.isAndroid?width*0.269:width*0.268, Platform.isAndroid?height*0.83: height*0.796);
     final center1 = Offset(width*0.26, height*0.13);
     // final radius = math.min(width*0.1, height*0.1);
     // final radius1 = math.min(width*0.117, height*0.117);

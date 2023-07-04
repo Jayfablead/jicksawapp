@@ -183,12 +183,12 @@ class _MyProfileState extends State<MyProfile> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Icon(
-                                  Icons.games_outlined,
+                                  Icons.control_point_duplicate_sharp,
                                   color: Colors.black,
                                 ),
                                 SizedBox(width: 2.w),
                                 Text(
-                                  "Last match : ",
+                                  "Points : ",
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
@@ -204,7 +204,55 @@ class _MyProfileState extends State<MyProfile> {
                                 SizedBox(
                                   width: 40.w,
                                   child: Text(
-                                    '60 / 100',
+                                    '100',
+                                    maxLines: 3,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14.sp,
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 2,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 3.h,
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: 1.h,
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Icon(
+                                  Icons.radar,
+                                  color: Colors.black,
+                                ),
+                                SizedBox(width: 2.w),
+                                Text(
+                                  "Rank : ",
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      letterSpacing: 2,
+                                      fontFamily: "Poppins",
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 13.sp),
+                                ),
+                                SizedBox(
+                                  width: 10.w,
+                                ),
+                                SizedBox(
+                                  width: 40.w,
+                                  child: Text(
+                                    '1',
                                     maxLines: 3,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
@@ -241,7 +289,7 @@ class _MyProfileState extends State<MyProfile> {
                                   fontSize: 13.sp),
                             ),
                             SizedBox(
-                              width: 12.3.w,
+                              width: 11.5.w,
                             ),
                             Text(
                               profileviewmodal?.profileViewPlayer?.age ==

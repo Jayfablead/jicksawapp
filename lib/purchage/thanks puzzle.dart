@@ -35,7 +35,7 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    widget.type == 0?shoptransapi():viewtransapi();
+    widget.type == 2?viewtransapi():shoptransapi();
   }
 
   @override
@@ -74,14 +74,14 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
                             height: 2.h,
                           ),
                           Text(
-                            widget.type == 1
+                            widget.type == 2
                                 ? 'You have Purchased Our ${trans?.thankYou?.productName} of Subscription.'
                                 : 'You have Purchased ${shoptransaction?.orderDetails?.itemName}.',
                             style: mainstyle,
                             textAlign: TextAlign.center,
                           ),
                           Container(
-                            height: widget.type == 1
+                            height: widget.type == 2
                                 ? 35.h:38.h,
                             width: MediaQuery.of(context).size.width,
                             child: Card(
@@ -108,7 +108,7 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
                                               fontSize: 14.sp),
                                         ),
                                         Text(
-                                          widget.type == 0?shoptransaction?.orderDetails?.orderId ?? '':trans?.thankYou?.transactionId ?? '',
+                                          widget.type == 1?shoptransaction?.orderDetails?.orderId ?? '':trans?.thankYou?.transactionId ?? '',
                                           style: TextStyle(
                                               color: Colors.black
                                                   .withOpacity(0.80),
