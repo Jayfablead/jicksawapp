@@ -132,7 +132,21 @@ class _AllPurchasedGamesState extends State<AllPurchasedGames> {
         key: _scaffoldKey,
         body: isLoading
             ? Container()
-            : SingleChildScrollView(
+            : purgames?.purchases?.length == 0 ||
+            purgames?.purchases?.length == null
+            ? Container(
+          height: 75.h,
+          width: double.infinity,
+          alignment: Alignment.center,
+          child: Text(
+            'No Games Purchased',
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 17.sp,
+                fontWeight: FontWeight.w600),
+          ),
+        )
+            :SingleChildScrollView(
                 child: Container(
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 4.w),

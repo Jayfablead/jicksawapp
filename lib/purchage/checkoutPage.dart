@@ -404,7 +404,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
           print(subs?.status);
           if (response.statusCode == 200 && subs?.status == "success") {
             Get.to(
-              PurchaseTYPage(
+              ThanksPage1(
                 price: widget.price,
                 name: widget.name,
                 method: widget.method,

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:jicksaw/Modal/shoptransactionModal.dart';
+import 'package:jicksaw/Modal/subsuccessModal.dart';
 import 'package:jicksaw/Modal/transactionModal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Widget/loader.dart';
@@ -35,7 +36,7 @@ class _ThanksPage1State extends State<ThanksPage1> {
   void initState() {
     // TODO: implement initState
     super.initState();
- shoptransapi() ;
+ widget.type == 2?Subsdoneapi():shoptransapi() ;
   }
 
   @override
@@ -107,13 +108,13 @@ class _ThanksPage1State extends State<ThanksPage1> {
                                       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            shoptransaction?.orderDetails?.name ?? '',
+                                            widget.type == 2?subsdone?.thankYou?.userDetail?.name ?? '': shoptransaction?.orderDetails?.name ?? '',
                                             style: TextStyle(  fontFamily: 'Poppins',
                                                 color: Colors.black.withOpacity(0.90),
                                                 fontSize: 14.sp),
                                           ),
                                           Text(
-                                            shoptransaction?.orderDetails?.eMail ?? '',
+                                            widget.type == 2?subsdone?.thankYou?.userDetail?.eMail ?? '': shoptransaction?.orderDetails?.eMail ?? '',
                                             style: TextStyle(  fontFamily: 'Poppins',
                                                 color: Colors.black.withOpacity(0.90),
                                                 fontSize: 14.sp),
@@ -130,7 +131,7 @@ class _ThanksPage1State extends State<ThanksPage1> {
                                         BorderRadius.circular(90),
                                         child: CachedNetworkImage(
                                           fit: BoxFit.cover,
-                                          imageUrl: shoptransaction?.orderDetails?.profilePic ?? '',
+                                          imageUrl: widget.type == 2?subsdone?.thankYou?.userDetail?.profilePic ?? '':shoptransaction?.orderDetails?.profilePic ?? '',
                                           progressIndicatorBuilder: (context,
                                               url, progress) =>
                                               CircularProgressIndicator(),
@@ -152,13 +153,13 @@ class _ThanksPage1State extends State<ThanksPage1> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'Order-No',
+                                      'Order-No : ',
                                       style: TextStyle(  fontFamily: 'Poppins',
                                           color: Colors.black.withOpacity(0.90),
                                           fontSize: 14.sp),
                                     ),
                                     Text(
-                                      shoptransaction?.orderDetails?.orderId ?? '',
+                                      widget.type == 2?subsdone?.thankYou?.transactionId ?? '': shoptransaction?.orderDetails?.orderId ?? '',
                                       // widget.type == 0?shoptransaction?.orderDetails?.orderId ?? '':trans?.thankYou?.transactionId ?? '',
                                       style: TextStyle(  fontFamily: 'Poppins',
                                           color: Colors.black.withOpacity(0.80),
@@ -172,13 +173,13 @@ class _ThanksPage1State extends State<ThanksPage1> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'Order Type',
+                                      'Order Type : ',
                                       style: TextStyle(  fontFamily: 'Poppins',
                                           color: Colors.black.withOpacity(0.90),
                                           fontSize: 14.sp),
                                     ),
                                     Text(
-                                      widget.type == 1
+                                    widget.type == 2 ?'Subscription': widget.type == 1
                                           ? 'Character'
                                           : 'In-App Purchases',
                                       style: TextStyle(  fontFamily: 'Poppins',
@@ -207,7 +208,7 @@ class _ThanksPage1State extends State<ThanksPage1> {
                                   ],
                                 ),
                                 Text(
-                                  shoptransaction?.orderDetails?.orderNo ?? '',
+                                  widget.type == 2?subsdone?.thankYou?.transactionNo ?? '':  shoptransaction?.orderDetails?.orderNo ?? '',
                                   // widget.type == 0?shoptransaction?.orderDetails?.orderNo ?? '': trans?.thankYou?.transactionNo ?? '',
                                   style: TextStyle(  fontFamily: 'Poppins',
                                       color: Colors.black.withOpacity(0.80),
@@ -243,7 +244,7 @@ class _ThanksPage1State extends State<ThanksPage1> {
                                             height: 1.h,
                                           ),
                                           Text(
-                                            shoptransaction?.orderDetails?.transactionId ?? '',
+                                            widget.type == 2?subsdone?.thankYou?.productId ?? '':  shoptransaction?.orderDetails?.transactionId ?? '',
                                             // shoptransaction?.orderDetails?.transactionId ?? '',
                                             style: TextStyle(  fontFamily: 'Poppins',
                                                 color: Colors.black
@@ -277,7 +278,7 @@ class _ThanksPage1State extends State<ThanksPage1> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      shoptransaction?.orderDetails?.productName ?? '',
+                                      widget.type == 2?subsdone?.thankYou?.productName ?? '':  shoptransaction?.orderDetails?.productName ?? '',
                                       // widget.type == 1
                                       //     ? '${trans?.thankYou?.productName} of Subscription.'
                                       //     : (shoptransaction?.orderDetails?.itemName).toString(),
@@ -286,7 +287,7 @@ class _ThanksPage1State extends State<ThanksPage1> {
                                           fontSize: 14.sp),
                                     ),
                                     Text(
-                                      '\$ ${shoptransaction?.orderDetails?.productPrice ?? ''}',
+                                      '\$ ${widget.type == 2?subsdone?.thankYou?.amount ?? '': shoptransaction?.orderDetails?.productPrice ?? ''}',
                                       // widget.type == 0?"\$ ${shoptransaction?.orderDetails?.price}" : ' \$ ${trans?.thankYou?.amount}',
                                       style: TextStyle(  fontFamily: 'Poppins',
                                           color: Colors.black.withOpacity(0.80),
@@ -300,7 +301,7 @@ class _ThanksPage1State extends State<ThanksPage1> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'Purchased Date :',
+                                      widget.type == 2?'Subscription Date : ':'Purchased Date :',
                                       // widget.type == 1
                                       //     ? '${trans?.thankYou?.productName} of Subscription.'
                                       //     : (shoptransaction?.orderDetails?.itemName).toString(),
@@ -309,7 +310,7 @@ class _ThanksPage1State extends State<ThanksPage1> {
                                           fontSize: 14.sp),
                                     ),
                                     Text(
-                                      shoptransaction?.orderDetails?.paymentDate ?? '',
+                                      widget.type == 2?subsdone?.thankYou?.planStart ?? '': shoptransaction?.orderDetails?.paymentDate ?? '',
                                       // widget.type == 0?"\$ ${shoptransaction?.orderDetails?.price}" : ' \$ ${trans?.thankYou?.amount}',
                                       style: TextStyle(  fontFamily: 'Poppins',
                                           color: Colors.black.withOpacity(0.80),
@@ -323,7 +324,7 @@ class _ThanksPage1State extends State<ThanksPage1> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'Payment Type',
+                                      'Payment Type : ',
                                       style: TextStyle(  fontFamily: 'Poppins',
                                           color: Colors.black.withOpacity(0.90),
                                           fontSize: 14.sp),
@@ -417,6 +418,36 @@ class _ThanksPage1State extends State<ThanksPage1> {
               shoptransaction?.status == "success") {
             setState(() {
               isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        setState(() {
+          isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
+  Subsdoneapi() {
+    final Map<String, String> data = {};
+    data['uid'] = (usermodal?.userData?.uid).toString();
+    data['action'] = 'subscription_details';
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().transactionapi(data).then((response) async {
+          subsdone = subssucessfullModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && subsdone?.status == "success") {
+            setState(() {
+              isLoading = false;
+
+              print(viewcard?.cardDetails?.cardId ?? '');
             });
           } else {
             setState(() {

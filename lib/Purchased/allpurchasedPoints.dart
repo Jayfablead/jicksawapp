@@ -132,7 +132,21 @@ class _AllPurchasedPointsState extends State<AllPurchasedPoints> {
         key: _scaffoldKey,
         body: isLoading
             ? Container()
-            : SingleChildScrollView(
+            : purpoints?.purchases?.length == 0 ||
+            purpoints?.purchases?.length == null
+            ? Container(
+          height: 75.h,
+          width: double.infinity,
+          alignment: Alignment.center,
+          child: Text(
+            'No Points Purchased',
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 17.sp,
+                fontWeight: FontWeight.w600),
+          ),
+        )
+            :SingleChildScrollView(
                 child: Container(
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 4.w),
