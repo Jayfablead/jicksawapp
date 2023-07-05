@@ -5,14 +5,20 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Purchased/allpurchasedCharacters.dart';
+import 'package:jicksaw/Purchased/allpurchasedGames.dart';
+import 'package:jicksaw/Purchased/allpurchasedPoints.dart';
 
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/loader.dart';
+import 'package:jicksaw/game/createRoomPage.dart';
+import 'package:jicksaw/game/pendingGamePage.dart';
 import 'package:jicksaw/main%20Pages/categories%20&%20age.dart';
 import 'package:jicksaw/main%20Pages/categotirs%20page.dart';
 import 'package:jicksaw/main%20Pages/design.dart';
 import 'package:jicksaw/Widget/drawer.dart';
 import 'package:jicksaw/main%20Pages/gameinfo.dart';
+import 'package:jicksaw/profile/porfilePage.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:sizer/sizer.dart';
 
@@ -86,7 +92,9 @@ class _mainpage2State extends State<mainpage2> {
                             image: DecorationImage(
                                 image: AssetImage(
                                   'assets/wallmain.jpeg',
-                                ),colorFilter: ColorFilter.mode(Colors.black38, BlendMode.luminosity),
+                                ),
+                                colorFilter: ColorFilter.mode(
+                                    Colors.black38, BlendMode.luminosity),
                                 fit: BoxFit.cover),
                           ),
                           child: Column(
@@ -133,73 +141,105 @@ class _mainpage2State extends State<mainpage2> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Row(
-                                            children: [Row(
-                                              children: [
-                                                Image.asset(
-                                                  'assets/splash/coin.webp',
-                                                  width: 7.w,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              InkWell(
+                                                onTap: () {
+                                                  Get.to(AllPurchasedPoints());
+                                                },
+                                                child: Row(
+                                                  children: [
+                                                    Image.asset(
+                                                      'assets/splash/coin.webp',
+                                                      width: 7.w,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 2.w,
+                                                    ),
+                                                    Text(profileviewmodal
+                                                            ?.profileViewPlayer
+                                                            ?.gamePoints ??
+                                                        ''),
+                                                  ],
                                                 ),
-                                                SizedBox(
-                                                  width: 2.w,
-                                                ),
-                                                Text(profileviewmodal?.profileViewPlayer?.gamePoints ?? ''),
-                                              ],
-                                            ),SizedBox(
-                                              width: 2.w,
-                                            ),
-                                              Row(
-                                                children: [
-                                                  Image.asset(
-                                                    'assets/splash/coll.png',
-                                                    width: 7.w,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 2.w,
-                                                  ),
-                                                  Text('10'),
-                                                ],
                                               ),
                                               SizedBox(
-                                                width: 2.w,
+                                                width: 4.w,
                                               ),
-                                              Row(
-                                                children: [
-                                                  Image.asset(
-                                                    'assets/splash/gamepad.png',
-                                                    width: 7.5.w,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 1.w,
-                                                  ),
-                                                  Text('5'),
-                                                ],
+                                              InkWell(
+                                                onTap: () {
+                                                  Get.to(
+                                                      AllPurchasedCharacters());
+                                                },
+                                                child: Row(
+                                                  children: [
+                                                    Image.asset(
+                                                      'assets/splash/cute.png',
+                                                      width: 7.w,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 2.w,
+                                                    ),
+                                                    Text((profileviewmodal
+                                                            ?.profileViewPlayer
+                                                            ?.characterCount)
+                                                        .toString()),
+                                                  ],
+                                                ),
                                               ),
                                               SizedBox(
-                                                width: 2.w,
+                                                width: 4.w,
+                                              ),
+                                              InkWell(
+                                                onTap: () {
+                                                  Get.to(AllPurchasedGames());
+                                                },
+                                                child: Row(
+                                                  children: [
+                                                    Image.asset(
+                                                      'assets/splash/gamepad.png',
+                                                      width: 7.5.w,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 2.w,
+                                                    ),
+                                                    Text((profileviewmodal
+                                                            ?.profileViewPlayer
+                                                            ?.gameCount)
+                                                        .toString()),
+                                                  ],
+                                                ),
                                               ),
                                             ],
                                           ),
-                                          Container(
-                                            margin: EdgeInsets.symmetric(
-                                                horizontal: 1.w),
-                                            width: 9.w,
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(90),
-                                              child: CachedNetworkImage(
-                                                fit: BoxFit.cover,
-                                                imageUrl: (profileviewmodal
-                                                        ?.profileViewPlayer
-                                                        ?.profilePic)
-                                                    .toString(),
-                                                progressIndicatorBuilder: (context,
-                                                        url, progress) =>
-                                                    CircularProgressIndicator(),
-                                                errorWidget:
-                                                    (context, url, error) =>
-                                                        Image.asset(
-                                                  'assets/user.png',
-                                                  color: Colors.black,
+                                          InkWell(
+                                            onTap: () {
+                                              Get.to(MyProfile());
+                                            },
+                                            child: Container(
+                                              margin: EdgeInsets.symmetric(
+                                                  horizontal: 1.w),
+                                              width: 9.w,
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(90),
+                                                child: CachedNetworkImage(
+                                                  fit: BoxFit.cover,
+                                                  imageUrl: (profileviewmodal
+                                                          ?.profileViewPlayer
+                                                          ?.profilePic)
+                                                      .toString(),
+                                                  progressIndicatorBuilder:
+                                                      (context, url,
+                                                              progress) =>
+                                                          CircularProgressIndicator(),
+                                                  errorWidget:
+                                                      (context, url, error) =>
+                                                          Image.asset(
+                                                    'assets/user.png',
+                                                    color: Colors.black,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -322,8 +362,95 @@ class _mainpage2State extends State<mainpage2> {
                                                   SizedBox(height: 1.5.h),
                                                   InkWell(
                                                     onTap: () {
-                                                      Get.to(
-                                                 Tutorial()
+                                                      showDialog(
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return AlertDialog(
+                                                            shape: RoundedRectangleBorder(
+                                                                borderRadius: BorderRadius
+                                                                    .all(Radius
+                                                                        .circular(
+                                                                            32.0))),
+                                                            contentPadding:
+                                                                EdgeInsets.only(
+                                                                    top: 10.0),
+                                                            content: Container(
+                                                              width: 300.0,
+                                                              child: Column(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .start,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .stretch,
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .min,
+                                                                children: <Widget>[
+                                                                  Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .end,
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .min,
+                                                                    children: <Widget>[
+
+                                                                      IconButton(onPressed: (){Get.back();}, icon: Icon(Icons.close))
+                                                                    ],
+                                                                  ),
+
+                                                                  Padding(
+                                                                    padding: EdgeInsets.only(
+                                                                        left:
+                                                                            12.0,
+                                                                        right:
+                                                                            12.0),
+                                                                    child:
+                                                                        Text("Select option to Start the game or Join the game" ,textAlign: TextAlign.center,style:TextStyle(fontFamily: 'Poppins',fontWeight: FontWeight.w600,color: Colors.black.withOpacity(0.7),fontSize: 14.sp),)
+                                                                  ),
+                                                                  SizedBox(height: 2.h,),
+                                                                  Padding(
+                                                                    padding:  EdgeInsets.symmetric(horizontal: 20.w),
+                                                                    child: InkWell(onTap:(){Get.to(CreateRoomPage());},
+                                                                      child: Container(
+                                                                        padding: EdgeInsets.symmetric(horizontal: 8.w,vertical: 1.2.h),
+                                                                        decoration: BoxDecoration(
+                                                                          color: primary,
+                                                                          borderRadius: BorderRadius.circular(32.0),
+                                                                        ),
+                                                                        child: Text(
+                                                                          "Play",
+                                                                          style: TextStyle(color: Colors.white,fontFamily: 'Poppins',letterSpacing: 2,fontSize: 14.sp,fontWeight: FontWeight.w600),
+                                                                          textAlign: TextAlign.center,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  SizedBox(height: 1.
+                                                                  h,),Padding(
+                                                                    padding:  EdgeInsets.symmetric(horizontal: 20.w),
+                                                                    child: InkWell(onTap: (){Get.to(PendingGamePage());},
+                                                                      child: Container(
+                                                                        padding: EdgeInsets.symmetric(horizontal: 8.w,vertical: 1.2.h),
+                                                                        decoration: BoxDecoration(
+                                                                          color: primary,
+                                                                          borderRadius: BorderRadius.circular(32.0),
+                                                                        ),
+                                                                        child: Text(
+                                                                          "Join",
+                                                                          style: TextStyle(color: Colors.white,fontFamily: 'Poppins',letterSpacing: 2,fontSize: 14.sp,fontWeight: FontWeight.w600),
+                                                                          textAlign: TextAlign.center,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  SizedBox(height: 1.h,)
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
                                                       );
                                                     },
                                                     child: Container(
@@ -340,7 +467,9 @@ class _mainpage2State extends State<mainpage2> {
                                                       child: Text(
                                                         'PLAY',
                                                         style: TextStyle(
-                                                            color: Colors.white,fontWeight: FontWeight.bold,
+                                                            color: Colors.white,
+                                                            fontWeight:
+                                                                FontWeight.bold,
                                                             fontFamily:
                                                                 'Poppins',
                                                             letterSpacing: 1,

@@ -60,6 +60,20 @@ class authprovider with ChangeNotifier{
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> userprofileapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=user_profile';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
   Future<http.Response> shopapi(Map<String, dynamic> bodyData) async {
     const url = '$baseUrl/?action=all_game_page';
     var responseJson;
@@ -118,6 +132,76 @@ class authprovider with ChangeNotifier{
   }
   Future<http.Response> charapi(Map<String, dynamic> bodyData) async {
     const url = '$baseUrl/?action=all_characters_page';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> WaitApi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=game_start';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> closeapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=game_close';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> Gamesapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=game_started';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> Pendinggameapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=game_request_pending';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> loadapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=is_oponent_joined';
     var responseJson;
     final response = await http
         .post(Uri.parse(url), body: bodyData, headers: headers)
@@ -403,6 +487,20 @@ class authprovider with ChangeNotifier{
   }
   Future<http.Response> getplayers(Map<String, String> bodyData) async {
     const url = '$baseUrl/?action=all_players';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> searchplayesapi(Map<String, String> bodyData) async {
+    const url = '$baseUrl/?action=search_by_username';
     var responseJson;
     final response = await http
         .post(Uri.parse(url), body: bodyData, headers: headers)

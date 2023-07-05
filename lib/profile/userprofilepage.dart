@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Modal/UserprofileViewModal.dart';
 import 'package:jicksaw/Provider/ProfileviewModal.dart';
 import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
@@ -99,7 +100,7 @@ class _UserProfileState extends State<UserProfile> {
                           child: CachedNetworkImage(
                             fit: BoxFit.cover,
                             imageUrl:
-                          profileviewmodal?.profileViewPlayer?.profilePic ?? '',
+                          userpfoile?.userInfo?.profilePic ?? '',
                             progressIndicatorBuilder: (context, url, progress) =>
                                 CircularProgressIndicator(),
                             errorWidget: (context, url, error) => Image.asset(
@@ -117,14 +118,14 @@ class _UserProfileState extends State<UserProfile> {
                             Container(
                               width: 52.w,
                               child: Text(
-                                  profileviewmodal?.profileViewPlayer?.name ?? '',
+                                  userpfoile?.userInfo?.name ?? '',
                                   style: header),
                             ),
                             Container(
                               width: 52.w,
                               child: Text(
 
-                                  profileviewmodal?.profileViewPlayer?.eMail ?? '',
+                                  userpfoile?.userInfo?.eMail ?? '',
                                   style: mail),
                             ),
                           ],
@@ -171,13 +172,12 @@ class _UserProfileState extends State<UserProfile> {
                           SizedBox(
                             width: 40.w,
                             child: Text(
-                              profileviewmodal?.profileViewPlayer?.gamePoints ==
+                              userpfoile?.userInfo?.gamePoints ==
                                   '' ||
-                                  profileviewmodal
-                                      ?.profileViewPlayer?.gamePoints ==
+                                  userpfoile?.userInfo?.gamePoints ==
                                       null
                                   ? "0"
-                                  : (profileviewmodal?.profileViewPlayer?.gamePoints).toString(),
+                                  : (userpfoile?.userInfo?.gamePoints).toString(),
                               maxLines: 3,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -225,13 +225,12 @@ class _UserProfileState extends State<UserProfile> {
                           SizedBox(
                             width: 40.w,
                             child: Text(
-                              profileviewmodal?.profileViewPlayer?.rank ==
+                              userpfoile?.userInfo?.rank ==
                                   '' ||
-                                  profileviewmodal
-                                      ?.profileViewPlayer?.rank ==
+                                  userpfoile?.userInfo?.rank ==
                                       null
                                   ? "0"
-                                  : (profileviewmodal?.profileViewPlayer?.rank).toString(),
+                                  : (userpfoile?.userInfo?.rank).toString(),
                               maxLines: 3,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -271,10 +270,10 @@ class _UserProfileState extends State<UserProfile> {
                         width: 12.3.w,
                       ),
                       Text(
-                        profileviewmodal?.profileViewPlayer?.age == null ||
-                            profileviewmodal?.profileViewPlayer?.age == ""
+                        userpfoile?.userInfo?.age == null ||
+                            userpfoile?.userInfo?.age == ""
                             ? "N/A"
-                            : profileviewmodal?.profileViewPlayer?.age ?? "",
+                            : userpfoile?.userInfo?.age ?? "",
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -316,21 +315,22 @@ class _UserProfileState extends State<UserProfile> {
                       Column(
                         children: [
                           Container(
-                            alignment: Alignment.center,
+                            alignment: Alignment.centerLeft,
                             width: 60.w,
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             child: Text(
                               // 'Monkey D. Luffy also known as "Straw Hat" Luffy, is a fictional character and the protagonist of the One Piece manga series.',
-                              profileviewmodal?.profileViewPlayer?.about == null ||
-                                  profileviewmodal?.profileViewPlayer?.about ==
+                              userpfoile?.userInfo?.about == null ||
+                                  userpfoile?.userInfo?.about ==
                                       ""
                                   ? "N/A"
-                                  : profileviewmodal?.profileViewPlayer?.about ??
+                                  :userpfoile?.userInfo?.about ??
                                   "",
                               maxLines: _isExpanded ? 20 : 2,
                               overflow: _isExpanded
                                   ? TextOverflow.visible
                                   : TextOverflow.ellipsis,
+
                               style: appname,
                             ),
                           ),
@@ -384,22 +384,22 @@ class _UserProfileState extends State<UserProfile> {
   viewap() {
     final Map<String, String> data = {};
     data['uid'] =widget.uid.toString() ;
-    data['action'] = 'profile_view_player';
+    data['action'] = 'user_profile';
     print(data);
     checkInternet().then((internet) async {
       if (internet) {
-        authprovider().profileviewapi(data).then((response) async {
-          profileviewmodal =
-              ProfileviewModal.fromJson(json.decode(response.body));
+        authprovider().userprofileapi(data).then((response) async {
+          userpfoile =
+              UserProfileViewModal.fromJson(json.decode(response.body));
 
           if (response.statusCode == 200 &&
-              profileviewmodal?.status == "success") {
-            print(profileviewmodal?.profileViewPlayer?.name);
-            print(profileviewmodal?.profileViewPlayer?.age);
-            print(profileviewmodal?.profileViewPlayer?.about);
-            String? dis = profileviewmodal?.profileViewPlayer?.about.toString();
+              userpfoile?.status == "success") {
+            print(userpfoile?.userInfo?.name);
+            print(userpfoile?.userInfo?.age);
+            print(userpfoile?.userInfo?.about);
+            String? dis = userpfoile?.userInfo?.about.toString();
             lenght = dis!.length == 0 ? 0 : dis.length;
-            print(profileviewmodal?.profileViewPlayer?.profilePic);
+            print(userpfoile?.userInfo?.profilePic);
             setState(() {
               isLoading = false;
             });

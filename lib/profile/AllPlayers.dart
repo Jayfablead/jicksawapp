@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Modal/playermodal.dart';
+import 'package:jicksaw/Modal/searchPlayerModal.dart';
 import 'package:jicksaw/Modal/shopitemmodal.dart';
 import 'package:jicksaw/Shop/gameinfoshop.dart';
 import 'package:jicksaw/Widget/hexcolor.dart';
@@ -28,6 +29,7 @@ class Allplayerspage extends StatefulWidget {
 }
 
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+TextEditingController _search = TextEditingController();
 
 class game {
   String? image;
@@ -127,13 +129,13 @@ class _AllplayerspageState extends State<Allplayerspage> {
                     child: Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 2.5.w,vertical: 0.5.h),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 2.5.w, vertical: 0.5.h),
                           decoration: BoxDecoration(
                               border: Border.all(
                                 color: primary,
                               ),
                               borderRadius: BorderRadius.circular(20)),
-
                           alignment: Alignment.center,
                           child: TextFormField(
                             style: TextStyle(
@@ -142,26 +144,21 @@ class _AllplayerspageState extends State<Allplayerspage> {
                               fontFamily: 'Poppins',
                               letterSpacing: 2,
                             ),
-                            // controller: _user,
+                            controller: _search,
                             keyboardType: TextInputType.text,
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return "Please enter the email";
-                              }
-                              return null;
-                            },
+                            onChanged: searchApi(),
                             decoration: InputDecoration(
                                 enabledBorder: const UnderlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                    )),
+                                  color: Colors.transparent,
+                                )),
                                 focusedBorder: const UnderlineInputBorder(
                                   borderSide:
-                                  BorderSide(color: Colors.transparent),
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 errorBorder: const UnderlineInputBorder(
                                   borderSide:
-                                  BorderSide(color: Colors.transparent),
+                                      BorderSide(color: Colors.transparent),
                                 ),
                                 suffixIcon: const Icon(
                                   Icons.search,
@@ -182,185 +179,450 @@ class _AllplayerspageState extends State<Allplayerspage> {
                         SizedBox(
                           height: 1.h,
                         ),
-                        SizedBox(
-                          height: 80.h,
-                          child: GridView.builder(
-                            padding: EdgeInsets.zero,
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 1.h,
-                              crossAxisSpacing: 0.w,
-                              childAspectRatio: 0.55,
-                            ),
-                            shrinkWrap: true,
-                            // scrollDirection: Axis.horizontal,
-                            itemCount: players?.allPlayers?.length,
+                        _search.text == ''
+                            ? SizedBox(
+                                height: 80.h,
+                                child: GridView.builder(
+                                  padding: EdgeInsets.zero,
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    mainAxisSpacing: 1.h,
+                                    crossAxisSpacing: 0.w,
+                                    childAspectRatio: 0.55,
+                                  ),
+                                  shrinkWrap: true,
+                                  // scrollDirection: Axis.horizontal,
+                                  itemCount: players?.allPlayers?.length,
 
-                            itemBuilder: (context, index) {
-                              return InkWell(
-                                onTap: () {
-                                  // Get.to(CharPurchased(
-                                  //   pic: charcters[index].image,
-                                  // ));
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: HexColor.fromHex("#FFE8DB"),
-                                      border: Border.all(
-                                        color: HexColor.fromHex('#007780'),
-                                      ),
-                                      borderRadius: BorderRadius.circular(20)),
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 4.w, vertical: 1.h),
-                                  margin: EdgeInsets.symmetric(horizontal: 1.w),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        height: 10.h,
-                                        width: 22.w,
+                                  itemBuilder: (context, index) {
+                                    return InkWell(
+                                      onTap: () {
+                                        // Get.to(CharPurchased(
+                                        //   pic: charcters[index].image,
+                                        // ));
+                                      },
+                                      child: Container(
                                         decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(90)),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(90),
-                                          child: CachedNetworkImage(
-                                            fit: BoxFit.cover,
-                                            imageUrl: players
-                                                    ?.allPlayers?[index]
-                                                    .profilePic ??
-                                                '',
-                                            progressIndicatorBuilder:
-                                                (context, url, progress) =>
-                                                    CircularProgressIndicator(),
-                                            errorWidget:
-                                                (context, url, error) =>
-                                                    Image.asset(
-                                              'assets/12.png',
-                                              fit: BoxFit.cover,
+                                            color: HexColor.fromHex("#FFE8DB"),
+                                            border: Border.all(
+                                              color:
+                                                  HexColor.fromHex('#007780'),
                                             ),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 1.h,
-                                      ),
-                                      Align(
-                                        alignment: Alignment.center,
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 4.w, vertical: 1.h),
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 1.w),
                                         child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                           children: [
-                                            Text(
-                                              players?.allPlayers?[index]
-                                                      .name ??
-                                                  '',
-                                              style: TextStyle(
-                                                color:
-                                                    HexColor.fromHex('#007780'),
-                                                fontSize: 15.sp,
-                                                fontWeight: FontWeight.w600,
-                                                fontFamily: 'Poppins',
-                                                letterSpacing: 1.5,
+                                            Container(
+                                              height: 10.h,
+                                              width: 22.w,
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          90)),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(90),
+                                                child: CachedNetworkImage(
+                                                  fit: BoxFit.cover,
+                                                  imageUrl: players
+                                                          ?.allPlayers?[index]
+                                                          .profilePic ??
+                                                      '',
+                                                  progressIndicatorBuilder:
+                                                      (context, url,
+                                                              progress) =>
+                                                          CircularProgressIndicator(),
+                                                  errorWidget:
+                                                      (context, url, error) =>
+                                                          Image.asset(
+                                                    'assets/user.png',
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
                                               ),
                                             ),
+                                            SizedBox(
+                                              height: 1.h,
+                                            ),
                                             Align(
+                                              alignment: Alignment.center,
                                               child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
                                                 children: [
                                                   Text(
                                                     players?.allPlayers?[index]
-                                                            .eMail ??
+                                                            .name ??
                                                         '',
-                                                    maxLines: 2,
                                                     style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontSize: 13.sp,
-                                                        color:
-                                                            Color(0xff2c2c2c)),
+                                                      color: HexColor.fromHex(
+                                                          '#007780'),
+                                                      fontSize: 15.sp,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 1.5,
+                                                    ),
                                                   ),
-                                                  Text(
-                                                    "${players?.allPlayers?[index].gamePoints ?? ''} Points",
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontSize: 13.sp,
-                                                        color:
-                                                            Color(0xff2c2c2c)),
-                                                  ),
-                                                  Text(
-                                                    players?.allPlayers?[index]
-                                                                    .about ==
-                                                                '' ||
-                                                            players
+                                                  Align(
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                          players
+                                                                  ?.allPlayers?[
+                                                                      index]
+                                                                  .eMail ??
+                                                              '',
+                                                          maxLines: 2,
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              fontSize: 13.sp,
+                                                              color: Color(
+                                                                  0xff2c2c2c)),
+                                                        ),
+                                                        Text(
+                                                          "${players?.allPlayers?[index].gamePoints ?? ''} Points",
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 13.sp,
+                                                              color: Color(
+                                                                  0xff2c2c2c)),
+                                                        ),
+                                                        Text(
+                                                          players?.allPlayers?[index].about ==
+                                                                      '' ||
+                                                                  players
+                                                                          ?.allPlayers?[
+                                                                              index]
+                                                                          .about ==
+                                                                      null
+                                                              ? 'N/A'
+                                                              : players
+                                                                      ?.allPlayers?[
+                                                                          index]
+                                                                      .about ??
+                                                                  '',
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 13.sp,
+                                                              color: Color(
+                                                                  0xff2c2c2c)),
+                                                        ),
+                                                        InkWell(
+                                                          onTap: () {
+                                                            Get.to(UserProfile(
+                                                                uid: players
                                                                     ?.allPlayers?[
                                                                         index]
-                                                                    .about ==
-                                                                null
-                                                        ? 'N/A'
-                                                        : players
-                                                                ?.allPlayers?[
-                                                                    index]
-                                                                .about ??
-                                                            '',
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontSize: 13.sp,
-                                                        color:
-                                                            Color(0xff2c2c2c)),
-                                                  ),
-                                                  InkWell(
-                                                    onTap: () {Get.to(UserProfile(uid:players?.allPlayers?[index].uid));},
-                                                    child: Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 27.w,
-                                                      margin: EdgeInsets.only(
-                                                          top: 1.h),
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(90),
-                                                          color: primary),
-                                                      padding:
-                                                          EdgeInsets.all(0.5.h),
-                                                      child: Text(
-                                                        'View',
-                                                        style: TextStyle(
-                                                          fontSize: 15.sp,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          color: Colors.white,
-                                                          fontFamily: 'Poppins',
-                                                        ),
-                                                      ),
+                                                                    .uid));
+                                                          },
+                                                          child: Container(
+                                                            alignment: Alignment
+                                                                .center,
+                                                            width: 27.w,
+                                                            margin:
+                                                                EdgeInsets.only(
+                                                                    top: 1.h),
+                                                            decoration: BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            90),
+                                                                color: primary),
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    0.5.h),
+                                                            child: Text(
+                                                              'View',
+                                                              style: TextStyle(
+                                                                fontSize: 15.sp,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                color: Colors
+                                                                    .white,
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        )
+                                                      ],
                                                     ),
-                                                  )
+                                                  ),
                                                 ],
                                               ),
                                             ),
                                           ],
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    );
+                                  },
                                 ),
-                              );
-                            },
-                          ),
-                        ),
+                              )
+                            : searchplayer?.userData?.length == 0 ||
+                                    searchplayer?.userData?.length == null ||
+                                    searchplayer?.userData?.length == []
+                                ? Container(
+                                    height: 80.h,
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      'No Players Available by this Name',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 17.sp,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  )
+                                : SizedBox(
+                                    height: 80.h,
+                                    child: GridView.builder(
+                                      padding: EdgeInsets.zero,
+                                      gridDelegate:
+                                          SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2,
+                                        mainAxisSpacing: 1.h,
+                                        crossAxisSpacing: 0.w,
+                                        childAspectRatio: 0.55,
+                                      ),
+                                      shrinkWrap: true,
+                                      // scrollDirection: Axis.horizontal,
+                                      itemCount: searchplayer?.userData?.length,
+
+                                      itemBuilder: (context, index) {
+                                        return InkWell(
+                                          onTap: () {
+                                            // Get.to(CharPurchased(
+                                            //   pic: charcters[index].image,
+                                            // ));
+                                          },
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                                color:
+                                                    HexColor.fromHex("#FFE8DB"),
+                                                border: Border.all(
+                                                  color: HexColor.fromHex(
+                                                      '#007780'),
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(20)),
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 4.w, vertical: 1.h),
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 1.w),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  height: 10.h,
+                                                  width: 22.w,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              90)),
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            90),
+                                                    child: CachedNetworkImage(
+                                                      fit: BoxFit.cover,
+                                                      imageUrl: searchplayer
+                                                              ?.userData?[index]
+                                                              .profilePic ??
+                                                          '',
+                                                      progressIndicatorBuilder:
+                                                          (context, url,
+                                                                  progress) =>
+                                                              CircularProgressIndicator(),
+                                                      errorWidget: (context,
+                                                              url, error) =>
+                                                          Image.asset(
+                                                        'assets/user.png',
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 1.h,
+                                                ),
+                                                Align(
+                                                  alignment: Alignment.center,
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        searchplayer
+                                                                ?.userData?[
+                                                                    index]
+                                                                .name ??
+                                                            '',
+                                                        style: TextStyle(
+                                                          color:
+                                                              HexColor.fromHex(
+                                                                  '#007780'),
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 1.5,
+                                                        ),
+                                                      ),
+                                                      Align(
+                                                        child: Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Text(
+                                                              searchplayer
+                                                                      ?.userData?[
+                                                                          index]
+                                                                      .eMail ??
+                                                                  '',
+                                                              maxLines: 2,
+                                                              style: TextStyle(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontSize:
+                                                                      13.sp,
+                                                                  color: Color(
+                                                                      0xff2c2c2c)),
+                                                            ),
+                                                            Text(
+                                                              "${searchplayer?.userData?[index].gamePoints ?? ''} Points",
+                                                              style: TextStyle(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontSize:
+                                                                      13.sp,
+                                                                  color: Color(
+                                                                      0xff2c2c2c)),
+                                                            ),
+                                                            Text(
+                                                              searchplayer?.userData?[index].about ==
+                                                                          '' ||
+                                                                      searchplayer
+                                                                              ?.userData?[
+                                                                                  index]
+                                                                              .about ==
+                                                                          null
+                                                                  ? 'N/A'
+                                                                  : searchplayer
+                                                                          ?.userData?[
+                                                                              index]
+                                                                          .about ??
+                                                                      '',
+                                                              overflow:
+                                                                  TextOverflow
+                                                                      .ellipsis,
+                                                              style: TextStyle(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontSize:
+                                                                      13.sp,
+                                                                  color: Color(
+                                                                      0xff2c2c2c)),
+                                                            ),
+                                                            InkWell(
+                                                              onTap: () {
+                                                                Get.to(UserProfile(
+                                                                    uid: searchplayer
+                                                                        ?.userData?[
+                                                                            index]
+                                                                        .uid));
+                                                              },
+                                                              child: Container(
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                width: 27.w,
+                                                                margin: EdgeInsets
+                                                                    .only(
+                                                                        top: 1
+                                                                            .h),
+                                                                decoration: BoxDecoration(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            90),
+                                                                    color:
+                                                                        primary),
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(0.5
+                                                                            .h),
+                                                                child: Text(
+                                                                  'View',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        15.sp,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            )
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
                       ],
                     ),
                   ),
@@ -370,34 +632,6 @@ class _AllplayerspageState extends State<Allplayerspage> {
     );
   }
 
-// viewap() {
-//   final Map<String, String> data = {};
-//
-//   data['uid'] = usermodal?.userData?.uid ?? "";
-//   data['action'] = 'profile_view_player';
-//
-//   checkInternet().then((internet) async {
-//     if (internet) {
-//       authprovider().profileviewapi(data).then((response) async {
-//         profileviewmodal =
-//             ProfileviewModal.fromJson(json.decode(response.body));
-//
-//         if (response.statusCode == 200 &&
-//             profileviewmodal?.status == "success") {
-//           setState(() {
-//             isLoading = false;
-//           });
-//         } else {}
-//       });
-//     } else {
-//       setState(() {
-//         isLoading = false;
-//       });
-//       buildErrorDialog(context, 'Error', "Internate Required");
-//     }
-//   });
-// }
-//
   shopitems() {
     final Map<String, String> data = {};
 
@@ -410,6 +644,37 @@ class _AllplayerspageState extends State<Allplayerspage> {
           players = AllplayersApiModal.fromJson(json.decode(response.body));
 
           if (response.statusCode == 200 && players?.status == "success") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        setState(() {
+          isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
+
+  searchApi() {
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['search_name'] = _search.text.trim().toString();
+    data['action'] = 'search_by_username';
+    print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().searchplayesapi(data).then((response) async {
+          searchplayer = searchPlayerModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && searchplayer?.status == "success") {
             setState(() {
               isLoading = false;
             });

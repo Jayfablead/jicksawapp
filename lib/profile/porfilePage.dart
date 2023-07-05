@@ -301,7 +301,7 @@ class _MyProfileState extends State<MyProfile> {
                                   fontSize: 13.sp),
                             ),
                             SizedBox(
-                              width: 11.5.w,
+                              width: 5.w,
                             ),
                             Text(
                               profileviewmodal?.profileViewPlayer?.age ==
@@ -352,7 +352,7 @@ class _MyProfileState extends State<MyProfile> {
                             Column(
                               children: [
                                 Container(
-                                  alignment: Alignment.center,
+                                  alignment: Alignment.centerLeft,
                                   width: profileviewmodal
                                               ?.profileViewPlayer?.about ==
                                           ''

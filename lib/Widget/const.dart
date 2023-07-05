@@ -1,6 +1,7 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:jicksaw/Modal/CAtegoryModal.dart';
 import 'package:jicksaw/Modal/UserModal.dart';
+import 'package:jicksaw/Modal/UserprofileViewModal.dart';
 import 'package:jicksaw/Modal/addcardModal.dart';
 import 'package:jicksaw/Modal/allpurchasedCharactersModal.dart';
 import 'package:jicksaw/Modal/allpurchasedGmaesMoal.dart';
@@ -19,6 +20,7 @@ import 'package:jicksaw/Modal/playermodal.dart';
 import 'package:jicksaw/Modal/pointshopModal.dart';
 import 'package:jicksaw/Modal/questionsmodal.dart';
 import 'package:jicksaw/Modal/randomQuestionApiModal.dart';
+import 'package:jicksaw/Modal/searchPlayerModal.dart';
 import 'package:jicksaw/Modal/shopinfoModal.dart';
 import 'package:jicksaw/Modal/shopitemmodal.dart';
 import 'package:jicksaw/Modal/shoppurModal.dart';
@@ -30,9 +32,11 @@ import 'package:jicksaw/Modal/subsdataModal.dart';
 import 'package:jicksaw/Modal/subsuccessModal.dart';
 import 'package:jicksaw/Modal/transactionModal.dart';
 import 'package:jicksaw/Modal/viewcard.dart';
+import 'package:jicksaw/Modal/waitModal.dart';
 import 'package:jicksaw/Provider/ProfileviewModal.dart';
 
 import '../Modal/challenegeModal.dart';
+import '../Modal/pendingGameModal.dart';
 
 Future<bool> checkInternet() async {
   var connectivityResult = await (Connectivity().checkConnectivity());
@@ -78,3 +82,7 @@ allpurchasedCharactersModal? purcharcs;
 allpurchasedPointsModal? purpoints;
 randomQuestionApiModal? randomque;
 subssucessfullModal? subsdone;
+UserProfileViewModal? userpfoile;
+waitModal? wait;
+pendingGameModal? pendinggame;
+searchPlayerModal? searchplayer;

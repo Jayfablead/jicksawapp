@@ -8,6 +8,7 @@ import 'package:jicksaw/profile/porfilePage.dart';
 import 'package:sizer/sizer.dart';
 
 import '../profile/login.dart';
+import 'const widget.dart';
 
 buildErrorDialog(BuildContext context, String title, String contant,
     {VoidCallback? callback, String? buttonname}) {
@@ -17,7 +18,7 @@ buildErrorDialog(BuildContext context, String title, String contant,
       decoration: BoxDecoration(
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(20.0),
-        // color: Color(0xffb4776e6)
+        // color: primary
       ),
       child: Center(
         child: Text(buttonname ?? 'OK',
@@ -25,7 +26,7 @@ buildErrorDialog(BuildContext context, String title, String contant,
             style: TextStyle(
                 fontSize: 11.sp,
                 fontWeight: FontWeight.bold,
-                color: Color(0xffb4776e6),
+                color: primary,
                 decorationColor: Colors.black,
                fontFamily: 'Poppins',)),
       ),
@@ -227,7 +228,7 @@ update(BuildContext context, String title, String contant,
       decoration: BoxDecoration(
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(20.0),
-        // color: Color(0xffb4776e6)
+        // color: primary
       ),
       child: Center(
         child: Text(buttonname ?? 'OK',
@@ -235,7 +236,7 @@ update(BuildContext context, String title, String contant,
             style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.bold,
-                color: Color(0xffb4776e6),
+                color: primary,
                 decorationColor: Colors.black,
                fontFamily: 'Poppins',)),
       ),
@@ -431,15 +432,15 @@ gameexit(BuildContext context, String title, String contant,
       decoration: BoxDecoration(
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(20.0),
-        // color: Color(0xffb4776e6)
+        // color: primary
       ),
       child: Center(
-        child: Text(buttonname ?? 'OK',
+        child: Text(buttonname ?? 'Yes',
             textAlign: TextAlign.center,
             style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.bold,
-                color: Color(0xffb4776e6),
+                color: primary,
                 decorationColor: Colors.black,
                fontFamily: 'Poppins',)),
       ),
@@ -452,7 +453,7 @@ gameexit(BuildContext context, String title, String contant,
       decoration: BoxDecoration(
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(20.0),
-        // color: Color(0xffb4776e6)
+        // color: primary
       ),
       child: Center(
         child: Text(buttonname1 ?? 'No',
@@ -460,7 +461,7 @@ gameexit(BuildContext context, String title, String contant,
             style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.bold,
-                color: Color(0xffb4776e6),
+                color: primary,
                 decorationColor: Colors.black,
                fontFamily: 'Poppins',)),
       ),
@@ -479,7 +480,7 @@ gameexit(BuildContext context, String title, String contant,
           backgroundColor: Colors.transparent,
           child: Container(
             width: 73.w,
-height: 25.h,
+height: 22.h,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
@@ -535,7 +536,11 @@ height: 25.h,
                   color: Colors.grey,
                 ),
                 SizedBox(height: 2.h),
-                okButton,
+                Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    okButton,Container(height: 3.5.h,width: 0.3.w,color: Colors.black54,),noButton,
+                  ],
+                ),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -659,7 +664,7 @@ alreadyadddialog(BuildContext context, String title, String contant,
       decoration: BoxDecoration(
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(20.0),
-        // color: Color(0xffb4776e6)
+        // color: primary
       ),
       child: Center(
         child: Text(buttonname ?? 'OK',
@@ -667,7 +672,7 @@ alreadyadddialog(BuildContext context, String title, String contant,
             style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.bold,
-                color: Color(0xffb4776e6),
+                color: primary,
                 decorationColor: Colors.black,
                fontFamily: 'Poppins',)),
       ),
