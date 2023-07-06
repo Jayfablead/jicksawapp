@@ -231,7 +231,6 @@ class _congratulationState extends State<congratulation> {
           if (response.statusCode == 200 && chalns?.status == "success") {
             Get.off(design(
               cat: widget.cat,
-              age: widget.age,
             ));
             setState(() {
               isloading = false;

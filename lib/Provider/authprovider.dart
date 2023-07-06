@@ -158,6 +158,20 @@ class authprovider with ChangeNotifier{
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> CheckSubsapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=check_user_susbscription';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
   Future<http.Response> closeapi(Map<String, dynamic> bodyData) async {
     const url = '$baseUrl/?action=game_close';
     var responseJson;
@@ -585,6 +599,20 @@ class authprovider with ChangeNotifier{
   }
   Future<http.Response> endapi(Map<String, String> bodyData) async {
     const url = '$baseUrl/?action=game_end';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> liveupdateapi(Map<String, String> bodyData) async {
+    const url = '$baseUrl/?action=get_follow_steps';
     var responseJson;
     final response = await http
         .post(Uri.parse(url), body: bodyData, headers: headers)

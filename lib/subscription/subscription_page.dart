@@ -96,7 +96,7 @@ class _subscriptionState extends State<subscription> {
           ),
           Container(
             child: Text(
-              'Starting at \$ 17.99/month',
+              'Starting at \$ 17.99/month or \$ 65.99/year',
               style: TextStyle(
                   fontSize: 12.sp,
                   fontFamily: 'Poppins',

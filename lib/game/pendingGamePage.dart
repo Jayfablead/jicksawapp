@@ -5,6 +5,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jicksaw/Modal/pendingGameModal.dart';
+import 'package:jicksaw/Widget/hexcolor.dart';
 import 'package:jicksaw/Widget/loader.dart';
 import 'package:jicksaw/main%20Pages/design.dart';
 import 'package:sizer/sizer.dart';
@@ -79,8 +80,8 @@ class _PendingGamePageState extends State<PendingGamePage> {
                             padding: EdgeInsets.zero,
                             itemBuilder: (context, index) {
                               return Container(
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black),
+                                decoration: BoxDecoration(color: HexColor.fromHex('#eaebfc'),
+                                    border: Border.all(color: HexColor.fromHex('#000CF9')),
                                     borderRadius: BorderRadius.circular(20)),
                                 margin: EdgeInsets.all(2.w),
                                 padding: EdgeInsets.symmetric(
@@ -92,8 +93,8 @@ class _PendingGamePageState extends State<PendingGamePage> {
                                       Row(
                                         children: [
                                           Container(
-                                            height: 6.h,
-                                            width: 13.w,
+                                            height: 5.h,
+                                            width: 11.w,
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(90)),
@@ -123,13 +124,11 @@ class _PendingGamePageState extends State<PendingGamePage> {
                                             width: 3.w,
                                           ),
                                           Text(
-                                            pendinggame
-                                                    ?.gameStartRequests?[index]
-                                                    .oponentName ??
+                                            pendinggame?.gameStartRequests?[index].opponentName ??
                                                 '',
                                             style: TextStyle(
                                                 fontSize: 14.sp,
-                                                fontFamily: 'Poppins',
+                                                fontFamily: 'Poppins',color: HexColor.fromHex('#000CF9'),
                                                 fontWeight: FontWeight.w600,
                                                 letterSpacing: 1),
                                           ),
@@ -143,7 +142,7 @@ class _PendingGamePageState extends State<PendingGamePage> {
                                                   .gameId,
                                               pendinggame
                                                   ?.gameStartRequests?[index]
-                                                  .oponentUserId);
+                                                  .opponentUserId);
                                         },
                                         child: Container(
                                           padding: EdgeInsets.symmetric(

@@ -480,7 +480,7 @@ gameexit(BuildContext context, String title, String contant,
           backgroundColor: Colors.transparent,
           child: Container(
             width: 73.w,
-height: 22.h,
+height: 25.h,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
@@ -562,7 +562,7 @@ height: 22.h,
           backgroundColor: Colors.transparent,
           child: Container(
             width: 70.w,
-            height: (title == "") ? 15.5.h : 22.h,
+            height: (title == "") ? 15.5.h : 25.h,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),

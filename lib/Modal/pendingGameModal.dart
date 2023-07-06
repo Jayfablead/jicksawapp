@@ -1,3 +1,4 @@
+
 class pendingGameModal {
   String? status;
   List<GameStartRequests>? gameStartRequests;
@@ -27,25 +28,25 @@ class pendingGameModal {
 
 class GameStartRequests {
   String? gameId;
-  String? oponentUserId;
-  String? oponentName;
+  String? opponentUserId;
+  String? opponentName;
   String? profilePic;
 
   GameStartRequests(
-      {this.gameId, this.oponentUserId, this.oponentName, this.profilePic});
+      {this.gameId, this.opponentUserId, this.opponentName, this.profilePic});
 
   GameStartRequests.fromJson(Map<String, dynamic> json) {
     gameId = json['game_id'];
-    oponentUserId = json['oponent_user_id'];
-    oponentName = json['oponent_name'];
+    opponentUserId = json['opponent_user_id'];
+    opponentName = json['opponent_name'];
     profilePic = json['profile_pic'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['game_id'] = this.gameId;
-    data['oponent_user_id'] = this.oponentUserId;
-    data['oponent_name'] = this.oponentName;
+    data['opponent_user_id'] = this.opponentUserId;
+    data['opponent_name'] = this.opponentName;
     data['profile_pic'] = this.profilePic;
     return data;
   }
