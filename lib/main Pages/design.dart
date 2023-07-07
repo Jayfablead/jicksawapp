@@ -7,27 +7,18 @@ import 'package:get/get.dart';
 import 'package:jicksaw/Game%20Modals/playerQuitModal.dart';
 import 'package:jicksaw/Game%20Modals/playerloadModal.dart';
 import 'package:jicksaw/Modal/GameDetilsModal.dart';
-import 'package:jicksaw/Modal/challenegeModal.dart';
 import 'package:jicksaw/Modal/gameModal.dart';
 import 'package:jicksaw/Screen/Homepage.dart';
-import 'package:jicksaw/Screen/choicech.dart';
-import 'package:jicksaw/Screen/choiceque.dart';
-import 'package:jicksaw/Screen/doubleque.dart';
-
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
 import 'package:jicksaw/Widget/hexcolor.dart';
 import 'package:jicksaw/Widget/loader.dart';
-
-import 'package:jicksaw/main%20Pages/gameinfo.dart';
-import 'package:jicksaw/main.dart';
 import 'package:jicksaw/Widget/const%20widget.dart';
 import 'package:jicksaw/Widget/drawer.dart';
-
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
-
 import '../Provider/authprovider.dart';
 import '../Widget/const.dart';
+
 
 class design extends StatefulWidget {
   String? cat;
@@ -417,126 +408,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                         ),
                                       ],
                                     ),
-                                  )
-                                  // Container(
-                                  //   height: 25.h,
-                                  //   width: 35.w,
-                                  //   padding: EdgeInsets.symmetric(
-                                  //       horizontal: 2.w, vertical: 2.h),
-                                  //   decoration: BoxDecoration(
-                                  //       color: livegamedetails?.gameDetails
-                                  //                   ?.currentTurn ==
-                                  //               livegamedetails
-                                  //                   ?.gameDetails?.player2?.uid
-                                  //           ? HexColor.fromHex('#ffecd1')
-                                  //           : HexColor.fromHex('#d6d6d6'),
-                                  //       borderRadius: BorderRadius.circular(15),
-                                  //       border: Border.all(
-                                  //           color: livegamedetails?.gameDetails
-                                  //                       ?.currentTurn ==
-                                  //                   livegamedetails?.gameDetails
-                                  //                       ?.player2?.uid
-                                  //               ? HexColor.fromHex('#2b5876')
-                                  //               : HexColor.fromHex('#494949'),
-                                  //           width: 2)),
-                                  //   child: Column(
-                                  //     crossAxisAlignment:
-                                  //         CrossAxisAlignment.center,
-                                  //     mainAxisAlignment:
-                                  //         MainAxisAlignment.spaceEvenly,
-                                  //     children: [
-                                  //       Container(
-                                  //         height: 7.h,
-                                  //         width: 15.5.w,
-                                  //         decoration: BoxDecoration(
-                                  //             borderRadius:
-                                  //                 BorderRadius.circular(90)),
-                                  //         child: ClipRRect(
-                                  //           borderRadius:
-                                  //               BorderRadius.circular(90),
-                                  //           child: livegamedetails?.gameDetails
-                                  //                       ?.currentTurn ==
-                                  //                   livegamedetails?.gameDetails
-                                  //                       ?.player2?.uid
-                                  //               ? CachedNetworkImage(
-                                  //                   fit: BoxFit.cover,
-                                  //                   imageUrl: livegamedetails
-                                  //                           ?.gameDetails
-                                  //                           ?.player2
-                                  //                           ?.profilePic ??
-                                  //                       '',
-                                  //                   progressIndicatorBuilder:
-                                  //                       (context, url,
-                                  //                               progress) =>
-                                  //                           CircularProgressIndicator(),
-                                  //                   errorWidget:
-                                  //                       (context, url, error) =>
-                                  //                           Image.asset(
-                                  //                     'assets/user.png',
-                                  //                     fit: BoxFit.cover,
-                                  //                   ),
-                                  //                 )
-                                  //               : ColorFiltered(
-                                  //                   colorFilter:
-                                  //                       ColorFilter.mode(
-                                  //                     Colors
-                                  //                         .grey, // or any other color
-                                  //                     BlendMode.hue,
-                                  //                   ),
-                                  //                   child: CachedNetworkImage(
-                                  //                     fit: BoxFit.cover,
-                                  //                     imageUrl: livegamedetails
-                                  //                             ?.gameDetails
-                                  //                             ?.player2
-                                  //                             ?.profilePic ??
-                                  //                         '',
-                                  //                     progressIndicatorBuilder:
-                                  //                         (context, url,
-                                  //                                 progress) =>
-                                  //                             CircularProgressIndicator(),
-                                  //                     errorWidget: (context,
-                                  //                             url, error) =>
-                                  //                         Image.asset(
-                                  //                       'assets/user.png',
-                                  //                       fit: BoxFit.cover,
-                                  //                     ),
-                                  //                   ),
-                                  //                 ),
-                                  //         ),
-                                  //       ),
-                                  //       SizedBox(
-                                  //         height: 1.h,
-                                  //       ),
-                                  //       Text(
-                                  //         livegamedetails?.gameDetails?.player2
-                                  //                 ?.name ??
-                                  //             '',
-                                  //         style: TextStyle(
-                                  //             color: livegamedetails
-                                  //                         ?.gameDetails
-                                  //                         ?.currentTurn ==
-                                  //                     livegamedetails
-                                  //                         ?.gameDetails
-                                  //                         ?.player2
-                                  //                         ?.uid
-                                  //                 ? Colors.blue.shade900
-                                  //                 : HexColor.fromHex('#494949'),
-                                  //             fontSize: 15.sp,
-                                  //             fontFamily: 'Poppins',
-                                  //             fontWeight: FontWeight.w600),
-                                  //       ),
-                                  //       SizedBox(
-                                  //         height: 1.h,
-                                  //       ),
-                                  //       Text(
-                                  //         "win : ${livegamedetails?.gameDetails?.player2?.winingPiece ?? ''}",
-                                  //         style: TextStyle(
-                                  //             fontSize: 15.sp,
-                                  //             fontFamily: 'Poppins'),
-                                  //       ),
-                                  //     ],
-                                  //   ),
-                                  // ),
+                                  ),
                                 ],
                               ),
                             ],
@@ -810,9 +682,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
           playerload = playerloadModal.fromJson(json.decode(response.body));
           print(playerload?.status);
           if (response.statusCode == 200 && playerload?.status == "success") {
-            update(context, 'Opponent Left', 'Opponent left the game.',
+            update(context, 'Opponent Left', 'Your opponent left the game.',
                 callback: PlayerQuitApi);
-
             setState(() {
               _timer?.cancel();
 
