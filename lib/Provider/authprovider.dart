@@ -625,6 +625,34 @@ class authprovider with ChangeNotifier{
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> playerquitapi(Map<String, String> bodyData) async {
+    const url = '$baseUrl/?action=game_quit';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> playerload(Map<String, String> bodyData) async {
+    const url = '$baseUrl/?action=is_users_online_game';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
   Future<http.Response> rndmQuesapi(Map<String, String> bodyData) async {
     const url = '$baseUrl/?action=get_random_question';
     var responseJson;

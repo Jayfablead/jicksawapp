@@ -38,7 +38,9 @@ class _PendingGamePageState extends State<PendingGamePage> {
   }
 
   void dispose() {
-    _timer?.cancel();
+    setState(() {
+      _timer?.cancel();
+    });
     // TODO: implement dispose
     super.dispose();
   }

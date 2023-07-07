@@ -4,6 +4,8 @@ import 'dart:math';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Game%20Modals/playerQuitModal.dart';
+import 'package:jicksaw/Game%20Modals/playerloadModal.dart';
 import 'package:jicksaw/Modal/GameDetilsModal.dart';
 import 'package:jicksaw/Modal/challenegeModal.dart';
 import 'package:jicksaw/Modal/gameModal.dart';
@@ -50,6 +52,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
   final Random random = Random();
   String? userid;
   String? opid;
+  Timer? _timer;
 
   @override
   void initState() {
@@ -60,6 +63,9 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
       print('*-*-*-*-*-*-*-*-*-* ${count}');
       liveupdateapi();
+      _timer = Timer.periodic( Duration(milliseconds: 3500), (timer) {
+        Playrloading();
+      });
     });
     _animationController = AnimationController(
       duration: Duration(seconds: 3),
@@ -76,6 +82,10 @@ class _designState extends State<design> with TickerProviderStateMixin {
   @override
   void dispose() {
     _animationController!.dispose();
+setState(() {
+  _timer?.cancel();
+});
+
     super.dispose();
   }
 
@@ -107,9 +117,15 @@ class _designState extends State<design> with TickerProviderStateMixin {
               icn: Icon(null),
               act: () {
                 gameexit(context, 'Are You Sure ?', 'You want to Quit?',
-                    callback: endapi);
+                    callback: () {
+                  print('Done');
+                  PlayerQuitApi();
+                });
               },
-              icn1: Icon(Icons.logout_rounded)),
+              icn1: Icon(
+                Icons.logout_rounded,
+                color: Colors.white,
+              )),
           body: SingleChildScrollView(
             child: isloading
                 ? Container()
@@ -119,11 +135,13 @@ class _designState extends State<design> with TickerProviderStateMixin {
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                       colors: [
-                        HexColor.fromHex('#686dd1'),
-                        HexColor.fromHex('#41c1c1'),
+                        HexColor.fromHex('#ff5d00'),
+                        HexColor.fromHex('#ff5d00'),
+                        HexColor.fromHex('#ff9900'),
+                        HexColor.fromHex('#ffb600'),
                       ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
                     )),
                     child: Container(
                       margin: EdgeInsets.only(top: 15.h),
@@ -138,8 +156,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                         userid
                                     ? 'Your Turn'
                                     : 'Opponent\'s Turn',
-                                style:
-                                    TextStyle(color: primary, fontSize: 15.sp),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 15.sp),
                               ),
                               SizedBox(
                                 height: 5.h,
@@ -149,36 +167,36 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
-                                    height: 25.h,
-                                    width: 35.w,
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 2.w, vertical: 2.h),
-                                    decoration: BoxDecoration(
-                                        color: livegamedetails?.gameDetails
-                                                    ?.currentTurn ==
-                                                livegamedetails
-                                                    ?.gameDetails?.player1?.uid
-                                            ? HexColor.fromHex('#ffecd1')
-                                            : HexColor.fromHex('#d6d6d6'),
-                                        borderRadius: BorderRadius.circular(15),
-                                        border: Border.all(
-                                            color: livegamedetails?.gameDetails
-                                                        ?.currentTurn ==
-                                                    livegamedetails?.gameDetails
-                                                        ?.player1?.uid
-                                                ? HexColor.fromHex('#FF9400')
-                                                : HexColor.fromHex('#494949'),
-                                            width: 2)),
+                                    margin: EdgeInsets.only(left: 2.w),
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Container(
-                                          height: 7.h,
-                                          width: 15.5.w,
+                                          padding: EdgeInsets.all(1.w),
+                                          height: livegamedetails?.gameDetails
+                                                      ?.currentTurn ==
+                                                  livegamedetails?.gameDetails
+                                                      ?.player1?.uid
+                                              ? 11.h
+                                              : 9.h,
+                                          width: livegamedetails?.gameDetails
+                                                      ?.currentTurn ==
+                                                  livegamedetails?.gameDetails
+                                                      ?.player1?.uid
+                                              ? 23.w
+                                              : 19.w,
                                           decoration: BoxDecoration(
+                                              color: Colors.white54,
+                                              border: Border.all(
+                                                  color: livegamedetails
+                                                              ?.gameDetails
+                                                              ?.currentTurn ==
+                                                          livegamedetails
+                                                              ?.gameDetails
+                                                              ?.player1
+                                                              ?.uid
+                                                      ? Colors.blue.shade900
+                                                      : Colors.grey,
+                                                  width: 2),
                                               borderRadius:
                                                   BorderRadius.circular(90)),
                                           child: ClipRRect(
@@ -234,13 +252,14 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                                   ),
                                           ),
                                         ),
-                                        SizedBox(
-                                          height: 1.h,
-                                        ),
                                         Text(
                                           livegamedetails?.gameDetails?.player1
-                                                  ?.name ??
-                                              '',
+                                                      ?.uid ==
+                                                  userid
+                                              ? "You"
+                                              : livegamedetails?.gameDetails
+                                                      ?.player1?.name ??
+                                                  '',
                                           style: TextStyle(
                                               color: livegamedetails
                                                           ?.gameDetails
@@ -249,55 +268,61 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                                           ?.gameDetails
                                                           ?.player1
                                                           ?.uid
-                                                  ? Colors.blue.shade900
+                                                  ? Colors.white
                                                   : HexColor.fromHex('#494949'),
-                                              fontSize: 15.sp,
+                                              fontSize: livegamedetails
+                                                          ?.gameDetails
+                                                          ?.currentTurn ==
+                                                      livegamedetails
+                                                          ?.gameDetails
+                                                          ?.player1
+                                                          ?.uid
+                                                  ? 15.sp
+                                                  : 13.sp,
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w600),
                                         ),
-                                        SizedBox(
-                                          height: 1.h,
-                                        ),
                                         Text(
-                                          "win : ${livegamedetails?.gameDetails?.player1?.winingPiece ?? ''}",
+                                          "Pieces Won: ${livegamedetails?.gameDetails?.player1?.winingPiece ?? ''}",
                                           style: TextStyle(
-                                              fontSize: 15.sp,
+                                              fontSize: 13.sp,
+                                              color: Colors.white,
                                               fontFamily: 'Poppins'),
                                         ),
                                       ],
                                     ),
                                   ),
                                   Container(
-                                    height: 25.h,
-                                    width: 35.w,
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 2.w, vertical: 2.h),
-                                    decoration: BoxDecoration(
-                                        color: livegamedetails?.gameDetails
-                                                    ?.currentTurn ==
-                                                livegamedetails
-                                                    ?.gameDetails?.player2?.uid
-                                            ? HexColor.fromHex('#ffecd1')
-                                            : HexColor.fromHex('#d6d6d6'),
-                                        borderRadius: BorderRadius.circular(15),
-                                        border: Border.all(
-                                            color: livegamedetails?.gameDetails
-                                                        ?.currentTurn ==
-                                                    livegamedetails?.gameDetails
-                                                        ?.player2?.uid
-                                                ? HexColor.fromHex('#FF9400')
-                                                : HexColor.fromHex('#494949'),
-                                            width: 2)),
+                                    margin: EdgeInsets.only(right: 2.w),
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Container(
-                                          height: 7.h,
-                                          width: 15.5.w,
+                                          padding: EdgeInsets.all(1.w),
+                                          height: livegamedetails?.gameDetails
+                                                      ?.currentTurn ==
+                                                  livegamedetails?.gameDetails
+                                                      ?.player2?.uid
+                                              ? 11.h
+                                              : 9.h,
+                                          width: livegamedetails?.gameDetails
+                                                      ?.currentTurn ==
+                                                  livegamedetails?.gameDetails
+                                                      ?.player2?.uid
+                                              ? 23.w
+                                              : 19.w,
                                           decoration: BoxDecoration(
+                                              color: Colors.white54,
+                                              border: Border.all(
+                                                  color: livegamedetails
+                                                              ?.gameDetails
+                                                              ?.currentTurn ==
+                                                          livegamedetails
+                                                              ?.gameDetails
+                                                              ?.player2
+                                                              ?.uid
+                                                      ? Colors.blue.shade900
+                                                      : Colors.black54,
+                                                  width: 2),
                                               borderRadius:
                                                   BorderRadius.circular(90)),
                                           child: ClipRRect(
@@ -353,13 +378,14 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                                   ),
                                           ),
                                         ),
-                                        SizedBox(
-                                          height: 1.h,
-                                        ),
                                         Text(
                                           livegamedetails?.gameDetails?.player2
-                                                  ?.name ??
-                                              '',
+                                                      ?.uid ==
+                                                  userid
+                                              ? "You"
+                                              : livegamedetails?.gameDetails
+                                                      ?.player2?.name ??
+                                                  '',
                                           style: TextStyle(
                                               color: livegamedetails
                                                           ?.gameDetails
@@ -368,24 +394,149 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                                           ?.gameDetails
                                                           ?.player2
                                                           ?.uid
-                                                  ? Colors.blue.shade900
+                                                  ? Colors.white
                                                   : HexColor.fromHex('#494949'),
-                                              fontSize: 15.sp,
+                                              fontSize: livegamedetails
+                                                          ?.gameDetails
+                                                          ?.currentTurn ==
+                                                      livegamedetails
+                                                          ?.gameDetails
+                                                          ?.player2
+                                                          ?.uid
+                                                  ? 15.sp
+                                                  : 13.sp,
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w600),
                                         ),
-                                        SizedBox(
-                                          height: 1.h,
-                                        ),
                                         Text(
-                                          "win : ${livegamedetails?.gameDetails?.player2?.winingPiece ?? ''}",
+                                          "Pieces Won: ${livegamedetails?.gameDetails?.player2?.winingPiece ?? ''}",
                                           style: TextStyle(
-                                              fontSize: 15.sp,
+                                              fontSize: 13.sp,
+                                              color: Colors.white,
                                               fontFamily: 'Poppins'),
                                         ),
                                       ],
                                     ),
-                                  ),
+                                  )
+                                  // Container(
+                                  //   height: 25.h,
+                                  //   width: 35.w,
+                                  //   padding: EdgeInsets.symmetric(
+                                  //       horizontal: 2.w, vertical: 2.h),
+                                  //   decoration: BoxDecoration(
+                                  //       color: livegamedetails?.gameDetails
+                                  //                   ?.currentTurn ==
+                                  //               livegamedetails
+                                  //                   ?.gameDetails?.player2?.uid
+                                  //           ? HexColor.fromHex('#ffecd1')
+                                  //           : HexColor.fromHex('#d6d6d6'),
+                                  //       borderRadius: BorderRadius.circular(15),
+                                  //       border: Border.all(
+                                  //           color: livegamedetails?.gameDetails
+                                  //                       ?.currentTurn ==
+                                  //                   livegamedetails?.gameDetails
+                                  //                       ?.player2?.uid
+                                  //               ? HexColor.fromHex('#2b5876')
+                                  //               : HexColor.fromHex('#494949'),
+                                  //           width: 2)),
+                                  //   child: Column(
+                                  //     crossAxisAlignment:
+                                  //         CrossAxisAlignment.center,
+                                  //     mainAxisAlignment:
+                                  //         MainAxisAlignment.spaceEvenly,
+                                  //     children: [
+                                  //       Container(
+                                  //         height: 7.h,
+                                  //         width: 15.5.w,
+                                  //         decoration: BoxDecoration(
+                                  //             borderRadius:
+                                  //                 BorderRadius.circular(90)),
+                                  //         child: ClipRRect(
+                                  //           borderRadius:
+                                  //               BorderRadius.circular(90),
+                                  //           child: livegamedetails?.gameDetails
+                                  //                       ?.currentTurn ==
+                                  //                   livegamedetails?.gameDetails
+                                  //                       ?.player2?.uid
+                                  //               ? CachedNetworkImage(
+                                  //                   fit: BoxFit.cover,
+                                  //                   imageUrl: livegamedetails
+                                  //                           ?.gameDetails
+                                  //                           ?.player2
+                                  //                           ?.profilePic ??
+                                  //                       '',
+                                  //                   progressIndicatorBuilder:
+                                  //                       (context, url,
+                                  //                               progress) =>
+                                  //                           CircularProgressIndicator(),
+                                  //                   errorWidget:
+                                  //                       (context, url, error) =>
+                                  //                           Image.asset(
+                                  //                     'assets/user.png',
+                                  //                     fit: BoxFit.cover,
+                                  //                   ),
+                                  //                 )
+                                  //               : ColorFiltered(
+                                  //                   colorFilter:
+                                  //                       ColorFilter.mode(
+                                  //                     Colors
+                                  //                         .grey, // or any other color
+                                  //                     BlendMode.hue,
+                                  //                   ),
+                                  //                   child: CachedNetworkImage(
+                                  //                     fit: BoxFit.cover,
+                                  //                     imageUrl: livegamedetails
+                                  //                             ?.gameDetails
+                                  //                             ?.player2
+                                  //                             ?.profilePic ??
+                                  //                         '',
+                                  //                     progressIndicatorBuilder:
+                                  //                         (context, url,
+                                  //                                 progress) =>
+                                  //                             CircularProgressIndicator(),
+                                  //                     errorWidget: (context,
+                                  //                             url, error) =>
+                                  //                         Image.asset(
+                                  //                       'assets/user.png',
+                                  //                       fit: BoxFit.cover,
+                                  //                     ),
+                                  //                   ),
+                                  //                 ),
+                                  //         ),
+                                  //       ),
+                                  //       SizedBox(
+                                  //         height: 1.h,
+                                  //       ),
+                                  //       Text(
+                                  //         livegamedetails?.gameDetails?.player2
+                                  //                 ?.name ??
+                                  //             '',
+                                  //         style: TextStyle(
+                                  //             color: livegamedetails
+                                  //                         ?.gameDetails
+                                  //                         ?.currentTurn ==
+                                  //                     livegamedetails
+                                  //                         ?.gameDetails
+                                  //                         ?.player2
+                                  //                         ?.uid
+                                  //                 ? Colors.blue.shade900
+                                  //                 : HexColor.fromHex('#494949'),
+                                  //             fontSize: 15.sp,
+                                  //             fontFamily: 'Poppins',
+                                  //             fontWeight: FontWeight.w600),
+                                  //       ),
+                                  //       SizedBox(
+                                  //         height: 1.h,
+                                  //       ),
+                                  //       Text(
+                                  //         "win : ${livegamedetails?.gameDetails?.player2?.winingPiece ?? ''}",
+                                  //         style: TextStyle(
+                                  //             fontSize: 15.sp,
+                                  //             fontFamily: 'Poppins'),
+                                  //       ),
+                                  //     ],
+                                  //   ),
+                                  // ),
                                 ],
                               ),
                             ],
@@ -396,8 +547,9 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                   child: Text(
                                     "Tap On Roll Dice Button to Start the Game.",
                                     style: TextStyle(
-                                        color: primary, fontSize: 15.sp),
-                                  ))
+                                        color: Colors.white, fontSize: 15.sp),
+                                  ),
+                                )
                               : Column(
                                   children: [
                                     Visibility(
@@ -484,20 +636,27 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                     : null,
                                 child: Container(
                                   alignment: Alignment.center,
-                                  width: livegamedetails
-                                              ?.gameDetails?.currentTurn ==
-                                          userid
-                                      ? 35.w
-                                      : 60.w,
+                                  width: 60.w,
                                   margin: EdgeInsets.only(top: 2.h),
                                   decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 3,
+                                          color: livegamedetails?.gameDetails
+                                                      ?.currentTurn !=
+                                                  userid
+                                              ? Colors.blue.shade900
+                                              : Colors.transparent),
                                       borderRadius: BorderRadius.circular(90),
                                       color: livegamedetails
                                                   ?.gameDetails?.currentTurn ==
                                               userid
-                                          ? primary
-                                          : Colors.grey),
-                                  padding: EdgeInsets.all(2.h),
+                                          ? Colors.white
+                                          : Colors.transparent),
+                                  padding: livegamedetails
+                                              ?.gameDetails?.currentTurn ==
+                                          userid
+                                      ? EdgeInsets.all(1.35.h)
+                                      : EdgeInsets.all(1.5.h),
                                   child: Text(
                                     livegamedetails?.gameDetails?.currentTurn ==
                                             userid
@@ -506,10 +665,14 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                             : "Roll again"
                                         : 'Wait For Your Turn',
                                     style: TextStyle(
-                                      fontSize: 13.sp,
-                                      color: Colors.white,
-                                      fontFamily: 'Poppins',
-                                    ),
+                                        fontSize: 14.sp,
+                                        color: livegamedetails?.gameDetails
+                                                    ?.currentTurn !=
+                                                userid
+                                            ? Colors.white
+                                            : Colors.deepOrange,
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w600),
                                   ),
                                 ),
                               ),
@@ -581,6 +744,79 @@ class _designState extends State<design> with TickerProviderStateMixin {
               livegamedetails?.status == "success") {
             setState(() {
               isloading = false;
+            });
+          } else {
+            setState(() {
+              isloading = false;
+            });
+          }
+        });
+      } else {
+        setState(() {
+          isloading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
+
+  PlayerQuitApi() {
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['player_1_id'] = livegamedetails?.gameDetails?.player1?.uid ?? '';
+    data['player_2_id'] = livegamedetails?.gameDetails?.player2?.uid ?? '';
+
+    data['action'] = 'game_quit';
+print(data);
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().playerquitapi(data).then((response) async {
+          playerquit = playerQuitModal.fromJson(json.decode(response.body));
+print(playerquit?.status);
+          if (response.statusCode == 200 && playerquit?.status == "success") {
+
+            Get.offAll(mainpage2());
+
+            setState(() {
+              isloading = false;
+            });
+          } else {
+            setState(() {
+              isloading = false;
+            });
+          }
+        });
+      } else {
+        setState(() {
+          isloading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
+  }
+
+  Playrloading() {
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['player_1_id'] = livegamedetails?.gameDetails?.player1?.uid ?? '';
+    data['player_2_id'] = livegamedetails?.gameDetails?.player2?.uid ?? '';
+
+    data['action'] = 'is_users_online_game';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().playerload(data).then((response) async {
+          playerload = playerloadModal.fromJson(json.decode(response.body));
+print(playerload?.status);
+          if (response.statusCode == 200 && playerload?.status == "success") {
+            update(context, 'Opponent Left', 'Opponent left the game.',callback: PlayerQuitApi);
+
+            setState(() {
+            _timer?.cancel();
+
+            isloading = false;
             });
           } else {
             setState(() {

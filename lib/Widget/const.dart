@@ -1,4 +1,6 @@
 import 'package:connectivity/connectivity.dart';
+import 'package:jicksaw/Game%20Modals/playerQuitModal.dart';
+import 'package:jicksaw/Game%20Modals/playerloadModal.dart';
 import 'package:jicksaw/Modal/CAtegoryModal.dart';
 import 'package:jicksaw/Modal/GameDetilsModal.dart';
 import 'package:jicksaw/Modal/UserModal.dart';
@@ -90,3 +92,5 @@ pendingGameModal? pendinggame;
 searchPlayerModal? searchplayer;
 checkSubsModal? checksubs;
 GameDetailsModal? livegamedetails;
+playerQuitModal? playerquit;
+playerloadModal? playerload;
