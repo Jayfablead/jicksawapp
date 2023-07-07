@@ -63,7 +63,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
       print('*-*-*-*-*-*-*-*-*-* ${count}');
       liveupdateapi();
-      _timer = Timer.periodic( Duration(milliseconds: 3500), (timer) {
+      _timer = Timer.periodic(Duration(milliseconds: 3500), (timer) {
         Playrloading();
       });
     });
@@ -82,9 +82,9 @@ class _designState extends State<design> with TickerProviderStateMixin {
   @override
   void dispose() {
     _animationController!.dispose();
-setState(() {
-  _timer?.cancel();
-});
+    setState(() {
+      _timer?.cancel();
+    });
 
     super.dispose();
   }
@@ -768,14 +768,13 @@ setState(() {
     data['player_2_id'] = livegamedetails?.gameDetails?.player2?.uid ?? '';
 
     data['action'] = 'game_quit';
-print(data);
+    print(data);
     checkInternet().then((internet) async {
       if (internet) {
         authprovider().playerquitapi(data).then((response) async {
           playerquit = playerQuitModal.fromJson(json.decode(response.body));
-print(playerquit?.status);
+          print(playerquit?.status);
           if (response.statusCode == 200 && playerquit?.status == "success") {
-
             Get.offAll(mainpage2());
 
             setState(() {
@@ -809,14 +808,15 @@ print(playerquit?.status);
       if (internet) {
         authprovider().playerload(data).then((response) async {
           playerload = playerloadModal.fromJson(json.decode(response.body));
-print(playerload?.status);
+          print(playerload?.status);
           if (response.statusCode == 200 && playerload?.status == "success") {
-            update(context, 'Opponent Left', 'Opponent left the game.',callback: PlayerQuitApi);
+            update(context, 'Opponent Left', 'Opponent left the game.',
+                callback: PlayerQuitApi);
 
             setState(() {
-            _timer?.cancel();
+              _timer?.cancel();
 
-            isloading = false;
+              isloading = false;
             });
           } else {
             setState(() {

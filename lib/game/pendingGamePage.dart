@@ -82,8 +82,10 @@ class _PendingGamePageState extends State<PendingGamePage> {
                             padding: EdgeInsets.zero,
                             itemBuilder: (context, index) {
                               return Container(
-                                decoration: BoxDecoration(color: HexColor.fromHex('#eaebfc'),
-                                    border: Border.all(color: HexColor.fromHex('#000CF9')),
+                                decoration: BoxDecoration(
+                                    color: HexColor.fromHex('#eaebfc'),
+                                    border: Border.all(
+                                        color: HexColor.fromHex('#000CF9')),
                                     borderRadius: BorderRadius.circular(20)),
                                 margin: EdgeInsets.all(2.w),
                                 padding: EdgeInsets.symmetric(
@@ -126,11 +128,15 @@ class _PendingGamePageState extends State<PendingGamePage> {
                                             width: 3.w,
                                           ),
                                           Text(
-                                            pendinggame?.gameStartRequests?[index].opponentName ??
+                                            pendinggame
+                                                    ?.gameStartRequests?[index]
+                                                    .opponentName ??
                                                 '',
                                             style: TextStyle(
                                                 fontSize: 14.sp,
-                                                fontFamily: 'Poppins',color: HexColor.fromHex('#000CF9'),
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    HexColor.fromHex('#000CF9'),
                                                 fontWeight: FontWeight.w600,
                                                 letterSpacing: 1),
                                           ),
