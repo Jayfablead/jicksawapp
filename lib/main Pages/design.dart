@@ -19,7 +19,6 @@ import 'package:sizer/sizer.dart';
 import '../Provider/authprovider.dart';
 import '../Widget/const.dart';
 
-
 class design extends StatefulWidget {
   String? cat;
   String? oppid;
@@ -39,7 +38,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
   double marginheight = 0.0;
   double margin = 0.0;
   String? step;
-  final List<String> pages = ['/MemoryChallenge', '/MathtPage'];
+  final List<String> pages = ['/MemoryChallenge', '/MathPage'];
   final Random random = Random();
   String? userid;
   String? opid;
@@ -87,21 +86,13 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    // mystery_dialogs = [
-    //   update(context, 'Bonus Point', 'You Have Won a Piece and a Exra turn',
-    //       callback: challwin),
-    //   update(context, 'Penalty', 'You Have put Back last Piece You Win',
-    //       callback: challwin)
-    // ];
     return commanScreen(
       isLoading: isloading,
       scaffold: Scaffold(
           extendBodyBehindAppBar: true,
           drawer: drawer1(),
           key: _scaffoldKey,
-          backgroundColor: bgcolor
-          // Colors.black
-          ,
+          backgroundColor: bgcolor,
           appBar: appbar1(
               title1: '',
               press: () {},

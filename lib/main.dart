@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
           getPages: [
             GetPage(name: '/', page: () => SplashScreen()),
             GetPage(name: '/MemoryChallenge', page: () => MemoryChallenge()),
-            GetPage(name: '/MathtPage', page: () => MathtPage()),
+            GetPage(name: '/MathPage', page: () => MathtPage()),
           ],
           theme: ThemeData(
             primarySwatch: Colors.orange,

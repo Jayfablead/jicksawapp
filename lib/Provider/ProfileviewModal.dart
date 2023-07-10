@@ -32,6 +32,7 @@ class ProfileViewPlayer {
   String? rank;
   int? gameCount;
   int? characterCount;
+  String? latestCharacter;
 
   ProfileViewPlayer(
       {this.name,
@@ -43,7 +44,8 @@ class ProfileViewPlayer {
         this.gamePoints,
         this.rank,
         this.gameCount,
-        this.characterCount});
+        this.characterCount,
+        this.latestCharacter});
 
   ProfileViewPlayer.fromJson(Map<String, dynamic> json) {
     name = json['name'];
@@ -56,6 +58,7 @@ class ProfileViewPlayer {
     rank = json['rank'];
     gameCount = json['game_count'];
     characterCount = json['character_count'];
+    latestCharacter = json['latest_character'];
   }
 
   Map<String, dynamic> toJson() {
@@ -70,6 +73,7 @@ class ProfileViewPlayer {
     data['rank'] = this.rank;
     data['game_count'] = this.gameCount;
     data['character_count'] = this.characterCount;
+    data['latest_character'] = this.latestCharacter;
     return data;
   }
 }

@@ -231,7 +231,7 @@ class _mainpage2State extends State<mainpage2> {
                                                   fit: BoxFit.cover,
                                                   imageUrl: (profileviewmodal
                                                           ?.profileViewPlayer
-                                                          ?.profilePic)
+                                                          ?.latestCharacter)
                                                       .toString(),
                                                   progressIndicatorBuilder:
                                                       (context, url,
@@ -240,8 +240,8 @@ class _mainpage2State extends State<mainpage2> {
                                                   errorWidget:
                                                       (context, url, error) =>
                                                           Image.asset(
-                                                    'assets/user.png',
-                                                    color: Colors.black,
+                                                    'assets/char.png',
+
                                                   ),
                                                 ),
                                               ),
