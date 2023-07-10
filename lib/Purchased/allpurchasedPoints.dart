@@ -206,7 +206,7 @@ class _AllPurchasedPointsState extends State<AllPurchasedPoints> {
                                           child: CachedNetworkImage(
                                             fit: BoxFit.cover,
                                             imageUrl: purpoints?.purchases?[index]
-                                                .prodcutImg ??
+                                                .productImg ??
                                                 '',
                                             progressIndicatorBuilder:
                                                 (context, url, progress) =>

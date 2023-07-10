@@ -39,6 +39,7 @@ import 'package:jicksaw/Modal/viewcard.dart';
 import 'package:jicksaw/Modal/waitModal.dart';
 import 'package:jicksaw/Provider/ProfileviewModal.dart';
 
+import '../Modal/PointsBuyModal.dart';
 import '../Modal/challenegeModal.dart';
 import '../Modal/pendingGameModal.dart';
 
@@ -94,3 +95,4 @@ checkSubsModal? checksubs;
 GameDetailsModal? livegamedetails;
 playerQuitModal? playerquit;
 playerloadModal? playerload;
+PointsBuyModal? pointsbuy;

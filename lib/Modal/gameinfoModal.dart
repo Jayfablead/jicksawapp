@@ -30,7 +30,7 @@ class GameDetails {
   String? productPoints;
   List<String>? productMultiImg;
   String? productRating;
-  String? prodcutImg;
+  String? productImg;
   String? bgColor;
   String? bgColorBorder;
 
@@ -43,7 +43,7 @@ class GameDetails {
         this.productPoints,
         this.productMultiImg,
         this.productRating,
-        this.prodcutImg,
+        this.productImg,
         this.bgColor,
         this.bgColorBorder});
 
@@ -56,7 +56,7 @@ class GameDetails {
     productPoints = json['product_points'];
     productMultiImg = json['product_multi_img'].cast<String>();
     productRating = json['product_rating'];
-    prodcutImg = json['prodcut_img'];
+    productImg = json['product_img'];
     bgColor = json['bg_color'];
     bgColorBorder = json['bg_color_border'];
   }
@@ -71,7 +71,7 @@ class GameDetails {
     data['product_points'] = this.productPoints;
     data['product_multi_img'] = this.productMultiImg;
     data['product_rating'] = this.productRating;
-    data['prodcut_img'] = this.prodcutImg;
+    data['product_img'] = this.productImg;
     data['bg_color'] = this.bgColor;
     data['bg_color_border'] = this.bgColorBorder;
     return data;

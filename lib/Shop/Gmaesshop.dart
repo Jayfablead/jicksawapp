@@ -209,7 +209,7 @@ class _AllShopGamesState extends State<AllShopGames> {
                                               child: CachedNetworkImage(
                                                 fit: BoxFit.cover,
                                                 imageUrl: games?.games?[index]
-                                                        .prodcutImg ??
+                                                        .productImg ??
                                                     '',
                                                 progressIndicatorBuilder: (context,
                                                         url, progress) =>

@@ -28,7 +28,7 @@ class Points {
   String? productId;
   String? productName;
   String? productPrice;
-  String? prodcutImg;
+  String? productImg;
   String? bgColor;
   String? bgColorBorder;
 
@@ -36,7 +36,7 @@ class Points {
       {this.productId,
         this.productName,
         this.productPrice,
-        this.prodcutImg,
+        this.productImg,
         this.bgColor,
         this.bgColorBorder});
 
@@ -44,7 +44,7 @@ class Points {
     productId = json['product_id'];
     productName = json['product_name'];
     productPrice = json['product_price'];
-    prodcutImg = json['prodcut_img'];
+    productImg = json['product_img'];
     bgColor = json['bg_color'];
     bgColorBorder = json['bg_color_border'];
   }
@@ -54,7 +54,7 @@ class Points {
     data['product_id'] = this.productId;
     data['product_name'] = this.productName;
     data['product_price'] = this.productPrice;
-    data['prodcut_img'] = this.prodcutImg;
+    data['product_img'] = this.productImg;
     data['bg_color'] = this.bgColor;
     data['bg_color_border'] = this.bgColorBorder;
     return data;

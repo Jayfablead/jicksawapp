@@ -127,7 +127,7 @@ class _PointsShopState extends State<PointsShop> {
                               return InkWell(
                                 onTap: () {
                                   Get.to(CheckoutPage(
-                                    imgs: points?.points?[index].prodcutImg ,
+                                    imgs: points?.points?[index].productImg ,
                                     name: points?.points?[index].productName ,
                                     price:points?.points?[index].productPrice ,
                                     method:'Stripe',
@@ -160,7 +160,7 @@ class _PointsShopState extends State<PointsShop> {
                                           child: CachedNetworkImage(
                                             fit: BoxFit.cover,
                                             imageUrl:
-                                                points?.points?[index].prodcutImg ?? '',
+                                                points?.points?[index].productImg ?? '',
                                             progressIndicatorBuilder:
                                                 (context, url, progress) =>
                                                     CircularProgressIndicator(),

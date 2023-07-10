@@ -1,12 +1,20 @@
+import 'dart:convert';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:jicksaw/Modal/PointsBuyModal.dart';
+import 'package:jicksaw/Provider/authprovider.dart';
 import 'package:jicksaw/purchage/checkoutPage.dart';
 import 'package:jicksaw/subscription/subscription_page.dart';
 
 import 'package:sizer/sizer.dart';
 
+import '../Widget/buildErrorDialog.dart';
 import '../Widget/const widget.dart';
+import '../Widget/const.dart';
+import 'new thankyoupage.dart';
 
 class PurchaseScreen extends StatefulWidget {
   String? name;
@@ -347,14 +355,14 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                       // SizedBox(height: 35.h,),
                       InkWell(
                         onTap: () {
-                          Get.to(CheckoutPage(
+                         _selectedValue == 1? Get.to(CheckoutPage(
                             imgs: widget.img,
                             name: widget.name,
                             price: widget.price,
                             method: 'Stripe',
                             itemid: widget.itemid,
                             type: widget.type,
-                          ));
+                          )):PointsbuyApi();
                         },
                         child: Container(
                           alignment: Alignment.center,
@@ -382,5 +390,47 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
         ),
       ]),
     );
+  }
+  PointsbuyApi() {
+    final Map<String, String> data = {};
+    data['uid'] = (usermodal?.userData?.uid).toString();
+    data['item_id'] = widget.itemid.toString();
+    data['points'] = widget.points.toString();
+    data['action'] = 'checkout_with_points';
+    print(data);
+    checkInternet().then((internet) async {
+      EasyLoading.show(status: 'Processing Payment ...');
+      if (internet) {
+        authprovider().Pointsbuyapi(data).then((response) async {
+          pointsbuy =
+              PointsBuyModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 &&
+              pointsbuy?.status == "success") {
+            Get.to(
+              ThanksPage1(
+                price: widget.price,
+                name: widget.name,
+                method: 'Points',
+                type: widget.type,
+              ),
+            );
+            EasyLoading.showSuccess('Payment Paid Successfully!');
+            // setState(() {
+            //   isLoading = false;
+            // });
+          } else {
+            // isLoading = false;
+            EasyLoading.showError('Payment not Done');
+            buildErrorDialog(context, 'PurchaseError', "Insufficient Points to buy.");
+          }
+        });
+      } else {
+        // setState(() {
+        //   isLoading = false;
+        // });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
   }
 }

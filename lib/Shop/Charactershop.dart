@@ -185,7 +185,7 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
                                                 fit: BoxFit.cover,
                                                 imageUrl: (chars
                                                         ?.characters?[index]
-                                                        .prodcutImg)
+                                                        .productImg)
                                                     .toString(),
                                                 progressIndicatorBuilder: (context,
                                                         url, progress) =>

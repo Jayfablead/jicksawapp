@@ -72,7 +72,7 @@ class _CharacterinfoState extends State<Characterinfo> {
                         borderRadius: BorderRadius.circular(20),
                         child: CachedNetworkImage(
                           fit: BoxFit.cover,
-                          imageUrl: characterinfo?.gameDetails?.prodcutImg ?? '',
+                          imageUrl: characterinfo?.gameDetails?.productImg ?? '',
                           progressIndicatorBuilder:
                               (context, url, progress) =>
                               CircularProgressIndicator(),
@@ -114,7 +114,7 @@ class _CharacterinfoState extends State<Characterinfo> {
                       points: characterinfo?.gameDetails?.productPoints ?? '',
                       name:  characterinfo?.gameDetails?.productName ?? '',
                       itemid:  characterinfo?.gameDetails?.productId ?? '',
-                      img:  characterinfo?.gameDetails?.prodcutImg ?? '',
+                      img:  characterinfo?.gameDetails?.productImg ?? '',
                       price:characterinfo?.gameDetails?.productPrice ?? '',
                     ));
                   },

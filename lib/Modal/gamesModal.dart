@@ -30,7 +30,7 @@ class Games {
   String? productPrice;
   String? productPoints;
   String? productDesc;
-  String? prodcutImg;
+  String? productImg;
   String? bgColor;
   String? bgColorBorder;
 
@@ -40,7 +40,7 @@ class Games {
         this.productPrice,
         this.productPoints,
         this.productDesc,
-        this.prodcutImg,
+        this.productImg,
         this.bgColor,
         this.bgColorBorder});
 
@@ -50,7 +50,7 @@ class Games {
     productPrice = json['product_price'];
     productPoints = json['product_points'];
     productDesc = json['product_desc'];
-    prodcutImg = json['prodcut_img'];
+    productImg = json['product_img'];
     bgColor = json['bg_color'];
     bgColorBorder = json['bg_color_border'];
   }
@@ -62,7 +62,7 @@ class Games {
     data['product_price'] = this.productPrice;
     data['product_points'] = this.productPoints;
     data['product_desc'] = this.productDesc;
-    data['prodcut_img'] = this.prodcutImg;
+    data['product_img'] = this.productImg;
     data['bg_color'] = this.bgColor;
     data['bg_color_border'] = this.bgColorBorder;
     return data;

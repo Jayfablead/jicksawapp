@@ -1,21 +1,3 @@
-// {
-// "status": "success",
-// "game_details": {
-// "product_id": "17",
-// "product_name": "Lion",
-// "product_desc": "this is lion ",
-// "product_price": "40",
-// "product_points": "4000",
-// "product_multi_img": [
-// "http://jigsaw.fableadtechnolabs.com/assets/shop_images/download (2).jfif",
-// "http://jigsaw.fableadtechnolabs.com/assets/shop_images/download (1).jfif"
-// ],
-// "product_rating": null,
-// "prodcut_img": "http://jigsaw.fableadtechnolabs.com/assets/shop_images/2.png",
-// "bg_color": "#fbbdff",
-// "bg_color_border": "#8800ad"
-// }
-// }
 class characterinfoModal {
   String? status;
   GameDetails? gameDetails;
@@ -48,7 +30,7 @@ class GameDetails {
   String? productPoints;
   List<String>? productMultiImg;
   String? productRating;
-  String? prodcutImg;
+  String? productImg;
   String? bgColor;
   String? bgColorBorder;
 
@@ -61,7 +43,7 @@ class GameDetails {
         this.productPoints,
         this.productMultiImg,
         this.productRating,
-        this.prodcutImg,
+        this.productImg,
         this.bgColor,
         this.bgColorBorder});
 
@@ -74,7 +56,7 @@ class GameDetails {
     productPoints = json['product_points'];
     productMultiImg = json['product_multi_img'].cast<String>();
     productRating = json['product_rating'];
-    prodcutImg = json['prodcut_img'];
+    productImg = json['product_img'];
     bgColor = json['bg_color'];
     bgColorBorder = json['bg_color_border'];
   }
@@ -89,10 +71,9 @@ class GameDetails {
     data['product_points'] = this.productPoints;
     data['product_multi_img'] = this.productMultiImg;
     data['product_rating'] = this.productRating;
-    data['prodcut_img'] = this.prodcutImg;
+    data['product_img'] = this.productImg;
     data['bg_color'] = this.bgColor;
     data['bg_color_border'] = this.bgColorBorder;
     return data;
   }
 }
-

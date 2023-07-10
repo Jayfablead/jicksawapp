@@ -205,7 +205,7 @@ class _AllPurchasedCharactersState extends State<AllPurchasedCharacters> {
                                           child: CachedNetworkImage(
                                             fit: BoxFit.cover,
                                             imageUrl: purcharcs?.purchases?[index]
-                                                    .prodcutImg ??
+                                                    .productImg ??
                                                 '',
                                             progressIndicatorBuilder:
                                                 (context, url, progress) =>

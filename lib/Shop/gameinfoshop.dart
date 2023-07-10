@@ -72,7 +72,7 @@ class _GameshopinfoState extends State<Gameshopinfo> {
                               child: CachedNetworkImage(
                                 fit: BoxFit.cover,
                                 imageUrl:
-                                    gameinfo?.gameDetails?.prodcutImg ?? '',
+                                    gameinfo?.gameDetails?.productImg ?? '',
                                 progressIndicatorBuilder:
                                     (context, url, progress) =>
                                         CircularProgressIndicator(),
@@ -114,7 +114,7 @@ class _GameshopinfoState extends State<Gameshopinfo> {
                             points: gameinfo?.gameDetails?.productPoints ?? '',
                             name: gameinfo?.gameDetails?.productName ?? '',
                             itemid: gameinfo?.gameDetails?.productId ?? '',
-                            img: gameinfo?.gameDetails?.prodcutImg ?? '',
+                            img: gameinfo?.gameDetails?.productImg ?? '',
                             price: gameinfo?.gameDetails?.productPrice ?? '',
                             type: 0,
                           ));
