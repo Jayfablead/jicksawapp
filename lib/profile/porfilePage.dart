@@ -357,7 +357,7 @@ class _MyProfileState extends State<MyProfile> {
                                               ?.profileViewPlayer?.about ==
                                           ''
                                       ? 36.w
-                                      : 60.w,
+                                      : 65.w,
                                   padding:
                                       EdgeInsets.symmetric(horizontal: 2.w),
                                   child: Text(

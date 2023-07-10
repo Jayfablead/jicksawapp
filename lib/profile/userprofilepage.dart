@@ -316,7 +316,7 @@ class _UserProfileState extends State<UserProfile> {
                         children: [
                           Container(
                             alignment: Alignment.centerLeft,
-                            width: 60.w,
+                            width: 65.w,
                             padding: EdgeInsets.symmetric(horizontal: 2.w),
                             child: Text(
                               // 'Monkey D. Luffy also known as "Straw Hat" Luffy, is a fictional character and the protagonist of the One Piece manga series.',
