@@ -41,6 +41,7 @@ import 'package:jicksaw/Provider/ProfileviewModal.dart';
 
 import '../Modal/PointsBuyModal.dart';
 import '../Modal/challenegeModal.dart';
+import '../Modal/diceRollModal.dart';
 import '../Modal/pendingGameModal.dart';
 
 Future<bool> checkInternet() async {
@@ -96,3 +97,4 @@ GameDetailsModal? livegamedetails;
 playerQuitModal? playerquit;
 playerloadModal? playerload;
 PointsBuyModal? pointsbuy;
+RollDiceModal? diceroll;

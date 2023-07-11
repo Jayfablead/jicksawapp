@@ -163,7 +163,7 @@ class _AllPurchasedCharactersState extends State<AllPurchasedCharacters> {
                               crossAxisCount: 2,
                               mainAxisSpacing: 2.h,
                               crossAxisSpacing: 2.w,
-                              childAspectRatio: 0.75,
+                              childAspectRatio: 0.68,
                             ),
                             shrinkWrap: true,
                             // scrollDirection: Axis.horizontal,

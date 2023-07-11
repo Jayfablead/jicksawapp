@@ -136,7 +136,7 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
                                   crossAxisCount: 2,
                                   mainAxisSpacing: 2.h,
                                   crossAxisSpacing: 2.w,
-                                  childAspectRatio: 0.85,
+                                  childAspectRatio: 0.75,
                                 ),
                                 shrinkWrap: true,
                                 // scrollDirection: Axis.horizontal,

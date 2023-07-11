@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:jicksaw/Game%20Modals/playerQuitModal.dart';
 import 'package:jicksaw/Game%20Modals/playerloadModal.dart';
 import 'package:jicksaw/Modal/GameDetilsModal.dart';
+import 'package:jicksaw/Modal/diceRollModal.dart';
 import 'package:jicksaw/Modal/gameModal.dart';
 import 'package:jicksaw/Screen/Homepage.dart';
 import 'package:jicksaw/Widget/buildErrorDialog.dart';
@@ -495,6 +496,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                             _showImage = false;
                                           });
                                         });
+                                        RollDiceApi();
                                       }
                                     : null,
                                 child: Container(
@@ -699,5 +701,38 @@ class _designState extends State<design> with TickerProviderStateMixin {
     int index = random.nextInt(pages.length);
     Get.toNamed(pages[index],
         arguments: {'catid': widget.cat, 'type': 'chellenge'});
+  }
+
+  RollDiceApi() {
+    final Map<String, String> data = {};
+
+    data['uid'] = usermodal?.userData?.uid ?? "";
+    data['game_id'] = livegamedetails?.gameDetails?.gameId ?? '';
+    data['opponent_id'] = usermodal?.userData?.uid ?? "";
+    data['dice_result'] = _value.toString();
+    data['action'] = 'roll_dice';
+
+    checkInternet().then((internet) async {
+      if (internet) {
+        authprovider().Dicerollapi(data).then((response) async {
+          diceroll = RollDiceModal.fromJson(json.decode(response.body));
+
+          if (response.statusCode == 200 && chars?.status == "success") {
+            setState(() {
+              isLoading = false;
+            });
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+          }
+        });
+      } else {
+        setState(() {
+          isLoading = false;
+        });
+        buildErrorDialog(context, 'Error', "Internate Required");
+      }
+    });
   }
 }
