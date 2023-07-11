@@ -26,8 +26,14 @@ class GameDetails {
   Player1? player2;
   String? gameId;
   String? currentTurn;
+  String? opponentId;
 
-  GameDetails({this.player1, this.player2, this.gameId, this.currentTurn});
+  GameDetails(
+      {this.player1,
+        this.player2,
+        this.gameId,
+        this.currentTurn,
+        this.opponentId});
 
   GameDetails.fromJson(Map<String, dynamic> json) {
     player1 = json['player_1'] != null
@@ -38,6 +44,7 @@ class GameDetails {
         : null;
     gameId = json['game_id'];
     currentTurn = json['current_turn'];
+    opponentId = json['opponent_id'];
   }
 
   Map<String, dynamic> toJson() {
@@ -50,6 +57,7 @@ class GameDetails {
     }
     data['game_id'] = this.gameId;
     data['current_turn'] = this.currentTurn;
+    data['opponent_id'] = this.opponentId;
     return data;
   }
 }

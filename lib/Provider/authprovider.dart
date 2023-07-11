@@ -172,6 +172,20 @@ class authprovider with ChangeNotifier{
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> IsDicerollapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=is_dice_roll';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
   Future<http.Response> Pointsbuyapi(Map<String, dynamic> bodyData) async {
     const url = '$baseUrl/?action=checkout_with_points';
     var responseJson;
