@@ -40,6 +40,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
   double marginheight = 0.0;
   double margin = 0.0;
   String? step;
+  String? dicenum;
   final List<String> pages = ['/MemoryChallenge', '/MathPage'];
   final Random random = Random();
   String? userid;
@@ -54,8 +55,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
       userid = usermodal?.userData?.uid ?? "";
 
       print('*-*-*-*-*-*-*-*-*-* ${count}');
-
-      _timer = Timer.periodic(Duration(milliseconds: 3500), (timer) {
+      liveupdateapi();
+      _timer = Timer.periodic(Duration(milliseconds: 1000), (timer) {
         Playrloading();
         liveupdateapi();
         isRollDiceAPi();
@@ -408,122 +409,144 @@ class _designState extends State<design> with TickerProviderStateMixin {
                               ),
                             ],
                           ),
-                          isroll?.data?.diceResult == "1"
-                                  ? Image.asset(
-                                      "assets/dice/1.png",
-                                      height: 15.h,
-                                      width: 30.w,
-                                      color: Colors.white,
-                                    )
-                                  : isroll?.data?.diceResult == "2"
-                                      ? Image.asset(
-                                          "assets/dice/2.png",
-                                          height: 15.h,
-                                          width: 30.w,
-                                          color: Colors.white,
-                                        )
-                                      : isroll?.data?.diceResult == "3"
-                                          ? Image.asset(
-                                              "assets/dice/3.png",
-                                              height: 15.h,
-                                              width: 30.w,
-                                              color: Colors.white,
-                                            )
-                                          : isroll?.data?.diceResult == "4"
-                                              ? Image.asset(
-                                                  "assets/dice/4.png",
-                                                  height: 15.h,
-                                                  width: 30.w,
-                                                  color: Colors.white,
-                                                )
-                                              : isroll?.data?.diceResult == "5"
-                                                  ? Image.asset(
-                                                      "assets/dice/5.png",
-                                                      height: 15.h,
-                                                      width: 30.w,
-                                                      color: Colors.white,
-                                                    )
-                                                  :isroll?.data?.diceResult == "5"
-                              ? Image.asset(
-                                                      "assets/dice/6.png",
-                                                      height: 15.h,
-                                                      width: 30.w,
-                                                      color: Colors.white,
-                                                    )
-                              : _value == 0 || _value == null
-                                  ? SizedBox(
-                                      width: 60.w,
-                                      child: Text(
-                                        "Tap On Roll Dice Button to Start the Game.",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 15.sp),
-                                      ),
-                                    )
-                                  : Column(
-                                      children: [
-                                        Visibility(
-                                          visible: !_showImage,
-                                          child: (_value == 6)
-                                              ? Image.asset(
-                                                  "assets/dice/6.png",
-                                                  height: 15.h,
-                                                  width: 30.w,
-                                                  color: Colors.white,
-                                                )
-                                              : (_value == 5)
-                                                  ? Image.asset(
-                                                      "assets/dice/5.png",
-                                                      height: 15.h,
-                                                      width: 30.w,
-                                                      color: Colors.white,
-                                                    )
-                                                  : (_value == 4)
-                                                      ? Image.asset(
-                                                          "assets/dice/4.png",
-                                                          height: 15.h,
-                                                          width: 30.w,
-                                                          color: Colors.white,
-                                                        )
-                                                      : (_value == 3)
-                                                          ? Image.asset(
-                                                              "assets/dice/3.png",
-                                                              height: 15.h,
-                                                              width: 30.w,
-                                                              color:
-                                                                  Colors.white,
-                                                            )
-                                                          : (_value == 2)
-                                                              ? Image.asset(
-                                                                  "assets/dice/2.png",
-                                                                  height: 15.h,
-                                                                  width: 30.w,
-                                                                  color: Colors
-                                                                      .white,
-                                                                )
-                                                              : (_value == 1)
-                                                                  ? Image.asset(
-                                                                      "assets/dice/1.png",
-                                                                      height:
-                                                                          15.h,
-                                                                      width:
-                                                                          30.w,
-                                                                      color: Colors
-                                                                          .white,
-                                                                    )
-                                                                  : Container(),
-                                        ),
-                                        Visibility(
-                                          visible: _showImage,
-                                          child: Lottie.asset(
-                                            "assets/dice.json",
-                                            height: 30.h,
-                                            width: 60.w,
-                                            controller: _animationController,
+                          diceroll?.diceNumber == 0 ||
+                                  diceroll?.diceNumber == null  || isroll?.data?.diceResult == '0' ||
+                              isroll?.data?.diceResult == null
+                              ? SizedBox(
+                                  width: 60.w,
+                                  child: Text(
+                                    "Tap On Roll Dice Button to Start the Game.",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 15.sp),
+                                  ),
+                                )
+                              : Column(
+                                  children: [
+                                    isroll?.data?.diceResult == '0'
+                                        ? Visibility(
+                                            visible: !_showImage,
+                                            child: isroll?.data?.diceResult ==
+                                                    '1'
+                                                ? Image.asset(
+                                                    "assets/dice/1.png",
+                                                    height: 15.h,
+                                                    width: 30.w,
+                                                    color: Colors.white,
+                                                  )
+                                                : isroll?.data?.diceResult ==
+                                                        '2'
+                                                    ? Image.asset(
+                                                        "assets/dice/2.png",
+                                                        height: 15.h,
+                                                        width: 30.w,
+                                                        color: Colors.white,
+                                                      )
+                                                    : isroll?.data
+                                                                ?.diceResult ==
+                                                            '3'
+                                                        ? Image.asset(
+                                                            "assets/dice/3.png",
+                                                            height: 15.h,
+                                                            width: 30.w,
+                                                            color: Colors.white,
+                                                          )
+                                                        : isroll?.data
+                                                                    ?.diceResult ==
+                                                                '4'
+                                                            ? Image.asset(
+                                                                "assets/dice/4.png",
+                                                                height: 15.h,
+                                                                width: 30.w,
+                                                                color: Colors
+                                                                    .white,
+                                                              )
+                                                            : isroll?.data
+                                                                        ?.diceResult ==
+                                                                    '5'
+                                                                ? Image.asset(
+                                                                    "assets/dice/5.png",
+                                                                    height:
+                                                                        15.h,
+                                                                    width: 30.w,
+                                                                    color: Colors
+                                                                        .white,
+                                                                  )
+                                                                : Image.asset(
+                                                                    "assets/dice/6.png",
+                                                                    height:
+                                                                        15.h,
+                                                                    width: 30.w,
+                                                                    color: Colors
+                                                                        .white,
+                                                                  ))
+                                        : Visibility(
+                                            visible: !_showImage,
+                                            child: (diceroll?.diceNumber == 6)
+                                                ? Image.asset(
+                                                    "assets/dice/6.png",
+                                                    height: 15.h,
+                                                    width: 30.w,
+                                                    color: Colors.white,
+                                                  )
+                                                : (diceroll?.diceNumber == 5)
+                                                    ? Image.asset(
+                                                        "assets/dice/5.png",
+                                                        height: 15.h,
+                                                        width: 30.w,
+                                                        color: Colors.white,
+                                                      )
+                                                    : (diceroll?.diceNumber ==
+                                                            4)
+                                                        ? Image.asset(
+                                                            "assets/dice/4.png",
+                                                            height: 15.h,
+                                                            width: 30.w,
+                                                            color: Colors.white,
+                                                          )
+                                                        : (diceroll?.diceNumber ==
+                                                                3)
+                                                            ? Image.asset(
+                                                                "assets/dice/3.png",
+                                                                height: 15.h,
+                                                                width: 30.w,
+                                                                color: Colors
+                                                                    .white,
+                                                              )
+                                                            : (diceroll?.diceNumber ==
+                                                                    2)
+                                                                ? Image.asset(
+                                                                    "assets/dice/2.png",
+                                                                    height:
+                                                                        15.h,
+                                                                    width: 30.w,
+                                                                    color: Colors
+                                                                        .white,
+                                                                  )
+                                                                : (diceroll?.diceNumber ==
+                                                                        1)
+                                                                    ? Image
+                                                                        .asset(
+                                                                        "assets/dice/1.png",
+                                                                        height:
+                                                                            15.h,
+                                                                        width:
+                                                                            30.w,
+                                                                        color: Colors
+                                                                            .white,
+                                                                      )
+                                                                    : Container(),
                                           ),
-                                        ),
-                                      ],
+                                    Visibility(
+                                      visible: _showImage,
+                                      child: Lottie.asset(
+                                        "assets/dice.json",
+                                        height: 30.h,
+                                        width: 60.w,
+                                        controller: _animationController,
+                                      ),
                                     ),
+                                  ],
+                                ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -548,7 +571,6 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                           });
                                           RollDiceApi();
                                         });
-
                                       }
                                     : null,
                                 child: Container(
@@ -763,8 +785,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
     data['opponent_id'] = livegamedetails?.gameDetails?.opponentId ?? '';
     data['dice_result'] = step.toString();
     data['action'] = 'roll_dice';
-print(data);
-print(step);
+    print(data);
+    print(step);
     checkInternet().then((internet) async {
       if (internet) {
         authprovider().Dicerollapi(data).then((response) async {
@@ -805,9 +827,11 @@ print(step);
           if (response.statusCode == 200 && isroll?.status == "success") {
             print(isroll?.data?.diceResult);
             setState(() {
+              dicenum = isroll?.data?.diceResult;
               isLoading = false;
             });
-          } else { print(isroll?.data?.diceResult);
+          } else {
+            print(isroll?.data?.diceResult);
             setState(() {
               isLoading = false;
             });
