@@ -133,169 +133,189 @@ class _AllPurchasedCharactersState extends State<AllPurchasedCharacters> {
         body: isLoading
             ? Container()
             : purcharcs?.purchases?.length == 0 ||
-            purcharcs?.purchases?.length == null
-            ? Container(
-          height: 75.h,
-          width: double.infinity,
-          alignment: Alignment.center,
-          child: Text(
-            'No Characters Purchased',
-            style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 17.sp,
-                fontWeight: FontWeight.w600),
-          ),
-        )
-            :SingleChildScrollView(
-                child: Container(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 4.w),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 3.h,
-                        ),
-                        SizedBox(height: 85.h,
-                          child: GridView.builder(
-                            padding: EdgeInsets.zero,
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 2.h,
-                              crossAxisSpacing: 2.w,
-                              childAspectRatio: 0.68,
+                    purcharcs?.purchases?.length == null
+                ? Container(
+                    height: 75.h,
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    child: Text(
+                      'No Characters Purchased',
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 17.sp,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  )
+                : SingleChildScrollView(
+                    child: Container(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 4.w),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 3.h,
                             ),
-                            shrinkWrap: true,
-                            // scrollDirection: Axis.horizontal,
-                            itemCount: purcharcs?.purchases?.length,
+                            SizedBox(
+                              height: 85.h,
+                              child: GridView.builder(
+                                padding: EdgeInsets.zero,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 2.h,
+                                  crossAxisSpacing: 2.w,
+                                  childAspectRatio: 0.68,
+                                ),
+                                shrinkWrap: true,
+                                // scrollDirection: Axis.horizontal,
+                                itemCount: purcharcs?.purchases?.length,
 
-                            itemBuilder: (context, index) {
-                              return InkWell(
-                                onTap: () {
-                                  // Get.to(() => GameInfo(
-                                  //       id: shop?.allItems?[index].itemId ?? '',
-                                  //     ));
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      border: Border.all(
+                                itemBuilder: (context, index) {
+                                  return InkWell(
+                                    onTap: () {
+                                      // Get.to(() => GameInfo(
+                                      //       id: shop?.allItems?[index].itemId ?? '',
+                                      //     ));
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: HexColor.fromHex(purcharcs
+                                                      ?.purchases?[index]
+                                                      .bgColorBorder ??
+                                                  '')),
                                           color: HexColor.fromHex(purcharcs
-                                                  ?.purchases?[index]
-                                                  .bgColorBorder ??
-                                              '')),
-                                      color: HexColor.fromHex(
-                                          purcharcs?.purchases?[index].bgColor ??
+                                                  ?.purchases?[index].bgColor ??
                                               ''),
-                                      borderRadius: BorderRadius.circular(20)),
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 4.w, vertical: 1.h),
-                                  margin: EdgeInsets.symmetric(horizontal: 1.w),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        height: 10.h,
-                                        width: 20.w,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(20)),
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(15),
-                                          child: CachedNetworkImage(
-                                            fit: BoxFit.cover,
-                                            imageUrl: purcharcs?.purchases?[index]
-                                                    .productImg ??
-                                                '',
-                                            progressIndicatorBuilder:
-                                                (context, url, progress) =>
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 4.w, vertical: 1.h),
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 1.w),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            height: 10.h,
+                                            width: 20.w,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(20)),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                              child: CachedNetworkImage(
+                                                fit: BoxFit.cover,
+                                                imageUrl: purcharcs
+                                                        ?.purchases?[index]
+                                                        .productImg ??
+                                                    '',
+                                                progressIndicatorBuilder: (context,
+                                                        url, progress) =>
                                                     CircularProgressIndicator(),
-                                            errorWidget: (context, url, error) =>
-                                                Image.asset(
-                                              'assets/12.png',
-                                              fit: BoxFit.cover,
+                                                errorWidget:
+                                                    (context, url, error) =>
+                                                        Image.asset(
+                                                  'assets/12.png',
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 1.h,
-                                      ),
-                                      Align(
-                                        alignment: Alignment.center,
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              purcharcs?.purchases?[index]
-                                                      .productName ??
-                                                  '',
-                                              style: TextStyle(
-                                                color: HexColor.fromHex(purcharcs
-                                                        ?.purchases?[index]
-                                                        .bgColorBorder ??
-                                                    ''),
-                                                fontSize: 15.sp,
-                                                fontWeight: FontWeight.w600,
-                                                fontFamily: 'Poppins',
-                                                letterSpacing: 1.5,
-                                              ),
+                                          SizedBox(
+                                            height: 1.h,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.center,
+                                            child: Column(
+                                              children: [
+                                                Text(
+                                                  purcharcs?.purchases?[index]
+                                                          .productName ??
+                                                      '',
+                                                  style: TextStyle(
+                                                    color: HexColor.fromHex(
+                                                        purcharcs
+                                                                ?.purchases?[
+                                                                    index]
+                                                                .bgColorBorder ??
+                                                            ''),
+                                                    fontSize: 15.sp,
+                                                    fontWeight: FontWeight.w600,
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 1.5,
+                                                  ),
+                                                ),
+                                                Align(
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        '\$ ${purcharcs?.purchases?[index].productPrice ?? ''}',
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        style: TextStyle(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 13.sp,
+                                                            color: Color(
+                                                                0xff2c2c2c)),
+                                                      ),
+                                                      SizedBox(height: 0.5.h),
+                                                      Text(
+                                                        'Pur : ${purcharcs?.purchases?[index].purchaseTime ?? ''} times',
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        style: TextStyle(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 13.sp,
+                                                            color: Color(
+                                                                0xff2c2c2c)),
+                                                      ),
+                                                      SizedBox(height: 0.5.h),
+                                                      Text(
+                                                        purcharcs
+                                                                ?.purchases?[
+                                                                    index]
+                                                                .productDesc ??
+                                                            '',
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        style: TextStyle(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 13.sp,
+                                                            color: Color(
+                                                                0xff2c2c2c)),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                            Align(
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Text(
-                                                    '\$ ${purcharcs?.purchases?[index].productPrice ?? ''}',
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 13.sp,
-                                                        color: Color(0xff2c2c2c)),
-                                                  ),
-                                                  SizedBox(height: 0.5.h),
-                                                  Text(
-                                                    'Pur : ${purcharcs?.purchases?[index].purchaseTime ?? ''} times',
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 13.sp,
-                                                        color: Color(0xff2c2c2c)),
-                                                  ),
-                                                  SizedBox(height: 0.5.h),
-                                                  Text(
-                                                    purcharcs?.purchases?[index]
-                                                            .productDesc ??
-                                                        '',
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 13.sp,
-                                                        color: Color(0xff2c2c2c)),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              ),
       ),
     );
   }

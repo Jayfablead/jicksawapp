@@ -46,6 +46,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
   String? userid;
   String? opid;
   Timer? _timer;
+  Timer? _roller;
 
   @override
   void initState() {
@@ -56,7 +57,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
       print('*-*-*-*-*-*-*-*-*-* ${count}');
       liveupdateapi();
-      _timer = Timer.periodic(Duration(milliseconds: 1000), (timer) {
+      _timer = Timer.periodic(Duration(milliseconds: 10), (timer) {
         Playrloading();
         liveupdateapi();
         isRollDiceAPi();
@@ -409,9 +410,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                               ),
                             ],
                           ),
-                          diceroll?.diceNumber == 0 ||
-                                  diceroll?.diceNumber == null  || isroll?.data?.diceResult == '0' ||
-                              isroll?.data?.diceResult == null
+                          step == '0' || step == null
                               ? SizedBox(
                                   width: 60.w,
                                   child: Text(
@@ -422,89 +421,30 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                 )
                               : Column(
                                   children: [
-                                    isroll?.data?.diceResult == '0'
-                                        ? Visibility(
+                                 isroll?.status == 'fail' ?Visibility(
                                             visible: !_showImage,
-                                            child: isroll?.data?.diceResult ==
-                                                    '1'
-                                                ? Image.asset(
-                                                    "assets/dice/1.png",
-                                                    height: 15.h,
-                                                    width: 30.w,
-                                                    color: Colors.white,
-                                                  )
-                                                : isroll?.data?.diceResult ==
-                                                        '2'
-                                                    ? Image.asset(
-                                                        "assets/dice/2.png",
-                                                        height: 15.h,
-                                                        width: 30.w,
-                                                        color: Colors.white,
-                                                      )
-                                                    : isroll?.data
-                                                                ?.diceResult ==
-                                                            '3'
-                                                        ? Image.asset(
-                                                            "assets/dice/3.png",
-                                                            height: 15.h,
-                                                            width: 30.w,
-                                                            color: Colors.white,
-                                                          )
-                                                        : isroll?.data
-                                                                    ?.diceResult ==
-                                                                '4'
-                                                            ? Image.asset(
-                                                                "assets/dice/4.png",
-                                                                height: 15.h,
-                                                                width: 30.w,
-                                                                color: Colors
-                                                                    .white,
-                                                              )
-                                                            : isroll?.data
-                                                                        ?.diceResult ==
-                                                                    '5'
-                                                                ? Image.asset(
-                                                                    "assets/dice/5.png",
-                                                                    height:
-                                                                        15.h,
-                                                                    width: 30.w,
-                                                                    color: Colors
-                                                                        .white,
-                                                                  )
-                                                                : Image.asset(
-                                                                    "assets/dice/6.png",
-                                                                    height:
-                                                                        15.h,
-                                                                    width: 30.w,
-                                                                    color: Colors
-                                                                        .white,
-                                                                  ))
-                                        : Visibility(
-                                            visible: !_showImage,
-                                            child: (diceroll?.diceNumber == 6)
+                                            child: (step == '6')
                                                 ? Image.asset(
                                                     "assets/dice/6.png",
                                                     height: 15.h,
                                                     width: 30.w,
                                                     color: Colors.white,
                                                   )
-                                                : (diceroll?.diceNumber == 5)
+                                                : (step == '5')
                                                     ? Image.asset(
                                                         "assets/dice/5.png",
                                                         height: 15.h,
                                                         width: 30.w,
                                                         color: Colors.white,
                                                       )
-                                                    : (diceroll?.diceNumber ==
-                                                            4)
+                                                    : (step == '4')
                                                         ? Image.asset(
                                                             "assets/dice/4.png",
                                                             height: 15.h,
                                                             width: 30.w,
                                                             color: Colors.white,
                                                           )
-                                                        : (diceroll?.diceNumber ==
-                                                                3)
+                                                        : (step == '3')
                                                             ? Image.asset(
                                                                 "assets/dice/3.png",
                                                                 height: 15.h,
@@ -512,8 +452,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                                                 color: Colors
                                                                     .white,
                                                               )
-                                                            : (diceroll?.diceNumber ==
-                                                                    2)
+                                                            : (step == '2')
                                                                 ? Image.asset(
                                                                     "assets/dice/2.png",
                                                                     height:
@@ -522,8 +461,70 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                                                     color: Colors
                                                                         .white,
                                                                   )
-                                                                : (diceroll?.diceNumber ==
-                                                                        1)
+                                                                : (step == '1')
+                                                                    ? Image
+                                                                        .asset(
+                                                                        "assets/dice/1.png",
+                                                                        height:
+                                                                            15.h,
+                                                                        width:
+                                                                            30.w,
+                                                                        color: Colors
+                                                                            .white,
+                                                                      )
+                                                                    : Container(),
+                                          )
+                                        : Visibility(
+                                            visible: !_showImage,
+                                            child: (isroll?.data?.diceResult ==
+                                                    '6')
+                                                ? Image.asset(
+                                                    "assets/dice/6.png",
+                                                    height: 15.h,
+                                                    width: 30.w,
+                                                    color: Colors.white,
+                                                  )
+                                                : (isroll?.data?.diceResult ==
+                                                        '5')
+                                                    ? Image.asset(
+                                                        "assets/dice/5.png",
+                                                        height: 15.h,
+                                                        width: 30.w,
+                                                        color: Colors.white,
+                                                      )
+                                                    : (isroll?.data
+                                                                ?.diceResult ==
+                                                            '4')
+                                                        ? Image.asset(
+                                                            "assets/dice/4.png",
+                                                            height: 15.h,
+                                                            width: 30.w,
+                                                            color: Colors.white,
+                                                          )
+                                                        : (isroll?.data
+                                                                    ?.diceResult ==
+                                                                '3')
+                                                            ? Image.asset(
+                                                                "assets/dice/3.png",
+                                                                height: 15.h,
+                                                                width: 30.w,
+                                                                color: Colors
+                                                                    .white,
+                                                              )
+                                                            : (isroll?.data
+                                                                        ?.diceResult ==
+                                                                    '2')
+                                                                ? Image.asset(
+                                                                    "assets/dice/2.png",
+                                                                    height:
+                                                                        15.h,
+                                                                    width: 30.w,
+                                                                    color: Colors
+                                                                        .white,
+                                                                  )
+                                                                : (isroll?.data
+                                                                            ?.diceResult ==
+                                                                        '1')
                                                                     ? Image
                                                                         .asset(
                                                                         "assets/dice/1.png",
@@ -792,7 +793,12 @@ class _designState extends State<design> with TickerProviderStateMixin {
         authprovider().Dicerollapi(data).then((response) async {
           diceroll = RollDiceModal.fromJson(json.decode(response.body));
 
-          if (response.statusCode == 200 && chars?.status == "success") {
+          if (response.statusCode == 200 && diceroll?.status == "success") {
+            print("Dice Number : $step");
+            _roller = Timer.periodic(Duration(milliseconds: 500), (timer) {
+
+              isRollDiceAPi();
+            });
             setState(() {
               isLoading = false;
             });
@@ -826,7 +832,10 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
           if (response.statusCode == 200 && isroll?.status == "success") {
             print(isroll?.data?.diceResult);
+            print("Is Dice Number : $step");
+            print("Is Dice Get Number : ${isroll?.data?.diceResult}");
             setState(() {
+              _roller?.cancel();
               dicenum = isroll?.data?.diceResult;
               isLoading = false;
             });

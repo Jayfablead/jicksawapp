@@ -1,6 +1,6 @@
 class RollDiceModal {
   String? status;
-  int? diceNumber;
+  String? diceNumber;
 
   RollDiceModal({this.status, this.diceNumber});
 

@@ -55,7 +55,7 @@ Future<bool> checkInternet() async {
   return false;
 }
 
-const String baseUrl = 'https://jigsaw.fableadtechnolabs.com/api/ajax.php';
+const String baseUrl = 'http://jigsaw.fableadtechnolabs.com/api/ajax.php';
 UserModal? usermodal;
 ProfileviewModal? profileviewmodal;
 QuestionsModal? questions;
