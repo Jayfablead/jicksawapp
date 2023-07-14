@@ -123,7 +123,7 @@ class _GameOverState extends State<GameOver> {
         setState(() {
           isloading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

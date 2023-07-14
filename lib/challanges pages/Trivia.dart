@@ -193,7 +193,7 @@ Get.back();
           isloading = false;
           print(questions?.getQuestionRandom?.quetionsOptions?.length);
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

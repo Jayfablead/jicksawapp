@@ -408,7 +408,7 @@ class _MySubscriptionsState extends State<MySubscriptions> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -444,7 +444,7 @@ class _MySubscriptionsState extends State<MySubscriptions> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

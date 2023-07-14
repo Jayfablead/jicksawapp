@@ -338,7 +338,7 @@ class _settingState extends State<setting> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

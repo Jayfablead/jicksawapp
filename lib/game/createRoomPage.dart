@@ -31,7 +31,7 @@ class _CreateRoomPageState extends State<CreateRoomPage> {
     // TODO: implement initState
     super.initState();
     startapi();
-    _timer = Timer.periodic(const Duration(milliseconds: 1000), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 2), (timer) {
       loadapi();
     });
   }
@@ -116,7 +116,7 @@ class _CreateRoomPageState extends State<CreateRoomPage> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -146,7 +146,7 @@ class _CreateRoomPageState extends State<CreateRoomPage> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -165,6 +165,7 @@ class _CreateRoomPageState extends State<CreateRoomPage> {
 
             Get.off(mainpage2());
             setState(() {
+              _timer?.cancel();
               isLoading = false;
             });
           } else {
@@ -177,7 +178,7 @@ class _CreateRoomPageState extends State<CreateRoomPage> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

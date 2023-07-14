@@ -657,7 +657,7 @@ class _AllplayerspageState extends State<Allplayerspage> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -688,7 +688,7 @@ class _AllplayerspageState extends State<Allplayerspage> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

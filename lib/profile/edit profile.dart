@@ -433,7 +433,7 @@ class _EditProfileState extends State<EditProfile> {
         setState(() {
            isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -469,7 +469,7 @@ class _EditProfileState extends State<EditProfile> {
         setState(() {
            isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

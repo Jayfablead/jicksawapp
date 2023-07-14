@@ -557,7 +557,7 @@ class _ThanksPage1State extends State<ThanksPage1> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -588,7 +588,7 @@ class _ThanksPage1State extends State<ThanksPage1> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

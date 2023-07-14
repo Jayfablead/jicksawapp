@@ -528,7 +528,7 @@ class _AddCardPageState extends State<AddCardPage> {
               setState(() {
                 isLoading = false;
               });
-              buildErrorDialog(context, 'Error', "Internate Required");
+              buildErrorDialog(context, 'Error', "Internet Required");
             }
           });
   }
@@ -563,7 +563,7 @@ class _AddCardPageState extends State<AddCardPage> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

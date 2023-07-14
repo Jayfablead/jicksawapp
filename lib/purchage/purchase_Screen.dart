@@ -429,7 +429,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
         // setState(() {
         //   isLoading = false;
         // });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

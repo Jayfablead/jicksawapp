@@ -470,7 +470,7 @@ class _mainpage2State extends State<mainpage2> {
         setState(() {
           // isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -593,7 +593,7 @@ class _mainpage2State extends State<mainpage2> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

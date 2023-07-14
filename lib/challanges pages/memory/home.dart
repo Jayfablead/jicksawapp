@@ -229,7 +229,7 @@ class _MemoryChallengeState extends State<MemoryChallenge> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

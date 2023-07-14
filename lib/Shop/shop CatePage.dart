@@ -578,7 +578,7 @@ class _ShopCategoryState extends State<ShopCategory> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

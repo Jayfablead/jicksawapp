@@ -46,7 +46,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
   String? userid;
   String? opid;
   Timer? _timer;
-  Timer? _roller;
+  Timer? _usrcome;
+  Timer? _isroll;
 
   @override
   void initState() {
@@ -57,9 +58,13 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
       print('*-*-*-*-*-*-*-*-*-* ${count}');
       liveupdateapi();
-      _timer = Timer.periodic(Duration(milliseconds: 10), (timer) {
+      _usrcome = Timer.periodic(Duration(seconds: 1), (timer) {
         Playrloading();
+      });
+      _timer = Timer.periodic(Duration(milliseconds: 400), (timer) {
         liveupdateapi();
+      });
+      _isroll = Timer.periodic(Duration(milliseconds: 400), (timer) {
         isRollDiceAPi();
       });
     });
@@ -77,9 +82,10 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    _animationController!.dispose();
     setState(() {
+      _animationController!.dispose();
       _timer?.cancel();
+      _isroll?.cancel();
     });
 
     super.dispose();
@@ -410,41 +416,51 @@ class _designState extends State<design> with TickerProviderStateMixin {
                               ),
                             ],
                           ),
-                          step == '0' || step == null
-                              ? SizedBox(
-                                  width: 60.w,
-                                  child: Text(
-                                    "Tap On Roll Dice Button to Start the Game.",
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 15.sp),
+
+                                  isroll?.data?.diceResult == '0' ||
+                                  isroll?.data?.diceResult == null || isroll?.status == 'fail'
+                              ? Visibility(visible: !_showImage,
+                                child: SizedBox(
+                                    width: 60.w,
+                                    child: Text(
+                                      "Tap On Roll Dice Button to Start the Game.",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 15.sp),
+                                    ),
                                   ),
-                                )
+                              )
                               : Column(
                                   children: [
-                                 isroll?.status == 'fail' ?Visibility(
+
+
+                                    isroll?.data?.diceResult == '0' ||
+                                            isroll?.data?.diceResult == null
+                                        ? Visibility(
                                             visible: !_showImage,
-                                            child: (step == '6')
+                                            child: (diceroll?.diceNumber == '6')
                                                 ? Image.asset(
                                                     "assets/dice/6.png",
                                                     height: 15.h,
                                                     width: 30.w,
                                                     color: Colors.white,
                                                   )
-                                                : (step == '5')
+                                                : (diceroll?.diceNumber == '5')
                                                     ? Image.asset(
                                                         "assets/dice/5.png",
                                                         height: 15.h,
                                                         width: 30.w,
                                                         color: Colors.white,
                                                       )
-                                                    : (step == '4')
+                                                    : (diceroll?.diceNumber ==
+                                                            '4')
                                                         ? Image.asset(
                                                             "assets/dice/4.png",
                                                             height: 15.h,
                                                             width: 30.w,
                                                             color: Colors.white,
                                                           )
-                                                        : (step == '3')
+                                                        : (diceroll?.diceNumber ==
+                                                                '3')
                                                             ? Image.asset(
                                                                 "assets/dice/3.png",
                                                                 height: 15.h,
@@ -452,7 +468,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                                                 color: Colors
                                                                     .white,
                                                               )
-                                                            : (step == '2')
+                                                            : (diceroll?.diceNumber ==
+                                                                    '2')
                                                                 ? Image.asset(
                                                                     "assets/dice/2.png",
                                                                     height:
@@ -461,7 +478,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                                                     color: Colors
                                                                         .white,
                                                                   )
-                                                                : (step == '1')
+                                                                : (diceroll?.diceNumber ==
+                                                                        '1')
                                                                     ? Image
                                                                         .asset(
                                                                         "assets/dice/1.png",
@@ -537,17 +555,18 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                                                       )
                                                                     : Container(),
                                           ),
-                                    Visibility(
-                                      visible: _showImage,
-                                      child: Lottie.asset(
-                                        "assets/dice.json",
-                                        height: 30.h,
-                                        width: 60.w,
-                                        controller: _animationController,
-                                      ),
-                                    ),
+
                                   ],
                                 ),
+                          Visibility(
+                            visible: _showImage,
+                            child: Lottie.asset(
+                              "assets/dice.json",
+                              height: 30.h,
+                              width: 60.w,
+                              controller: _animationController,
+                            ),
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -569,8 +588,9 @@ class _designState extends State<design> with TickerProviderStateMixin {
                                             step = _value.toString();
                                             print(step);
                                             _showImage = false;
+                                            RollDiceApi();
                                           });
-                                          RollDiceApi();
+                                          // RollDiceApi();
                                         });
                                       }
                                     : null,
@@ -662,7 +682,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
         setState(() {
           isloading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -695,7 +715,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
         setState(() {
           isloading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -730,7 +750,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
         setState(() {
           isloading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -753,6 +773,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
             update(context, 'Opponent Left', 'Your opponent left the game.',
                 callback: PlayerQuitApi);
             setState(() {
+              _usrcome?.cancel();
               _timer?.cancel();
 
               isloading = false;
@@ -767,7 +788,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
         setState(() {
           isloading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -777,6 +798,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
     Get.toNamed(pages[index],
         arguments: {'catid': widget.cat, 'type': 'chellenge'});
   }
+
+  // Roll Dice Api Which Gets App Crash
 
   RollDiceApi() {
     final Map<String, String> data = {};
@@ -795,10 +818,8 @@ class _designState extends State<design> with TickerProviderStateMixin {
 
           if (response.statusCode == 200 && diceroll?.status == "success") {
             print("Dice Number : $step");
-            _roller = Timer.periodic(Duration(milliseconds: 500), (timer) {
+            print("Api Dice Number : ${diceroll?.diceNumber}");
 
-              isRollDiceAPi();
-            });
             setState(() {
               isLoading = false;
             });
@@ -812,7 +833,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -833,14 +854,16 @@ class _designState extends State<design> with TickerProviderStateMixin {
           if (response.statusCode == 200 && isroll?.status == "success") {
             print(isroll?.data?.diceResult);
             print("Is Dice Number : $step");
+            print("Is Api  Dice Number : ${diceroll?.diceNumber}");
             print("Is Dice Get Number : ${isroll?.data?.diceResult}");
+
             setState(() {
-              _roller?.cancel();
               dicenum = isroll?.data?.diceResult;
               isLoading = false;
             });
           } else {
             print(isroll?.data?.diceResult);
+            print('close');
             setState(() {
               isLoading = false;
             });
@@ -850,7 +873,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

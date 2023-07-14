@@ -262,7 +262,7 @@ class _questionState extends State<question> {
           isloading = false;
           print(randomque?.getQuestionRandom?.quetionsOptions?.length);
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

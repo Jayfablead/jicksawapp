@@ -578,7 +578,7 @@ class _signupState extends State<signup> {
           setState(() {
             // isLoading = false;
           });
-          buildErrorDialog(context, 'Error', "Internate Required");
+          buildErrorDialog(context, 'Error', "Internet Required");
         }
       });
     }
@@ -615,7 +615,7 @@ class _signupState extends State<signup> {
           setState(() {
             // isLoading = false;
           });
-          buildErrorDialog(context, 'Error', "Internate Required");
+          buildErrorDialog(context, 'Error', "Internet Required");
         }
       });
     }

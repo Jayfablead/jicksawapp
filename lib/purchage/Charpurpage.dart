@@ -142,7 +142,7 @@ class _CharPurchasedState extends State<CharPurchased> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

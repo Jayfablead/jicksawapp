@@ -299,7 +299,7 @@ class _AllShopCharactersState extends State<AllShopCharacters> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

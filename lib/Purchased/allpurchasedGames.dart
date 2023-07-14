@@ -321,7 +321,7 @@ class _AllPurchasedGamesState extends State<AllPurchasedGames> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -352,7 +352,7 @@ class _AllPurchasedGamesState extends State<AllPurchasedGames> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

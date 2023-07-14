@@ -350,7 +350,7 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -381,7 +381,7 @@ class _PurchaseTYPageState extends State<PurchaseTYPage> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

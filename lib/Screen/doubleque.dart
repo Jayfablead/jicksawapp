@@ -277,7 +277,7 @@ class _doublechState extends State<doublech> {
           isloading = false;
           print(questions?.getQuestionRandom?.quetionsOptions?.length);
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

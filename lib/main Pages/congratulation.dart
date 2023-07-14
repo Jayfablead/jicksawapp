@@ -245,7 +245,7 @@ class _congratulationState extends State<congratulation> {
         setState(() {
           isloading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

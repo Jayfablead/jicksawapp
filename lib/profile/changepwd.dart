@@ -323,7 +323,7 @@ class _ChangepwdState extends State<Changepwd> {
           setState(() {
             // isLoading = false;
           });
-          buildErrorDialog(context, 'Error', "Internate Required");
+          buildErrorDialog(context, 'Error', "Internet Required");
         }
       });
     }

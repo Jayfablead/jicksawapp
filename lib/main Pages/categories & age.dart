@@ -343,7 +343,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
         setState(() {
           isloading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -392,7 +392,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
         setState(() {
           isloading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

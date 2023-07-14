@@ -312,7 +312,7 @@ class _AllPurchasedPointsState extends State<AllPurchasedPoints> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
@@ -343,7 +343,7 @@ class _AllPurchasedPointsState extends State<AllPurchasedPoints> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }

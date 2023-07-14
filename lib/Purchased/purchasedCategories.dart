@@ -468,7 +468,7 @@ class _PurchasedCategoryState extends State<PurchasedCategory> {
         setState(() {
           isLoading = false;
         });
-        buildErrorDialog(context, 'Error', "Internate Required");
+        buildErrorDialog(context, 'Error', "Internet Required");
       }
     });
   }
