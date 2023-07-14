@@ -426,7 +426,7 @@ class _MySubscriptionsState extends State<MySubscriptions> {
           if (response.statusCode == 200 && subcancle?.status == "success") {
             Get.to(mainpage2());
             Get.snackbar(
-              "Subscription Cancle",
+              "Subscription Cancle",colorText: Colors.white,
               "Successfully",
               icon: Image(image: AssetImage('assets/doe.png')),
               snackPosition: SnackPosition.TOP,

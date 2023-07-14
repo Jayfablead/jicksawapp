@@ -303,7 +303,7 @@ class _CategState extends State<Categ> {
             Get.to(design(
               cat: cate,
             ));
-            Get.snackbar(
+            Get.snackbar(colorText: Colors.white,
               "Game Started",
               "Successfully",
               icon: Image(image: AssetImage('assets/logo.png')),

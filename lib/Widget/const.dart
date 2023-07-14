@@ -1,4 +1,6 @@
 import 'package:connectivity/connectivity.dart';
+import 'package:jicksaw/Game%20Modals/chooseCharacterModal.dart';
+import 'package:jicksaw/Game%20Modals/gameJoinedModal.dart';
 import 'package:jicksaw/Game%20Modals/playerQuitModal.dart';
 import 'package:jicksaw/Game%20Modals/playerloadModal.dart';
 import 'package:jicksaw/Modal/CAtegoryModal.dart';
@@ -100,3 +102,5 @@ playerloadModal? playerload;
 PointsBuyModal? pointsbuy;
 RollDiceModal? diceroll;
 isrollDiceModal? isroll;
+ChooseCharModal? choosecharacter;
+gameJoindModal? joingame;

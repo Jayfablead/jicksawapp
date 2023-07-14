@@ -665,7 +665,7 @@ class _designState extends State<design> with TickerProviderStateMixin {
           if (response.statusCode == 200 &&
               profileviewmodal?.status == "success") {
             Get.offAll(mainpage2());
-            Get.snackbar(
+            Get.snackbar(colorText: Colors.white,
               "Game Ended",
               "Successfully",
               icon: Image(image: AssetImage('assets/logo.png')),

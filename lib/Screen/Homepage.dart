@@ -13,6 +13,7 @@ import 'package:jicksaw/Purchased/allpurchasedPoints.dart';
 
 import 'package:jicksaw/Widget/const.dart';
 import 'package:jicksaw/Widget/loader.dart';
+import 'package:jicksaw/game/choose%20characters%20page.dart';
 import 'package:jicksaw/game/createRoomPage.dart';
 import 'package:jicksaw/game/pendingGamePage.dart';
 import 'package:jicksaw/main%20Pages/categories%20&%20age.dart';
@@ -47,6 +48,7 @@ class Sachen {
 
 bool isloading = false;
 bool isLoading = true;
+
 class _mainpage2State extends State<mainpage2> {
   List<Sachen> past = [
     Sachen("https://cdn-icons-png.flaticon.com/512/6857/6857448.png",
@@ -241,7 +243,6 @@ class _mainpage2State extends State<mainpage2> {
                                                       (context, url, error) =>
                                                           Image.asset(
                                                     'assets/char.png',
-
                                                   ),
                                                 ),
                                               ),
@@ -474,6 +475,7 @@ class _mainpage2State extends State<mainpage2> {
       }
     });
   }
+
   checkSubsapi() {
     final Map<String, String> data = {};
     data['uid'] = (usermodal?.userData?.uid).toString();
@@ -490,85 +492,144 @@ class _mainpage2State extends State<mainpage2> {
               builder: (context) {
                 return AlertDialog(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius
-                          .all(Radius
-                          .circular(
-                          32.0))),
-                  contentPadding:
-                  EdgeInsets.only(
-                      top: 10.0),
+                      borderRadius: BorderRadius.all(Radius.circular(32.0))),
+                  contentPadding: EdgeInsets.only(top: 10.0),
                   content: Container(
                     width: 300.0,
                     child: Column(
-                      mainAxisAlignment:
-                      MainAxisAlignment
-                          .start,
-                      crossAxisAlignment:
-                      CrossAxisAlignment
-                          .stretch,
-                      mainAxisSize:
-                      MainAxisSize
-                          .min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Row(
-                          mainAxisAlignment:
-                          MainAxisAlignment
-                              .end,
-                          mainAxisSize:
-                          MainAxisSize
-                              .min,
-                          children: <Widget>[
-
-                            IconButton(onPressed: (){Get.back();}, icon: Icon(Icons.close))
-                          ],
-                        ),
-
                         Padding(
-                            padding: EdgeInsets.only(
-                                left:
-                                12.0,
-                                right:
-                                12.0),
-                            child:
-                            Text("Select option to Start the game or Join the game" ,textAlign: TextAlign.center,style:TextStyle(fontFamily: 'Poppins',fontWeight: FontWeight.w600,color: Colors.black.withOpacity(0.7),fontSize: 14.sp),)
+                          padding: EdgeInsets.only(right: 2.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              IconButton(
+                                  onPressed: () {
+                                    Get.back();
+                                  },
+                                  icon: Icon(Icons.close))
+                            ],
+                          ),
                         ),
-                        SizedBox(height: 2.h,),
                         Padding(
-                          padding:  EdgeInsets.symmetric(horizontal: 20.w),
-                          child: InkWell(onTap:(){Get.to(CreateRoomPage());},
+                            padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                            child: Text(
+                              "Choose Your Character",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black.withOpacity(0.7),
+                                  fontSize: 14.sp),
+                            )),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20.w),
+                          child: InkWell(
+                            onTap: () {
+                              Get.to(ChooseCharactersPage());
+                            },
                             child: Container(
-                              padding: EdgeInsets.symmetric(horizontal: 8.w,vertical: 1.2.h),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 5.w, vertical: 1.2.h),
+                              decoration: BoxDecoration(
+                                color: primary,
+                                borderRadius: BorderRadius.circular(32.0),
+                              ),
+                              child: Text(
+                                "Choose",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 2,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Padding(
+                            padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                            child: Text(
+                              "Select option to Start the game or Join the game",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black.withOpacity(0.7),
+                                  fontSize: 14.sp),
+                            )),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20.w),
+                          child: InkWell(
+                            onTap: () {
+                              Get.to(CreateRoomPage());
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 8.w, vertical: 1.2.h),
                               decoration: BoxDecoration(
                                 color: primary,
                                 borderRadius: BorderRadius.circular(32.0),
                               ),
                               child: Text(
                                 "Play",
-                                style: TextStyle(color: Colors.white,fontFamily: 'Poppins',letterSpacing: 2,fontSize: 14.sp,fontWeight: FontWeight.w600),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 2,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600),
                                 textAlign: TextAlign.center,
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(height: 1.
-                        h,),Padding(
-                          padding:  EdgeInsets.symmetric(horizontal: 20.w),
-                          child: InkWell(onTap: (){Get.to(PendingGamePage());},
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20.w),
+                          child: InkWell(
+                            onTap: () {
+                              Get.to(PendingGamePage());
+                            },
                             child: Container(
-                              padding: EdgeInsets.symmetric(horizontal: 8.w,vertical: 1.2.h),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 8.w, vertical: 1.2.h),
                               decoration: BoxDecoration(
                                 color: primary,
                                 borderRadius: BorderRadius.circular(32.0),
                               ),
                               child: Text(
                                 "Join",
-                                style: TextStyle(color: Colors.white,fontFamily: 'Poppins',letterSpacing: 2,fontSize: 14.sp,fontWeight: FontWeight.w600),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 2,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600),
                                 textAlign: TextAlign.center,
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(height: 1.h,)
+                        SizedBox(
+                          height: 1.h,
+                        )
                       ],
                     ),
                   ),
@@ -582,8 +643,8 @@ class _mainpage2State extends State<mainpage2> {
             update(context, 'Subscription error',
                 'You Have to Subscribe Any Subscription a plan to start game',
                 buttonname: 'Subscribe', callback: () {
-                  Get.to(subscription());
-                });
+              Get.to(subscription());
+            });
             setState(() {
               isLoading = false;
             });

@@ -106,7 +106,7 @@ class _GameOverState extends State<GameOver> {
           if (response.statusCode == 200 &&
               profileviewmodal?.status == "success") {
             Get.offAll(Tutorial());
-            Get.snackbar(
+            Get.snackbar(colorText: Colors.white,
               "Game Ended",
               "Successfully",
               icon: Image(image: AssetImage('assets/logo.png')),

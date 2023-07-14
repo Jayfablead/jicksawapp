@@ -367,7 +367,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
               cat: selectedcate,
 
             ));
-            Get.snackbar(
+            Get.snackbar(colorText: Colors.white,
               "Game Started",
               "Successfully",
               icon: Image(image: AssetImage('assets/logo.png')),

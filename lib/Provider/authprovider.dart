@@ -116,6 +116,20 @@ class authprovider with ChangeNotifier{
     responseJson = responses(response);
     return responseJson;
   }
+  Future<http.Response> Choosecharacapi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=update_character';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
   Future<http.Response> purpoitsapi(Map<String, dynamic> bodyData) async {
     const url = '$baseUrl/?action=user_purchased_points';
     var responseJson;
@@ -146,6 +160,20 @@ class authprovider with ChangeNotifier{
   }
   Future<http.Response> WaitApi(Map<String, dynamic> bodyData) async {
     const url = '$baseUrl/?action=game_start';
+    var responseJson;
+    final response = await http
+        .post(Uri.parse(url), body: bodyData, headers: headers)
+        .timeout(
+      const Duration(seconds: 30),
+      onTimeout: () {
+        throw const SocketException('Something went wrong');
+      },
+    );
+    responseJson = responses(response);
+    return responseJson;
+  }
+  Future<http.Response> joindApi(Map<String, dynamic> bodyData) async {
+    const url = '$baseUrl/?action=is_oponent_joined';
     var responseJson;
     final response = await http
         .post(Uri.parse(url), body: bodyData, headers: headers)

@@ -412,7 +412,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
             );
             EasyLoading.showSuccess('Payment Paid Successfully!');
-            Get.snackbar(
+            Get.snackbar(colorText: Colors.white,
               "Subscription",
               "Purchased Successfully",
               icon: Image(image: AssetImage('assets/doe.png')),
@@ -465,7 +465,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
             );
             EasyLoading.showSuccess('Payment Paid Successfully!');
-            Get.snackbar(
+            Get.snackbar(colorText: Colors.white,
               "Puzzle Game",
               "Purchased Successfully",
               icon: Image(image: AssetImage('assets/doe.png')),

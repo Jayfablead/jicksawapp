@@ -502,7 +502,7 @@ class _AddCardPageState extends State<AddCardPage> {
                     sub: widget.sub,
                   ));
 
-                  Get.snackbar(
+                  Get.snackbar(colorText: Colors.white,
                     "Card Information",
                     _num.text == '' ||
                             _name.text == '' ||

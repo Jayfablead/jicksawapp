@@ -303,7 +303,7 @@ class _ChangepwdState extends State<Changepwd> {
             if (response.statusCode == 200 && changepw?.status == "success") {
 
               Get.offAll(login());
-              Get.snackbar(
+              Get.snackbar(colorText: Colors.white,
                 "Password Changed",
                 "Successfully",
                 icon: Image(image: AssetImage('assets/logo.png')),
